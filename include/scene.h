@@ -1,0 +1,21 @@
+/*
+** EPITECH PROJECT, 2017
+** File Name : scene.h
+** File description:
+** by Arthur Teisseire
+*/
+
+#ifndef SCENE_H
+#define SCENE_H
+
+#ifndef GRAPH_H
+#define GRAPH_H
+	#include <SFML/Graphics.h>
+#endif
+
+typedef struct scene {
+	map_t *map;
+	sprite_t **sprites;
+} scene_t;
+
+#endif

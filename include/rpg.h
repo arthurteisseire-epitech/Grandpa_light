@@ -8,26 +8,22 @@
 #ifndef RPG_H
 #define RPG_H
 
-#include <SFML/Graphics.h>
-
-typedef struct texture {
-	sfTexture *texture;
-	sfRectShape *rect;
-} texture_t;
-
-typedef struct sprite {
-	sfSprite *sprite;
-	sfRectShape *rect;
-	texture_t *;
-} sprite_t;
+#ifndef GRAPH_H
+#define GRAPH_H
+	#include <SFML/Graphics.h>
+#endif
 
 typedef struct game {
-	texture_t **texture_arr;
+	sfEvent *event;
+	sfRenderWindow *window;
+	scene_t **scenes;
 } game_t;
 
 typedef struct rpg {
-	game_t *true_game;
-	game_t *false_game;
+	menu_t *menu;
+	game_t *puzzle;
+	game_t *rpg;
+	texture_t **textures;
 } rpg_t;
 
 #endif
