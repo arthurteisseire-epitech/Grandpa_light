@@ -16,7 +16,7 @@
 typedef struct game {
 	sfEvent *event;
 	sfRenderWindow *window;
-	scene_t **scenes;
+	scene_t *scenes[NB_SCENES + 1];
 } game_t;
 
 typedef struct rpg {
