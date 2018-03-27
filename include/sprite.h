@@ -13,6 +13,8 @@
 	#include <SFML/Graphics.h>
 #endif
 
+typedef struct texture texture_t;
+
 typedef struct sprite {
 	sfSprite *sprite;
 	texture_t *texture;

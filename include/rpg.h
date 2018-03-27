@@ -13,6 +13,12 @@
 	#include <SFML/Graphics.h>
 #endif
 
+#define NB_SCENES 0
+
+typedef struct scene scene_t;
+typedef struct menu menu_t;
+typedef struct texture texture_t;
+
 typedef struct game {
 	sfEvent *event;
 	sfRenderWindow *window;

@@ -15,7 +15,7 @@
 
 typedef struct texture {
 	sfTexture *texture;
-	sfRectShape *rect;
+	sfFloatRect *rect;
 } texture_t;
 
 #endif
