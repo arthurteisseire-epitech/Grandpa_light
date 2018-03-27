@@ -15,6 +15,8 @@
 	#include <SFML/Graphics.h>
 #endif
 
+typedef struct object object_t;
+
 typedef struct stat {
 	int nb_photons;
 	int damage;
@@ -26,7 +28,7 @@ typedef struct inventory {
 } inventory_t;
 
 typedef struct character {
-	pos_t *pos;
+	sfVector2i *pos;
 	inventory_t *inventory;
 	stat_t *stats;
 } character_t;

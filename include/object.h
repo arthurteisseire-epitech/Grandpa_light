@@ -13,6 +13,9 @@
 	#include <SFML/Graphics.h>
 #endif
 
+typedef struct sprite sprite_t;
+typedef struct rpg rpg_t;
+
 typedef struct object {
 	sprite_t *sprite;
 	char *name;

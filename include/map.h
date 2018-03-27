@@ -13,6 +13,8 @@
 	#include <SFML/Graphics.h>
 #endif
 
+typedef struct rpg rpg_t;
+
 typedef struct tile {
 	sfSprite *sprite;
 	char accessible;
@@ -23,3 +25,5 @@ typedef struct map {
 	sfFloatRect *rect;
 	tile_t ***tiles;
 } map_t;
+
+#endif

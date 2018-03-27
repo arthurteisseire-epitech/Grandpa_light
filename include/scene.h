@@ -15,6 +15,8 @@
 	#include <SFML/Graphics.h>
 #endif
 
+typedef struct map map_t;
+typedef struct sprite sprite_t;
 
 typedef struct scene {
 	map_t *map;

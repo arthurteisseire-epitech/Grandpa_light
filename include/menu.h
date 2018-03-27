@@ -13,6 +13,9 @@
 	#include <SFML/Graphics.h>
 #endif
 
+typedef struct texture texture_t;
+typedef struct rpg rpg_t;
+
 typedef struct button {
 	sfRectangleShape *rect;
 	sfVector2f offset;
