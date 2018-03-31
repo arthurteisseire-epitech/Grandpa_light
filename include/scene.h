@@ -8,8 +8,6 @@
 #ifndef SCENE_H
 #define SCENE_H
 
-#define NB_SCENES 0
-
 #ifndef GRAPH_H
 #define GRAPH_H
 	#include <SFML/Graphics.h>
