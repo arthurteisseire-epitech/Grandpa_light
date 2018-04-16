@@ -34,6 +34,8 @@ SRC	=	$(DPUT)my_put_nbr.c		\
 		$(DSTRING)my_strndup.c		\
 		$(DSTRING)count_endflags.c	\
 		$(DSTRING)count_flags.c		\
+		$(DSTRING)my_pow.c		\
+		$(DSTRING)my_ftoa.c		\
 		$(DSTRING)my_atoi.c		\
 		$(DSTRING)my_itoa.c		\
 		$(DSTRING)concat.c		\
@@ -46,9 +48,12 @@ SRC	=	$(DPUT)my_put_nbr.c		\
 		$(DSTRING)len_to_flags.c	\
 		$(DSTRING)count_words.c		\
 		$(DARRAY)my_memcpy.c		\
+		$(DARRAY)my_memset.c		\
 		$(DARRAY)my_arrlen.c		\
+		$(DARRAY)my_arrcpy.c		\
 		$(DARRAY)my_arrdup.c		\
 		$(DARRAY)apply_on_array.c	\
+		$(DARRAY)add_arrelem.c		\
 		$(DARRAY)rm_arrelem.c		\
 		$(DARRAY)free_and_set.c		\
 		$(DARRAY)free_array.c		\

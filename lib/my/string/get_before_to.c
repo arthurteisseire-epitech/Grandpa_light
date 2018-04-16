@@ -8,11 +8,22 @@
 #include <stdlib.h>
 #include "my.h"
 
+int count_to_word(char const *str, char const *word)
+{
+	int len = my_strlen(word);
+	int i = 0;
+
+	while (str[i] != '\0') {
+		if (my_strncmp(&str[i], word, len) == 0)
+			return (i);
+		i++;
+	}
+	return (i);
+}
+
 char *get_before_to(char const *str, char const *flags)
 {
-	int len = len_to_flags(str, flags);
+	int len = count_to_word(str, flags);
 
-	if (str[len] == '\0')
-		return (NULL);
 	return (my_strndup(str, len));
 }

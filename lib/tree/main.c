@@ -19,6 +19,15 @@ static const char items[][10] = {
 	"baaa",
 };
 
+int freef(void *root)
+{
+	void *to_free = root;
+
+	root = NULL;
+	free(to_free);
+	return (0);
+}
+
 int dispf(void *item)
 {
 	puts(item);
@@ -34,10 +43,11 @@ int main(void)
 	btree_apply_infix(root, dispf);
 	void *item = btree_search_item(root, "dddd", strcmp);
 	if (item)
-		dispf(item);
+		puts(item);
 	int nb_nodes = btree_node_count(root);
 	int nb_levels = btree_level_count(root);
 	printf("NB_NODES: %d\n", nb_nodes);
 	printf("NB_LEVELS: %d\n", nb_levels);
+	btree_free(root, NULL);
 	return (0);
 }
