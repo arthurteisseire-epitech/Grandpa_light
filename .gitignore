@@ -1,6 +1,10 @@
+.idea
 *.o
 *~
 my_rpg
 vgcore*
 #*#
 *.swp
+*.a
+cmake*
+.gitignore
