@@ -9,6 +9,7 @@
 #include "rpg.h"
 #include "init.h"
 #include "states.h"
+#include "destroy.h"
 
 int main(void)
 {
@@ -21,5 +22,6 @@ int main(void)
 	if (status != 0)
 		return (status);
 	status = game_loop(rpg);
+	destroy(rpg);
 	return (status);
 }
