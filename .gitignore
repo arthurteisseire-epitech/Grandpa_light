@@ -4,3 +4,5 @@ my_rpg
 vgcore*
 #*#
 *.swp
+.idea
+cmake-*
