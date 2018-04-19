@@ -6,6 +6,7 @@
 */
 
 #include <stdlib.h>
+#include "libconfig.h"
 #include "rpg.h"
 #include "init.h"
 #include "states.h"

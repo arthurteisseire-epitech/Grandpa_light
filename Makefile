@@ -7,9 +7,12 @@
 
 CC	=	gcc
 INC	=	include
-DLIB	=	lib/my/
-LIB	=	my
-LIBS	=	-L$(DLIB) -l$(LIB)
+DLIB	=	lib/
+DMY	=	$(DLIB)my/
+MY	=	my
+DLCFG	=	$(DLIB)libconfig
+LCFG	=	config 
+LIBS	=	-L$(DMY) -l$(MY) -L$(DLCFG) -l$(LCFG)
 
 DSRC	=	src/
 DINIT	=	$(DSRC)init/
@@ -37,15 +40,15 @@ NAME	=	my_rpg
 all: $(NAME)
 
 $(NAME):	$(OBJ)
-	make -C $(DLIB)
+	make -C $(DMY)
 	$(CC) -o $(NAME) $(OBJ) $(LIBS) $(LDFLAGS)
 
 clean:
-	make clean -C $(DLIB)
+	make clean -C $(DMY)
 	rm -f $(OBJ)
 
 fclean: clean
-	make fclean -C $(DLIB)
+	make fclean -C $(DMY)
 	rm -f $(NAME)
 
 re: fclean all
