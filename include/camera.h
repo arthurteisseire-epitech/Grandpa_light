@@ -8,12 +8,9 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-#ifndef GRAPH_H
-#define GRAPH_H
-	#include <SFML/Graphics.h>
-#endif
+#include <SFML/Graphics.h>
 
-typedef struct camera {
+typedef struct camera_s {
 	sfVector2f *scale;
 	sfVector2f *offset;
 	sfVector2f *angle;

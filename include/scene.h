@@ -8,15 +8,12 @@
 #ifndef SCENE_H
 #define SCENE_H
 
-#ifndef GRAPH_H
-#define GRAPH_H
-	#include <SFML/Graphics.h>
-#endif
+#include <SFML/Graphics.h>
 
-typedef struct map map_t;
-typedef struct sprite sprite_t;
+typedef struct map_s map_t;
+typedef struct sprite_s sprite_t;
 
-typedef struct scene {
+typedef struct scene_s {
 	map_t *map;
 	sprite_t **sprites;
 } scene_t;

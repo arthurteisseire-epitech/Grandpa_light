@@ -8,27 +8,24 @@
 #ifndef MENU_H
 #define MENU_H
 
-#ifndef GRAPH_H
-#define GRAPH_H
-	#include <SFML/Graphics.h>
-#endif
+#include <SFML/Graphics.h>
 
-typedef struct texture texture_t;
-typedef struct rpg rpg_t;
+typedef struct texture_s texture_t;
+typedef struct rpg_s rpg_t;
 
-typedef struct button {
+typedef struct button_s {
 	sfRectangleShape *rect;
 	sfVector2f offset;
 	texture_t *texture;
 	int (*function)(rpg_t *rpg);
 } button_t;
 
-typedef struct scene_menu {
+typedef struct scene_menu_s {
 	texture_t *background;
 	button_t **buttons;
 } scene_menu_t;
 
-typedef struct menu {
+typedef struct menu_s {
 	scene_menu_t *main;
 	scene_menu_t *option;
 	scene_menu_t *play;

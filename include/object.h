@@ -8,20 +8,17 @@
 #ifndef OBJECT_H
 #define OBJECT_H
 
-#ifndef GRAPH_H
-#define GRAPH_H
-	#include <SFML/Graphics.h>
-#endif
+#include <SFML/Graphics.h>
 
-typedef struct sprite sprite_t;
-typedef struct rpg rpg_t;
+typedef struct sprite_s sprite_t;
+typedef struct rpg_s rpg_t;
 
-typedef struct object {
+typedef struct object_s {
 	sprite_t *sprite;
 	char *name;
 	char active;
 	int direction;
-	int (*action)(rpg_t *, struct object *);
+	int (*action)(rpg_t *, struct object_s *);
 } object_t;
 
 #endif
