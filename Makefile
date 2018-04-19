@@ -6,13 +6,31 @@
 ##
 
 CC	=	gcc
-DSRC	=	src/
 INC	=	include
 DLIB	=	lib/my/
 LIB	=	my
 LIBS	=	-L$(DLIB) -l$(LIB)
-SRC     =	$(DSRC)main.c
+
+DSRC	=	src/
+DINIT	=	$(DSRC)init/
+DSTATES	=	$(DSRC)states/
+DESTROY	=	$(DSRC)destroy/
+
+SRC     =	$(DSRC)main.c			\
+		$(DSRC)game_loop.c		\
+		$(DSTATES)states.c		\
+		$(DSTATES)draw.c		\
+		$(DSTATES)update.c		\
+		$(DSTATES)event.c		\
+		$(DINIT)init.c			\
+		$(DINIT)init_event.c		\
+		$(DINIT)init_window.c		\
+		$(DESTROY)destroy.c		\
+		$(DESTROY)destroy_window.c	\
+		$(DESTROY)destroy_event.c	\
+
 CFLAGS	+=	-Wall -W -Wextra -I$(INC)
+LDFLAGS	=	-lc_graph_prog
 OBJ	=	$(SRC:.c=.o)
 NAME	=	my_rpg
 
@@ -20,7 +38,7 @@ all: $(NAME)
 
 $(NAME):	$(OBJ)
 	make -C $(DLIB)
-	$(CC) -o $(NAME) $(OBJ) $(LIBS)
+	$(CC) -o $(NAME) $(OBJ) $(LIBS) $(LDFLAGS)
 
 clean:
 	make clean -C $(DLIB)

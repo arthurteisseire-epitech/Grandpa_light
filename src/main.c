@@ -5,9 +5,23 @@
 ** by Arthur Teisseire
 */
 
-#include "my.h"
+#include <stdlib.h>
+#include "rpg.h"
+#include "init.h"
+#include "states.h"
+#include "destroy.h"
 
 int main(void)
 {
-	return (0);
+	int status = 0;
+	rpg_t *rpg = malloc(sizeof(rpg_t));
+
+	if (rpg == NULL)
+		return (MALLOC_FAILED);
+	status = init(rpg);
+	if (status != 0)
+		return (status);
+	status = game_loop(rpg);
+	destroy(rpg);
+	return (status);
 }

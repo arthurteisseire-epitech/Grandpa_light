@@ -10,23 +10,22 @@
 
 #define MAX_ITEMS 1
 
-#ifndef GRAPH_H
-#define GRAPH_H
-	#include <SFML/Graphics.h>
-#endif
+#include <SFML/Graphics.h>
 
-typedef struct stat {
+typedef struct object_s object_t;
+
+typedef struct stat_s {
 	int nb_photons;
 	int damage;
 	int hp;
 } stat_t;
 
-typedef struct inventory {
+typedef struct inventory_s {
 	object_t *items[MAX_ITEMS + 1];
 } inventory_t;
 
-typedef struct character {
-	pos_t *pos;
+typedef struct character_s {
+	sfVector2i *pos;
 	inventory_t *inventory;
 	stat_t *stats;
 } character_t;

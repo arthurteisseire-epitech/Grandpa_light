@@ -8,12 +8,11 @@
 #ifndef SPRITE_H
 #define SPRITE_H
 
-#ifndef GRAPH_H
-#define GRAPH_H
-	#include <SFML/Graphics.h>
-#endif
+#include <SFML/Graphics.h>
 
-typedef struct sprite {
+typedef struct texture_s texture_t;
+
+typedef struct sprite_s {
 	sfSprite *sprite;
 	texture_t *texture;
 } sprite_t;

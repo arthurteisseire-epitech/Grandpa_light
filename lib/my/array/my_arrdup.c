@@ -14,8 +14,7 @@ void **my_arrdup(void **array)
 	int len;
 
 	len = my_arrlen(array);
-	res = malloc(sizeof(len) + 1);
-	my_memcpy(res, array, len);
-	res[len] = NULL;
+	res = malloc(sizeof(void *) * (len + 1));
+	my_arrcpy(res, array);
 	return (res);
 }

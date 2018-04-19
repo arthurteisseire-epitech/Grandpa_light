@@ -8,14 +8,11 @@
 #ifndef TEXTURE_H
 #define TEXTURE_H
 
-#ifndef GRAPH_H
-#define GRAPH_H
-	#include <SFML/Graphics.h>
-#endif
+#include <SFML/Graphics.h>
 
-typedef struct texture {
+typedef struct texture_s {
 	sfTexture *texture;
-	sfRectShape *rect;
+	sfFloatRect *rect;
 } texture_t;
 
 #endif

@@ -13,6 +13,7 @@ DSTRING	=	$(DSRC)string/
 DPUT	=	$(DSRC)put/
 DENV	=	$(DSRC)env/
 DARRAY	=	$(DSRC)array/
+DFILE	=	$(DSRC)file/
 
 SRC	=	$(DPUT)my_put_nbr.c		\
 		$(DPUT)my_putchar.c		\
@@ -33,22 +34,38 @@ SRC	=	$(DPUT)my_put_nbr.c		\
 		$(DSTRING)my_strndup.c		\
 		$(DSTRING)count_endflags.c	\
 		$(DSTRING)count_flags.c		\
+		$(DSTRING)my_pow.c		\
+		$(DSTRING)my_ftoa.c		\
 		$(DSTRING)my_atoi.c		\
 		$(DSTRING)my_itoa.c		\
 		$(DSTRING)concat.c		\
 		$(DSTRING)get_next_to.c		\
+		$(DSTRING)get_before_to.c	\
 		$(DSTRING)bufferize.c		\
+		$(DSTRING)my_strstr.c		\
+		$(DSTRING)get_next_word.c	\
+		$(DSTRING)is_char_in_str.c	\
+		$(DSTRING)len_to_flags.c	\
+		$(DSTRING)count_words.c		\
 		$(DARRAY)my_memcpy.c		\
+		$(DARRAY)my_memset.c		\
 		$(DARRAY)my_arrlen.c		\
+		$(DARRAY)my_arrcpy.c		\
 		$(DARRAY)my_arrdup.c		\
 		$(DARRAY)apply_on_array.c	\
+		$(DARRAY)add_arrelem.c		\
 		$(DARRAY)rm_arrelem.c		\
 		$(DARRAY)free_and_set.c		\
 		$(DARRAY)free_array.c		\
 		$(DARRAY)split.c		\
+		$(DARRAY)array_to_str.c		\
 		$(DSRC)get_next_line.c 		\
 		$(DENV)get_env_value.c		\
-		$(DENV)index_name.c
+		$(DENV)index_name.c		\
+		$(DENV)disp_env.c		\
+		$(DENV)set_env_value.c		\
+		$(DFILE)my_fdcpy.c		\
+		$(DFILE)write_in_file.c
 
 CFLAGS	+=	-Wall -W -Wextra -I$(INC)
 OBJ	=	$(SRC:.c=.o)

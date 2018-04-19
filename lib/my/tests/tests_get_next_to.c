@@ -17,3 +17,12 @@ Test(get_next_to, simple_test)
 
 	cr_assert_str_eq(res, "Papa");
 }
+
+Test(get_next_to, without_match)
+{
+	char *str = "lalaPapa";
+	char *flags = "toto";
+	char *res = get_next_to(str, flags);
+
+	cr_assert_eq(res, NULL);
+}

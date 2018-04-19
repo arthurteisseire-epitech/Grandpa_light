@@ -9,7 +9,7 @@ int my_arrlen(void **data)
 {
 	int i = 0;
 
-	while (data && data[i])
+	while (data[i])
 		i++;
 	return (i);
 }
