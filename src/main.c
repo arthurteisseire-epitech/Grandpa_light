@@ -10,6 +10,7 @@
 #include "init.h"
 #include "states.h"
 #include "destroy.h"
+#include "parse.h"
 
 int main(void)
 {
@@ -23,5 +24,6 @@ int main(void)
 		return (status);
 	status = game_loop(rpg);
 	destroy(rpg);
+	parse_image(rpg, "assets/images/red_blue_white.png");
 	return (status);
 }

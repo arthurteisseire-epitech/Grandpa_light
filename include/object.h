@@ -10,6 +10,8 @@
 
 #include <SFML/Graphics.h>
 
+#define NB_OBJ 1
+
 typedef struct sprite_s sprite_t;
 typedef struct rpg_s rpg_t;
 
@@ -20,5 +22,12 @@ typedef struct object_s {
 	int direction;
 	int (*action)(rpg_t *, struct object_s *);
 } object_t;
+
+typedef struct obj_list_s {
+	sfColor color;
+	char *name;
+} obj_list_t;
+
+extern const obj_list_t obj_list[NB_OBJ];
 
 #endif
