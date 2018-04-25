@@ -10,6 +10,16 @@
 
 #include <SFML/Graphics.h>
 
+#define TX_GROUND 0
+#define TX_WALL 1
+#define TX_GLASS 2
+#define TX_SPAWN 3
+#define TX_END 4
+#define TX_DOOR 5
+#define TX_SWITCH 6
+#define TX_LS_BEAM 7
+#define TX_LS_RECEPTOR 7
+
 typedef struct texture_s {
 	sfTexture *texture;
 	sfFloatRect *rect;
