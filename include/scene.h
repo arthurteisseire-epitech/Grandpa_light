@@ -8,7 +8,7 @@
 #ifndef SCENE_H
 #define SCENE_H
 
-#include <SFML/Graphics.h>
+#include <SFML/Graphics/Types.h>
 
 typedef struct sprite_s sprite_t;
 typedef struct tile_s tile_t;
@@ -25,6 +25,7 @@ typedef struct map_s {
 typedef struct scene_s {
 	map_t *map;
 	button_t **buttons;
+	sfText **text;
 } scene_t;
 
 #endif
