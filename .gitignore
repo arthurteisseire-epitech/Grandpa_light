@@ -1,8 +1,13 @@
-*.o
 *~
-my_rpg
-vgcore*
 #*#
+cmake-build-debug
+CMakeLists.txt
+.idea
+vgcore*
+*.o
+*.a
+a.out
 *.swp
 .idea
 cmake-*
+my_rpg

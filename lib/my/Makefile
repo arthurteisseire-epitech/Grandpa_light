@@ -6,44 +6,75 @@
 ##
 
 CC	=	gcc
-INC	=	my.h
+INC	=	./
 DTESTS	=	tests/
+DSRC	=	./
+DSTRING	=	$(DSRC)string/
+DPUT	=	$(DSRC)put/
+DENV	=	$(DSRC)env/
+DARRAY	=	$(DSRC)array/
+DFILE	=	$(DSRC)file/
 
-SRC	=	my_strlen.c \
-		my_putchar.c \
-		my_putstr.c \
-		my_puterror.c \
-		my_put_nbr.c \
-		my_putnbr_base.c \
-		my_strcmp.c \
-		my_strncmp.c \
-		my_str_isalphanum.c \
-		my_str_isnum.c \
-		my_strcpy.c \
-		my_strncpy.c \
-		my_strcat.c \
-		my_strncat.c \
-		my_strdup.c \
-		my_atoi.c \
-		my_itoa.c \
-		concat.c \
-		get_next_line.c \
-		split.c \
-		my_strndup.c \
-		get_env_value.c \
-		my_arrlen.c \
-		free_2d.c \
-		my_arrcpy.c \
-		rm_arrelem.c
+SRC	=	$(DPUT)my_put_nbr.c		\
+		$(DPUT)my_putchar.c		\
+		$(DPUT)my_puterror.c		\
+		$(DPUT)my_putnbr_base.c		\
+		$(DPUT)my_putstr.c		\
+		$(DSTRING)my_str_isalphanum.c	\
+		$(DSTRING)my_str_isnum.c	\
+		$(DSTRING)my_strcat.c		\
+		$(DSTRING)my_strcmp.c		\
+		$(DSTRING)my_strcpy.c		\
+		$(DSTRING)my_strdup.c		\
+		$(DSTRING)my_strip.c		\
+		$(DSTRING)my_strlen.c		\
+		$(DSTRING)my_strncat.c		\
+		$(DSTRING)my_strncmp.c		\
+		$(DSTRING)my_strncpy.c		\
+		$(DSTRING)my_strndup.c		\
+		$(DSTRING)count_endflags.c	\
+		$(DSTRING)count_flags.c		\
+		$(DSTRING)my_pow.c		\
+		$(DSTRING)my_ftoa.c		\
+		$(DSTRING)my_atoi.c		\
+		$(DSTRING)my_itoa.c		\
+		$(DSTRING)concat.c		\
+		$(DSTRING)get_next_to.c		\
+		$(DSTRING)get_before_to.c	\
+		$(DSTRING)bufferize.c		\
+		$(DSTRING)my_strstr.c		\
+		$(DSTRING)get_next_word.c	\
+		$(DSTRING)is_char_in_str.c	\
+		$(DSTRING)len_to_flags.c	\
+		$(DSTRING)count_words.c		\
+		$(DARRAY)my_memcpy.c		\
+		$(DARRAY)my_memset.c		\
+		$(DARRAY)my_arrlen.c		\
+		$(DARRAY)my_arrcpy.c		\
+		$(DARRAY)my_arrdup.c		\
+		$(DARRAY)apply_on_array.c	\
+		$(DARRAY)add_arrelem.c		\
+		$(DARRAY)rm_arrelem.c		\
+		$(DARRAY)free_and_set.c		\
+		$(DARRAY)free_array.c		\
+		$(DARRAY)split.c		\
+		$(DARRAY)array_to_str.c		\
+		$(DSRC)get_next_line.c 		\
+		$(DENV)get_env_value.c		\
+		$(DENV)index_name.c		\
+		$(DENV)disp_env.c		\
+		$(DENV)set_env_value.c		\
+		$(DFILE)my_fdcpy.c		\
+		$(DFILE)write_in_file.c
 
-CFLAGS	+=	-Wall -W -Wextra
+CFLAGS	+=	-Wall -W -Wextra -I$(INC)
 OBJ	=	$(SRC:.c=.o)
 NAME	=	libmy.a
 
 all: $(NAME)
 
 $(NAME):	$(OBJ)
-	cp $(INC) ../../include
+	cp my.h ../../include
 	ar rc $(NAME) $(OBJ)
 
 clean:
