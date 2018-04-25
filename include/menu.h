@@ -8,17 +8,11 @@
 #ifndef MENU_H
 #define MENU_H
 
-#include <SFML/Graphics.h>
+#include <SFML/Graphics/Types.h>
 
 typedef struct texture_s texture_t;
 typedef struct rpg_s rpg_t;
-
-typedef struct button_s {
-	sfRectangleShape *rect;
-	sfVector2f offset;
-	texture_t *texture;
-	int (*function)(rpg_t *rpg);
-} button_t;
+typedef struct button_s button_t;
 
 typedef struct scene_menu_s {
 	texture_t *background;

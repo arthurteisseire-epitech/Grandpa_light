@@ -8,7 +8,7 @@
 #ifndef OBJECT_H
 #define OBJECT_H
 
-#include <SFML/Graphics.h>
+#include <SFML/Graphics/Types.h>
 
 #define MASK_NAME(color) ((color).b & 0x0f)
 #define NB_TILE 1

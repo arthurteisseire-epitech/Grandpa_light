@@ -8,9 +8,7 @@
 #ifndef PARSE_H
 #define PARSE_H
 
-#include <SFML/Graphics.h>
-
-#define DIMG(path) "assets/images"
+#include <SFML/Graphics/Types.h>
 
 typedef struct rpg_s rpg_t;
 typedef struct scene_s scene_t;

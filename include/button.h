@@ -8,10 +8,15 @@
 #ifndef BUTTON_H
 #define BUTTON_H
 
-#include <SFML/Graphics.h>
+#include <SFML/Graphics/Types.h>
+
+typedef struct rpg_s rpg_t;
 
 typedef struct button_s {
-	sfIntRect *rect;
+	sfSprite *sprite;
+	sfText *text;
+	int (*over)(rpg_t *, struct button_s *);
+	int (*action)(rpg_t *, struct button_s *);
 } button_t;
 
 #endif

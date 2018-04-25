@@ -8,7 +8,7 @@
 #ifndef TEXTURE_H
 #define TEXTURE_H
 
-#include <SFML/Graphics.h>
+#include <SFML/Graphics/Types.h>
 
 #define WALL 0
 #define GROUND 1
@@ -17,7 +17,7 @@
 
 typedef struct texture_s {
 	sfTexture *texture;
-	sfFloatRect *rect;
+	sfIntRect *rect;
 } texture_t;
 
 #endif
