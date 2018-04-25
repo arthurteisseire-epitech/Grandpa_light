@@ -8,6 +8,7 @@
 #include "rpg.h"
 #include "init.h"
 #include "define.h"
+#include "scene.h"
 
 int init(rpg_t *rpg)
 {
@@ -22,5 +23,6 @@ int init(rpg_t *rpg)
 	status = init_scenes(rpg);
 	if (status != SUCCESS)
 		return (status);
+	rpg->curr_scene = FIRST_SCENE;
 	return (status);
 }

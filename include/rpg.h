@@ -25,6 +25,7 @@ typedef struct rpg_s {
 	scene_t **scenes;
 	texture_t **textures;
 	sfClock *clock;
+	int curr_scene;
 } rpg_t;
 
 int game_loop(rpg_t *rpg);

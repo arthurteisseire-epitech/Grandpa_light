@@ -22,6 +22,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DSRC)game_loop.c		\
 		$(DSTATES)states.c		\
 		$(DRAW)draw.c			\
+		$(DRAW)draw_scene.c			\
 		$(DSTATES)update.c		\
 		$(DSTATES)event.c		\
 		$(DINIT)init.c			\

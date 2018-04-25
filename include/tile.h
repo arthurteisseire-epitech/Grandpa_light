@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2017
-** File Name : object.h
+** File Name : tile.h
 ** File description:
 ** by Arthur Teisseire
 */
@@ -25,7 +25,7 @@ typedef struct tile_s {
 	int player_col;
 	int laser_col;
 	int (*action)(rpg_t *, struct tile_s *);
-	sfTexture *texture;
+	sfSprite *sprite;
 } tile_t;
 
 typedef struct tile_list_s {
