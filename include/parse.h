@@ -11,7 +11,8 @@
 #define DIMG(path) "assets/images"
 
 typedef struct rpg_s rpg_t;
+typedef struct scene_s scene_t;
 
-int parse_image(rpg_t *rpg, char *path);
+int parse_image(scene_t *scene, char *path);
 
 #endif

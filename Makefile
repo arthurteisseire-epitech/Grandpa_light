@@ -29,7 +29,8 @@ SRC     =	$(DSRC)main.c			\
 		$(DESTROY)destroy.c		\
 		$(DESTROY)destroy_window.c	\
 		$(DESTROY)destroy_event.c	\
-		$(DPARSE)parse_image.c
+		$(DPARSE)parse_image.c		\
+		$(DPARSE)tile_list.c
 
 CFLAGS	+=	-Wall -W -Wextra -I$(INC)
 LDFLAGS	=	-lc_graph_prog

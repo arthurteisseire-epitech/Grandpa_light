@@ -7,16 +7,37 @@
 
 #include "rpg.h"
 #include "parse.h"
-#include "object.h"
+#include "scene.h"
+#include "tile.h"
+#include "define.h"
 
-int parse_image(rpg_t *rpg, char *path)
+void init_tile(tile_t *tile, int index_tile)
 {
-	int status = 0;
-	sfImage *image = sfImage_createFromFile(path);
-	sfColor color = sfImage_getPixel(image, 0, 0);
+	if (index_tile == -1)
+		return;
+	tile->name = tile_list[index_tile].name;
+	tile->action = tile_list[index_tile].action;
+	tile->player_col = tile_list[index_tile].player_col;
+	tile->laser_col = tile_list[index_tile].laser_col;
+	tile->direction = 0;
+	tile->active = 0;
+}
 
-	for (int i = 0; i < NB_OBJ; i++) {
-		printf("color: r%d, g%d, b%d\n", color.r, color.g, color.a);
+int parse_image(scene_t *scene, char *path)
+{
+	sfImage *image = sfImage_createFromFile(path);
+	sfVector2u size = sfImage_getSize(image);
+	sfColor color;
+	int index;
+
+	if (image == NULL)
+		return (WRONG_PATH);
+	for (unsigned int col = 0; col < size.x; col++) {
+		for (unsigned int row = 0; row < size.y; row++) {
+			color = sfImage_getPixel(image, row, col);
+			index = index_tile_by_color(color);
+			init_tile(scene->map[row][col]->tile, index);
+		}
 	}
-	return (status);
+	return (SUCCESS);
 }
