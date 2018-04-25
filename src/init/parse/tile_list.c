@@ -9,9 +9,10 @@
 #include "rpg.h"
 #include "tile.h"
 #include "define.h"
+#include "texture.h"
 
 const tile_list_t tile_list[NB_TILE] = {
-	{{0x00, 0x00, 0x02, 0x00}, "wall", TRUE, TRUE, NULL}
+	{{0x00, 0x00, 0x02, 0x00}, "wall", TRUE, TRUE, NULL, WALL},
 };
 
 int index_tile_by_color(sfColor color)

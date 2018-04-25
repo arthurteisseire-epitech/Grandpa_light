@@ -17,13 +17,14 @@ LIBS	=	-L$(DMY) -l$(MY) -L$(DLCFG) -l$(LCFG)
 DSRC	=	src/
 DINIT	=	$(DSRC)init/
 DSTATES	=	$(DSRC)states/
+DRAW	=	$(DSTATES)draw/
 DESTROY	=	$(DSRC)destroy/
 DPARSE	=	$(DINIT)parse/
 
 SRC     =	$(DSRC)main.c			\
 		$(DSRC)game_loop.c		\
 		$(DSTATES)states.c		\
-		$(DSTATES)draw.c		\
+		$(DRAW)draw.c			\
 		$(DSTATES)update.c		\
 		$(DSTATES)event.c		\
 		$(DINIT)init.c			\

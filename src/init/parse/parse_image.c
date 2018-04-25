@@ -11,40 +11,41 @@
 #include "tile.h"
 #include "parse.h"
 #include "init.h"
+#include "texture.h"
 #include "define.h"
 
-int parse_image(scene_t *scene, sfImage *image, sfVector2u size)
+int parse_image(map_t *map, texture_t **tx, sfImage *image)
 {
 	int status = SUCCESS;
 
-	for (unsigned int row = 0; row < size.y; row++) {
-		status = fill_map_row(scene->map, image, size, row);
+	for (unsigned int row = 0; row < map->size.y; row++) {
+		status = fill_map_row(map, tx, image, row);
 		if (status != SUCCESS)
 			return (status);
 	}
 	return (SUCCESS);
 }
 
-int fill_map_row(map_t ***map, sfImage *image, sfVector2u size, int row)
+int fill_map_row(map_t *map, texture_t **tx, sfImage *image, int row)
 {
 	int status;
 	sfColor color;
 	int index;
 
-	for (unsigned int col = 0;  col < size.x; col++) {
+	for (unsigned int col = 0;  col < map->size.x; col++) {
 		color = sfImage_getPixel(image, row, col);
 		index = index_tile_by_color(color);
-		map[row][col] = malloc(sizeof(map_t));
-		if (map[row][col] == NULL)
+		map->tiles[row][col] = malloc(sizeof(map_t));
+		if (map->tiles[row][col] == NULL)
 			return (MALLOC_FAILED);
-		status = init_tile(&map[row][col]->tile, index);
+		status = init_tile(&map->tiles[row][col], tx, index);
 		if (status != SUCCESS)
 			return (status);
 	}
 	return (SUCCESS);
 }
 
-int init_tile(tile_t **tile, int index_tile)
+int init_tile(tile_t **tile, texture_t **tx, int index_tile)
 {
 	if (index_tile == -1)
 		return (SUCCESS);
@@ -57,5 +58,7 @@ int init_tile(tile_t **tile, int index_tile)
 	(*tile)->laser_col = tile_list[index_tile].laser_col;
 	(*tile)->direction = 0;
 	(*tile)->active = 0;
+	(*tile)->chanel = 0;
+	//(*tile)->texture = tx[tile_list[index_tile].idx_texture]->texture;
 	return (SUCCESS);
 }

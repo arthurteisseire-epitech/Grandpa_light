@@ -8,22 +8,24 @@
 #ifndef OBJECT_H
 #define OBJECT_H
 
-#include <SFML/Graphics.h>
+#include <SFML/Graphics/Types.h>
 
 #define MASK_NAME(color) ((color).b & 0x0f)
 #define NB_TILE 1
 
 typedef struct sprite_s sprite_t;
 typedef struct rpg_s rpg_t;
+typedef struct texture_s texture_t;
 
 typedef struct tile_s {
-	sprite_t *sprite;
 	char *name;
 	int active;
 	char direction;
+	int chanel;
 	int player_col;
 	int laser_col;
 	int (*action)(rpg_t *, struct tile_s *);
+	sfTexture *texture;
 } tile_t;
 
 typedef struct tile_list_s {
@@ -32,6 +34,7 @@ typedef struct tile_list_s {
 	int player_col;
 	int laser_col;
 	int (*action)(rpg_t *, struct tile_s *);
+	int idx_texture;
 } tile_list_t;
 
 extern const tile_list_t tile_list[NB_TILE];
