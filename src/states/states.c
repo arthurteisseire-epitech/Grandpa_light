@@ -7,17 +7,18 @@
 
 #include "rpg.h"
 #include "states.h"
+#include "define.h"
 
 int states(rpg_t *rpg)
 {
-	int status = 0;
+	int status = SUCCESS;
 
 	status = event(rpg);
-	if (status != 0)
+	if (status != SUCCESS)
 		return (status);
-	if (status != 0)
+	if (status != SUCCESS)
 		status = update(rpg);
-	if (status != 0)
+	if (status != SUCCESS)
 		return (status);
 	status = draw(rpg);
 	return (status);
