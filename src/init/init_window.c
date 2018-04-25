@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include "rpg.h"
 #include "window.h"
+#include "define.h"
 
 static int create_window(rpg_t *rpg)
 {
@@ -18,12 +19,12 @@ static int create_window(rpg_t *rpg)
 	if (rpg->win->window == NULL)
 		return (MALLOC_FAILED);
 	sfRenderWindow_setFramerateLimit(rpg->win->window, 60);
-	return (0);
+	return (SUCCESS);
 }
 
 int init_window(rpg_t *rpg)
 {
-	int status = 0;
+	int status = SUCCESS;
 
 	rpg->win = malloc(sizeof(window_t));
 	if (rpg->win == NULL)

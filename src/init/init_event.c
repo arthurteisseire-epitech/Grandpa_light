@@ -7,11 +7,12 @@
 
 #include <stdlib.h>
 #include "rpg.h"
+#include "define.h"
 
 int init_event(rpg_t *rpg)
 {
 	rpg->event = malloc(sizeof(sfEvent));
 	if (rpg->event == NULL)
 		return (MALLOC_FAILED);
-	return (0);
+	return (SUCCESS);
 }

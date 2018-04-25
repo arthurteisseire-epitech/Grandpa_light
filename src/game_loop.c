@@ -8,14 +8,15 @@
 #include "rpg.h"
 #include "window.h"
 #include "states.h"
+#include "define.h"
 
 int game_loop(rpg_t *rpg)
 {
-	int status = 0;
+	int status = SUCCESS;
 
 	while (sfRenderWindow_isOpen(rpg->win->window)) {
 		status = states(rpg);
-		if (status != 0)
+		if (status != SUCCESS)
 			return (status);
 	}
 	return (status);

@@ -18,6 +18,7 @@ DSRC	=	src/
 DINIT	=	$(DSRC)init/
 DSTATES	=	$(DSRC)states/
 DESTROY	=	$(DSRC)destroy/
+DPARSE	=	$(DINIT)parse/
 
 SRC     =	$(DSRC)main.c			\
 		$(DSRC)game_loop.c		\
@@ -28,12 +29,16 @@ SRC     =	$(DSRC)main.c			\
 		$(DINIT)init.c			\
 		$(DINIT)init_event.c		\
 		$(DINIT)init_window.c		\
+		$(DINIT)init_scenes.c		\
 		$(DESTROY)destroy.c		\
 		$(DESTROY)destroy_window.c	\
 		$(DESTROY)destroy_event.c	\
+		$(DPARSE)parse_image.c		\
+		$(DPARSE)tile_list.c
 
-CFLAGS	+=	-Wall -W -Wextra -I$(INC)
 LDFLAGS	=	-lc_graph_prog -lconfig
+CFLAGS	+=	-Wall -W -Wextra -I$(INC) -g
+
 OBJ	=	$(SRC:.c=.o)
 NAME	=	my_rpg
 

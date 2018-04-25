@@ -7,16 +7,20 @@
 
 #include "rpg.h"
 #include "init.h"
+#include "define.h"
 
 int init(rpg_t *rpg)
 {
-	int status = 0;
+	int status = SUCCESS;
 
 	status = init_window(rpg);
-	if (status != 0)
+	if (status != SUCCESS)
 		return (status);
 	status = init_event(rpg);
-	if (status != 0)
+	if (status != SUCCESS)
+		return (status);
+	status = init_scenes(rpg);
+	if (status != SUCCESS)
 		return (status);
 	return (status);
 }
