@@ -24,7 +24,7 @@ int init_scenes(rpg_t *rpg)
 		rpg->scenes[i] = malloc(sizeof(scene_t));
 		if (rpg->scenes[i] == NULL)
 			return (MALLOC_FAILED);
-		status = init_map(rpg->scenes[i], "assets/images/red_blue_white.png");
+		status = init_map(rpg->scenes[i], rpg->textures, "assets/images/lala.png");
 		if (status != SUCCESS)
 			return (status);
 	}
@@ -32,21 +32,23 @@ int init_scenes(rpg_t *rpg)
 	return (status);
 }
 
-int init_map(scene_t *scene, char *path)
+int init_map(scene_t *scene, texture_t **tx, char *path)
 {
 	sfImage *image = sfImage_createFromFile(path);
-	sfVector2u size = sfImage_getSize(image);
-
-	scene->map = malloc(sizeof(map_t **) * (size.y + 1));
+	
+	if (image == NULL)
+		return (WRONG_PATH);
+	scene->size = sfImage_getSize(image);
+	scene->map = malloc(sizeof(map_t **) * (scene->size.y + 1));
 	if (scene->map == NULL)
 		return (MALLOC_FAILED);
-	scene->map[size.y] = NULL;
-	for (unsigned int row = 0; row < size.y; row++) {
-		scene->map[row] = malloc(sizeof(map_t *) * (size.x + 1));
+	scene->map[scene->size.y] = NULL;
+	for (unsigned int row = 0; row < scene->size.y; row++) {
+		scene->map[row] = malloc(sizeof(map_t *) * (scene->size.x + 1));
 		if (scene->map[row] == NULL)
 			return (MALLOC_FAILED);
-		scene->map[row][size.x] = NULL;
+		scene->map[row][scene->size.x] = NULL;
 	}
-	parse_image(scene, image, size);
+	parse_image(scene, tx, image);
 	return (SUCCESS);
 }
