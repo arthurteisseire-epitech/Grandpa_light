@@ -13,4 +13,4 @@ a.out
 *.a
 cmake*
 .gitignore
-rpg
+my_rpg
