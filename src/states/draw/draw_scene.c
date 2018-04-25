@@ -8,7 +8,7 @@
 #include "rpg.h"
 #include "scene.h"
 
-void draw_scene(scene_t *scene)
+void draw_scene(rpg_t *rpg, scene_t *scene)
 {
 	
 }

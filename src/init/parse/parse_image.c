@@ -14,31 +14,31 @@
 #include "texture.h"
 #include "define.h"
 
-int parse_image(scene_t *scene, texture_t **tx, sfImage *image)
+int parse_image(map_t *map, texture_t **tx, sfImage *image)
 {
 	int status = SUCCESS;
 
-	for (unsigned int row = 0; row < scene->size.y; row++) {
-		status = fill_map_row(scene, tx, image, row);
+	for (unsigned int row = 0; row < map->size.y; row++) {
+		status = fill_map_row(map, tx, image, row);
 		if (status != SUCCESS)
 			return (status);
 	}
 	return (SUCCESS);
 }
 
-int fill_map_row(scene_t *scene, texture_t **tx, sfImage *image, int row)
+int fill_map_row(map_t *map, texture_t **tx, sfImage *image, int row)
 {
 	int status;
 	sfColor color;
 	int index;
 
-	for (unsigned int col = 0;  col < scene->size.x; col++) {
+	for (unsigned int col = 0;  col < map->size.x; col++) {
 		color = sfImage_getPixel(image, row, col);
 		index = index_tile_by_color(color);
-		scene->map[row][col] = malloc(sizeof(map_t));
-		if (scene->map[row][col] == NULL)
+		map->tiles[row][col] = malloc(sizeof(map_t));
+		if (map->tiles[row][col] == NULL)
 			return (MALLOC_FAILED);
-		status = init_tile(&scene->map[row][col]->tile, tx, index);
+		status = init_tile(&map->tiles[row][col], tx, index);
 		if (status != SUCCESS)
 			return (status);
 	}

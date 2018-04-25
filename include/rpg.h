@@ -22,7 +22,6 @@ typedef struct event_s event_t;
 typedef struct rpg_s {
 	sfEvent *event;
 	window_t *win;
-	menu_t *menu;
 	scene_t **scenes;
 	texture_t **textures;
 } rpg_t;
