@@ -18,6 +18,7 @@ DSRC	=	src/
 DINIT	=	$(DSRC)init/
 DSTATES	=	$(DSRC)states/
 DESTROY	=	$(DSRC)destroy/
+DPARSE	=	$(DSRC)parse/
 
 SRC     =	$(DSRC)main.c			\
 		$(DSRC)game_loop.c		\
@@ -31,6 +32,8 @@ SRC     =	$(DSRC)main.c			\
 		$(DESTROY)destroy.c		\
 		$(DESTROY)destroy_window.c	\
 		$(DESTROY)destroy_event.c	\
+		$(DPARSE)parse_image.c		\
+		$(DPARSE)tile_list.c
 
 CFLAGS	+=	-Wall -W -Wextra -I$(INC) -g
 LDFLAGS	=	-lc_graph_prog -lconfig

@@ -10,11 +10,18 @@
 
 #include <SFML/Graphics.h>
 
-typedef struct map_s map_t;
 typedef struct sprite_s sprite_t;
+typedef struct tile_s tile_t;
+
+typedef struct map_s {
+	sfFloatRect *rect;
+	tile_t *tile;
+	sfVector2i start;
+	sfVector2i end;
+} map_t;
 
 typedef struct scene_s {
-	map_t *map;
+	map_t ***map;
 	sprite_t **sprites;
 } scene_t;
 

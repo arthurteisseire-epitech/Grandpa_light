@@ -8,6 +8,7 @@
 #include "rpg.h"
 #include "camera.h"
 #include "window.h"
+#include "define.h"
 
 static void handle_exit(rpg_t *rpg)
 {
@@ -22,5 +23,5 @@ int event(rpg_t *rpg)
 	while (sfRenderWindow_pollEvent(rpg->win->window, rpg->event)) {
 		handle_exit(rpg);
 	}
-	return (0);
+	return (SUCCESS);
 }

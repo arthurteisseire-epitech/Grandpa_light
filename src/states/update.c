@@ -6,9 +6,10 @@
 */
 
 #include "rpg.h"
+#include "define.h"
 
 int update(rpg_t *rpg)
 {
 	(void)rpg;
-	return (0);
+	return (SUCCESS);
 }
