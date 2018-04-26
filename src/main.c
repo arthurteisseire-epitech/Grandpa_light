@@ -12,7 +12,7 @@
 #include "states.h"
 #include "destroy.h"
 
-int main(void)
+/*int main(void)
 {
 	int status = 0;
 	rpg_t *rpg = malloc(sizeof(rpg_t));
@@ -25,4 +25,16 @@ int main(void)
 	status = game_loop(rpg);
 	destroy(rpg);
 	return (status);
+}*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	config_t *config = NULL;
+	config_init(config);
+	FILE *file = fopen("test.cfg", "r");
+
+	int ret = config_read(config, file);
+	printf("ret = %d\n", ret);
 }

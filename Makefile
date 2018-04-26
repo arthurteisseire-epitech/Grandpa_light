@@ -12,7 +12,7 @@ DMY	=	$(DLIB)my/
 MY	=	my
 DLCFG	=	$(DLIB)libconfig
 LCFG	=	config 
-LIBS	=	-L$(DMY) -l$(MY) -L$(DLCFG) -l$(LCFG)
+LIBS	=	-L$(DMY) -l$(MY)
 
 DSRC	=	src/
 DINIT	=	$(DSRC)init/
@@ -32,8 +32,8 @@ SRC     =	$(DSRC)main.c			\
 		$(DESTROY)destroy_window.c	\
 		$(DESTROY)destroy_event.c	\
 
-CFLAGS	+=	-Wall -W -Wextra -I$(INC)
-LDFLAGS	=	-lc_graph_prog
+CFLAGS	+=	-Wall -W -Wextra -I$(INC) -g
+LDFLAGS	=	-lc_graph_prog -lconfig
 OBJ	=	$(SRC:.c=.o)
 NAME	=	my_rpg
 
