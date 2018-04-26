@@ -16,7 +16,8 @@ typedef struct map_s map_t;
 typedef struct tile_s tile_t;
 typedef struct texture_s texture_t;
 
-int parse_image(map_t *map, texture_t **tx, sfImage *image);
-int fill_map_row(map_t *map, texture_t **tx, sfImage *image, int row);
+int parse_image(rpg_t *rpg, map_t *map, sfImage *image);
+int fill_map_row(rpg_t *rpg, map_t *map, sfImage *image, int row);
+int init_tile(rpg_t *rpg, tile_t **tile, int index_tile, sfVector2f pos);
 
 #endif

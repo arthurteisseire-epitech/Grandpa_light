@@ -7,20 +7,19 @@
 
 #include "rpg.h"
 #include "camera.h"
-#include "window.h"
 #include "define.h"
 
 static void handle_exit(rpg_t *rpg)
 {
 	if (rpg->event->type == sfEvtClosed)
-		sfRenderWindow_close(rpg->win->window);
+		sfRenderWindow_close(rpg->window);
 	if (sfKeyboard_isKeyPressed(sfKeyEscape))
-		sfRenderWindow_close(rpg->win->window);
+		sfRenderWindow_close(rpg->window);
 }
 
 int event(rpg_t *rpg)
 {
-	while (sfRenderWindow_pollEvent(rpg->win->window, rpg->event)) {
+	while (sfRenderWindow_pollEvent(rpg->window, rpg->event)) {
 		handle_exit(rpg);
 	}
 	return (SUCCESS);

@@ -7,12 +7,11 @@
 
 #include "rpg.h"
 #include "scene.h"
-#include "window.h"
 #include "tile.h"
 
 void draw_tile(rpg_t *rpg, tile_t *tile)
 {
-	sfRenderWindow_drawSprite(rpg->win->window, tile->sprite, NULL);
+	sfRenderWindow_drawSprite(rpg->window, tile->sprite, NULL);
 }
 
 void draw_map(rpg_t *rpg, map_t *map)

@@ -11,7 +11,8 @@
 #include <SFML/Graphics/Types.h>
 
 #define MASK_NAME(color) ((color).b & 0x0f)
-#define NB_TILE 9
+#define NB_TILE 3
+#define SIZE_TILE 64
 
 typedef struct sprite_s sprite_t;
 typedef struct rpg_s rpg_t;

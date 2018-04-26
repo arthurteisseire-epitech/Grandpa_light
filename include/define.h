@@ -11,6 +11,8 @@
 #define TRUE 1
 #define FALSE 0
 
+#define DIMG "assets/images/"
+
 #define SUCCESS 0
 #define MALLOC_FAILED -2
 #define WRONG_PATH -3

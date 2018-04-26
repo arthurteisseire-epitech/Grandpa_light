@@ -24,7 +24,7 @@ int init_scenes(rpg_t *rpg)
 		rpg->scenes[i] = malloc(sizeof(scene_t));
 		if (rpg->scenes[i] == NULL)
 			return (MALLOC_FAILED);
-		status = init_map(rpg->scenes[i], rpg->textures, "assets/images/lala.png");
+		status = init_map(rpg, rpg->scenes[i], "assets/images/lala.png");
 		if (status != SUCCESS)
 			return (status);
 	}
@@ -32,7 +32,7 @@ int init_scenes(rpg_t *rpg)
 	return (status);
 }
 
-int init_map(scene_t *scene, texture_t **tx, char *path)
+int init_map(rpg_t *rpg, scene_t *scene, char *path)
 {
 	map_t *map;
 	sfImage *image = sfImage_createFromFile(path);
@@ -52,6 +52,6 @@ int init_map(scene_t *scene, texture_t **tx, char *path)
 			return (MALLOC_FAILED);
 		scene->map->tiles[row][map->size.x] = NULL;
 	}
-	parse_image(map, tx, image);
+	parse_image(rpg, map, image);
 	return (SUCCESS);
 }
