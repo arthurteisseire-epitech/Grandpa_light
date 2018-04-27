@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include "rpg.h"
 
-void destroy_event(rpg_t *rpg)
+void destroy_event(sfEvent *event)
 {
-	free(rpg->event);
+	free(event);
 }

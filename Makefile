@@ -33,6 +33,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DESTROY)destroy.c		\
 		$(DESTROY)destroy_window.c	\
 		$(DESTROY)destroy_event.c	\
+		$(DESTROY)destroy_scenes.c	\
 		$(DPARSE)parse_image.c		\
 		$(DPARSE)tile_list.c
 

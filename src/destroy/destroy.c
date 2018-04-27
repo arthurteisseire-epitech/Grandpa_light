@@ -11,7 +11,8 @@
 
 void destroy(rpg_t *rpg)
 {
-	destroy_window(rpg);
-	destroy_event(rpg);
+	destroy_window(rpg->window);
+	destroy_event(rpg->event);
+	destroy_scenes(rpg->scenes);
 	free(rpg);
 }
