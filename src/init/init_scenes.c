@@ -40,18 +40,19 @@ int init_map(rpg_t *rpg, scene_t *scene, char *path)
 	if (image == NULL)
 		return (WRONG_PATH);
 	scene->map = malloc(sizeof(map_t));
-	scene->map->size = sfImage_getSize(image);
-	scene->map->tiles = malloc(sizeof(tile_t **) * (scene->map->size.y + 1));
 	map = scene->map;
+	map->size = sfImage_getSize(image);
+	map->tiles = malloc(sizeof(tile_t **) * (scene->map->size.y + 1));
 	if (scene->map == NULL)
 		return (MALLOC_FAILED);
-	scene->map->tiles[map->size.y] = NULL;
 	for (unsigned int row = 0; row < map->size.y; row++) {
-		scene->map->tiles[row] = malloc(sizeof(tile_t *) * (map->size.x + 1));
-		if (scene->map->tiles[row] == NULL)
+		map->tiles[row] = malloc(sizeof(tile_t *) * (map->size.x + 1));
+		if (map->tiles[row] == NULL)
 			return (MALLOC_FAILED);
-		scene->map->tiles[row][map->size.x] = NULL;
+		map->tiles[row][map->size.x] = NULL;
+		if (parse_image_line(rpg, map, image, row) == -1)
+			return (-1);
 	}
-	parse_image(rpg, map, image);
+	map->tiles[map->size.y] = NULL;
 	return (SUCCESS);
 }

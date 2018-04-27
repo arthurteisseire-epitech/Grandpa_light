@@ -25,7 +25,7 @@ int init_textures(rpg_t *rpg)
 	rpg->textures[0]->texture = sfTexture_createFromFile(
 			"assets/images/ground.png", NULL);
 	rpg->textures[1]->texture = sfTexture_createFromFile(
-			"assets/images/wall.png", NULL);
+			"assets/images/red.jpg", NULL);
 	rpg->textures[2]->texture = sfTexture_createFromFile(
 			"assets/images/glass.png", NULL);
 	rpg->textures[NB_TEXTURE] = NULL;
