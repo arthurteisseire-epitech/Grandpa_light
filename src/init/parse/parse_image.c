@@ -49,6 +49,8 @@ int init_tile(rpg_t *rpg, tile_t *tile, int index_tile, sfVector2f pos)
 	tile->active = 0;
 	tile->chanel = 0;
 	tile->sprite = sfSprite_create();
+	if (tile->sprite == NULL)
+		return (MALLOC_FAILED);
 	sfSprite_setTexture(tile->sprite,
 		rpg->textures[tile_list[index_tile].idx_texture]->texture,
 		sfTrue);
