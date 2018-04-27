@@ -54,6 +54,6 @@ int init_tile(rpg_t *rpg, tile_t *tile, int index_tile, sfVector2f pos)
 		sfTrue);
 	sfSprite_setPosition(tile->sprite,
 		mult(pos, (sfVector2i){SIZE_TILE, SIZE_TILE}));
-	sfSprite_setScale(tile->sprite, (sfVector2f){SIZE_TILE, SIZE_TILE});
+	//sfSprite_setScale(tile->sprite, (sfVector2f){SIZE_TILE, SIZE_TILE});
 	return (SUCCESS);
 }
