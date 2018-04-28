@@ -9,6 +9,7 @@
 #define RPG_H
 
 #include <SFML/Graphics.h>
+#include <libconfig.h>
 
 #define NB_SCENES 1
 #define TITLE "rpg"
@@ -26,6 +27,7 @@ typedef struct rpg_s {
 	texture_t **textures;
 	sfClock *clock;
 	int curr_scene;
+	config_t *config;
 } rpg_t;
 
 int game_loop(rpg_t *rpg);

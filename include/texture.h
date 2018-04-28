@@ -10,8 +10,8 @@
 
 #include <SFML/Graphics/Types.h>
 
-#define TX_GROUND 0
-#define TX_WALL 1
+#define TX_WALL 0
+#define TX_GROUND 1
 #define TX_GLASS 2
 #define TX_SPAWN 3
 #define TX_END 4

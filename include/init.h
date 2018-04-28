@@ -20,5 +20,6 @@ int init_event(rpg_t *rpg);
 int init_scenes(rpg_t *rpg);
 int init_map(rpg_t *rpg, scene_t *scene, char *path);
 int init_textures(rpg_t *rpg);
+int init_config(rpg_t *rpg);
 
 #endif

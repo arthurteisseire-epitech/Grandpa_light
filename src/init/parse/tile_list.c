@@ -13,9 +13,9 @@
 
 const tile_list_t tile_list[NB_TILE] = {
 	{{0x00, 0x00, 0x01, 0x00}
-		, "ground", FALSE, FALSE, NULL, TX_GROUND},
-	{{0x00, 0x00, 0x02, 0x00}
 		, "wall", TRUE, TRUE, NULL, TX_WALL},
+	{{0x00, 0x00, 0x02, 0x00}
+		, "ground", FALSE, FALSE, NULL, TX_GROUND},
 	{{0x00, 0x00, 0x03, 0x00}
 		, "glass", TRUE, FALSE, NULL, TX_GLASS},
 	/*
@@ -39,5 +39,5 @@ int index_tile_by_color(sfColor color)
 	for (int i = 0; i < NB_TILE; i++)
 		if ((MASK_NAME(tile_list[i].color) & (MASK_NAME(color))) != 0)
 			return (i);
-	return (1);
+	return (0);
 }
