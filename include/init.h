@@ -23,10 +23,12 @@ int init_event(rpg_t *rpg);
 int init_scenes(rpg_t *rpg);
 int fill_scene(rpg_t *rpg, config_setting_t *scenes_setting, int index);
 int init_button(rpg_t *rpg, button_t *button, config_setting_t *buttons_setting, int i);
+int init_text(button_t *button, config_setting_t *button_setting, sfVector2f pos);
 int init_buttons(rpg_t *rpg, scene_t *scene, config_setting_t *scene_setting);
 int init_map(rpg_t *rpg, scene_t *scene, const char *path);
 int init_textures(rpg_t *rpg);
 int init_config(rpg_t *rpg);
 int count_setting_elem(config_setting_t *setting);
+sfVector2f get_cfg_pos(config_setting_t *pos);
 
 #endif

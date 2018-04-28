@@ -20,3 +20,13 @@ int init_config(rpg_t *rpg)
 		return (WRONG_CONFIG_PATH);
 	return (SUCCESS);
 }
+
+sfVector2f get_cfg_pos(config_setting_t *pos)
+{
+	double row;
+	double col;
+
+	row = config_setting_get_float_elem(pos, 0);
+	col = config_setting_get_float_elem(pos, 1);
+	return ((sfVector2f){row, col});
+}

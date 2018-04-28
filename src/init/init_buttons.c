@@ -37,11 +37,39 @@ int init_buttons(rpg_t *rpg, scene_t *scene, config_setting_t *scene_setting)
 int init_button(rpg_t *rpg, button_t *button, config_setting_t *buttons_setting, int i)
 {
 	config_setting_t *button_setting = config_setting_get_elem(buttons_setting, i);
+	config_setting_t *pos_setting = config_setting_lookup(button_setting, "pos");
+	sfVector2f pos = get_cfg_pos(pos_setting);
+	int status;
 
+	config_setting_lookup_string(button_setting, "name", &button->name);
 	button->sprite = sfSprite_create();
 	if (button->sprite == NULL)
 		return (MALLOC_FAILED);
-	sfSprite_setTexture(button->sprite, rpg->textures[0]->texture, sfTrue); //need texture index
-	//need init_text with text_setting with button_setting
+	sfSprite_setTexture(button->sprite, rpg->textures[2]->texture, sfTrue);
+	sfSprite_setPosition(button->sprite, pos);
+	status = init_text(button, button_setting, pos);
+	return (status);
+}
+
+int init_text(button_t *button, config_setting_t *button_setting, sfVector2f pos)
+{
+	const char *str;
+	sfFont *font;
+	int size;
+	config_setting_t *text_setting = config_setting_lookup(button_setting, "text");
+
+	button->text = sfText_create();
+	if (button->text == NULL)
+		return (MALLOC_FAILED);
+	config_setting_lookup_string(text_setting, "str", &str);
+	sfText_setString(button->text, str);
+	config_setting_lookup_string(text_setting, "font", &str);
+	font = sfFont_createFromFile(str);
+	if (font == NULL)
+		return (WRONG_PATH);
+	sfText_setFont(button->text, font);
+	config_setting_lookup_int(text_setting, "size", &size);
+	sfText_setCharacterSize(button->text, size);
+	sfText_setPosition(button->text, pos);
 	return (SUCCESS);
 }

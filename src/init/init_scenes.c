@@ -30,7 +30,7 @@ int init_scenes(rpg_t *rpg)
 		rpg->scenes[i] = malloc(sizeof(scene_t));
 		if (rpg->scenes[i] == NULL)
 			return (MALLOC_FAILED);
-		fill_scene(rpg, setting, i);
+		status = fill_scene(rpg, setting, i);
 		if (status != SUCCESS)
 			return (status);
 	}
@@ -46,8 +46,8 @@ int fill_scene(rpg_t *rpg, config_setting_t *scenes_setting, int index)
 	
 	config_setting_lookup_string(scene_setting, "map", &str);
 	status = init_buttons(rpg, rpg->scenes[index], scene_setting);
-	status = init_map(rpg, rpg->scenes[index], str);
 	if (status != SUCCESS)
 		return (status);
-	return (SUCCESS);
+	status = init_map(rpg, rpg->scenes[index], str);
+	return (status);
 }
