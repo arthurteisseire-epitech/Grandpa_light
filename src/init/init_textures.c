@@ -15,7 +15,7 @@
 int init_textures(rpg_t *rpg)
 {
 	config_setting_t *setting = config_lookup(rpg->config, "rpg.textures.texture");
-	int nb_textures = count_setting_elem(setting);
+	int nb_textures = config_setting_length(setting);
 	const char *str;
 
 	rpg->textures = malloc(sizeof(texture_t *) * (nb_textures + 1));

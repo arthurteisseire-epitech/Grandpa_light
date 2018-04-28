@@ -18,7 +18,7 @@ int init_scenes(rpg_t *rpg)
 {
 	int status = SUCCESS;
 	config_setting_t *setting = config_lookup(rpg->config, "rpg.scenes.image");
-	unsigned int nb_scenes = count_setting_elem(setting);
+	unsigned int nb_scenes = config_setting_length(setting);
 	const char *str;
 
 	if (setting == NULL)
