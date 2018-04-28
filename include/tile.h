@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2017
-** File Name : object.h
+** File Name : tile.h
 ** File description:
 ** by Arthur Teisseire
 */
@@ -11,7 +11,8 @@
 #include <SFML/Graphics/Types.h>
 
 #define MASK_NAME(color) ((color).b & 0x0f)
-#define NB_TILE 1
+#define NB_TILE 3
+#define SIZE_TILE 64
 
 typedef struct sprite_s sprite_t;
 typedef struct rpg_s rpg_t;
@@ -25,7 +26,7 @@ typedef struct tile_s {
 	int player_col;
 	int laser_col;
 	int (*action)(rpg_t *, struct tile_s *);
-	sfTexture *texture;
+	sfSprite *sprite;
 } tile_t;
 
 typedef struct tile_list_s {

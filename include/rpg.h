@@ -21,10 +21,11 @@ typedef struct event_s event_t;
 
 typedef struct rpg_s {
 	sfEvent *event;
-	window_t *win;
+	sfRenderWindow *window;
 	scene_t **scenes;
 	texture_t **textures;
 	sfClock *clock;
+	int curr_scene;
 } rpg_t;
 
 int game_loop(rpg_t *rpg);

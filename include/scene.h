@@ -10,6 +10,8 @@
 
 #include <SFML/Graphics/Types.h>
 
+#define FIRST_SCENE 0
+
 typedef struct sprite_s sprite_t;
 typedef struct tile_s tile_t;
 typedef struct texture_s texture_t;
