@@ -11,32 +11,36 @@ DLIB	=	lib/
 DMY	=	$(DLIB)my/
 MY	=	my
 DLCFG	=	$(DLIB)libconfig
-LCFG	=	config 
-LIBS	=	-L$(DMY) -l$(MY)
+
+LCFG	=	config
+LIBS	=	-L$(DMY) -l$(MY) -L$(DLCFG) -l$(LCFG)
 
 DSRC	=	src/
 DINIT	=	$(DSRC)init/
 DSTATES	=	$(DSRC)states/
+DRAW	=	$(DSTATES)draw/
 DESTROY	=	$(DSRC)destroy/
-DPARSE	=	$(DSRC)parse/
+DPARSE	=	$(DINIT)parse/
 
 SRC     =	$(DSRC)main.c			\
 		$(DSRC)game_loop.c		\
 		$(DSTATES)states.c		\
-		$(DSTATES)draw.c		\
+		$(DRAW)draw.c			\
 		$(DSTATES)update.c		\
 		$(DSTATES)event.c		\
 		$(DINIT)init.c			\
 		$(DINIT)init_event.c		\
 		$(DINIT)init_window.c		\
+		$(DINIT)init_scenes.c		\
 		$(DESTROY)destroy.c		\
 		$(DESTROY)destroy_window.c	\
 		$(DESTROY)destroy_event.c	\
 		$(DPARSE)parse_image.c		\
 		$(DPARSE)tile_list.c
 
-CFLAGS	+=	-Wall -W -Wextra -I$(INC) -g
 LDFLAGS	=	-lc_graph_prog -lconfig
+CFLAGS	+=	-Wall -W -Wextra -I$(INC) -g
+
 OBJ	=	$(SRC:.c=.o)
 NAME	=	my_rpg
 

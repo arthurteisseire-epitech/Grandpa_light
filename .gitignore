@@ -8,4 +8,6 @@ vgcore*
 *.a
 a.out
 *.swp
+.idea
+cmake-*
 my_rpg

@@ -10,7 +10,7 @@
 
 #include <SFML/Graphics.h>
 
-#define NB_SCENES 0
+#define NB_SCENES 1
 #define TITLE "rpg"
 
 typedef struct scene_s scene_t;
@@ -22,9 +22,9 @@ typedef struct event_s event_t;
 typedef struct rpg_s {
 	sfEvent *event;
 	window_t *win;
-	menu_t *menu;
-	scene_t *scenes[NB_SCENES + 1];
+	scene_t **scenes;
 	texture_t **textures;
+	sfClock *clock;
 } rpg_t;
 
 int game_loop(rpg_t *rpg);

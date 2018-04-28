@@ -6,12 +6,11 @@
 */
 
 #include <stdlib.h>
-#include "libconfig.h"
+#include <libconfig.h>
 #include "rpg.h"
 #include "init.h"
 #include "states.h"
 #include "destroy.h"
-#include "parse.h"
 #include "define.h"
 
 /*int main(void)
@@ -26,18 +25,25 @@
 		return (status);
 	status = game_loop(rpg);
 	destroy(rpg);
-	parse_image(rpg->scenes[0], "assets/images/red_blue_white.png");
 	return (status);
 }*/
 
-#include <stdio.h>
-
-int main(void)
+int main()
 {
-	config_t *config = NULL;
-	config_init(config);
-	FILE *file = fopen("test.cfg", "r");
+	config_t config;
+	const char *str;
+	int i;
 
-	int ret = config_read(config, file);
-	printf("ret = %d\n", ret);
+	config_init(&config);
+	if (config_read_file(&config, "./data/test.cfg") != CONFIG_TRUE)
+		return (84);
+	if(config_lookup_string(&config, "application.window.title", &str))
+		printf("Store name: %s\n\n", str);
+	else
+		fprintf(stderr, "No 'application.window.title' setting in configuration file.\n");
+	if (config_lookup_int(&config, "application.window.size.w", &i))
+		printf("%i\n", i);
+	else
+		return (84);
+	return (0);
 }

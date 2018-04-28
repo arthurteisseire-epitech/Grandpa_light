@@ -19,5 +19,8 @@ int init(rpg_t *rpg)
 	status = init_event(rpg);
 	if (status != SUCCESS)
 		return (status);
+	status = init_scenes(rpg);
+	if (status != SUCCESS)
+		return (status);
 	return (status);
 }
