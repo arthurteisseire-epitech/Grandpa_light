@@ -32,6 +32,8 @@ SRC     =	$(DSRC)main.c			\
 		$(DINIT)init_event.c		\
 		$(DINIT)init_window.c		\
 		$(DINIT)init_scenes.c		\
+		$(DINIT)init_map.c		\
+		$(DINIT)init_buttons.c		\
 		$(DINIT)init_textures.c		\
 		$(DINIT)init_config.c		\
 		$(DESTROY)destroy.c		\
