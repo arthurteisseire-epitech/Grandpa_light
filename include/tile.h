@@ -12,7 +12,7 @@
 
 #define MASK_NAME(color) ((color).b & 0x0f)
 #define NB_TILE 5
-#define SIZE_TILE 64
+#define SIZE_TILE 32
 
 typedef struct sprite_s sprite_t;
 typedef struct rpg_s rpg_t;

@@ -26,7 +26,7 @@ int parse_image_line(rpg_t *rpg, map_t *map, sfImage *image, int row)
 	int index;
 
 	for (unsigned int col = 0; col < map->size.x; col++) {
-		color = sfImage_getPixel(image, col, row);
+		color = sfImage_getPixel(image, row, col);
 		index = index_tile_by_color(color);
 		map->tiles[row][col] = malloc(sizeof(tile_t));
 		if (map->tiles[row][col] == NULL)

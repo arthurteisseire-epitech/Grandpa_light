@@ -37,7 +37,7 @@ const tile_list_t tile_list[NB_TILE] = {
 int index_tile_by_color(sfColor color)
 {
 	for (int i = 0; i < NB_TILE; i++)
-		if ((MASK_NAME(tile_list[i].color) & (MASK_NAME(color))) != 0)
+		if ((MASK_NAME(tile_list[i].color) == (MASK_NAME(color))))
 			return (i);
 	return (0);
 }
