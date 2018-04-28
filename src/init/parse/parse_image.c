@@ -45,9 +45,9 @@ int init_tile(rpg_t *rpg, tile_t *tile, int index_tile, sfVector2f pos)
 	tile->action = tile_list[index_tile].action;
 	tile->player_col = tile_list[index_tile].player_col;
 	tile->laser_col = tile_list[index_tile].laser_col;
-	tile->direction = 0;
-	tile->active = 0;
-	tile->chanel = 0;
+	tile->active = (tile_list[index_tile].color.r & 0b00000001);
+	tile->direction = (tile_list[index_tile].color.r & 0b00000110);
+	tile->chanel = (tile_list[index_tile].color.g & 0x0f);
 	tile->sprite = sfSprite_create();
 	if (tile->sprite == NULL)
 		return (MALLOC_FAILED);
@@ -56,6 +56,6 @@ int init_tile(rpg_t *rpg, tile_t *tile, int index_tile, sfVector2f pos)
 		sfTrue);
 	sfSprite_setPosition(tile->sprite,
 		mult(pos, (sfVector2i){SIZE_TILE, SIZE_TILE}));
-	//sfSprite_setScale(tile->sprite, (sfVector2f){SIZE_TILE, SIZE_TILE});
+	sfSprite_setScale(tile->sprite, (sfVector2f){1, 1});
 	return (SUCCESS);
 }
