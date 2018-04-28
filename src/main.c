@@ -28,17 +28,17 @@ int main(void)
 	destroy(rpg);
 	return (status);
 }
-
 /*
+ *
  *int main(void)
  *{
  *        config_t config;
  *        config_setting_t *setting;
  *
  *        config_init(&config);
- *        if (config_read_file(&config, "data/textures.cfg") != CONFIG_TRUE)
+ *        if (config_read_file(&config, "data/rpg.cfg") != CONFIG_TRUE)
  *                return (84);
- *        setting = config_lookup(&config, "textures.texture");
+ *        setting = config_lookup(&config, "rpg.textures.texture");
  *        const char *str = config_setting_get_string_elem(setting, 1);
  *        printf("%s\n", str);
  *}

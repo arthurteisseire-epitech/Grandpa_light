@@ -16,5 +16,6 @@
 #define SUCCESS 0
 #define MALLOC_FAILED -2
 #define WRONG_PATH -3
+#define WRONG_CONFIG_PATH -4
 
 #endif

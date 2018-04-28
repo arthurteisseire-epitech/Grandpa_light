@@ -5,6 +5,7 @@
 ** by Arthur Teisseire
 */
 
+#include <libconfig.h>
 #include <stdlib.h>
 #include <memory.h>
 #include "rpg.h"
@@ -16,23 +17,29 @@
 int init_scenes(rpg_t *rpg)
 {
 	int status = SUCCESS;
+	config_setting_t *setting = config_lookup(rpg->config, "rpg.scenes.image");
+	unsigned int nb_scenes = count_setting_elem(setting);
+	const char *str;
 
-	rpg->scenes = malloc(sizeof(scene_t *) * (NB_SCENES + 1));
+	if (setting == NULL)
+		return (WRONG_CONFIG_PATH);
+	rpg->scenes = malloc(sizeof(scene_t *) * (nb_scenes + 1));
 	if (rpg->scenes == NULL)
 		return (MALLOC_FAILED);
-	for (unsigned int i = 0; i < NB_SCENES; i++) {
+	for (unsigned int i = 0; i < nb_scenes; i++) {
 		rpg->scenes[i] = malloc(sizeof(scene_t));
 		if (rpg->scenes[i] == NULL)
 			return (MALLOC_FAILED);
-		status = init_map(rpg, rpg->scenes[i], "assets/images/lala.png");
+		str = config_setting_get_string_elem(setting, i);
+		status = init_map(rpg, rpg->scenes[i], str);
 		if (status != SUCCESS)
 			return (status);
 	}
-	rpg->scenes[NB_SCENES] = NULL;
+	rpg->scenes[nb_scenes] = NULL;
 	return (status);
 }
 
-int init_map(rpg_t *rpg, scene_t *scene, char *path)
+int init_map(rpg_t *rpg, scene_t *scene, const char *path)
 {
 	map_t *map;
 	sfImage *image = sfImage_createFromFile(path);

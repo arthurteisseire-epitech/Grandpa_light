@@ -5,6 +5,7 @@
 ** by Arthur Teisseire
 */
 
+#include <libconfig.h>
 #include "rpg.h"
 #include "init.h"
 #include "define.h"

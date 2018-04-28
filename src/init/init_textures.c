@@ -5,27 +5,17 @@
 ** by Arthur Teisseire
 */
 
+#include <libconfig.h>
 #include <stdlib.h>
 #include "rpg.h"
 #include "texture.h"
 #include "define.h"
-
-static int count_textures(config_setting_t *setting)
-{
-	const char *str = "";
-	int i = 0;
-
-	while (str != NULL) {
-		str = config_setting_get_string_elem(setting, i);
-		i++;
-	}
-	return (i - 1);
-}
+#include "init.h"
 
 int init_textures(rpg_t *rpg)
 {
-	config_setting_t *setting = config_lookup(rpg->config, "textures.texture");
-	int nb_textures = count_textures(setting);
+	config_setting_t *setting = config_lookup(rpg->config, "rpg.textures.texture");
+	int nb_textures = count_setting_elem(setting);
 	const char *str;
 
 	rpg->textures = malloc(sizeof(texture_t *) * (nb_textures + 1));
