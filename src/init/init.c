@@ -15,9 +15,6 @@ int init(rpg_t *rpg)
 {
 	int status = SUCCESS;
 
-	status = init_window(rpg);
-	if (status != SUCCESS)
-		return (status);
 	status = init_event(rpg);
 	if (status != SUCCESS)
 		return (status);
@@ -31,6 +28,9 @@ int init(rpg_t *rpg)
 	if (status != SUCCESS)
 		return (status);
 	config_destroy(rpg->config);
+	status = init_window(rpg);
+	if (status != SUCCESS)
+		return (status);
 	rpg->curr_scene = FIRST_SCENE;
 	return (status);
 }

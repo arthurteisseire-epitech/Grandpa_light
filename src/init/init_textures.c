@@ -7,6 +7,7 @@
 
 #include <libconfig.h>
 #include <stdlib.h>
+#include "my.h"
 #include "rpg.h"
 #include "texture.h"
 #include "define.h"

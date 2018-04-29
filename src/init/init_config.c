@@ -7,6 +7,7 @@
 
 #include <stdlib.h>
 #include <libconfig.h>
+#include "my.h"
 #include "rpg.h"
 #include "define.h"
 
@@ -26,6 +27,8 @@ sfVector2f get_cfg_pos(config_setting_t *pos)
 	double row;
 	double col;
 
+	if (config_setting_length(pos) != 2)
+		return ((sfVector2f){0, 0});
 	row = config_setting_get_float_elem(pos, 0);
 	col = config_setting_get_float_elem(pos, 1);
 	return ((sfVector2f){row, col});

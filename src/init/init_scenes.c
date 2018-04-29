@@ -8,6 +8,7 @@
 #include <libconfig.h>
 #include <stdlib.h>
 #include <memory.h>
+#include "my.h"
 #include "rpg.h"
 #include "scene.h"
 #include "button.h"
@@ -18,11 +19,13 @@
 int init_scenes(rpg_t *rpg)
 {
 	int status = SUCCESS;
-	config_setting_t *setting = config_lookup(rpg->config, "rpg.scenes");
-	unsigned int nb_scenes = config_setting_length(setting);
+	config_setting_t *setting;
+	unsigned int nb_scenes;
 
+	setting = config_lookup(rpg->config, "rpg.scenes");
 	if (setting == NULL)
 		return (WRONG_CONFIG_PATH);
+	nb_scenes = config_setting_length(setting);
 	rpg->scenes = malloc(sizeof(scene_t *) * (nb_scenes + 1));
 	if (rpg->scenes == NULL)
 		return (MALLOC_FAILED);
@@ -43,8 +46,9 @@ int fill_scene(rpg_t *rpg, config_setting_t *scenes_setting, int index)
 	int status;
 	config_setting_t *scene_setting = config_setting_get_elem(scenes_setting, index);
 	const char *str;
-	
-	config_setting_lookup_string(scene_setting, "map", &str);
+
+	if (!config_setting_lookup_string(scene_setting, "map", &str))
+		return (WRONG_CONFIG_PATH);
 	status = init_buttons(rpg, rpg->scenes[index], scene_setting);
 	if (status != SUCCESS)
 		return (status);
