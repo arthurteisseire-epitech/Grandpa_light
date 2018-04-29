@@ -49,7 +49,7 @@ int fill_scene(rpg_t *rpg, config_setting_t *scenes_setting, int index)
 
 	if (!config_setting_lookup_string(scene_setting, "map", &str))
 		return (WRONG_CONFIG_PATH);
-	status = init_buttons(rpg, rpg->scenes[index], scene_setting);
+	status = init_buttons(rpg, &rpg->scenes[index]->buttons, scene_setting);
 	if (status != SUCCESS)
 		return (status);
 	status = init_map(rpg, rpg->scenes[index], str);

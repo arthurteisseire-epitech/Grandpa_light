@@ -22,12 +22,13 @@ int init_config(rpg_t *rpg)
 	return (SUCCESS);
 }
 
-sfVector2f get_cfg_pos(config_setting_t *pos)
+sfVector2f get_cfg_pos(config_setting_t *parent)
 {
 	double row;
 	double col;
+	config_setting_t *pos = config_setting_lookup(parent, "pos");
 
-	if (config_setting_length(pos) != 2)
+	if (pos == NULL || config_setting_length(pos) != 2)
 		return ((sfVector2f){0, 0});
 	row = config_setting_get_float_elem(pos, 0);
 	col = config_setting_get_float_elem(pos, 1);
