@@ -18,7 +18,7 @@ int init_config(rpg_t *rpg)
 		return (MALLOC_FAILED);
 	config_init(rpg->config);
 	if (config_read_file(rpg->config, "data/rpg.cfg") != CONFIG_TRUE)
-		return (WRONG_CONFIG_PATH);
+		return (WRONG_PATH);
 	return (SUCCESS);
 }
 

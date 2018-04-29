@@ -13,26 +13,34 @@
 
 int init_text(sfText **text, config_setting_t *parent)
 {
-	const char *str;
-	sfFont *font;
-	int size;
 	config_setting_t *text_setting = config_setting_lookup(parent, "text");
 
 	if (text_setting == NULL)
 		return (WRONG_CONFIG_PATH);
 	*text = sfText_create();
+	if (*text == NULL)
+		return (MALLOC_FAILED);
+	return (fill_text(*text, text_setting));
+}
+
+int fill_text(sfText *text, config_setting_t *text_setting)
+{
+	const char *str;
+	sfFont *font;
+	int size;
+
 	if (!config_setting_lookup_string(text_setting, "str", &str))
 		return (WRONG_CONFIG_PATH);
-	sfText_setString(*text, str);
+	sfText_setString(text, str);
 	if (!config_setting_lookup_string(text_setting, "font", &str))
 		return (WRONG_CONFIG_PATH);
 	font = sfFont_createFromFile(str);
 	if (font == NULL)
 		return (WRONG_PATH);
-	sfText_setFont(*text, font);
+	sfText_setFont(text, font);
 	if (!config_setting_lookup_int(text_setting, "size", &size))
 		return (WRONG_CONFIG_PATH);
-	sfText_setCharacterSize(*text, size);
-	sfText_setPosition(*text, get_cfg_pos(text_setting));
+	sfText_setCharacterSize(text, size);
+	sfText_setPosition(text, get_cfg_pos(text_setting));
 	return (SUCCESS);
 }

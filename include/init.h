@@ -24,6 +24,7 @@ int init_scenes(rpg_t *rpg);
 int fill_scene(rpg_t *rpg, config_setting_t *parent, int index);
 int init_button(rpg_t *rpg, button_t *button, config_setting_t *parent, int i);
 int init_text(sfText **text, config_setting_t *parent);
+int fill_text(sfText *text, config_setting_t *text_setting);
 int init_buttons(rpg_t *rpg, button_t ***buttons, config_setting_t *parent);
 int init_map(rpg_t *rpg, scene_t *scene, const char *path);
 int init_textures(rpg_t *rpg);
