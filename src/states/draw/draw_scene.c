@@ -8,6 +8,7 @@
 #include "rpg.h"
 #include "scene.h"
 #include "tile.h"
+#include "button.h"
 
 void draw_tile(rpg_t *rpg, tile_t *tile)
 {
@@ -23,7 +24,18 @@ void draw_map(rpg_t *rpg, map_t *map)
 	}
 }
 
+void draw_buttons(rpg_t *rpg, button_t **buttons)
+{
+	int i = 0;
+
+	while (buttons[i]) {
+		sfRenderWindow_drawSprite(rpg->window, buttons[i]->sprite, NULL);
+		i++;
+	}
+}
+
 void draw_scene(rpg_t *rpg, scene_t *scene)
 {
 	draw_map(rpg, scene->map);
+	draw_buttons(rpg, scene->buttons);
 }

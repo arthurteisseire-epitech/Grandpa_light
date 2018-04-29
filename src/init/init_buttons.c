@@ -31,6 +31,7 @@ int init_buttons(rpg_t *rpg, scene_t *scene, config_setting_t *scene_setting)
 		if (status != SUCCESS)
 			return (status);
 	}
+	scene->buttons[nb_buttons] = NULL;
 	return (SUCCESS);
 }
 
