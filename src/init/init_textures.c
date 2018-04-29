@@ -15,10 +15,13 @@
 
 int init_textures(rpg_t *rpg)
 {
-	config_setting_t *setting = config_lookup(rpg->config, "rpg.textures.texture");
-	int nb_textures = config_setting_length(setting);
 	const char *str;
+	int nb_textures;
+	config_setting_t *setting = config_lookup(rpg->config, "rpg.textures.texture");
 
+	if (setting == NULL)
+		return (WRONG_CONFIG_PATH);
+	nb_textures = config_setting_length(setting);
 	rpg->textures = malloc(sizeof(texture_t *) * (nb_textures + 1));
 	if (rpg->textures == NULL)
 		return (MALLOC_FAILED);
