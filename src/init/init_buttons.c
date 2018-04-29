@@ -39,6 +39,17 @@ int init_buttons(rpg_t *rpg, button_t ***buttons, config_setting_t *parent)
 	return (SUCCESS);
 }
 
+static sfVector2f scale(sfSprite *sprite, sfVector2f new)
+{
+	const sfTexture *texture = sfSprite_getTexture(sprite);
+	sfVector2u old = sfTexture_getSize(texture);
+	sfVector2f scale;
+
+	scale.x = old.x / new.x;
+	scale.y = old.x / new.x;
+	return (scale);
+}
+
 int init_button(rpg_t *rpg, button_t *button, config_setting_t *parent, int i)
 {
 	config_setting_t *button_setting = config_setting_get_elem(parent, i);
@@ -50,7 +61,8 @@ int init_button(rpg_t *rpg, button_t *button, config_setting_t *parent, int i)
 	if (button->sprite == NULL)
 		return (MALLOC_FAILED);
 	sfSprite_setTexture(button->sprite, rpg->textures[5]->texture, sfTrue);
-	sfSprite_setPosition(button->sprite, get_cfg_pos(button_setting));
+	sfSprite_setPosition(button->sprite, get_cfg_vec(button_setting));
+	sfSprite_setScale(button->sprite, scale(button->sprite, get_cfg_vec(button_setting)));
 	status = init_text(&button->text, button_setting);
 	return (status);
 }

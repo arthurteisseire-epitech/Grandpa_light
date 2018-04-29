@@ -22,7 +22,7 @@ int init_config(rpg_t *rpg)
 	return (SUCCESS);
 }
 
-sfVector2f get_cfg_pos(config_setting_t *parent)
+sfVector2f get_cfg_vec(config_setting_t *parent)
 {
 	double row;
 	double col;

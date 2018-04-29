@@ -29,6 +29,6 @@ int init_buttons(rpg_t *rpg, button_t ***buttons, config_setting_t *parent);
 int init_map(rpg_t *rpg, scene_t *scene, const char *path);
 int init_textures(rpg_t *rpg);
 int init_config(rpg_t *rpg);
-sfVector2f get_cfg_pos(config_setting_t *parent);
+sfVector2f get_cfg_vec(config_setting_t *parent);
 
 #endif
