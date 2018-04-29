@@ -24,7 +24,8 @@ typedef struct rpg_s {
 	sfEvent *event;
 	sfRenderWindow *window;
 	scene_t **scenes;
-	texture_t **textures;
+	texture_t **tx_tile;
+	texture_t **tx_game;
 	sfClock *clock;
 	int curr_scene;
 	config_t *config;

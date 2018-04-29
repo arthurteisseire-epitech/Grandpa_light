@@ -28,7 +28,9 @@ int fill_text(sfText *text, config_setting_t *text_setting);
 int init_buttons(rpg_t *rpg, button_t ***buttons, config_setting_t *parent);
 int init_map(rpg_t *rpg, scene_t *scene, const char *path);
 int init_textures(rpg_t *rpg);
+int fill_textures(texture_t ***textures, config_setting_t *parent, const char *name);
 int init_config(rpg_t *rpg);
 sfVector2f get_cfg_vec(config_setting_t *parent);
+sfVector2f scale(sfSprite *sprite, sfVector2f new);
 
 #endif

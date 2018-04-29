@@ -10,19 +10,22 @@
 
 #include <SFML/Graphics/Types.h>
 
-#define TX_WALL 0
-#define TX_GROUND 1
-#define TX_GLASS 2
-#define TX_SPAWN 3
-#define TX_END 4
-#define TX_DOOR 5
-#define TX_SWITCH 6
-#define TX_LS_BEAM 7
-#define TX_LS_RECEPTOR 7
+#define TX_TILE_WALL 0
+#define TX_TILE_GROUND 1
+#define TX_TILE_GLASS 2
+#define TX_TILE_SPAWN 3
+#define TX_TILE_END 4
+#define TX_TILE_DOOR 5
+#define TX_TILE_SWITCH 6
+#define TX_TILE_LS_BEAM 7
+#define TX_TILE_LS_RECEPTOR 8
 
 typedef struct texture_s {
 	sfTexture *texture;
 	sfIntRect *rect;
+	const char *name;
 } texture_t;
+
+sfTexture *get_texture_by_name(texture_t **tx_game, char const *name);
 
 #endif

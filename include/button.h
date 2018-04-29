@@ -14,7 +14,6 @@ typedef struct rpg_s rpg_t;
 typedef struct sprite_s sprite_t;
 
 typedef struct button_s {
-	const char *name;
 	sfSprite *sprite;
 	sfText *text;
 	int (*over)(rpg_t *, struct button_s *);

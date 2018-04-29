@@ -53,7 +53,7 @@ int init_tile(rpg_t *rpg, tile_t *tile, int index_tile, sfVector2f pos)
 	if (tile->sprite == NULL)
 		return (MALLOC_FAILED);
 	sfSprite_setTexture(tile->sprite,
-		rpg->textures[tile_list[index_tile].idx_texture]->texture,
+		rpg->tx_tile[tile_list[index_tile].idx_texture]->texture,
 		sfTrue);
 	sfSprite_setPosition(tile->sprite,
 		mult(pos, (sfVector2i){SIZE_TILE, SIZE_TILE}));
