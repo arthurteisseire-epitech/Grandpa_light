@@ -11,7 +11,7 @@
 
 static void destroy_button(button_t *button)
 {
-	sfSprite_destroy(button->sprite);
+	sfRectangleShape_destroy(button->rect);
 	sfText_destroy(button->text);
 	free(button);
 }

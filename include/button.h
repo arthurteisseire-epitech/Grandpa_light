@@ -14,7 +14,7 @@ typedef struct rpg_s rpg_t;
 typedef struct sprite_s sprite_t;
 
 typedef struct button_s {
-	sfSprite *sprite;
+	sfRectangleShape *rect;
 	sfText *text;
 	int (*over)(rpg_t *, struct button_s *);
 	int (*action)(rpg_t *, struct button_s *);

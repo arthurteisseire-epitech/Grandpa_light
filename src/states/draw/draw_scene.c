@@ -29,7 +29,7 @@ void draw_buttons(rpg_t *rpg, button_t **buttons)
 	int i = 0;
 
 	while (buttons[i]) {
-		sfRenderWindow_drawSprite(rpg->window, buttons[i]->sprite, NULL);
+		sfRenderWindow_drawRectangleShape(rpg->window, buttons[i]->rect, NULL);
 		sfRenderWindow_drawText(rpg->window, buttons[i]->text, NULL);
 		i++;
 	}

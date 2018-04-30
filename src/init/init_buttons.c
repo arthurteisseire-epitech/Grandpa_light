@@ -44,19 +44,23 @@ int init_button(rpg_t *rpg, button_t *button, config_setting_t *parent, int i)
 	int status;
 	const char *name;
 	sfTexture *tx;
+	double thick;
 	config_setting_t *button_setting = config_setting_get_elem(parent, i);
 
-	button->sprite = sfSprite_create();
-	if (button->sprite == NULL)
+	button->rect = sfRectangleShape_create();
+	if (button->rect == NULL)
 		return (MALLOC_FAILED);
 	if (!config_setting_lookup_string(button_setting, "name", &name))
 		return (WRONG_CONFIG_PATH);
 	tx = get_texture_by_name(rpg->tx_game, name);
 	if (tx == NULL)
 		return (TEXTURE_NOT_FOUND);
-	sfSprite_setTexture(button->sprite, tx, sfTrue);
-	sfSprite_setPosition(button->sprite, get_cfg_vec(button_setting, "pos"));
-	sfSprite_setScale(button->sprite, scale(button->sprite, get_cfg_vec(button_setting, "size")));
+	sfRectangleShape_setTexture(button->rect, tx, sfTrue);
+	sfRectangleShape_setPosition(button->rect, get_cfg_vec(button_setting, "pos"));
+	sfRectangleShape_setSize(button->rect, get_cfg_vec(button_setting, "size"));
+	if (!config_setting_lookup_float(button_setting, "thick", &thick))
+		return (WRONG_CONFIG_PATH);
+	sfRectangleShape_setOutlineThickness(button->rect, thick);
 	status = init_text(&button->text, button_setting);
 	return (status);
 }
