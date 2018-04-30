@@ -13,11 +13,13 @@
 typedef struct rpg_s rpg_t;
 typedef struct event_s event_t;
 typedef struct scene_s scene_t;
+typedef struct button_s button_t;
 
 void destroy(rpg_t *rpg);
 void destroy_event(sfEvent *event);
 void destroy_window(sfRenderWindow *window);
 void destroy_scenes(scene_t **scenes);
 void destroy_scene(scene_t *scene);
+void destroy_buttons(button_t **buttons);
 
 #endif

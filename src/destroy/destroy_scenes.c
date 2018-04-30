@@ -9,6 +9,7 @@
 #include "rpg.h"
 #include "scene.h"
 #include "tile.h"
+#include "destroy.h"
 
 static void destroy_tile(tile_t *tile)
 {
@@ -30,6 +31,7 @@ static void destroy_map(map_t *map)
 void destroy_scene(scene_t *scene)
 {
 	destroy_map(scene->map);
+	destroy_buttons(scene->buttons);
 	free(scene);
 }
 
