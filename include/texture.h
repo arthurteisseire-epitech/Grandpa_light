@@ -20,10 +20,14 @@
 #define TX_TILE_LS_BEAM 7
 #define TX_TILE_LS_RECEPTOR 8
 
-typedef struct texture_s {
-	sfTexture *texture;
+typedef struct rectangle_s {
 	sfIntRect *rect;
 	const char *name;
+} rectangle_t;
+
+typedef struct texture_s {
+	sfTexture *texture;
+	rectangle_t **rects;
 } texture_t;
 
 sfTexture *get_texture_by_name(texture_t **tx_game, char const *name);
