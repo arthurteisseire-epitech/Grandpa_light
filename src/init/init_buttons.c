@@ -19,11 +19,11 @@ int init_buttons(rpg_t *rpg, button_t ***buttons, config_setting_t *parent)
 {
 	int status;
 	unsigned int nb_buttons;
-	config_setting_t *buttons_setting = config_setting_lookup(parent, "buttons");
+	config_setting_t *buttons_set = config_setting_lookup(parent, "buttons");
 
-	if (buttons_setting == NULL)
+	if (buttons_set == NULL)
 		return (WRONG_CONFIG_PATH);
-	nb_buttons = config_setting_length(buttons_setting);
+	nb_buttons = config_setting_length(buttons_set);
 	(*buttons) = malloc(sizeof(button_t) * (nb_buttons + 1));
 	if (*buttons == NULL)
 		return (MALLOC_FAILED);
@@ -31,7 +31,7 @@ int init_buttons(rpg_t *rpg, button_t ***buttons, config_setting_t *parent)
 		(*buttons)[i] = malloc(sizeof(button_t));
 		if ((*buttons)[i] == NULL)
 			return (MALLOC_FAILED);
-		status = init_button(rpg, (*buttons)[i], buttons_setting, i);
+		status = init_button(rpg, (*buttons)[i], buttons_set, i);
 		if (status != SUCCESS)
 			return (status);
 	}
@@ -42,25 +42,20 @@ int init_buttons(rpg_t *rpg, button_t ***buttons, config_setting_t *parent)
 int init_button(rpg_t *rpg, button_t *button, config_setting_t *parent, int i)
 {
 	int status;
-	const char *name;
-	sfTexture *tx;
 	double thick;
-	config_setting_t *button_setting = config_setting_get_elem(parent, i);
+	config_setting_t *button_set = config_setting_get_elem(parent, i);
 
 	button->rect = sfRectangleShape_create();
 	if (button->rect == NULL)
 		return (MALLOC_FAILED);
-	if (!config_setting_lookup_string(button_setting, "name", &name))
-		return (WRONG_CONFIG_PATH);
-	tx = get_texture_by_name(rpg->tx_game, name);
-	if (tx == NULL)
-		return (TEXTURE_NOT_FOUND);
-	sfRectangleShape_setTexture(button->rect, tx, sfTrue);
-	sfRectangleShape_setPosition(button->rect, get_cfg_vec(button_setting, "pos"));
-	sfRectangleShape_setSize(button->rect, get_cfg_vec(button_setting, "size"));
-	if (!config_setting_lookup_float(button_setting, "thick", &thick))
+	status = set_texture_by_setting(rpg->tx_game, button->rect, button_set);
+	if (status != SUCCESS)
+		return (status);
+	sfRectangleShape_setPosition(button->rect, get_cfg_vec(button_set, "pos"));
+	sfRectangleShape_setSize(button->rect, get_cfg_vec(button_set, "size"));
+	if (!config_setting_lookup_float(button_set, "thick", &thick))
 		return (WRONG_CONFIG_PATH);
 	sfRectangleShape_setOutlineThickness(button->rect, thick);
-	status = init_text(&button->text, button_setting);
+	status = init_text(&button->text, button_set);
 	return (status);
 }
