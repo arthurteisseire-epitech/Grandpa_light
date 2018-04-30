@@ -55,8 +55,8 @@ int init_button(rpg_t *rpg, button_t *button, config_setting_t *parent, int i)
 	if (tx == NULL)
 		return (TEXTURE_NOT_FOUND);
 	sfSprite_setTexture(button->sprite, tx, sfTrue);
-	sfSprite_setPosition(button->sprite, get_cfg_vec(button_setting));
-	sfSprite_setScale(button->sprite, scale(button->sprite, get_cfg_vec(button_setting)));
+	sfSprite_setPosition(button->sprite, get_cfg_vec(button_setting, "pos"));
+	sfSprite_setScale(button->sprite, scale(button->sprite, get_cfg_vec(button_setting, "size")));
 	status = init_text(&button->text, button_setting);
 	return (status);
 }

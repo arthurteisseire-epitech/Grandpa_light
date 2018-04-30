@@ -80,7 +80,7 @@ sfVector2f scale(sfSprite *sprite, sfVector2f new)
 	sfVector2u old = sfTexture_getSize(texture);
 	sfVector2f scale;
 
-	scale.x = old.x / new.x;
-	scale.y = old.x / new.x;
+	scale.x = new.x / old.x;
+	scale.y = new.y / old.y;
 	return (scale);
 }
