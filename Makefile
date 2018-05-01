@@ -23,6 +23,7 @@ DPARSE	=	$(DINIT)parse/
 
 SRC     =	$(DSRC)main.c			\
 		$(DSRC)game_loop.c		\
+		$(DSRC)get_texture.c		\
 		$(DSTATES)states.c		\
 		$(DRAW)draw.c			\
 		$(DRAW)draw_scene.c		\

@@ -31,7 +31,7 @@ int init_textures(rpg_t *rpg)
 
 int fill_textures(texture_t ***textures, config_setting_t *parent, const char *name)
 {
-	const char *str;
+	int status;
 	unsigned int nb_textures;
 	config_setting_t *textures_setting = config_setting_lookup(parent, name);
 	config_setting_t *tx_setting;
@@ -43,44 +43,68 @@ int fill_textures(texture_t ***textures, config_setting_t *parent, const char *n
 	if (*textures == NULL)
 		return (MALLOC_FAILED);
 	for (unsigned int i = 0; i < nb_textures; i++) {
-		(*textures)[i] = malloc(sizeof(texture_t));
-		if ((*textures)[i] == NULL)
-			return (MALLOC_FAILED);
 		tx_setting = config_setting_get_elem(textures_setting, i);
-		config_setting_lookup_string(tx_setting, "path", &str);
-		if (str == NULL)
-			return (WRONG_CONFIG_PATH);
-		(*textures)[i]->texture = sfTexture_createFromFile(str, NULL);
-		if ((*textures)[i]->texture == NULL)
-			return (WRONG_PATH);
-		config_setting_lookup_string(tx_setting, "name", &(*textures)[i]->name);
-		if ((*textures)[i]->name == NULL)
-			return (WRONG_CONFIG_PATH);
-		
+		status = init_texture(&(*textures)[i], tx_setting);
+		if (status != SUCCESS)
+			return (status);
 	}
 	(*textures)[nb_textures] = NULL;
 	return (SUCCESS);
 }
 
-sfTexture *get_texture_by_name(texture_t **tx_game, char const *name)
+int init_texture(texture_t **texture, config_setting_t *tx_setting)
 {
-	int i = 0;
+	char const *str;
+	int status;
 
-	while (tx_game[i]) {
-		if (my_strcmp(name, tx_game[i]->name) == 0)
-			return (tx_game[i]->texture);
-		i++;
-	}
-	return (NULL);
+	(*texture) = malloc(sizeof(texture_t));
+	if ((*texture) == NULL)
+		return (MALLOC_FAILED);
+	config_setting_lookup_string(tx_setting, "path", &str);
+	if (str == NULL)
+		return (WRONG_CONFIG_PATH);
+	(*texture)->texture = sfTexture_createFromFile(str, NULL);
+	if ((*texture)->texture == NULL)
+		return (WRONG_PATH);
+	config_setting_lookup_string(tx_setting, "name", &(*texture)->name);
+	if ((*texture)->name == NULL)
+		return (WRONG_CONFIG_PATH);
+	status = set_texture_rects(&(*texture)->rects, tx_setting);
+	return (status);
 }
 
-sfVector2f scale(sfSprite *sprite, sfVector2f new)
+int set_texture_rects(rectangle_t ***rects, config_setting_t *parent)
 {
-	const sfTexture *texture = sfSprite_getTexture(sprite);
-	sfVector2u old = sfTexture_getSize(texture);
-	sfVector2f scale;
+	int status;
+	unsigned int nb_rects;
+	config_setting_t *names_setting = config_setting_lookup(parent, "names");
+	sfVector2f size = get_cfg_vec(parent, "size");
 
-	scale.x = new.x / old.x;
-	scale.y = new.y / old.y;
-	return (scale);
+	if (names_setting == NULL)
+		return (WRONG_CONFIG_PATH);
+	nb_rects = config_setting_length(names_setting);
+	(*rects) = malloc(sizeof(rectangle_t *) * (nb_rects + 1));
+	if (*rects == NULL)
+		return (MALLOC_FAILED);
+	for (unsigned int i = 0; i < nb_rects; i++) {
+		(*rects)[i] = malloc(sizeof(rectangle_t));
+		if ((*rects)[i] == NULL)
+			return (MALLOC_FAILED);
+		status = set_texture_rect((*rects)[i], names_setting, size, i);
+		if (status != SUCCESS)
+			return (status);
+	}
+	return (SUCCESS);
+}
+
+int set_texture_rect(rectangle_t *rect, config_setting_t *set, sfVector2f size, int i)
+{
+	rect->name = config_setting_get_string_elem(set, i);
+	if (rect->name == NULL)
+		return (WRONG_CONFIG_PATH);
+	rect->rect.width = size.x;
+	rect->rect.height = size.y;
+	rect->rect.left = i * size.x;
+	rect->rect.top = 0;
+	return (SUCCESS);
 }
