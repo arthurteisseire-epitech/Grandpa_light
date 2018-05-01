@@ -21,7 +21,7 @@ typedef struct rectangle_s {
 } rectangle_t;
 
 typedef struct texture_s {
-	char *name;
+	const char *name;
 	sfTexture *texture;
 	rectangle_t **rects;
 } texture_t;
