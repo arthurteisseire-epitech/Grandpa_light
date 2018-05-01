@@ -94,6 +94,7 @@ int set_texture_rects(rectangle_t ***rects, config_setting_t *parent)
 		if (status != SUCCESS)
 			return (status);
 	}
+	(*rects)[nb_rects] = NULL;
 	return (SUCCESS);
 }
 

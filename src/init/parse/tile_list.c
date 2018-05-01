@@ -13,15 +13,15 @@
 
 const tile_list_t tile_list[NB_TILE] = {
 	{{0x00, 0x00, 0x01, 0x00},
-		"wall", TRUE, TRUE, NULL, TX_TILE_WALL},
+		"wall", TRUE, TRUE, NULL, TX_TILE},
 	{{0x00, 0x00, 0x02, 0x00},
-		"ground", FALSE, FALSE, NULL, TX_TILE_GROUND},
+		"ground", FALSE, FALSE, NULL, TX_TILE},
 	{{0x00, 0x00, 0x03, 0x00},
-		"glass", TRUE, FALSE, NULL, TX_TILE_GLASS},
+		"glass", TRUE, FALSE, NULL, TX_TILE},
 	{{0x00, 0x00, 0x04, 0x00},
-		"spawn", FALSE, FALSE, NULL, TX_TILE_SPAWN},
+		"spawn", FALSE, FALSE, NULL, TX_TILE},
 	{{0x00, 0x00, 0x05, 0x00},
-		"end", FALSE, FALSE, NULL, TX_TILE_END},
+		"end", FALSE, FALSE, NULL, TX_TILE},
 	/*
 	 *{{0x00, 0x00, 0x06, 0x00},
 	 *        "door", TRUE, TRUE, NULL, TX_TILE_DOOR},

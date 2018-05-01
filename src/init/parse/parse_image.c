@@ -40,7 +40,7 @@ int parse_image_line(rpg_t *rpg, map_t *map, sfImage *image, int row)
 	return (SUCCESS);
 }
 
-void get_rect(texture_t *texture, char *name)
+rectangle_t *get_rect(texture_t *texture, char *name)
 {
 	int i = 0;	
 
@@ -54,8 +54,7 @@ void get_rect(texture_t *texture, char *name)
 
 int init_tile(rpg_t *rpg, tile_t *tile, int index_tile, sfVector2f pos)
 {
-	sfTexture *texture = rpg->tx_tile[
-		tile_list[index_tile].idx_texture]->texture;
+	texture_t *texture = rpg->tx_tile[tile_list[index_tile].idx_texture];
 
 	tile->name = tile_list[index_tile].name;
 	tile->action = tile_list[index_tile].action;
@@ -67,10 +66,7 @@ int init_tile(rpg_t *rpg, tile_t *tile, int index_tile, sfVector2f pos)
 	tile->sprite = sfSprite_create();
 	if (tile->sprite == NULL)
 		return (MALLOC_FAILED);
-	sfSprite_setTextureRect(tile->sprite, get_rect(texture, tile->name));
-	sfSprite_setTexture(tile->sprite,
-			rpg->tx_tile[tile_list[index_tile].idx_texture]->texture,
-			sfTrue);
+	sfSprite_setTextureRect(tile->sprite, get_rect(texture, tile->name)->rect);
 	sfSprite_setPosition(tile->sprite,
 			mult(pos, (sfVector2i){SIZE_TILE, SIZE_TILE}));
 	sfSprite_setScale(tile->sprite, (sfVector2f){1, 1});
