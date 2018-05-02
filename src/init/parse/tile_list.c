@@ -22,6 +22,7 @@ const tile_list_t tile_list[NB_TILE] = {
 		"spawn", FALSE, FALSE, NULL, TX_TILE_SPAWN},
 	{{0x00, 0x00, 0x05, 0x00},
 		"end", FALSE, FALSE, NULL, TX_TILE_END},
+	{{0x00, 0x00, 0x06, 0x00}, "laser", 
 	/*
 	 *{{0x00, 0x00, 0x06, 0x00},
 	 *        "door", TRUE, TRUE, NULL, TX_TILE_DOOR},
