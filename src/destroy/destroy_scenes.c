@@ -11,9 +11,16 @@
 #include "tile.h"
 #include "destroy.h"
 
+static void destroy_laser(laser_t *laser)
+{
+	sfRectangleShape_destroy(laser->rect);
+	free(laser);
+}
+
 static void destroy_tile(tile_t *tile)
 {
 	sfSprite_destroy(tile->sprite);
+	destroy_laser(tile->laser);
 	free(tile);
 }
 

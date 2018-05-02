@@ -21,5 +21,8 @@ void destroy_window(sfRenderWindow *window);
 void destroy_scenes(scene_t **scenes);
 void destroy_scene(scene_t *scene);
 void destroy_buttons(button_t **buttons);
+void destroy_clock(sfClock *clock);
+void destroy_config(config_t *config);
+void destroy_textures(texture_t **textures);
 
 #endif

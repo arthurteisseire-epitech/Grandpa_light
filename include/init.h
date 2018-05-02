@@ -32,6 +32,8 @@ int init_event(rpg_t *rpg);
 
 int init_scenes(rpg_t *rpg);
 
+int init_clock(rpg_t *rpg);
+
 int fill_scene(rpg_t *rpg, config_setting_t *parent, int index);
 
 int init_button(rpg_t *rpg, button_t *button, config_setting_t *parent, int i);

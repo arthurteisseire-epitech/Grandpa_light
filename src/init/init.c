@@ -5,7 +5,7 @@
 ** by Arthur Teisseire
 */
 
-#include <libconfig.h>
+#include "destroy.h"
 #include "rpg.h"
 #include "init.h"
 #include "define.h"
@@ -13,7 +13,7 @@
 
 int init(rpg_t *rpg)
 {
-	int status = SUCCESS;
+	int status;
 
 	status = init_event(rpg);
 	if (status != SUCCESS)
@@ -27,10 +27,14 @@ int init(rpg_t *rpg)
 	status = init_scenes(rpg);
 	if (status != SUCCESS)
 		return (status);
-	config_destroy(rpg->config);
+	destroy_config(rpg->config);
 	status = init_window(rpg);
+	if (status != SUCCESS)
+		return (status);
+	status = init_clock(rpg);
 	if (status != SUCCESS)
 		return (status);
 	rpg->curr_scene = FIRST_SCENE;
 	return (status);
+}	return (status);
 }
