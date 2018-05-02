@@ -44,7 +44,8 @@ int init_scenes(rpg_t *rpg)
 int fill_scene(rpg_t *rpg, config_setting_t *scenes_setting, int index)
 {
 	int status;
-	config_setting_t *scene_setting = config_setting_get_elem(scenes_setting, index);
+	config_setting_t *scene_setting = config_setting_get_elem(
+		scenes_setting, index);
 	const char *str;
 
 	if (!config_setting_lookup_string(scene_setting, "map", &str))

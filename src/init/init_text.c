@@ -41,6 +41,6 @@ int fill_text(sfText *text, config_setting_t *text_setting)
 	if (!config_setting_lookup_int(text_setting, "size", &size))
 		return (WRONG_CONFIG_PATH);
 	sfText_setCharacterSize(text, size);
-	sfText_setPosition(text, get_cfg_vec(text_setting));
+	sfText_setPosition(text, get_cfg_vec(text_setting, "pos"));
 	return (SUCCESS);
 }

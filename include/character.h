@@ -11,6 +11,7 @@
 #define MAX_ITEMS 1
 
 #include <SFML/Graphics/Types.h>
+#include <SFML/System.h>
 
 typedef struct object_s object_t;
 

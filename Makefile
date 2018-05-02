@@ -23,6 +23,7 @@ DPARSE	=	$(DINIT)parse/
 
 SRC     =	$(DSRC)main.c			\
 		$(DSRC)game_loop.c		\
+		$(DSRC)get_texture.c		\
 		$(DSTATES)states.c		\
 		$(DRAW)draw.c			\
 		$(DRAW)draw_scene.c		\
@@ -41,6 +42,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DESTROY)destroy_window.c	\
 		$(DESTROY)destroy_event.c	\
 		$(DESTROY)destroy_scenes.c	\
+		$(DESTROY)destroy_buttons.c	\
 		$(DPARSE)parse_image.c		\
 		$(DPARSE)tile_list.c
 

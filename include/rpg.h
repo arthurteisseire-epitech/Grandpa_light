@@ -14,10 +14,15 @@
 #define TITLE "rpg"
 
 typedef struct scene_s scene_t;
+
 typedef struct menu_s menu_t;
+
 typedef struct texture_s texture_t;
+
 typedef struct window_s window_t;
+
 typedef struct event_s event_t;
+
 typedef struct config_t config_t;
 
 typedef struct rpg_s {
