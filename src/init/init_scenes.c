@@ -22,7 +22,7 @@ int init_scenes(rpg_t *rpg)
 	config_setting_t *setting;
 	unsigned int nb_scenes;
 
-	setting = config_lookup(rpg->config, "rpg.scenes");
+	setting = config_setting_lookup(rpg->set, "scenes");
 	if (setting == NULL)
 		return (WRONG_CONFIG_PATH);
 	nb_scenes = config_setting_length(setting);

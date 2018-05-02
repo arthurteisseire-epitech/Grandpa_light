@@ -15,7 +15,7 @@
 
 int init_textures(rpg_t *rpg)
 {
-	config_setting_t *parent = config_lookup(rpg->config, "rpg");
+	config_setting_t *parent = rpg->set;
 	int status;
 
 	if (parent == NULL)

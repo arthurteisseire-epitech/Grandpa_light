@@ -27,9 +27,11 @@ SRC     =	$(DSRC)main.c			\
 		$(DSTATES)states.c		\
 		$(DRAW)draw.c			\
 		$(DRAW)draw_scene.c		\
+		$(DRAW)draw_character.c		\
 		$(DSTATES)update.c		\
 		$(DSTATES)event.c		\
 		$(DINIT)init.c			\
+		$(DINIT)init_character.c	\
 		$(DINIT)init_event.c		\
 		$(DINIT)init_window.c		\
 		$(DINIT)init_scenes.c		\
@@ -38,6 +40,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DINIT)init_text.c		\
 		$(DINIT)init_textures.c		\
 		$(DINIT)init_config.c		\
+		$(DINIT)init_shape.c		\
 		$(DESTROY)destroy.c		\
 		$(DESTROY)destroy_window.c	\
 		$(DESTROY)destroy_event.c	\

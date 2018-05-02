@@ -27,10 +27,10 @@ int init(rpg_t *rpg)
 	status = init_scenes(rpg);
 	if (status != SUCCESS)
 		return (status);
-	config_destroy(rpg->config);
-	status = init_window(rpg);
+	status = init_character(rpg, rpg->set);
 	if (status != SUCCESS)
 		return (status);
 	rpg->curr_scene = FIRST_SCENE;
+	status = init_window(rpg);
 	return (status);
 }
