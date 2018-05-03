@@ -9,6 +9,10 @@
 #define CHARACTER_H
 
 #define MAX_ITEMS 1
+#define DIR_UP 0
+#define DIR_LEFT 1
+#define DIR_DOWN 2
+#define DIR_RIGHT 3
 
 #include <SFML/Graphics/Types.h>
 
@@ -29,6 +33,11 @@ typedef struct character_s {
 	sfRectangleShape *rect;
 	inventory_t *inventory;
 	stat_t *stats;
+	sfVector2f pos;
+	int curr_frame;
 } character_t;
+
+void move_player(sfVector2f *pos, int dir);
+void set_player_pos(character_t *player);
 
 #endif

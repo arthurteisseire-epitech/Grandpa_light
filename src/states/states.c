@@ -16,10 +16,11 @@ int states(rpg_t *rpg)
 	status = event(rpg);
 	if (status != SUCCESS)
 		return (status);
-	if (status != SUCCESS)
-		status = update(rpg);
+	status = update(rpg);
 	if (status != SUCCESS)
 		return (status);
 	status = draw(rpg);
+	if (status != SUCCESS)
+		return (status);
 	return (status);
 }
