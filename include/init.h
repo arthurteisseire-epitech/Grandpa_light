@@ -10,6 +10,8 @@
 
 #include <SFML/Graphics.h>
 
+#define INIT_NB 6
+
 typedef struct rpg_s rpg_t;
 
 typedef struct scene_s scene_t;

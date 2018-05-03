@@ -13,8 +13,15 @@
 
 int init(rpg_t *rpg)
 {
-	int status;
+	int status = 0;
+	int (*init[INIT_NB])(rpg_t *) = {init_event, init_config, init_textures,
+		init_scenes, init_window, init_clock};
 
+	for (unsigned int i = 0; i < INIT_NB; i++) {
+		status = init[i](rpg);
+		if (status != SUCCESS)
+			return (status);
+	}/*
 	status = init_event(rpg);
 	if (status != SUCCESS)
 		return (status);
@@ -27,14 +34,13 @@ int init(rpg_t *rpg)
 	status = init_scenes(rpg);
 	if (status != SUCCESS)
 		return (status);
-	destroy_config(rpg->config);
 	status = init_window(rpg);
 	if (status != SUCCESS)
 		return (status);
 	status = init_clock(rpg);
 	if (status != SUCCESS)
-		return (status);
+		return (status);*/
 	rpg->curr_scene = FIRST_SCENE;
+	destroy_config(rpg->config);
 	return (status);
-}	return (status);
 }

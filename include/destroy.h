@@ -9,11 +9,13 @@
 #define DESTROY_H
 
 #include <SFML/Graphics.h>
+#include <libconfig.h>
 
 typedef struct rpg_s rpg_t;
 typedef struct event_s event_t;
 typedef struct scene_s scene_t;
 typedef struct button_s button_t;
+typedef struct texture_s texture_t;
 
 void destroy(rpg_t *rpg);
 void destroy_event(sfEvent *event);
