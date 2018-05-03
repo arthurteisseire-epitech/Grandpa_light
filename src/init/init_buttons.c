@@ -21,8 +21,10 @@ int init_buttons(rpg_t *rpg, button_t ***buttons, config_setting_t *parent)
 	unsigned int nb_buttons;
 	config_setting_t *buttons_set = config_setting_lookup(parent, "buttons");
 
-	if (buttons_set == NULL)
-		return (WRONG_CONFIG_PATH);
+	if (buttons_set == NULL) {
+		*buttons = NULL;
+		return (SUCCESS);
+	}
 	nb_buttons = config_setting_length(buttons_set);
 	(*buttons) = malloc(sizeof(button_t) * (nb_buttons + 1));
 	if (*buttons == NULL)

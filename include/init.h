@@ -18,6 +18,7 @@ typedef struct config_setting_t config_setting_t;
 typedef struct button_s button_t;
 typedef struct rectangle_s rectangle_t;
 typedef struct config_t config_t;
+typedef struct map_s map_t;
 
 int init(rpg_t *rpg);
 int init_window(rpg_t *rpg);
@@ -31,7 +32,7 @@ int init_button(rpg_t *rpg, button_t *button, config_setting_t *parent, int i);
 int init_text(sfText **text, config_setting_t *parent);
 int fill_text(sfText *text, config_setting_t *text_setting);
 int init_buttons(rpg_t *rpg, button_t ***buttons, config_setting_t *parent);
-int init_map(rpg_t *rpg, scene_t *scene, const char *path);
+int init_map(rpg_t *rpg, map_t **map, const char *path);
 
 int init_shape(rpg_t *rpg, sfRectangleShape **rect, config_setting_t *parent);
 

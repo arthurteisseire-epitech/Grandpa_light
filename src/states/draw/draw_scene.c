@@ -30,13 +30,16 @@ void draw_buttons(rpg_t *rpg, button_t **buttons)
 
 	while (buttons[i]) {
 		sfRenderWindow_drawRectangleShape(rpg->window, buttons[i]->rect, NULL);
-		sfRenderWindow_drawText(rpg->window, buttons[i]->text, NULL);
+		if (buttons[i]->text != NULL)
+			sfRenderWindow_drawText(rpg->window, buttons[i]->text, NULL);
 		i++;
 	}
 }
 
 void draw_scene(rpg_t *rpg, scene_t *scene)
 {
-	draw_map(rpg, scene->map);
-	draw_buttons(rpg, scene->buttons);
+	if (scene->map != NULL)
+		draw_map(rpg, scene->map);
+	if (scene->buttons != NULL)
+		draw_buttons(rpg, scene->buttons);
 }
