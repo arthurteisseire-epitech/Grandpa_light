@@ -21,25 +21,7 @@ int init(rpg_t *rpg)
 		status = init[i](rpg);
 		if (status != SUCCESS)
 			return (status);
-	}/*
-	status = init_event(rpg);
-	if (status != SUCCESS)
-		return (status);
-	status = init_config(rpg);
-	if (status != SUCCESS)
-		return (status);
-	status = init_textures(rpg);
-	if (status != SUCCESS)
-		return (status);
-	status = init_scenes(rpg);
-	if (status != SUCCESS)
-		return (status);
-	status = init_window(rpg);
-	if (status != SUCCESS)
-		return (status);
-	status = init_clock(rpg);
-	if (status != SUCCESS)
-		return (status);*/
+	}
 	rpg->curr_scene = FIRST_SCENE;
 	destroy_config(rpg->config);
 	return (status);
