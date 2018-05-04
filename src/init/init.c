@@ -11,7 +11,9 @@
 #include "define.h"
 #include "scene.h"
 
-static const int (*init[])(rpg_t *) = {
+typedef int (*init_arr_t)(rpg_t *);
+
+static const init_arr_t init_arr[] = {
 	init_event,
 	init_config,
 	init_textures,
@@ -26,8 +28,8 @@ int init(rpg_t *rpg)
 	int status = SUCCESS;
 	int i = 0;
 
-	while (init[i] != NULL) {
-		status = init[i](rpg);
+	while (init_arr[i] != NULL) {
+		status = init_arr[i](rpg);
 		if (status != SUCCESS)
 			return (status);
 		i++;
