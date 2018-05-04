@@ -58,7 +58,6 @@ int init_button(rpg_t *rpg, button_t *button, config_setting_t *parent, int i)
 	config_setting_lookup_float(button_set, "thick", &thick);
 	config_setting_lookup_string(button_set, "function", &ft_name);
 	button->button_func = get_func_button(ft_name);
-	printf("name %s\n", ft_name);
 	sfRectangleShape_setOutlineThickness(button->rect, thick);
 	status = init_text(&button->text, button_set);
 	return (status);
