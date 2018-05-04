@@ -9,9 +9,10 @@
 
 sfVector2f mult_vec(sfVector2f vec1, int factor)
 {
-	sfVector2f new_vec;
+	return ((sfVector2f){vec1.x * factor, vec1.y * factor});
+}
 
-	new_vec.x = vec1.x * factor;
-	new_vec.y = vec1.y * factor;
-	return (new_vec);
+sfVector2f add_vec(sfVector2f vec1, sfVector2f vec2)
+{
+	return ((sfVector2f){vec1.x + vec2.x, vec1.y + vec2.y});
 }
