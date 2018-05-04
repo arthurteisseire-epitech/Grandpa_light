@@ -61,13 +61,13 @@ SRC     =	$(DSRC)main.c			\
 		$(DESTROY)destroy_textures.c	\
 		$(DESTROY)destroy_config.c	\
 		$(DESTROY)destroy_clock.c	\
-		$(DSRC)manage_buttons.c 	\
 		$(DPARSE)parse_image.c		\
 		$(DPARSE)tile_list.c		\
 		$(DMAP)apply_on_map.c		\
 		$(DMAPACT)action_lever.c	\
 		$(DMAPACT)action_door.c		\
 		$(DSCENE)change_scene.c		\
+		$(DSCENE)manage_buttons.c 	\
 		$(DTOOLS)vec.c			\
 		$(DTOOLS)get_rect.c		\
 		$(DTOOLS)get_texture.c		\

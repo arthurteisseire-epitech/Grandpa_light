@@ -34,5 +34,6 @@ typedef struct scene_s {
 
 void change_scene(rpg_t *rpg);
 void place_in_spawn(rpg_t *rpg);
+int manage_button(rpg_t *rpg, button_t **button, sfEvent *event);
 
 #endif
