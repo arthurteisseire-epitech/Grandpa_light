@@ -38,13 +38,15 @@ static void change_scene(rpg_t *rpg)
 {
 	if (sfKeyboard_isKeyPressed(sfKeyP)) {
 		rpg->curr_scene = (rpg->curr_scene + 1) % rpg->nb_scenes;
-		sfRectangleShape_setPosition(rpg->character->rect,
+		if (rpg->scenes[rpg->curr_scene]->map != NULL)
+			sfRectangleShape_setPosition(rpg->character->rect,
 			sfSprite_getPosition(get_map_tile(
 			rpg->scenes[rpg->curr_scene]->map, "spawn")->sprite));
 	} else if (sfKeyboard_isKeyPressed(sfKeyO)) {
 		rpg->curr_scene = (rpg->curr_scene == 0) ?
 			rpg->nb_scenes - 1 : rpg->curr_scene - 1;
-		sfRectangleShape_setPosition(rpg->character->rect,
+		if (rpg->scenes[rpg->curr_scene]->map != NULL)
+			sfRectangleShape_setPosition(rpg->character->rect,
 			sfSprite_getPosition(get_map_tile(
 			rpg->scenes[rpg->curr_scene]->map, "spawn")->sprite));
 	}

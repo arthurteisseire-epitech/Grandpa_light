@@ -11,6 +11,7 @@ DLIB	=	lib/
 DMY	=	$(DLIB)my/
 MY	=	my
 DLCFG	=	$(DLIB)libconfig
+
 LCFG	=	config
 LIBS	=	-L$(DMY) -l$(MY) -L$(DLCFG) -l$(LCFG)
 
@@ -57,8 +58,9 @@ SRC     =	$(DSRC)main.c			\
 		$(DESTROY)destroy_config.c	\
 		$(DESTROY)destroy_clock.c	\
 		$(DPARSE)parse_image.c		\
-		$(DPARSE)tile_list.c		\
-		$(DTOOLS)get_map_tile.c
+		$(DTOOLS)get_map_tile.c		\
+		$(DPARSE)tile_list.c 		\
+		$(DINIT)init_ftbutton.c
 
 LDFLAGS	=	-lc_graph_prog -lconfig
 CFLAGS	+=	-Wall -W -Wextra -I$(INC) -g

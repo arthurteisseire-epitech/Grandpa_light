@@ -17,15 +17,14 @@
 
 int init_shape(sfRectangleShape **rect, config_setting_t *parent)
 {
-	double thick;
+	double thick = 0.0;
 
 	*rect = sfRectangleShape_create();
 	if (*rect == NULL)
 		return (MALLOC_FAILED);
 	sfRectangleShape_setPosition(*rect, get_cfg_vec(parent, "pos"));
 	sfRectangleShape_setSize(*rect, get_cfg_vec(parent, "size"));
-	if (!config_setting_lookup_float(parent, "thick", &thick))
-		return (WRONG_CONFIG_PATH);
+	config_setting_lookup_float(parent, "thick", &thick);
 	sfRectangleShape_setOutlineThickness(*rect, thick);
 	return (SUCCESS);
 }
