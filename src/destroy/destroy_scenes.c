@@ -39,6 +39,7 @@ void destroy_scene(scene_t *scene)
 {
 	destroy_map(scene->map);
 	destroy_buttons(scene->buttons);
+	destroy_texts(scene->text);
 	free(scene);
 }
 

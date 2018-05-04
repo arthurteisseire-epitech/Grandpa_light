@@ -26,5 +26,6 @@ void destroy_buttons(button_t **buttons);
 void destroy_clock(sfClock *clock);
 void destroy_config(config_t *config);
 void destroy_textures(texture_t **textures);
+void destroy_texts(sfText **text);
 
 #endif

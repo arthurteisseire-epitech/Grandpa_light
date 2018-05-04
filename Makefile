@@ -38,7 +38,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DINIT)init_text.c		\
 		$(DINIT)init_textures.c		\
 		$(DINIT)init_config.c		\
-		$(DINIT)init_clock.c	\
+		$(DINIT)init_clock.c		\
 		$(DESTROY)destroy.c		\
 		$(DESTROY)destroy_window.c	\
 		$(DESTROY)destroy_event.c	\
