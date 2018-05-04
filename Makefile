@@ -64,6 +64,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DPARSE)tile_list.c		\
 		$(DMAP)apply_on_map.c		\
 		$(DMAPACT)action_lever.c	\
+		$(DMAPACT)action_door.c		\
 		$(DSCENE)change_scene.c		\
 		$(DTOOLS)vec.c			\
 		$(DTOOLS)get_texture.c		\

@@ -13,7 +13,7 @@
 
 const tile_list_t tile_list[NB_TILE] = {
 	{{0x00, 0x00, 0x01, 0x00},
-		"wall", TRUE, TRUE, NULL, TX_TILE},
+		"wall", TRUE, TRUE, action_door, TX_TILE},
 	{{0x00, 0x00, 0x02, 0x00},
 		"ground", FALSE, FALSE, NULL, TX_TILE},
 	{{0x00, 0x00, 0x03, 0x00},

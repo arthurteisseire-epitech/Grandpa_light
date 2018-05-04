@@ -56,5 +56,6 @@ tile_t *get_tile_by_name(map_t *map, tile_t **tiles, void *name);
 tile_t *set_tile_by_chanel(map_t *map, tile_t **tiles, void *chanel);
 
 int action_lever(map_t *map, tile_t *tile);
+int action_door(map_t __attribute((unused))*map, tile_t *tile);
 
 #endif
