@@ -18,31 +18,32 @@ typedef struct config_setting_t config_setting_t;
 typedef struct button_s button_t;
 typedef struct rectangle_s rectangle_t;
 typedef struct config_t config_t;
+typedef struct map_s map_t;
+
+typedef int (*init_arr_t)(rpg_t *);
 
 int init(rpg_t *rpg);
 int init_window(rpg_t *rpg);
 int init_event(rpg_t *rpg);
-int init_character(rpg_t *rpg, config_setting_t *parent);
-
+int init_character(rpg_t *rpg);
+int init_clock(rpg_t *rpg);
+int init_config(rpg_t *rpg);
 int init_scenes(rpg_t *rpg);
 int fill_scene(rpg_t *rpg, config_setting_t *parent, int index);
-
+int init_buttons(rpg_t *rpg, button_t ***buttons, config_setting_t *parent);
 int init_button(rpg_t *rpg, button_t *button, config_setting_t *parent, int i);
 int init_text(sfText **text, config_setting_t *parent);
 int fill_text(sfText *text, config_setting_t *text_setting);
+int init_map(rpg_t *rpg, map_t **map, const char *path);
 int init_buttons(rpg_t *rpg, button_t ***buttons, config_setting_t *parent);
-int init_map(rpg_t *rpg, scene_t *scene, const char *path);
-
 int init_shape(rpg_t *rpg, sfRectangleShape **rect, config_setting_t *parent);
-
 int init_textures(rpg_t *rpg);
-int fill_textures(texture_t ***textures, config_setting_t *parent, const char *name);
+int fill_textures(texture_t ***textures, config_setting_t *parent,
+	const char *name);
 int init_texture(texture_t **texture, config_setting_t *tx_setting);
-
 int set_texture_rects(rectangle_t ***rects, config_setting_t *parent);
-int set_texture_rect(rectangle_t *rect, config_setting_t *set, sfVector2f size, int i);
-int init_config(rpg_t *rpg);
-
+int set_texture_rect(rectangle_t *rect, config_setting_t *set, sfVector2f size,
+	int i);
 sfVector2f get_cfg_vec(config_setting_t *parent, char const *name);
 sfVector2f scale(sfSprite *sprite, sfVector2f new);
 

@@ -30,12 +30,22 @@ void player_movement(rpg_t *rpg)
 		move_player(&rpg->character->pos, DIR_RIGHT);
 }
 
+static void change_scene(rpg_t *rpg)
+{
+	if (sfKeyboard_isKeyPressed(sfKeyRight))
+		rpg->curr_scene = (rpg->curr_scene + 1) % rpg->nb_scenes;
+	else if (sfKeyboard_isKeyPressed(sfKeyLeft))
+		rpg->curr_scene = (rpg->curr_scene == 0) ?
+			rpg->nb_scenes - 1 : rpg->curr_scene - 1;
+}
+
 int event(rpg_t *rpg)
 {
 	while (sfRenderWindow_pollEvent(rpg->window, rpg->event)) {
 		handle_exit(rpg);
 		if (rpg->event->type == sfEvtKeyPressed)
 			player_movement(rpg);
+		change_scene(rpg);
 	}
 	return (SUCCESS);
 }

@@ -15,6 +15,7 @@
 #define DIR_RIGHT 3
 
 #include <SFML/Graphics/Types.h>
+#include <SFML/System.h>
 
 typedef struct object_s object_t;
 typedef struct rpg_s rpg_t;

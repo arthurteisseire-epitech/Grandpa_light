@@ -6,6 +6,7 @@
 */
 
 #include <stdlib.h>
+#include <libconfig.h>
 #include "rpg.h"
 #include "destroy.h"
 
@@ -14,5 +15,8 @@ void destroy(rpg_t *rpg)
 	destroy_window(rpg->window);
 	destroy_event(rpg->event);
 	destroy_scenes(rpg->scenes);
+	destroy_textures(rpg->tx_tile);
+	destroy_textures(rpg->tx_game);
+	destroy_clock(rpg->clock);
 	free(rpg);
 }

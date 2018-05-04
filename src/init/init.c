@@ -5,32 +5,34 @@
 ** by Arthur Teisseire
 */
 
-#include <libconfig.h>
+#include "destroy.h"
 #include "rpg.h"
 #include "init.h"
 #include "define.h"
 #include "scene.h"
 
+static const init_arr_t init_arr[] = {
+	init_event,
+	init_config,
+	init_textures,
+	init_character,
+	init_scenes,
+	init_clock,
+	init_window,
+	NULL
+};
+
 int init(rpg_t *rpg)
 {
 	int status = SUCCESS;
+	int i = 0;
 
-	status = init_event(rpg);
-	if (status != SUCCESS)
-		return (status);
-	status = init_config(rpg);
-	if (status != SUCCESS)
-		return (status);
-	status = init_textures(rpg);
-	if (status != SUCCESS)
-		return (status);
-	status = init_scenes(rpg);
-	if (status != SUCCESS)
-		return (status);
-	status = init_character(rpg, rpg->set);
-	if (status != SUCCESS)
-		return (status);
+	while (init_arr[i] != NULL) {
+		status = init_arr[i](rpg);
+		if (status != SUCCESS)
+			return (status);
+		i++;
+	}
 	rpg->curr_scene = FIRST_SCENE;
-	status = init_window(rpg);
 	return (status);
 }

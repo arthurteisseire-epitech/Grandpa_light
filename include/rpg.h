@@ -10,7 +10,7 @@
 
 #include <SFML/Graphics.h>
 
-#define NB_SCENES 1
+#define NB_SCENES 3
 #define TITLE "rpg"
 
 typedef struct scene_s scene_t;
@@ -18,6 +18,7 @@ typedef struct menu_s menu_t;
 typedef struct texture_s texture_t;
 typedef struct window_s window_t;
 typedef struct event_s event_t;
+typedef struct config_t config_t;
 typedef struct config_setting_t config_setting_t;
 typedef struct character_s character_t;
 
@@ -29,6 +30,7 @@ typedef struct rpg_s {
 	texture_t **tx_game;
 	sfClock *clock;
 	int curr_scene;
+	int nb_scenes;
 	config_setting_t *set;
 	character_t *character;
 } rpg_t;

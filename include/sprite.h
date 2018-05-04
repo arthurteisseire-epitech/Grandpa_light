@@ -5,8 +5,8 @@
 ** by Arthur Teisseire
 */
 
-#ifndef SRPITE_H
-#define SRPITE_H
+#ifndef SPRITE_H
+#define SPRITE_H
 
 #include <SFML/Graphics/Types.h>
 

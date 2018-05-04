@@ -36,7 +36,15 @@ sfIntRect *get_texture_rect_by_name(texture_t *texture, char const *name)
 	return (NULL);
 }
 
-int set_texture_by_setting(texture_t **textures, sfRectangleShape *rect, config_setting_t *parent)
+static void set_rectangle(sfRectangleShape *rect, texture_t *tx,
+	sfIntRect *rect_int)
+{
+	sfRectangleShape_setTexture(rect, tx->texture, sfTrue);
+	sfRectangleShape_setTextureRect(rect, *rect_int);
+}
+
+int set_texture_by_setting(texture_t **textures, sfRectangleShape *rect,
+	config_setting_t *parent)
 {
 	char const *str;
 	texture_t *tx;
@@ -57,7 +65,6 @@ int set_texture_by_setting(texture_t **textures, sfRectangleShape *rect, config_
 	rect_int = get_texture_rect_by_name(tx, str);
 	if (rect_int == NULL)
 		return (WRONG_CONFIG_PATH);
-	sfRectangleShape_setTexture(rect, tx->texture, sfTrue);
-	sfRectangleShape_setTextureRect(rect, *rect_int);
+	set_rectangle(rect, tx, rect_int);
 	return (SUCCESS);
 }

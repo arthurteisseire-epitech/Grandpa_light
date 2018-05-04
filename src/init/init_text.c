@@ -15,8 +15,10 @@ int init_text(sfText **text, config_setting_t *parent)
 {
 	config_setting_t *text_setting = config_setting_lookup(parent, "text");
 
-	if (text_setting == NULL)
-		return (WRONG_CONFIG_PATH);
+	if (text_setting == NULL) {
+		*text = NULL;
+		return (SUCCESS);
+	}
 	*text = sfText_create();
 	if (*text == NULL)
 		return (MALLOC_FAILED);
@@ -27,7 +29,7 @@ int fill_text(sfText *text, config_setting_t *text_setting)
 {
 	const char *str;
 	sfFont *font;
-	int size;
+	int size = 10;
 
 	if (!config_setting_lookup_string(text_setting, "str", &str))
 		return (WRONG_CONFIG_PATH);
@@ -38,8 +40,7 @@ int fill_text(sfText *text, config_setting_t *text_setting)
 	if (font == NULL)
 		return (WRONG_PATH);
 	sfText_setFont(text, font);
-	if (!config_setting_lookup_int(text_setting, "size", &size))
-		return (WRONG_CONFIG_PATH);
+	config_setting_lookup_int(text_setting, "size", &size);
 	sfText_setCharacterSize(text, size);
 	sfText_setPosition(text, get_cfg_vec(text_setting, "pos"));
 	return (SUCCESS);

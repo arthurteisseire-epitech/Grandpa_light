@@ -45,12 +45,16 @@ SRC     =	$(DSRC)main.c			\
 		$(DINIT)init_text.c		\
 		$(DINIT)init_textures.c		\
 		$(DINIT)init_config.c		\
+		$(DINIT)init_clock.c		\
 		$(DINIT)init_shape.c		\
 		$(DESTROY)destroy.c		\
 		$(DESTROY)destroy_window.c	\
 		$(DESTROY)destroy_event.c	\
 		$(DESTROY)destroy_scenes.c	\
 		$(DESTROY)destroy_buttons.c	\
+		$(DESTROY)destroy_textures.c	\
+		$(DESTROY)destroy_config.c	\
+		$(DESTROY)destroy_clock.c	\
 		$(DPARSE)parse_image.c		\
 		$(DPARSE)tile_list.c
 

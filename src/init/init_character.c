@@ -13,10 +13,10 @@
 #include "define.h"
 #include "init.h"
 
-int init_character(rpg_t *rpg, config_setting_t *parent)
+int init_character(rpg_t *rpg)
 {
 	int status;
-	config_setting_t *char_setting = config_setting_lookup(parent, "character");
+	config_setting_t *char_setting = config_setting_lookup(rpg->set, "character");
 
 	if (char_setting == NULL)
 		return (WRONG_CONFIG_PATH);
@@ -24,7 +24,7 @@ int init_character(rpg_t *rpg, config_setting_t *parent)
 	if (rpg->character == NULL)
 		return (MALLOC_FAILED);
 	status = init_shape(rpg, &rpg->character->rect, char_setting);
-	rpg->character->pos = get_cfg_vec(parent, "pos");
+	rpg->character->pos = get_cfg_vec(char_setting, "pos");
 	rpg->character->curr_frame = 0;
 	return (status);
 }

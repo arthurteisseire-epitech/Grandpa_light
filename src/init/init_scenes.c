@@ -20,16 +20,15 @@ int init_scenes(rpg_t *rpg)
 {
 	int status = SUCCESS;
 	config_setting_t *setting;
-	unsigned int nb_scenes;
 
 	setting = config_setting_lookup(rpg->set, "scenes");
 	if (setting == NULL)
 		return (WRONG_CONFIG_PATH);
-	nb_scenes = config_setting_length(setting);
-	rpg->scenes = malloc(sizeof(scene_t *) * (nb_scenes + 1));
+	rpg->nb_scenes = config_setting_length(setting);
+	rpg->scenes = malloc(sizeof(scene_t *) * (rpg->nb_scenes + 1));
 	if (rpg->scenes == NULL)
 		return (MALLOC_FAILED);
-	for (unsigned int i = 0; i < nb_scenes; i++) {
+	for (int i = 0; i < rpg->nb_scenes; i++) {
 		rpg->scenes[i] = malloc(sizeof(scene_t));
 		if (rpg->scenes[i] == NULL)
 			return (MALLOC_FAILED);
@@ -37,21 +36,24 @@ int init_scenes(rpg_t *rpg)
 		if (status != SUCCESS)
 			return (status);
 	}
-	rpg->scenes[nb_scenes] = NULL;
+	rpg->scenes[rpg->nb_scenes] = NULL;
 	return (status);
 }
 
 int fill_scene(rpg_t *rpg, config_setting_t *scenes_setting, int index)
 {
 	int status;
-	config_setting_t *scene_setting = config_setting_get_elem(scenes_setting, index);
+	config_setting_t *scene_setting = config_setting_get_elem(
+		scenes_setting, index);
 	const char *str;
 
-	if (!config_setting_lookup_string(scene_setting, "map", &str))
-		return (WRONG_CONFIG_PATH);
 	status = init_buttons(rpg, &rpg->scenes[index]->buttons, scene_setting);
 	if (status != SUCCESS)
 		return (status);
-	status = init_map(rpg, rpg->scenes[index], str);
+	if (!config_setting_lookup_string(scene_setting, "map", &str)) {
+		rpg->scenes[index]->map = NULL;
+		return (SUCCESS);
+	}
+	status = init_map(rpg, &rpg->scenes[index]->map, str);
 	return (status);
 }

@@ -13,13 +13,12 @@
 
 int init_config(rpg_t *rpg)
 {
-	config_t *config = malloc(sizeof(config_t));
-	if (config == NULL)
-		return (MALLOC_FAILED);
-	config_init(config);
-	if (config_read_file(config, "data/rpg.cfg") != CONFIG_TRUE)
+	config_t config;
+
+	config_init(&config);
+	if (config_read_file(&config, "data/rpg.cfg") != CONFIG_TRUE)
 		return (WRONG_PATH);
-	rpg->set = config_lookup(config, "rpg");
+	rpg->set = config_lookup(&config, "rpg");
 	if (rpg->set == NULL)
 		return (WRONG_CONFIG_PATH);
 	return (SUCCESS);
@@ -35,5 +34,5 @@ sfVector2f get_cfg_vec(config_setting_t *parent, char const *name)
 		return ((sfVector2f){0, 0});
 	row = config_setting_get_float_elem(pos, 0);
 	col = config_setting_get_float_elem(pos, 1);
-	return ((sfVector2f){row, col});
+	return ((sfVector2f){(float)row, (float)col});
 }
