@@ -9,23 +9,33 @@
 #include <SFML/System/Vector2.h>
 #include"character.h"
 #include"tile.h"
+#include"scene.h"
+#include"rpg.h"
+#include"vec.h"
 
-void move_player(sfVector2f *pos, int dir)
+char is_in_map(map_t *map, sfVector2f pos)
 {
-	switch(dir) {
-		case(DIR_UP):
-			pos->y--;
-			break;
-		case(DIR_DOWN):
-			pos->y++;
-			break;
-		case(DIR_LEFT):
-			pos->x--;
-			break;
-		case(DIR_RIGHT):
-			pos->x++;
-			break;
-		default:
-			break;
+	if (pos.x < 0 || pos.y < 0)
+		return (0);
+	else if (pos.x >= (float)map->size.x || pos.y >= (float)(map->size.y))
+		return (0);
+	else
+		return (1);
+}
+
+char collide(map_t *map, sfVector2f pos)
+{
+	if (is_in_map(map, pos))
+		return (map->tiles[(int)pos.x][(int)pos.y]->player_col);
+	else
+		return (1);
+}
+
+void move_player(rpg_t *rpg, sfVector2f *pos, sfVector2f move)
+{
+	sfVector2f new_move = add_vec(*pos, move);
+
+	if (!collide(rpg->scenes[rpg->curr_scene]->map, new_move)) {
+		*pos = new_move;
 	}
 }
