@@ -6,25 +6,26 @@
 */
 
 #include "rpg.h"
+#include "define.h"
 #include "button.h"
 #include "my.h"
 
 int draw_credit(rpg_t *rpg)
 {
 	rpg->curr_scene = 1;
-	return (0);
+	return (SUCCESS);
 }
 
 int draw_scene_1(rpg_t *rpg)
 {
 	rpg->curr_scene = 2;
-	return (0);
+	return (SUCCESS);
 }
 
 int draw_setting(rpg_t *rpg)
 {
 	rpg->curr_scene = 3;
-	return (0);
+	return (SUCCESS);
 }
 
 button_func_t get_func_button(char const *ft)

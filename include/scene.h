@@ -8,7 +8,7 @@
 #ifndef SCENE_H
 #define SCENE_H
 
-#include <SFML/Graphics/Types.h>
+#include <SFML/Graphics.h>
 
 #define FIRST_SCENE 0
 
@@ -28,6 +28,7 @@ typedef struct scene_s {
 	map_t *map;
 	button_t **buttons;
 	sfText **text;
+	int (*scene_loop)(rpg_t *rpg, struct scene_s *scene);
 } scene_t;
 
 #endif
