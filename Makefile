@@ -19,6 +19,7 @@ DSRC	=	src/
 DINIT	=	$(DSRC)init/
 DESTROY	=	$(DSRC)destroy/
 DMAP	=	$(DSRC)map/
+DMAPACT	=	$(DMAP)action/
 DSCENE	=	$(DSRC)scene/
 DSTATES	=	$(DSRC)states/
 DTOOLS	=	$(DSRC)tools/
@@ -61,7 +62,8 @@ SRC     =	$(DSRC)main.c			\
 		$(DSRC)manage_buttons.c 	\
 		$(DPARSE)parse_image.c		\
 		$(DPARSE)tile_list.c		\
-		$(DMAP)get_tile.c		\
+		$(DMAP)apply_on_map.c		\
+		$(DMAPACT)action_lever.c	\
 		$(DSCENE)change_scene.c		\
 		$(DTOOLS)vec.c			\
 		$(DTOOLS)get_texture.c		\

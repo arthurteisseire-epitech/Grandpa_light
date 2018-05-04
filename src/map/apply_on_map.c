@@ -10,7 +10,7 @@
 #include "scene.h"
 #include "tile.h"
 
-tile_t *get_map_tile(map_t *map, get_tile_t func, void *data)
+tile_t *apply_on_map(map_t *map, get_tile_t func, void *data)
 {
 	tile_t *tile;
 	int i = 0;
@@ -43,7 +43,7 @@ tile_t *set_tile_by_chanel(map_t *map, tile_t **tiles, void *chanel)
 	int nb = *(int *)chanel;
 
 	while (tiles[i]) {
-		if (nb == tiles[i]->chanel)
+		if (nb == tiles[i]->chanel && tiles[i]->action != NULL)
 			tiles[i]->action(map, tiles[i]);
 		i++;
 	}

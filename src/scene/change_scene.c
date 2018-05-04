@@ -17,7 +17,7 @@
 void place_in_spawn(rpg_t *rpg, sfRectangleShape *rect)
 {
 	sfRectangleShape_setPosition(rect,
-	sfSprite_getPosition(get_map_tile(
+	sfSprite_getPosition(apply_on_map(
 	rpg->scenes[rpg->curr_scene]->map, get_tile_by_name,
 	"spawn")->sprite));
 }
