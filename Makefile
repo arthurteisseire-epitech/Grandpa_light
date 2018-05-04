@@ -18,19 +18,24 @@ LIBS	=	-L$(DMY) -l$(MY) -L$(DLCFG) -l$(LCFG)
 DSRC	=	src/
 DINIT	=	$(DSRC)init/
 DSTATES	=	$(DSRC)states/
+DEVENT	=	$(DSTATES)event/
+DUPDATE	=	$(DSTATES)update/
 DRAW	=	$(DSTATES)draw/
 DESTROY	=	$(DSRC)destroy/
 DPARSE	=	$(DINIT)parse/
 
 SRC     =	$(DSRC)main.c			\
 		$(DSRC)game_loop.c		\
+		$(DSRC)vec.c			\
 		$(DSRC)get_texture.c		\
 		$(DSTATES)states.c		\
 		$(DRAW)draw.c			\
 		$(DRAW)draw_scene.c		\
 		$(DRAW)draw_character.c		\
-		$(DSTATES)update.c		\
-		$(DSTATES)event.c		\
+		$(DUPDATE)update.c		\
+		$(DUPDATE)move_player.c		\
+		$(DUPDATE)animate.c		\
+		$(DEVENT)event.c		\
 		$(DINIT)init.c			\
 		$(DINIT)init_character.c	\
 		$(DINIT)init_event.c		\

@@ -24,5 +24,7 @@ int init_character(rpg_t *rpg)
 	if (rpg->character == NULL)
 		return (MALLOC_FAILED);
 	status = init_shape(rpg, &rpg->character->rect, char_setting);
+	rpg->character->pos = get_cfg_vec(char_setting, "pos");
+	rpg->character->curr_frame = 0;
 	return (status);
 }

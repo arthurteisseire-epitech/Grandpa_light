@@ -7,9 +7,10 @@
 
 #include "rpg.h"
 #include "define.h"
+#include "character.h"
 
 int update(rpg_t *rpg)
 {
-	(void)rpg;
+	set_player_pos(rpg->character);
 	return (SUCCESS);
 }
