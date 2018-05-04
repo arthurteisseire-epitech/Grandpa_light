@@ -5,10 +5,13 @@
 ** by Arthur Teisseire
 */
 
+#include <libconfig.h>
 #include <stdlib.h>
 #include <memory.h>
+#include "my.h"
 #include "rpg.h"
 #include "scene.h"
+#include "button.h"
 #include "init.h"
 #include "parse.h"
 #include "define.h"
@@ -16,42 +19,42 @@
 int init_scenes(rpg_t *rpg)
 {
 	int status = SUCCESS;
+	config_setting_t *setting;
+	unsigned int nb_scenes;
 
-	rpg->scenes = malloc(sizeof(scene_t *) * (NB_SCENES + 1));
+	setting = config_setting_lookup(rpg->set, "scenes");
+	if (setting == NULL)
+		return (WRONG_CONFIG_PATH);
+	nb_scenes = config_setting_length(setting);
+	rpg->scenes = malloc(sizeof(scene_t *) * (nb_scenes + 1));
 	if (rpg->scenes == NULL)
 		return (MALLOC_FAILED);
-	for (unsigned int i = 0; i < NB_SCENES; i++) {
+	for (unsigned int i = 0; i < nb_scenes; i++) {
 		rpg->scenes[i] = malloc(sizeof(scene_t));
 		if (rpg->scenes[i] == NULL)
 			return (MALLOC_FAILED);
-		status = init_map(rpg->scenes[i], rpg->textures, "assets/images/lala.png");
+		status = fill_scene(rpg, setting, i);
 		if (status != SUCCESS)
 			return (status);
 	}
-	rpg->scenes[NB_SCENES] = NULL;
+	rpg->scenes[nb_scenes] = NULL;
 	return (status);
 }
 
-int init_map(scene_t *scene, texture_t **tx, char *path)
+int fill_scene(rpg_t *rpg, config_setting_t *scenes_setting, int index)
 {
-	map_t *map;
-	sfImage *image = sfImage_createFromFile(path);
-	
-	if (image == NULL)
-		return (WRONG_PATH);
-	scene->map = malloc(sizeof(map_t));
-	scene->map->size = sfImage_getSize(image);
-	scene->map->tiles = malloc(sizeof(tile_t **) * (scene->map->size.y + 1));
-	map = scene->map;
-	if (scene->map == NULL)
-		return (MALLOC_FAILED);
-	scene->map->tiles[map->size.y] = NULL;
-	for (unsigned int row = 0; row < map->size.y; row++) {
-		scene->map->tiles[row] = malloc(sizeof(tile_t *) * (map->size.x + 1));
-		if (scene->map->tiles[row] == NULL)
-			return (MALLOC_FAILED);
-		scene->map->tiles[row][map->size.x] = NULL;
+	int status;
+	config_setting_t *scene_setting = config_setting_get_elem(
+		scenes_setting, index);
+	const char *str;
+
+	status = init_buttons(rpg, &rpg->scenes[index]->buttons, scene_setting);
+	if (status != SUCCESS)
+		return (status);
+	if (!config_setting_lookup_string(scene_setting, "map", &str)) {
+		rpg->scenes[index]->map = NULL;
+		return (SUCCESS);
 	}
-	parse_image(map, tx, image);
-	return (SUCCESS);
+	status = init_map(rpg, &rpg->scenes[index]->map, str);
+	return (status);
 }

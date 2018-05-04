@@ -10,14 +10,27 @@
 
 #include <SFML/Graphics/Types.h>
 
-#define WALL 0
-#define GROUND 1
-//#define NAME index
-//etc.
+#define TX_TILE 0
+#define TX_TILE_ACTIVABLE 1
+
+typedef struct config_setting_t config_setting_t;
+
+typedef struct rectangle_s {
+	sfIntRect rect;
+	const char *name;
+} rectangle_t;
 
 typedef struct texture_s {
+	const char *name;
 	sfTexture *texture;
-	sfIntRect *rect;
+	rectangle_t **rects;
 } texture_t;
+
+texture_t *get_texture_by_name(texture_t **textures, char const *name);
+
+sfIntRect *get_texture_rect_by_name(texture_t *texture, char const *name);
+
+int set_texture_by_setting(texture_t **textures, sfRectangleShape *rect,
+	config_setting_t *parent);
 
 #endif

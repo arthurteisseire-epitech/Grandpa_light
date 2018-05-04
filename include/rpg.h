@@ -18,13 +18,20 @@ typedef struct menu_s menu_t;
 typedef struct texture_s texture_t;
 typedef struct window_s window_t;
 typedef struct event_s event_t;
+typedef struct config_t config_t;
+typedef struct config_setting_t config_setting_t;
+typedef struct character_s character_t;
 
 typedef struct rpg_s {
 	sfEvent *event;
-	window_t *win;
+	sfRenderWindow *window;
 	scene_t **scenes;
-	texture_t **textures;
+	texture_t **tx_tile;
+	texture_t **tx_game;
 	sfClock *clock;
+	int curr_scene;
+	config_setting_t *set;
+	character_t *character;
 } rpg_t;
 
 int game_loop(rpg_t *rpg);

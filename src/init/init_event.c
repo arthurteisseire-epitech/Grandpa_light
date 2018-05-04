@@ -6,6 +6,7 @@
 */
 
 #include <stdlib.h>
+#include "my.h"
 #include "rpg.h"
 #include "define.h"
 

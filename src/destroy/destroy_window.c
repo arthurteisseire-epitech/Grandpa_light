@@ -7,10 +7,8 @@
 
 #include <stdlib.h>
 #include "rpg.h"
-#include "window.h"
 
-void destroy_window(rpg_t *rpg)
+void destroy_window(sfRenderWindow *window)
 {
-	sfRenderWindow_destroy(rpg->win->window);
-	free(rpg->win);
+	sfRenderWindow_destroy(window);
 }

@@ -1,3 +1,5 @@
+.idea
+*.o
 *~
 #*#
 cmake-build-debug
@@ -8,6 +10,9 @@ vgcore*
 *.a
 a.out
 *.swp
+<<<<<<< HEAD
 .idea
-cmake-*
+*.a
+cmake*
+.gitignore
 my_rpg

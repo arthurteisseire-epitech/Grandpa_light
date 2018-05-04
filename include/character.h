@@ -11,8 +11,10 @@
 #define MAX_ITEMS 1
 
 #include <SFML/Graphics/Types.h>
+#include <SFML/System.h>
 
 typedef struct object_s object_t;
+typedef struct rpg_s rpg_t;
 
 typedef struct stat_s {
 	int nb_photons;
@@ -25,7 +27,7 @@ typedef struct inventory_s {
 } inventory_t;
 
 typedef struct character_s {
-	sfVector2i *pos;
+	sfRectangleShape *rect;
 	inventory_t *inventory;
 	stat_t *stats;
 } character_t;

@@ -6,31 +6,18 @@
 */
 
 #include <stdlib.h>
+#include "my.h"
 #include "rpg.h"
-#include "window.h"
 #include "define.h"
-
-static int create_window(rpg_t *rpg)
-{
-	sfVideoMode mode = {rpg->win->width, rpg->win->height, 32};
-
-	rpg->win->window = sfRenderWindow_create(
-		mode, TITLE, sfResize | sfClose, NULL);
-	if (rpg->win->window == NULL)
-		return (MALLOC_FAILED);
-	sfRenderWindow_setFramerateLimit(rpg->win->window, 60);
-	return (SUCCESS);
-}
 
 int init_window(rpg_t *rpg)
 {
-	int status = SUCCESS;
+	sfVideoMode mode = {1920, 1080, 32};
 
-	rpg->win = malloc(sizeof(window_t));
-	if (rpg->win == NULL)
+	rpg->window = sfRenderWindow_create(
+		mode, TITLE, sfResize | sfClose, NULL);
+	if (rpg->window == NULL)
 		return (MALLOC_FAILED);
-	rpg->win->height = 1920;
-	rpg->win->width = 1080;
-	status = create_window(rpg);
-	return (status);
+	sfRenderWindow_setFramerateLimit(rpg->window, 60);
+	return (SUCCESS);
 }
