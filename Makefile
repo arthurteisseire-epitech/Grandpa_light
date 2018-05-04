@@ -17,6 +17,7 @@ LIBS	=	-L$(DMY) -l$(MY) -L$(DLCFG) -l$(LCFG)
 
 DSRC	=	src/
 DINIT	=	$(DSRC)init/
+DMAP	=	$(DSRC)map/
 DSTATES	=	$(DSRC)states/
 DTOOLS	=	$(DSRC)tools/
 DESTROY	=	$(DSRC)destroy/
@@ -27,8 +28,6 @@ DPARSE	=	$(DINIT)parse/
 
 SRC     =	$(DSRC)main.c			\
 		$(DSRC)game_loop.c		\
-		$(DSRC)vec.c			\
-		$(DSRC)get_texture.c		\
 		$(DSTATES)states.c		\
 		$(DRAW)draw.c			\
 		$(DRAW)draw_scene.c		\
@@ -49,6 +48,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DINIT)init_config.c		\
 		$(DINIT)init_clock.c		\
 		$(DINIT)init_shape.c		\
+		$(DINIT)init_ftbutton.c		\
 		$(DESTROY)destroy.c		\
 		$(DESTROY)destroy_window.c	\
 		$(DESTROY)destroy_event.c	\
@@ -57,11 +57,12 @@ SRC     =	$(DSRC)main.c			\
 		$(DESTROY)destroy_textures.c	\
 		$(DESTROY)destroy_config.c	\
 		$(DESTROY)destroy_clock.c	\
+		$(DSRC)manage_buttons.c 	\
 		$(DPARSE)parse_image.c		\
-		$(DTOOLS)get_map_tile.c		\
-		$(DPARSE)tile_list.c 		\
-		$(DINIT)init_ftbutton.c 		\
-		$(DSRC)manage_buttons.c 		\
+		$(DPARSE)tile_list.c		\
+		$(DMAP)get_tile.c		\
+		$(DTOOLS)vec.c			\
+		$(DTOOLS)get_texture.c		\
 
 LDFLAGS	=	-lc_graph_prog -lconfig
 CFLAGS	+=	-Wall -W -Wextra -I$(INC) -g

@@ -8,7 +8,7 @@
 #ifndef OBJECT_H
 #define OBJECT_H
 
-#include <SFML/Graphics/Types.h>
+#include <SFML/Graphics.h>
 
 #define MASK_NAME(color) ((color).b & 0x0f)
 #define NB_TILE 6
@@ -17,6 +17,7 @@
 typedef struct sprite_s sprite_t;
 typedef struct rpg_s rpg_t;
 typedef struct texture_s texture_t;
+typedef struct map_s map_t;
 
 typedef struct laser_s {
 	char horizontal;
@@ -45,8 +46,13 @@ typedef struct tile_list_s {
 	int idx_texture;
 } tile_list_t;
 
+typedef tile_t *(*get_tile_t)(tile_t **, void *);
+
 extern const tile_list_t tile_list[NB_TILE];
 
 int index_tile_by_color(sfColor color);
+tile_t *get_map_tile(map_t *map, get_tile_t func, void *data);
+tile_t *get_tile_by_name(tile_t **tiles, void *name);
+tile_t *get_tile_by_chanel(tile_t **tiles, void *chanel);
 
 #endif
