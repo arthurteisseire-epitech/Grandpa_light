@@ -26,6 +26,8 @@ int init(rpg_t *rpg);
 int init_window(rpg_t *rpg);
 int init_event(rpg_t *rpg);
 int init_character(rpg_t *rpg);
+int init_anims(rpg_t *rpg, texture_t ***textures, config_setting_t *parent);
+int init_anim(rpg_t *rpg, texture_t **texture, config_setting_t *parent, int i);
 int init_clock(rpg_t *rpg);
 int init_config(rpg_t *rpg);
 int init_scenes(rpg_t *rpg);
@@ -36,7 +38,7 @@ int init_text(sfText **text, config_setting_t *parent);
 int fill_text(sfText *text, config_setting_t *text_setting);
 int init_map(rpg_t *rpg, map_t **map, const char *path);
 int init_buttons(rpg_t *rpg, button_t ***buttons, config_setting_t *parent);
-int init_shape(rpg_t *rpg, sfRectangleShape **rect, config_setting_t *parent);
+int init_shape(sfRectangleShape **rect, config_setting_t *parent);
 int init_textures(rpg_t *rpg);
 int fill_textures(texture_t ***textures, config_setting_t *parent,
 	const char *name);

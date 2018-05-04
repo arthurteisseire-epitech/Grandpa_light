@@ -5,10 +5,14 @@
 ** By Arthur Teisseire
 */
 
+#include "my.h"
 #include "rpg.h"
+#include "scene.h"
 #include "camera.h"
 #include "define.h"
 #include "character.h"
+#include "tile.h"
+#include "tool.h"
 
 static void handle_exit(rpg_t *rpg)
 {
@@ -32,20 +36,30 @@ void player_movement(rpg_t *rpg)
 
 static void change_scene(rpg_t *rpg)
 {
-	if (sfKeyboard_isKeyPressed(sfKeyP))
+	if (sfKeyboard_isKeyPressed(sfKeyP)) {
 		rpg->curr_scene = (rpg->curr_scene + 1) % rpg->nb_scenes;
-	else if (sfKeyboard_isKeyPressed(sfKeyO))
+		if (rpg->scenes[rpg->curr_scene]->map != NULL)
+			sfRectangleShape_setPosition(rpg->character->rect,
+			sfSprite_getPosition(get_map_tile(
+			rpg->scenes[rpg->curr_scene]->map, "spawn")->sprite));
+	} else if (sfKeyboard_isKeyPressed(sfKeyO)) {
 		rpg->curr_scene = (rpg->curr_scene == 0) ?
 			rpg->nb_scenes - 1 : rpg->curr_scene - 1;
+		if (rpg->scenes[rpg->curr_scene]->map != NULL)
+			sfRectangleShape_setPosition(rpg->character->rect,
+			sfSprite_getPosition(get_map_tile(
+			rpg->scenes[rpg->curr_scene]->map, "spawn")->sprite));
+	}
 }
 
 int event(rpg_t *rpg)
 {
 	while (sfRenderWindow_pollEvent(rpg->window, rpg->event)) {
 		handle_exit(rpg);
-		if (rpg->event->type == sfEvtKeyPressed)
+		if (rpg->event->type == sfEvtKeyPressed) {
 			player_movement(rpg);
-		change_scene(rpg);
+			change_scene(rpg);
+		}
 	}
 	return (SUCCESS);
 }
