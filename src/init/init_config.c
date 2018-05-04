@@ -13,12 +13,14 @@
 
 int init_config(rpg_t *rpg)
 {
-	rpg->config = malloc(sizeof(config_t));
-	if (rpg->config == NULL)
-		return (MALLOC_FAILED);
-	config_init(rpg->config);
-	if (config_read_file(rpg->config, "data/rpg.cfg") != CONFIG_TRUE)
+	config_t config;
+
+	config_init(&config);
+	if (config_read_file(&config, "data/rpg.cfg") != CONFIG_TRUE)
 		return (WRONG_PATH);
+	rpg->set = config_lookup(&config, "rpg");
+	if (rpg->set == NULL)
+		return (WRONG_CONFIG_PATH);
 	return (SUCCESS);
 }
 

@@ -22,7 +22,7 @@ int init_scenes(rpg_t *rpg)
 	config_setting_t *setting;
 	unsigned int nb_scenes;
 
-	setting = config_lookup(rpg->config, "rpg.scenes");
+	setting = config_setting_lookup(rpg->set, "scenes");
 	if (setting == NULL)
 		return (WRONG_CONFIG_PATH);
 	nb_scenes = config_setting_length(setting);
@@ -48,11 +48,13 @@ int fill_scene(rpg_t *rpg, config_setting_t *scenes_setting, int index)
 		scenes_setting, index);
 	const char *str;
 
-	if (!config_setting_lookup_string(scene_setting, "map", &str))
-		return (WRONG_CONFIG_PATH);
 	status = init_buttons(rpg, &rpg->scenes[index]->buttons, scene_setting);
 	if (status != SUCCESS)
 		return (status);
-	status = init_map(rpg, rpg->scenes[index], str);
+	if (!config_setting_lookup_string(scene_setting, "map", &str)) {
+		rpg->scenes[index]->map = NULL;
+		return (SUCCESS);
+	}
+	status = init_map(rpg, &rpg->scenes[index]->map, str);
 	return (status);
 }

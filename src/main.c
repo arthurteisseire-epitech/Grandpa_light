@@ -14,7 +14,6 @@
 #include "destroy.h"
 #include "define.h"
 
-
 int main(void)
 {
 	int status = SUCCESS;
