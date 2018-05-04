@@ -65,7 +65,7 @@ SRC	=	$(DPUT)my_put_nbr.c		\
 		$(DENV)disp_env.c		\
 		$(DENV)set_env_value.c		\
 		$(DFILE)my_fdcpy.c		\
-		$(DFILE)write_in_file.c
+		$(DFILE)write_in_file.c 	\
 
 CFLAGS	+=	-Wall -W -Wextra -I$(INC)
 OBJ	=	$(SRC:.c=.o)

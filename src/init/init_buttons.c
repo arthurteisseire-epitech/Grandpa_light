@@ -45,18 +45,17 @@ int init_buttons(rpg_t *rpg, button_t ***buttons, config_setting_t *parent)
 int init_button(rpg_t *rpg, button_t *button, config_setting_t *parent, int i)
 {
 	int status;
-	double thick;
+	char const *ft_name = NULL;
 	config_setting_t *button_set = config_setting_get_elem(parent, i);
 
-	status = init_shape(rpg, &button->rect, button_set);
+	status = init_shape(&button->rect, button_set);
 	if (status != SUCCESS)
 		return (status);
-	sfRectangleShape_setPosition(button->rect,
-		get_cfg_vec(button_set, "pos"));
-	sfRectangleShape_setSize(button->rect, get_cfg_vec(button_set, "size"));
-	if (!config_setting_lookup_float(button_set, "thick", &thick))
-		return (WRONG_CONFIG_PATH);
-	sfRectangleShape_setOutlineThickness(button->rect, thick);
+	status = set_texture_by_setting(rpg->tx_game, button->rect, button_set);
+	if (status != SUCCESS)
+		return (status);
+	config_setting_lookup_string(button_set, "function", &ft_name);
+	button->button_func = get_func_button(ft_name);
 	status = init_text(&button->text, button_set);
 	return (status);
 }
