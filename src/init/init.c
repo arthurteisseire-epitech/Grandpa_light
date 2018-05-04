@@ -17,9 +17,10 @@ static const init_arr_t init_arr[] = {
 	init_event,
 	init_config,
 	init_textures,
+	init_character,
 	init_scenes,
-	init_window,
 	init_clock,
+	init_window,
 	NULL
 };
 
@@ -35,6 +36,5 @@ int init(rpg_t *rpg)
 		i++;
 	}
 	rpg->curr_scene = FIRST_SCENE;
-	destroy_config(rpg->config);
 	return (status);
 }

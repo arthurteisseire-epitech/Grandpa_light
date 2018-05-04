@@ -14,10 +14,9 @@
 #include "destroy.h"
 #include "define.h"
 
-
 int main(void)
 {
-	int status = SUCCESS;
+	int status;
 	rpg_t *rpg = malloc(sizeof(rpg_t));
 
 	if (rpg == NULL)
