@@ -8,7 +8,7 @@
 #ifndef SCENE_H
 #define SCENE_H
 
-#include <SFML/Graphics/Types.h>
+#include <SFML/Graphics.h>
 
 #define FIRST_SCENE 0
 

@@ -17,10 +17,11 @@ LIBS	=	-L$(DMY) -l$(MY) -L$(DLCFG) -l$(LCFG)
 DSRC	=	src/
 DINIT	=	$(DSRC)init/
 DSTATES	=	$(DSRC)states/
+DTOOLS	=	$(DSRC)tools/
+DESTROY	=	$(DSRC)destroy/
 DEVENT	=	$(DSTATES)event/
 DUPDATE	=	$(DSTATES)update/
 DRAW	=	$(DSTATES)draw/
-DESTROY	=	$(DSRC)destroy/
 DPARSE	=	$(DINIT)parse/
 
 SRC     =	$(DSRC)main.c			\
@@ -56,7 +57,8 @@ SRC     =	$(DSRC)main.c			\
 		$(DESTROY)destroy_config.c	\
 		$(DESTROY)destroy_clock.c	\
 		$(DPARSE)parse_image.c		\
-		$(DPARSE)tile_list.c
+		$(DPARSE)tile_list.c		\
+		$(DTOOLS)get_map_tile.c
 
 LDFLAGS	=	-lc_graph_prog -lconfig
 CFLAGS	+=	-Wall -W -Wextra -I$(INC) -g
