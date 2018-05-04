@@ -14,11 +14,15 @@
 #define DIR_DOWN 2
 #define DIR_RIGHT 3
 
+#define ANIM_STAY 0
+#define ANIM_MOVE 1
+
 #include <SFML/Graphics/Types.h>
 #include <SFML/System.h>
 
 typedef struct object_s object_t;
 typedef struct rpg_s rpg_t;
+typedef struct texture_s texture_t;
 
 typedef struct stat_s {
 	int nb_photons;
@@ -32,9 +36,11 @@ typedef struct inventory_s {
 
 typedef struct character_s {
 	sfRectangleShape *rect;
+	texture_t **anim;
 	inventory_t *inventory;
 	stat_t *stats;
 	sfVector2f pos;
+	int id_anim;
 	int curr_frame;
 } character_t;
 

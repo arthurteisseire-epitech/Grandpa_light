@@ -11,6 +11,6 @@
 
 int update(rpg_t *rpg)
 {
-	set_player_pos(rpg->character);
+	//set_player_pos(rpg->character);
 	return (SUCCESS);
 }
