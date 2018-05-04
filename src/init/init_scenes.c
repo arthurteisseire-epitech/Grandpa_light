@@ -20,16 +20,15 @@ int init_scenes(rpg_t *rpg)
 {
 	int status = SUCCESS;
 	config_setting_t *setting;
-	unsigned int nb_scenes;
 
 	setting = config_setting_lookup(rpg->set, "scenes");
 	if (setting == NULL)
 		return (WRONG_CONFIG_PATH);
-	nb_scenes = config_setting_length(setting);
-	rpg->scenes = malloc(sizeof(scene_t *) * (nb_scenes + 1));
+	rpg->nb_scenes = config_setting_length(setting);
+	rpg->scenes = malloc(sizeof(scene_t *) * (rpg->nb_scenes + 1));
 	if (rpg->scenes == NULL)
 		return (MALLOC_FAILED);
-	for (unsigned int i = 0; i < nb_scenes; i++) {
+	for (int i = 0; i < rpg->nb_scenes; i++) {
 		rpg->scenes[i] = malloc(sizeof(scene_t));
 		if (rpg->scenes[i] == NULL)
 			return (MALLOC_FAILED);
@@ -37,7 +36,7 @@ int init_scenes(rpg_t *rpg)
 		if (status != SUCCESS)
 			return (status);
 	}
-	rpg->scenes[nb_scenes] = NULL;
+	rpg->scenes[rpg->nb_scenes] = NULL;
 	return (status);
 }
 
