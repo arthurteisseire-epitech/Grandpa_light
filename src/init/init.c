@@ -11,16 +11,26 @@
 #include "define.h"
 #include "scene.h"
 
+static const int (*init[])(rpg_t *) = {
+	init_event,
+	init_config,
+	init_textures,
+	init_scenes,
+	init_window,
+	init_clock,
+	NULL
+};
+
 int init(rpg_t *rpg)
 {
-	int status = 0;
-	int (*init[INIT_NB])(rpg_t *) = {init_event, init_config, init_textures,
-		init_scenes, init_window, init_clock};
+	int status = SUCCESS;
+	int i = 0;
 
-	for (unsigned int i = 0; i < INIT_NB; i++) {
+	while (init[i] != NULL) {
 		status = init[i](rpg);
 		if (status != SUCCESS)
 			return (status);
+		i++;
 	}
 	rpg->curr_scene = FIRST_SCENE;
 	destroy_config(rpg->config);

@@ -12,13 +12,11 @@
 
 void destroy(rpg_t *rpg)
 {
-	destroy_config(rpg->config);
 	destroy_window(rpg->window);
 	destroy_event(rpg->event);
 	destroy_scenes(rpg->scenes);
 	destroy_textures(rpg->tx_tile);
 	destroy_textures(rpg->tx_game);
 	destroy_clock(rpg->clock);
-	destroy_config(rpg->config);
 	free(rpg);
 }
