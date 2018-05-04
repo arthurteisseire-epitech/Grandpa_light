@@ -46,5 +46,6 @@ typedef struct character_s {
 
 void move_player(rpg_t *rpg, sfVector2f *pos, sfVector2f move);
 void set_player_pos(character_t *player);
+void animate_sprite(character_t *player, sfClock *clock);
 
 #endif

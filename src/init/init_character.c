@@ -36,6 +36,7 @@ int init_character(rpg_t *rpg)
 		rpg->character->anim[0]->rects[0]->rect);
 	rpg->character->pos = get_cfg_vec(char_setting, "pos");
 	rpg->character->curr_frame = 0;
+	rpg->character->id_anim = 0;
 	return (status);
 }
 
