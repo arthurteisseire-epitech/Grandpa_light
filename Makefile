@@ -22,10 +22,12 @@ DUPDATE	=	$(DSTATES)update/
 DRAW	=	$(DSTATES)draw/
 DESTROY	=	$(DSRC)destroy/
 DPARSE	=	$(DINIT)parse/
+DTOOLS	=	$(DSRC)tools/
 
 SRC     =	$(DSRC)main.c			\
 		$(DSRC)game_loop.c		\
-		$(DSRC)vec.c			\
+		$(DTOOLS)vec.c			\
+		$(DTOOLS)get_rect.c			\
 		$(DSRC)get_texture.c		\
 		$(DSTATES)states.c		\
 		$(DRAW)draw.c			\
@@ -34,6 +36,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DUPDATE)update.c		\
 		$(DUPDATE)move_player.c		\
 		$(DUPDATE)animate.c		\
+		$(DUPDATE)light_shader.c	\
 		$(DEVENT)event.c		\
 		$(DINIT)init.c			\
 		$(DINIT)init_character.c	\

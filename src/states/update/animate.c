@@ -13,5 +13,5 @@
 void set_player_pos(character_t *player)
 {
 	sfRectangleShape_setPosition(player->rect
-		, mult_vec(player->pos, SIZE_TILE));
+		, scale_vec(player->pos, SIZE_TILE));
 }
