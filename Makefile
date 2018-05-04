@@ -17,10 +17,11 @@ LIBS	=	-L$(DMY) -l$(MY) -L$(DLCFG) -l$(LCFG)
 
 DSRC	=	src/
 DINIT	=	$(DSRC)init/
+DESTROY	=	$(DSRC)destroy/
 DMAP	=	$(DSRC)map/
+DSCENE	=	$(DSRC)scene/
 DSTATES	=	$(DSRC)states/
 DTOOLS	=	$(DSRC)tools/
-DESTROY	=	$(DSRC)destroy/
 DEVENT	=	$(DSTATES)event/
 DUPDATE	=	$(DSTATES)update/
 DRAW	=	$(DSTATES)draw/
@@ -60,6 +61,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DPARSE)parse_image.c		\
 		$(DPARSE)tile_list.c		\
 		$(DMAP)get_tile.c		\
+		$(DSCENE)change_scene.c		\
 		$(DTOOLS)vec.c			\
 		$(DTOOLS)get_texture.c		\
 

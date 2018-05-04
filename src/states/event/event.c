@@ -34,26 +34,6 @@ void player_movement(rpg_t *rpg)
 		move_player(rpg, &rpg->character->pos, DIR_RIGHT);
 }
 
-static void change_scene(rpg_t *rpg)
-{
-	if (sfKeyboard_isKeyPressed(sfKeyP)) {
-		rpg->curr_scene = (rpg->curr_scene + 1) % rpg->nb_scenes;
-		if (rpg->scenes[rpg->curr_scene]->map != NULL)
-			sfRectangleShape_setPosition(rpg->character->rect,
-			sfSprite_getPosition(get_map_tile(
-			rpg->scenes[rpg->curr_scene]->map, get_tile_by_name,
-			"spawn")->sprite));
-	} else if (sfKeyboard_isKeyPressed(sfKeyO)) {
-		rpg->curr_scene = (rpg->curr_scene == 0) ?
-			rpg->nb_scenes - 1 : rpg->curr_scene - 1;
-		if (rpg->scenes[rpg->curr_scene]->map != NULL)
-			sfRectangleShape_setPosition(rpg->character->rect,
-			sfSprite_getPosition(get_map_tile(
-			rpg->scenes[rpg->curr_scene]->map, get_tile_by_name,
-			"spawn")->sprite));
-	}
-}
-
 int event(rpg_t *rpg)
 {
 	while (sfRenderWindow_pollEvent(rpg->window, rpg->event)) {
