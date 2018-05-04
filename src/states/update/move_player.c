@@ -25,6 +25,7 @@ char is_in_map(map_t *map, sfVector2f pos)
 
 char collide(map_t *map, sfVector2f pos)
 {
+	printf("pos:%f %f\n", pos.x, pos.y);
 	if (is_in_map(map, pos))
 		return (map->tiles[(int)pos.x][(int)pos.y]->player_col);
 	else

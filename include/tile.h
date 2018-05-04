@@ -47,6 +47,7 @@ typedef struct tile_list_s {
 } tile_list_t;
 
 typedef tile_t *(*get_tile_t)(map_t *, tile_t **, void *);
+typedef int (*pos_tile_t)(map_t *, tile_t **, void *);
 
 extern const tile_list_t tile_list[];
 
@@ -54,6 +55,8 @@ int index_tile_by_color(sfColor color);
 tile_t *apply_on_map(map_t *map, get_tile_t func, void *data);
 tile_t *get_tile_by_name(map_t *map, tile_t **tiles, void *name);
 tile_t *set_tile_by_chanel(map_t *map, tile_t **tiles, void *chanel);
+sfVector2f get_pos_tile_by_name(map_t *map, pos_tile_t func, void *name);
+int tile_pos_line(map_t __attribute((unused))*map, tile_t **tiles, void *name);
 
 int action_lever(map_t *map, tile_t *tile);
 int action_door(map_t __attribute((unused))*map, tile_t *tile);

@@ -14,12 +14,10 @@
 #include "tile.h"
 #include "tool.h"
 
-void place_in_spawn(rpg_t *rpg, sfRectangleShape *rect)
+void place_in_spawn(rpg_t *rpg)
 {
-	sfRectangleShape_setPosition(rect,
-	sfSprite_getPosition(apply_on_map(
-	rpg->scenes[rpg->curr_scene]->map, get_tile_by_name,
-	"spawn")->sprite));
+	rpg->character->pos = get_pos_tile_by_name(
+		rpg->scenes[rpg->curr_scene]->map, tile_pos_line, "spawn");
 }
 
 void change_scene(rpg_t *rpg)
@@ -27,11 +25,11 @@ void change_scene(rpg_t *rpg)
 	if (sfKeyboard_isKeyPressed(sfKeyP)) {
 		rpg->curr_scene = (rpg->curr_scene + 1) % rpg->nb_scenes;
 		if (rpg->scenes[rpg->curr_scene]->map != NULL)
-			place_in_spawn(rpg, rpg->character->rect);
+			place_in_spawn(rpg);
 	} else if (sfKeyboard_isKeyPressed(sfKeyO)) {
 		rpg->curr_scene = (rpg->curr_scene == 0) ?
 			rpg->nb_scenes - 1 : rpg->curr_scene - 1;
 		if (rpg->scenes[rpg->curr_scene]->map != NULL)
-			place_in_spawn(rpg, rpg->character->rect);
+			place_in_spawn(rpg);
 	}
 }
