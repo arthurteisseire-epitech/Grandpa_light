@@ -55,6 +55,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DESTROY)destroy_textures.c	\
 		$(DESTROY)destroy_config.c	\
 		$(DESTROY)destroy_clock.c	\
+		$(DESTROY)destroy_text.c	\
 		$(DPARSE)parse_image.c		\
 		$(DPARSE)tile_list.c
 

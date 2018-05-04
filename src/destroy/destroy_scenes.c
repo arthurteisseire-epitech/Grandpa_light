@@ -13,7 +13,8 @@
 
 static void destroy_laser(laser_t *laser)
 {
-	sfRectangleShape_destroy(laser->rect);
+	sfRectangleShape_destroy(laser->hor_rect);
+	sfRectangleShape_destroy(laser->vert_rect);
 	free(laser);
 }
 

@@ -10,7 +10,6 @@
 
 #include <SFML/Graphics.h>
 
-#define NB_SCENES 3
 #define TITLE "rpg"
 
 typedef struct scene_s scene_t;

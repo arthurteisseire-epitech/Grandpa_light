@@ -5,12 +5,12 @@
 ** destroy text
 */
 
-#include <stddef.h>
-#include <SMFL/Graphics.h>
+#include <SFML/Graphics/Types.h>
+#include <SFML/Graphics.h>
 
 void destroy_text(sfText *text)
 {
-	sfFont_destroy(sfText_getFont(text));
+	sfFont_destroy((sfFont *)sfText_getFont(text));
 	sfText_destroy(text);
 }
 

@@ -55,5 +55,6 @@ int fill_scene(rpg_t *rpg, config_setting_t *scenes_setting, int index)
 		return (SUCCESS);
 	}
 	status = init_map(rpg, &rpg->scenes[index]->map, str);
+	rpg->scenes[index]->text = NULL;
 	return (status);
 }

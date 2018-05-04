@@ -13,6 +13,7 @@
 #define MASK_NAME(color) ((color).b & 0x0f)
 #define NB_TILE 6
 #define SIZE_TILE 64
+#define LASER_LENGTH 2
 
 typedef struct sprite_s sprite_t;
 typedef struct rpg_s rpg_t;
@@ -21,7 +22,8 @@ typedef struct texture_s texture_t;
 typedef struct laser_s {
 	char horizontal;
 	char vertical;
-	sfRectangleShape *rect;
+	sfRectangleShape *vert_rect;
+	sfRectangleShape *hor_rect;
 } laser_t;
 
 typedef struct tile_s {

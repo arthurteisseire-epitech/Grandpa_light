@@ -7,6 +7,7 @@
 
 #include <stdlib.h>
 #include <SFML/Graphics/Rect.h>
+#include <SFML/System.h>
 #include "my.h"
 #include "rpg.h"
 #include "scene.h"
@@ -16,7 +17,7 @@
 #include "texture.h"
 #include "define.h"
 
-static sfVector2f mult(sfVector2f v1, sfVector2i v2)
+static sfVector2f prod(sfVector2f v1, sfVector2i v2)
 {
 	return ((sfVector2f){v1.x * v2.x, v1.y * v2.y});
 }
@@ -56,20 +57,25 @@ rectangle_t *get_rect(texture_t *texture, char *name)
 static laser_t *init_laser(sfVector2f pos)
 {
 	laser_t *laser = malloc(sizeof(laser_t));
+	sfVector2f tile_pos = prod(pos, (sfVector2i){SIZE_TILE, SIZE_TILE});
+	sfVector2f horizontal_pos = {tile_pos.x + SIZE_TILE / 2, tile_pos.y};
+	sfVector2f vertical_pos = {tile_pos.x, tile_pos.y + SIZE_TILE / 2};
+	sfVector2f laser_size = {SIZE_TILE, LASER_LENGTH};
 
 	if (laser == NULL)
 		return (NULL);
 	laser->vertical = 1;
 	laser->horizontal = 1;
-	laser->rect = sfRectangleShape_create();
-	if (laser->rect == NULL)
+	laser->hor_rect = sfRectangleShape_create();
+	laser->vert_rect = sfRectangleShape_create();
+	if (laser->hor_rect == NULL || laser->vert_rect == NULL)
 		return (free(laser), NULL);
-	sfRectangleShape_setFillColor(laser->rect, sfRed);
-	sfRectangleShape_setPosition(laser->rect,
-		mult(pos, (sfVector2i){SIZE_TILE, SIZE_TILE}));
-	sfRectangleShape_setTextureRect(laser->rect,
-		(sfIntRect){(int)pos.x, (int)pos.y, SIZE_TILE, SIZE_TILE});
-	sfRectangleShape_setScale(laser->rect, (sfVector2f){1, 1});
+	sfRectangleShape_setFillColor(laser->hor_rect, sfRed);
+	sfRectangleShape_setFillColor(laser->vert_rect, sfRed);
+	sfRectangleShape_setPosition(laser->vert_rect, vertical_pos);
+	sfRectangleShape_setPosition(laser->hor_rect, horizontal_pos);
+	sfRectangleShape_setSize(laser->vert_rect, laser_size);
+	sfRectangleShape_setSize(laser->hor_rect, laser_size);
 	return (laser);
 }
 
@@ -92,7 +98,7 @@ int init_tile(rpg_t *rpg, tile_t *tile, int index_tile, sfVector2f pos)
 	sfSprite_setTextureRect(tile->sprite,
 		get_rect(texture, tile->name)->rect);
 	sfSprite_setPosition(tile->sprite,
-		mult(pos, (sfVector2i){SIZE_TILE, SIZE_TILE}));
+		prod(pos, (sfVector2i){SIZE_TILE, SIZE_TILE}));
 	sfSprite_setScale(tile->sprite, (sfVector2f){1, 1});
 	return (SUCCESS);
 }
