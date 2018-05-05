@@ -14,7 +14,7 @@
 void set_player_pos(character_t *player)
 {
 	sfRectangleShape_setPosition(player->rect
-		, scale_vec(player->pos, SIZE_TILE));
+		, add_vec(scale_vec(player->pos, SIZE_TILE), VEC_HALF_TILE));
 }
 
 void animate_sprite(character_t *player, sfClock *clock)
