@@ -53,4 +53,9 @@ void move_player(rpg_t *rpg, sfVector2f *pos, sfVector2f move);
 void set_player_pos(character_t *player);
 void animate_sprite(character_t *player, sfClock *clock);
 
+void player_rotation(rpg_t *rpg);
+void player_movement(rpg_t *rpg);
+void player_action(rpg_t *rpg);
+int player_event(rpg_t *rpg);
+
 #endif

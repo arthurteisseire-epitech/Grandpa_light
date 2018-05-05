@@ -42,6 +42,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DUPDATE)light_shader.c	\
 		$(DUPDATE)gen_light_shader.c	\
 		$(DEVENT)event.c		\
+		$(DEVENT)player_event.c		\
 		$(DINIT)init.c			\
 		$(DINIT)init_character.c	\
 		$(DINIT)init_event.c		\

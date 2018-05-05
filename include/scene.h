@@ -11,6 +11,7 @@
 #include <SFML/Graphics.h>
 
 #define FIRST_SCENE 0
+#define CURR_SCENE rpg->scenes[rpg->curr_scene]
 
 typedef struct rpg_s rpg_t;
 typedef struct sprite_s sprite_t;

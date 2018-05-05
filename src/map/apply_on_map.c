@@ -44,8 +44,8 @@ tile_t *set_tile_by_chanel(map_t *map, tile_t **tiles, void *data)
 
 	while (tiles[i]) {
 		if (tile->chanel == tiles[i]->chanel &&
-		tiles[i]->action != NULL && tiles[i] != tile)
-			tiles[i]->action(map, tiles[i]);
+		tiles[i]->func != NULL && !tiles[i]->is_action)
+			tiles[i]->func(map, tiles[i]);
 		i++;
 	}
 	return (NULL);

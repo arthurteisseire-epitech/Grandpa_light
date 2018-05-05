@@ -38,7 +38,8 @@ typedef struct tile_s {
 	char chanel;
 	char player_col;
 	char laser_col;
-	int (*action)(map_t *, struct tile_s *);
+	char is_action;
+	int (*func)(map_t *, struct tile_s *);
 	laser_t *laser;
 	sfSprite *sprite;
 	sfRectangleShape *light;
@@ -51,7 +52,8 @@ typedef struct tile_list_s {
 	char *name;
 	char player_col;
 	char laser_col;
-	int (*action)(map_t *, struct tile_s *);
+	char is_action;
+	int (*func)(map_t *, struct tile_s *);
 	int idx_texture;
 } tile_list_t;
 

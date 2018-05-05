@@ -61,9 +61,10 @@ static laser_t *init_laser(sfVector2f pos)
 void set_tile_values(tile_t *tile, int index_tile, sfVector2f pos, sfColor color)
 {
 	tile->name = tile_list[index_tile].name;
-	tile->action = tile_list[index_tile].action;
+	tile->func = tile_list[index_tile].func;
 	tile->player_col = tile_list[index_tile].player_col;
 	tile->laser_col = tile_list[index_tile].laser_col;
+	tile->is_action = tile_list[index_tile].is_action;
 	tile->active = (char)color.r & 0b00000001;
 	tile->direction = (char)color.r & 0b00000110;
 	tile->chanel = (char)color.g & 0x0f;
