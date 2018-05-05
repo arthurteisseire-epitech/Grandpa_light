@@ -37,6 +37,5 @@ void move_player(rpg_t *rpg, sfVector2f *pos, sfVector2f move)
 
 	if (!collide(rpg->scenes[rpg->curr_scene]->map, new_pos)) {
 		*pos = new_pos;
-		update_shader(rpg->scenes[rpg->curr_scene]->map);
 	}
 }
