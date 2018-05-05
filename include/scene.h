@@ -12,11 +12,18 @@
 
 #define FIRST_SCENE 0
 
+#ifndef NB_FT_SCENE
+	#define NB_FT_SCENE 1
+#endif
+
+
 typedef struct sprite_s sprite_t;
 typedef struct tile_s tile_t;
 typedef struct texture_s texture_t;
 typedef struct button_s button_t;
 typedef struct rpg_s rpg_t;
+
+int loop_menu(rpg_t *rpg);
 
 typedef struct map_s {
 	sfVector2u size;
@@ -25,11 +32,26 @@ typedef struct map_s {
 	sfVector2i end;
 } map_t;
 
+typedef int (*scene_func)(rpg_t *);
+
+
 typedef struct scene_s {
 	map_t *map;
 	button_t **buttons;
 	sfText **text;
-	int (*scene_loop)(rpg_t *rpg, struct scene_s *scene);
+	scene_func scene_loop;
 } scene_t;
+
+
+typedef struct ft_scene_s
+{
+	char *name;
+	scene_func scene_func;
+}ft_scene_t;
+
+static const ft_scene_t ft_scene[] = {
+	{"menu", loop_menu},
+};
+
 
 #endif

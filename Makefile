@@ -62,6 +62,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DPARSE)tile_list.c 		\
 		$(DINIT)init_ftbutton.c 		\
 		$(DSRC)manage_buttons.c 		\
+		$(DSRC)loop_menu.c 		\
 
 LDFLAGS	=	-lc_graph_prog -lconfig
 CFLAGS	+=	-Wall -W -Wextra -I$(INC) -g

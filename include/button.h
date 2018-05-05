@@ -8,7 +8,7 @@
 #ifndef BUTTON_H
 #define BUTTON_H
 
-#include <SFML/Graphics/Types.h>
+#include <SFML/Graphics.h>
 
 typedef struct rpg_s rpg_t;
 typedef struct sprite_s sprite_t;
@@ -36,5 +36,7 @@ typedef struct button_s {
 	sfText *text;
 	button_func_t button_func;
 } button_t;
+
+int manage_button(rpg_t *rpg, button_t **button, sfEvent *event);
 
 #endif

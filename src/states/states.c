@@ -8,6 +8,7 @@
 #include "rpg.h"
 #include "states.h"
 #include "define.h"
+#include "scene.h"
 
 int states(rpg_t *rpg)
 {
@@ -19,6 +20,7 @@ int states(rpg_t *rpg)
 	status = update(rpg);
 	if (status != SUCCESS)
 		return (status);
+	status = rpg->scenes[rpg->curr_scene]->scene_loop(rpg);
 	status = draw(rpg);
 	if (status != SUCCESS)
 		return (status);
