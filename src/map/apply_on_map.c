@@ -37,13 +37,14 @@ tile_t *get_tile_by_name(map_t *map, tile_t **tiles, void *name)
 	return (NULL);
 }
 
-tile_t *set_tile_by_chanel(map_t *map, tile_t **tiles, void *chanel)
+tile_t *set_tile_by_chanel(map_t *map, tile_t **tiles, void *data)
 {
 	int i = 0;
-	int nb = *(int *)chanel;
+	tile_t *tile = data;
 
 	while (tiles[i]) {
-		if (nb == tiles[i]->chanel && tiles[i]->action != NULL)
+		if (tile->chanel == tiles[i]->chanel &&
+		tiles[i]->action != NULL && tiles[i] != tile)
 			tiles[i]->action(map, tiles[i]);
 		i++;
 	}

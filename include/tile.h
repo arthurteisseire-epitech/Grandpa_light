@@ -58,7 +58,7 @@ void update_shader(map_t *map);
 
 tile_t *apply_on_map(map_t *map, get_tile_t func, void *data);
 tile_t *get_tile_by_name(map_t *map, tile_t **tiles, void *name);
-tile_t *set_tile_by_chanel(map_t *map, tile_t **tiles, void *chanel);
+tile_t *set_tile_by_chanel(map_t *map, tile_t **tiles, void *tile);
 sfVector2f get_pos_tile_by_name(map_t *map, pos_tile_t func, void *name);
 int tile_pos_line(map_t __attribute((unused))*map, tile_t **tiles, void *name);
 

@@ -32,6 +32,13 @@ void player_movement(rpg_t *rpg)
 		move_player(rpg, &rpg->character->pos, DIR_DOWN);
 	if (rpg->event->key.code == sfKeyD)
 		move_player(rpg, &rpg->character->pos, DIR_RIGHT);
+	sfVector2f v = rpg->character->pos;
+	if (rpg->scenes[rpg->curr_scene]->map)
+		if (my_strcmp(rpg->scenes[rpg->curr_scene]->map->tiles[(int)v.x][(int)v.y]->name, "glass") == 0 &&
+		rpg->scenes[rpg->curr_scene]->map->tiles[(int)v.x][(int)v.y]->action)
+			rpg->scenes[rpg->curr_scene]->map->tiles[(int)v.x][(int)v.y]->action(
+			rpg->scenes[rpg->curr_scene]->map,
+			rpg->scenes[rpg->curr_scene]->map->tiles[(int)v.x][(int)v.y]);
 }
 
 int event(rpg_t *rpg)

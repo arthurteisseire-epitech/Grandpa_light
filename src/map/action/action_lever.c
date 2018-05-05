@@ -11,6 +11,6 @@
 
 int action_lever(map_t *map, tile_t *tile)
 {
-	apply_on_map(map, set_tile_by_chanel, &tile->chanel);
+	apply_on_map(map, set_tile_by_chanel, tile);
 	return (SUCCESS);
 }
