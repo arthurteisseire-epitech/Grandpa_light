@@ -9,7 +9,7 @@
 #include "tile.h"
 #include "define.h"
 
-int action_door(map_t __attribute((unused))*map, tile_t *tile)
+int action_door(rpg_t __attribute((unused))*rpg, tile_t *tile)
 {
 	tile->player_col = !tile->player_col;
 	tile->laser_col = !tile->laser_col;

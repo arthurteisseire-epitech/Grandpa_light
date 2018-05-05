@@ -5,12 +5,22 @@
 ** by Arthur Teisseire
 */
 
+#include "rpg.h"
 #include "scene.h"
 #include "tile.h"
+#include "texture.h"
 #include "define.h"
 
-int action_lever(map_t *map, tile_t *tile)
+int action_lever(rpg_t *rpg, tile_t *tile)
 {
-	apply_on_map(map, set_tile_by_chanel, tile);
+	texture_t *texture = get_texture_by_name(rpg->tx_tile, tile->name);
+
+	if (texture->rects[tile->index_rect + 1] == NULL)
+		tile->index_rect = 0;
+	else
+		tile->index_rect++;
+	sfSprite_setTextureRect(tile->sprite
+		, texture->rects[tile->index_rect]->rect);
+	apply_on_map(rpg, set_tile_by_chanel, tile);
 	return (SUCCESS);
 }

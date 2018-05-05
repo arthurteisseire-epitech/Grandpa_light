@@ -54,7 +54,7 @@ void player_action(rpg_t *rpg)
 		pos.y = rpg->character->pos.y;
 		tile = rpg->scenes[rpg->curr_scene]->map->tiles[pos.x][pos.y];
 		if (tile->func != NULL && tile->is_action)
-			tile->func(rpg->scenes[rpg->curr_scene]->map, tile);
+			tile->func(rpg, tile);
 	}
 }
 

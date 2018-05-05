@@ -11,7 +11,8 @@
 #include <SFML/Graphics.h>
 
 #define TX_TILE 0
-#define TX_TILE_ACTIVABLE 1
+#define TX_TILE_LASER 1
+#define TX_TILE_LEVER 2
 
 typedef struct config_setting_t config_setting_t;
 

@@ -11,7 +11,7 @@
 #include <SFML/Graphics.h>
 
 #define MASK_NAME(color) ((color).b & 0x0f)
-#define NB_TILE 6
+#define NB_TILE 7
 #define SIZE_TILE 64
 #define VEC_0_0 (sfVector2f){0.0, 0.0}
 #define VEC_HALF_TILE (sfVector2f){(float)SIZE_TILE / 2, (float)SIZE_TILE / 2}
@@ -39,12 +39,13 @@ typedef struct tile_s {
 	char player_col;
 	char laser_col;
 	char is_action;
-	int (*func)(map_t *, struct tile_s *);
+	float light_level;
+	char lighted;
+	int (*func)(rpg_t *, struct tile_s *);
 	laser_t *laser;
 	sfSprite *sprite;
 	sfRectangleShape *light;
-	float light_level;
-	char lighted;
+	int index_rect;
 } tile_t;
 
 typedef struct tile_list_s {
@@ -53,11 +54,11 @@ typedef struct tile_list_s {
 	char player_col;
 	char laser_col;
 	char is_action;
-	int (*func)(map_t *, struct tile_s *);
+	int (*func)(rpg_t *, struct tile_s *);
 	int idx_texture;
 } tile_list_t;
 
-typedef tile_t *(*get_tile_t)(map_t *, tile_t **, void *);
+typedef tile_t *(*get_tile_t)(rpg_t *, tile_t **, void *);
 typedef int (*pos_tile_t)(map_t *, tile_t **, void *);
 
 extern const tile_list_t tile_list[];
@@ -67,13 +68,14 @@ void update_shader(map_t *map);
 void generate_shader(map_t *map, sfVector2f pos, sfVector2f dir);
 char is_in_map(map_t *map, sfVector2f pos);
 
-tile_t *apply_on_map(map_t *map, get_tile_t func, void *data);
-tile_t *get_tile_by_name(map_t *map, tile_t **tiles, void *name);
-tile_t *set_tile_by_chanel(map_t *map, tile_t **tiles, void *tile);
+tile_t *apply_on_map(rpg_t *rpg, get_tile_t func, void *data);
+tile_t *get_tile_by_name(rpg_t *rpg, tile_t **tiles, void *name);
+tile_t *set_tile_by_chanel(rpg_t *rpg, tile_t **tiles, void *data);
 sfVector2f get_pos_tile_by_name(map_t *map, pos_tile_t func, void *name);
 int tile_pos_line(map_t __attribute((unused))*map, tile_t **tiles, void *name);
 
-int action_lever(map_t *map, tile_t *tile);
-int action_door(map_t __attribute((unused))*map, tile_t *tile);
+
+int action_door(rpg_t __attribute((unused))*rpg, tile_t *tile);
+int action_lever(rpg_t *rpg, tile_t *tile);
 
 #endif
