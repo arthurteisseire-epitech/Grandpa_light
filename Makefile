@@ -37,8 +37,10 @@ SRC     =	$(DSRC)main.c			\
 		$(DRAW)draw_character.c		\
 		$(DUPDATE)update.c		\
 		$(DUPDATE)move_player.c		\
+		$(DUPDATE)rotate_player.c	\
 		$(DUPDATE)animate.c		\
 		$(DUPDATE)light_shader.c	\
+		$(DUPDATE)gen_light_shader.c	\
 		$(DEVENT)event.c		\
 		$(DINIT)init.c			\
 		$(DINIT)init_character.c	\

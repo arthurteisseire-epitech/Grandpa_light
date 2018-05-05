@@ -70,6 +70,7 @@ void set_tile_values(tile_t *tile, int index_tile, sfVector2f pos)
 	tile->laser = init_laser(pos);
 	tile->light = sfRectangleShape_create();
 	tile->light_level = 0.1;
+	tile->lighted = 0;
 }
 
 int init_tile(rpg_t *rpg, tile_t *tile, int index_tile, sfVector2f pos)
