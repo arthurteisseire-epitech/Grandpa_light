@@ -13,6 +13,7 @@
 #define TX_TILE 0
 #define TX_TILE_LASER 1
 #define TX_TILE_LEVER 2
+#define TX_TILE_DOOR 3
 
 typedef struct config_setting_t config_setting_t;
 

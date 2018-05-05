@@ -26,6 +26,8 @@ const tile_list_t tile_list[NB_TILE] = {
 		"laser_beam", FALSE, FALSE, TRUE, NULL, TX_TILE_LASER},
 	{{0x00, 0x00, 0x07, 0x00},
 		"on_off", FALSE, FALSE, TRUE, action_lever, TX_TILE_LEVER},
+	{{0x00, 0x00, 0x08, 0x00},
+		"door", TRUE, TRUE, FALSE, action_door, TX_TILE_DOOR},
 	/*
 	 *{{0x00, 0x00, 0x06, 0x00},
 	 *        "door", TRUE, TRUE, NULL, TX_TILE_DOOR},
