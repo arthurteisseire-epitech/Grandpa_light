@@ -10,6 +10,7 @@
 #include "scene.h"
 #include "camera.h"
 #include "define.h"
+#include "button.h"
 #include "character.h"
 #include "tile.h"
 #include "tool.h"
@@ -56,6 +57,8 @@ int event(rpg_t *rpg)
 {
 	while (sfRenderWindow_pollEvent(rpg->window, rpg->event)) {
 		handle_exit(rpg);
+		if (rpg->scenes[rpg->curr_scene])
+			manage_button(rpg, rpg->scenes[rpg->curr_scene]->buttons, rpg->event);
 		if (rpg->event->type == sfEvtKeyPressed) {
 			player_movement(rpg);
 			change_scene(rpg);

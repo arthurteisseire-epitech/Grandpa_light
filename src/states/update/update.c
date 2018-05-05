@@ -13,8 +13,6 @@
 
 int update(rpg_t *rpg)
 {
-	if (rpg->scenes[rpg->curr_scene])
-		manage_button(rpg, rpg->scenes[rpg->curr_scene]->buttons, rpg->event);
 	animate_sprite(rpg->character, rpg->clock);
 	return (SUCCESS);
 }
