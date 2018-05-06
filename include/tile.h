@@ -43,7 +43,7 @@ typedef struct tile_s {
 	char lighted;
 	int (*func)(rpg_t *, struct tile_s *);
 	laser_t *laser;
-	sfSprite *sprite;
+	sfRectangleShape *rect;
 	sfRectangleShape *light;
 	int index_rect;
 } tile_t;

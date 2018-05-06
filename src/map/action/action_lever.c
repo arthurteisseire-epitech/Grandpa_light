@@ -13,14 +13,7 @@
 
 int action_lever(rpg_t *rpg, tile_t *tile)
 {
-	texture_t *texture = get_texture_by_name(rpg->tx_tile, tile->name);
-
-	if (texture->rects[tile->index_rect + 1] == NULL)
-		tile->index_rect = 0;
-	else
-		tile->index_rect++;
-	sfSprite_setTextureRect(tile->sprite
-		, texture->rects[tile->index_rect]->rect);
+	shift_texture_rect(rpg->tx_tile, tile);
 	apply_on_map(rpg, set_tile_by_chanel, tile);
 	return (SUCCESS);
 }

@@ -12,7 +12,7 @@
 
 void draw_tile(rpg_t *rpg, tile_t *tile)
 {
-	sfRenderWindow_drawSprite(rpg->window, tile->sprite, NULL);
+	sfRenderWindow_drawRectangleShape(rpg->window, tile->rect, NULL);
 	if (tile->laser->horizontal)
 		sfRenderWindow_drawRectangleShape(rpg->window,
 			tile->laser->rect, NULL);

@@ -21,6 +21,7 @@ DESTROY	=	$(DSRC)destroy/
 DMAP	=	$(DSRC)map/
 DMAPACT	=	$(DMAP)action/
 DSCENE	=	$(DSRC)scene/
+DTX	=	$(DSRC)texture/
 DSTATES	=	$(DSRC)states/
 DTOOLS	=	$(DSRC)tools/
 DEVENT	=	$(DSTATES)event/
@@ -74,7 +75,8 @@ SRC     =	$(DSRC)main.c			\
 		$(DSCENE)manage_buttons.c 	\
 		$(DTOOLS)vec.c			\
 		$(DTOOLS)get_rect.c		\
-		$(DTOOLS)get_texture.c		\
+		$(DTX)get_texture.c		\
+		$(DTX)shift_texture_rect.c	\
 
 LDFLAGS	=	-lc_graph_prog -lconfig
 CFLAGS	+=	-Wall -W -Wextra -I$(INC) -g
