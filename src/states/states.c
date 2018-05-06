@@ -20,7 +20,8 @@ int states(rpg_t *rpg)
 	status = update(rpg);
 	if (status != SUCCESS)
 		return (status);
-	status = rpg->scenes[rpg->curr_scene]->scene_loop(rpg);
+	if (rpg->scenes[rpg->curr_scene]->scene_loop != NULL)
+		status = rpg->scenes[rpg->curr_scene]->scene_loop(rpg);
 	status = draw(rpg);
 	if (status != SUCCESS)
 		return (status);

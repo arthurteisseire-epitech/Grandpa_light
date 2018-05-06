@@ -9,10 +9,14 @@
 #define CHARACTER_H
 
 #define MAX_ITEMS 1
-#define DIR_UP (sfVector2f){0.0, -1.0}
-#define DIR_LEFT (sfVector2f){-1.0, 0.0}
-#define DIR_DOWN (sfVector2f){0.0, 1.0}
-#define DIR_RIGHT (sfVector2f){1.0, 0.0}
+#define MOVE_UP (sfVector2f){0.0, -1.0}
+#define MOVE_LEFT (sfVector2f){-1.0, 0.0}
+#define MOVE_DOWN (sfVector2f){0.0, 1.0}
+#define MOVE_RIGHT (sfVector2f){1.0, 0.0}
+#define DIR_UP 270.0
+#define DIR_LEFT 180.0
+#define DIR_DOWN 90.0
+#define DIR_RIGHT 0.0
 
 #define ANIM_STAY 0
 #define ANIM_MOVE 1
@@ -44,8 +48,14 @@ typedef struct character_s {
 	int curr_frame;
 } character_t;
 
+void rotate_player(rpg_t *rpg, float angle, sfVector2f dir);
 void move_player(rpg_t *rpg, sfVector2f *pos, sfVector2f move);
 void set_player_pos(character_t *player);
 void animate_sprite(character_t *player, sfClock *clock);
+
+void player_rotation(rpg_t *rpg);
+void player_movement(rpg_t *rpg);
+void player_action(rpg_t *rpg);
+int player_event(rpg_t *rpg);
 
 #endif

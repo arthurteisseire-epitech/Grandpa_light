@@ -31,7 +31,7 @@ int draw_setting(rpg_t *rpg)
 button_func_t get_func_button(char const *ft)
 {
 	for (int i = 0; i != 2; i++)
-		if (my_strcmp(ft, ft_buttons[i].name))
+		if (my_strcmp(ft, ft_buttons[i].name) == 0)
 			return (ft_buttons[i].button_func);
 	return (NULL);
 }

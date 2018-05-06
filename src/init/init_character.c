@@ -13,6 +13,7 @@
 #include "texture.h"
 #include "define.h"
 #include "init.h"
+#include "tile.h"
 
 int init_character(rpg_t *rpg)
 {
@@ -32,6 +33,7 @@ int init_character(rpg_t *rpg)
 		return (status);
 	sfRectangleShape_setTexture(rpg->character->rect,
 		rpg->character->anim[0]->texture, sfTrue);
+	sfRectangleShape_setOrigin(rpg->character->rect, VEC_HALF_TILE);
 	sfRectangleShape_setTextureRect(rpg->character->rect,
 		rpg->character->anim[0]->rects[0]->rect);
 	rpg->character->pos = get_cfg_vec(char_setting, "pos");

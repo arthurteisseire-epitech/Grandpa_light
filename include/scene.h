@@ -11,17 +11,18 @@
 #include <SFML/Graphics.h>
 
 #define FIRST_SCENE 0
+#define CURR_SCENE rpg->scenes[rpg->curr_scene]
 
 #ifndef NB_FT_SCENE
 	#define NB_FT_SCENE 1
 #endif
 
 
+typedef struct rpg_s rpg_t;
 typedef struct sprite_s sprite_t;
 typedef struct tile_s tile_t;
 typedef struct texture_s texture_t;
 typedef struct button_s button_t;
-typedef struct rpg_s rpg_t;
 
 int loop_menu(rpg_t *rpg);
 
@@ -42,7 +43,6 @@ typedef struct scene_s {
 	scene_func scene_loop;
 } scene_t;
 
-
 typedef struct ft_scene_s
 {
 	char *name;
@@ -53,5 +53,8 @@ static const ft_scene_t ft_scene[] = {
 	{"menu", loop_menu},
 };
 
+void change_scene(rpg_t *rpg);
+void place_in_spawn(rpg_t *rpg);
+int manage_button(rpg_t *rpg, button_t **button, sfEvent *event);
 
 #endif

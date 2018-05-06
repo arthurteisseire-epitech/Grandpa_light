@@ -40,7 +40,7 @@ int manage_button(rpg_t *rpg, button_t **button, sfEvent *event)
 {
 	int i = 0;
 
-	while (button != NULL && button[i] != NULL) {
+	while (button[i] != NULL) {
 		if (event->type == sfEvtMouseMoved){
 			check_over(button[i], event->mouseMove.x, event->mouseMove.y);
 		}

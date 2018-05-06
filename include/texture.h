@@ -8,10 +8,12 @@
 #ifndef TEXTURE_H
 #define TEXTURE_H
 
-#include <SFML/Graphics/Types.h>
+#include <SFML/Graphics.h>
 
 #define TX_TILE 0
-#define TX_TILE_ACTIVABLE 1
+#define TX_TILE_LASER 1
+#define TX_TILE_LEVER 2
+#define TX_TILE_DOOR 3
 
 typedef struct config_setting_t config_setting_t;
 
@@ -32,5 +34,7 @@ sfIntRect *get_texture_rect_by_name(texture_t *texture, char const *name);
 
 int set_texture_by_setting(texture_t **textures, sfRectangleShape *rect,
 	config_setting_t *parent);
+
+rectangle_t *get_rect(texture_t *texture, char *name);
 
 #endif

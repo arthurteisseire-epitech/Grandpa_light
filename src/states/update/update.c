@@ -13,6 +13,7 @@
 
 int update(rpg_t *rpg)
 {
+	set_player_pos(rpg->character);
 	animate_sprite(rpg->character, rpg->clock);
 	return (SUCCESS);
 }
