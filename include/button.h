@@ -37,8 +37,8 @@ static const ft_button_t ft_buttons[] = {
 };
 
 button_func_t get_func_button(char const *ft);
-int check_over(rpg_t __attribute((unused))*rpg, button_t *button, int x, int y);
-int check_clic(rpg_t *rpg, button_t *button, int x, int y);
+int check_over(rpg_t *rpg, button_t *button, sfVector2i pos);
+int check_clic(rpg_t *rpg, button_t *button, sfVector2i pos);
 int manage_buttons(rpg_t *rpg, button_t **button, sfEvent *event);
 
 #endif

@@ -7,6 +7,7 @@
 
 #include <stddef.h>
 #include "texture.h"
+#include "define.h"
 #include "my.h"
 
 rectangle_t *get_rect(texture_t *texture, char *name)
@@ -20,4 +21,3 @@ rectangle_t *get_rect(texture_t *texture, char *name)
 	}
 	return (texture->rects[0]);
 }
-

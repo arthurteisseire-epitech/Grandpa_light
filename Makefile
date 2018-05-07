@@ -77,6 +77,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DSCENE)manage_buttons.c 	\
 		$(DTOOLS)vec.c			\
 		$(DTOOLS)get_rect.c		\
+		$(DTOOLS)is_pos_in_rect.c	\
 		$(DTX)get_texture.c		\
 		$(DTX)shift_texture_rect.c	\
 
