@@ -30,7 +30,7 @@ void set_light_value(map_t *map, sfVector2f pos, float brightness)
 {
 	if (is_in_map(map, pos)) {
 		if (brightness - LIGHT_POWER > MIN_BRIGH)
-			map->tiles[(int)pos.x][(int)pos.y]->light_level 
+			map->tiles[(int)pos.x][(int)pos.y]->light_level
 				= brightness - LIGHT_POWER;
 		map->tiles[(int)pos.x][(int)pos.y]->lighted = 1;
 	}
@@ -50,7 +50,7 @@ void adj_tile_light(map_t *map, sfVector2f pos, float brightness, sfVector2f dir
 
 void generate_shader(map_t *map, sfVector2f pos, sfVector2f dir)
 {
-	float brightness = 1.0;	
+	float brightness = 1.0;
 
 	refresh_light(map);
 	while (is_in_map(map, pos) && brightness > NO_BRIGH) {

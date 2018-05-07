@@ -54,13 +54,13 @@ extern "C" {
 #define CONFIG_FORMAT_DEFAULT  0
 #define CONFIG_FORMAT_HEX      1
 
-#define CONFIG_OPTION_AUTOCONVERT                     0x01
-#define CONFIG_OPTION_SEMICOLON_SEPARATORS            0x02
+#define CONFIG_OPTION_AUTOCONVERT		     0x01
+#define CONFIG_OPTION_SEMICOLON_SEPARATORS	    0x02
 #define CONFIG_OPTION_COLON_ASSIGNMENT_FOR_GROUPS     0x04
 #define CONFIG_OPTION_COLON_ASSIGNMENT_FOR_NON_GROUPS 0x08
 #define CONFIG_OPTION_OPEN_BRACE_ON_SEPARATE_LINE     0x10
 #define CONFIG_OPTION_ALLOW_SCIENTIFIC_NOTATION       0x20
-#define CONFIG_OPTION_FSYNC                           0x40
+#define CONFIG_OPTION_FSYNC			   0x40
 
 #define CONFIG_TRUE  (1)
 #define CONFIG_FALSE (0)
@@ -257,20 +257,20 @@ extern LIBCONFIG_API int config_setting_is_aggregate(
   ((S)->type == CONFIG_TYPE_LIST)
 
 #define /* int */ config_setting_is_number(/* const config_setting_t * */ S) \
-  (((S)->type == CONFIG_TYPE_INT)                                       \
-   || ((S)->type == CONFIG_TYPE_INT64)                                  \
+  (((S)->type == CONFIG_TYPE_INT)				       \
+   || ((S)->type == CONFIG_TYPE_INT64)				  \
    || ((S)->type == CONFIG_TYPE_FLOAT))
 
 #define /* const char * */ config_setting_name( \
-  /* const config_setting_t * */ S)             \
+  /* const config_setting_t * */ S)	     \
   ((S)->name)
 
 #define /* config_setting_t * */ config_setting_parent( \
-  /* const config_setting_t * */ S)                     \
+  /* const config_setting_t * */ S)		     \
   ((S)->parent)
 
 #define /* int */ config_setting_is_root(       \
-  /* const config_setting_t * */ S)             \
+  /* const config_setting_t * */ S)	     \
   ((S)->parent ? CONFIG_FALSE : CONFIG_TRUE)
 
 extern LIBCONFIG_API int config_setting_index(const config_setting_t *setting);
@@ -313,22 +313,22 @@ extern LIBCONFIG_API int config_lookup_string(const config_t *config,
 		const char **value);
 
 #define /* config_setting_t * */ config_root_setting( \
-		/* const config_t * */ C)                           \
+		/* const config_t * */ C)			   \
 		((C)->root)
 
 #define  /* void */ config_set_default_format(/* config_t * */ C,       \
-		/* short */ F)            \
+		/* short */ F)	    \
 		(C)->default_format = (F)
 
 #define /* short */ config_get_default_format(/* config_t * */ C)       \
 	((C)->default_format)
 
 #define /* unsigned short */ config_setting_source_line(   \
-		/* const config_setting_t * */ S)                        \
+		/* const config_setting_t * */ S)			\
 		((S)->line)
 
 #define /* const char */ config_setting_source_file(    \
-		/* const config_setting_t * */ S)                     \
+		/* const config_setting_t * */ S)		     \
 		((S)->file)
 
 #define /* const char * */ config_error_text(/* const config_t * */ C)  \

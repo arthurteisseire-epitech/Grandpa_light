@@ -30,13 +30,13 @@ const tile_list_t tile_list[NB_TILE] = {
 		"door", TRUE, TRUE, FALSE, action_door, TX_TILE_DOOR},
 	/*
 	 *{{0x00, 0x00, 0x06, 0x00},
-	 *        "door", TRUE, TRUE, NULL, TX_TILE_DOOR},
+	 *	"door", TRUE, TRUE, NULL, TX_TILE_DOOR},
 	 *{{0x00, 0x00, 0x07, 0x00},
-	 *        "switch", FALSE, TRUE, NULL, TX_TILE_SWITCH},
+	 *	"switch", FALSE, TRUE, NULL, TX_TILE_SWITCH},
 	 *{{0x00, 0x00, 0x08, 0x00},
-	 *        "ls_beam", TRUE, TRUE, NULL, TX_TILE_LS_BEAM},
+	 *	"ls_beam", TRUE, TRUE, NULL, TX_TILE_LS_BEAM},
 	 *{{0x00, 0x00, 0x0a, 0x00},
-	 *        "ls_receptor", TRUE, TRUE, NULL, TX_TILE_LS_RECEPTOR}
+	 *	"ls_receptor", TRUE, TRUE, NULL, TX_TILE_LS_RECEPTOR}
 	 */
 };
 
