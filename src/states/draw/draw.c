@@ -14,7 +14,7 @@ int draw(rpg_t *rpg)
 {
 	sfRenderWindow_clear(rpg->window, sfBlack);
 	draw_scene(rpg, rpg->scenes[rpg->curr_scene]);
-	draw_character(rpg);
+	draw_player(rpg);
 	sfRenderWindow_display(rpg->window);
 	return (SUCCESS);
 }

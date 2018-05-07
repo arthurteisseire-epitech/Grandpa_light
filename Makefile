@@ -35,7 +35,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DSTATES)states.c		\
 		$(DRAW)draw.c			\
 		$(DRAW)draw_scene.c		\
-		$(DRAW)draw_character.c		\
+		$(DRAW)draw_player.c		\
 		$(DUPDATE)update.c		\
 		$(DUPDATE)move_player.c		\
 		$(DUPDATE)rotate_player.c	\

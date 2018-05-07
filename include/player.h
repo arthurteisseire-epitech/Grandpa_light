@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2017
-** File Name : character.h
+** File Name : player.h
 ** File description:
 ** by Arthur Teisseire
 */
