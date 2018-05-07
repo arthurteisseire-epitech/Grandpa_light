@@ -20,12 +20,15 @@ typedef struct rectangle_s rectangle_t;
 typedef struct config_t config_t;
 typedef struct map_s map_t;
 typedef struct player_s player_t;
+typedef struct sfMusic sfMusic;
 
 typedef int (*init_arr_t)(rpg_t *);
 
 int init(rpg_t *rpg);
 int init_window(rpg_t *rpg);
 int init_event(rpg_t *rpg);
+int init_musics(rpg_t *rpg);
+int init_music(sfMusic **music, config_setting_t *parent, int i);
 int init_player(rpg_t *rpg);
 void set_player_stat(player_t *player, config_setting_t *this_set);
 int init_anims(rpg_t *rpg, texture_t ***textures, config_setting_t *parent);

@@ -9,6 +9,7 @@
 #define DESTROY_H
 
 #include <SFML/Graphics.h>
+#include <SFML/Audio.h>
 #include <libconfig.h>
 
 typedef struct rpg_s rpg_t;
@@ -26,5 +27,6 @@ void destroy_buttons(button_t **buttons);
 void destroy_clock(sfClock *clock);
 void destroy_config(config_t *config);
 void destroy_textures(texture_t **textures);
+void destroy_musics(sfMusic **musics);
 
 #endif

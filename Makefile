@@ -48,6 +48,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DINIT)init_player.c		\
 		$(DINIT)init_event.c		\
 		$(DINIT)init_window.c		\
+		$(DINIT)init_musics.c		\
 		$(DINIT)init_scenes.c		\
 		$(DINIT)init_map.c		\
 		$(DINIT)init_buttons.c		\
@@ -65,6 +66,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DESTROY)destroy_textures.c	\
 		$(DESTROY)destroy_config.c	\
 		$(DESTROY)destroy_clock.c	\
+		$(DESTROY)destroy_musics.c	\
 		$(DPARSE)parse_image.c		\
 		$(DSRC)loop_menu.c 		\
 		$(DPARSE)tile_list.c		\

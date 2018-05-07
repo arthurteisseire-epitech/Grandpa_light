@@ -24,6 +24,8 @@ int main(void)
 	status = init(rpg);
 	if (status != SUCCESS)
 		return (status);
+	if (rpg->musics != NULL)
+		sfMusic_play(rpg->musics[0]);
 	status = game_loop(rpg);
 	destroy(rpg);
 	return (status);

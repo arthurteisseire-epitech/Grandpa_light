@@ -18,5 +18,6 @@ void destroy(rpg_t *rpg)
 	destroy_textures(rpg->tx_tile);
 	destroy_textures(rpg->tx_game);
 	destroy_clock(rpg->clock);
+	destroy_musics(rpg->musics);
 	free(rpg);
 }

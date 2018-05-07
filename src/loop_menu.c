@@ -11,6 +11,6 @@
 
 int loop_menu(rpg_t __attribute((unused))*rpg)
 {
-	printf("cette boucle de printf est indépendante des autres scenes, nous somme dans menu\n");
+//	printf("cette boucle de printf est indépendante des autres scenes, nous somme dans menu\n");
 	return (SUCCESS);
 }

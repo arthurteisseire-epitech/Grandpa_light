@@ -9,6 +9,7 @@
 #define RPG_H
 
 #include <SFML/Graphics.h>
+#include <SFML/Audio.h>
 
 #define NB_SCENES 3
 #define TITLE "rpg"
@@ -25,6 +26,7 @@ typedef struct player_s player_t;
 typedef struct rpg_s {
 	sfEvent *event;
 	sfRenderWindow *window;
+	sfMusic **musics;
 	scene_t **scenes;
 	texture_t **tx_tile;
 	texture_t **tx_game;
