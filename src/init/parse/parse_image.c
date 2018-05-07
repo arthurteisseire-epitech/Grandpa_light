@@ -41,31 +41,6 @@ int parse_image_line(rpg_t *rpg, map_t *map, sfImage *image, int row)
 	return (SUCCESS);
 }
 
-static laser_t *init_laser(sfVector2f pos)
-{
-	laser_t *laser = malloc(sizeof(laser_t));
-	sfVector2f tile_pos = scale_vec(pos, SIZE_TILE);
-	sfVector2f horizontal_pos = {tile_pos.x + SIZE_TILE / 2, tile_pos.y};
-	sfVector2f vertical_pos = {tile_pos.x, tile_pos.y + SIZE_TILE / 2};
-	sfVector2f laser_size = {SIZE_TILE, LASER_LENGTH};
-
-	if (laser == NULL)
-		return (NULL);
-	laser->vertical = 1;
-	laser->horizontal = 1;
-	laser->hor_rect = sfRectangleShape_create();
-	laser->vert_rect = sfRectangleShape_create();
-	if (laser->hor_rect == NULL || laser->vert_rect == NULL)
-		return (free(laser), NULL);
-	sfRectangleShape_setFillColor(laser->hor_rect, sfRed);
-	sfRectangleShape_setFillColor(laser->vert_rect, sfRed);
-	sfRectangleShape_setPosition(laser->vert_rect, vertical_pos);
-	sfRectangleShape_setPosition(laser->hor_rect, horizontal_pos);
-	sfRectangleShape_setSize(laser->vert_rect, laser_size);
-	sfRectangleShape_setSize(laser->hor_rect, laser_size);
-	return (laser);
-}
-
 void set_tile_values(tile_t *tile, int index_tile, sfVector2f pos,
 	sfColor color)
 {
