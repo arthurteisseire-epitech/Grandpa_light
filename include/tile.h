@@ -17,8 +17,8 @@
 #define VEC_0_0 (sfVector2f){0.0, 0.0}
 #define VEC_HALF_TILE (sfVector2f){(float)SIZE_TILE / 2, (float)SIZE_TILE / 2}
 
-#define NO_BRIGHT 0.3
-#define MIN_BRIGHT 0.8
+#define NO_BRIGHT 0.1
+#define MIN_BRIGHT 0.3
 #define LIGHT_POWER 0.25
 
 typedef struct sprite_s sprite_t;

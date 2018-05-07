@@ -42,8 +42,8 @@ void destroy_scene(scene_t *scene)
 		destroy_map(scene->map);
 	if (scene->buttons != NULL)
 		destroy_buttons(scene->buttons);
-	if (scene->text != NULL)
-		destroy_texts(scene->text);
+//	if (scene->text != NULL)
+//		destroy_texts(scene->text);
 	free(scene);
 }
 
