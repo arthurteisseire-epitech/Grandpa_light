@@ -6,11 +6,12 @@
 */
 
 #include <SFML/Graphics.h>
+#include "rpg.h"
 #include "button.h"
 #include "scene.h"
 #include "define.h"
 
-int check_over(button_t *button, int x, int y)
+int check_over(rpg_t __attribute((unused))*rpg, button_t *button, int x, int y)
 {
 	sfVector2f pos = sfRectangleShape_getPosition(button->rect);
 	sfVector2f rect = sfRectangleShape_getSize(button->rect);
@@ -36,17 +37,20 @@ int check_clic(rpg_t *rpg, button_t *button, int x, int y)
 	return (SUCCESS);
 }
 
-int manage_button(rpg_t *rpg, button_t **buttons, sfEvent *event)
+int manage_buttons(rpg_t *rpg, button_t **buttons, sfEvent *event)
 {
 	int i = 0;
+	int (*mouse_func)(rpg_t *, button_t *, int x, int y) = NULL;
+	sfVector2i pos = sfMouse_getPositionRenderWindow(rpg->window);
 
+	if (event->type == sfEvtMouseMoved)
+		mouse_func = check_over;
+	else if (event->type == sfEvtMouseButtonPressed)
+		mouse_func = check_clic;
+	if (mouse_func == NULL)
+		return (SUCCESS);
 	while (buttons[i] != NULL) {
-		if (event->type == sfEvtMouseMoved) {
-			check_over(buttons[i], event->mouseMove.x, event->mouseMove.y);
-		}
-		if (event->type == sfEvtMouseButtonPressed) {
-			check_clic(rpg, buttons[i], event->mouseButton.x, event->mouseButton.y);
-		}
+		mouse_func(rpg, buttons[i], pos.x, pos.y);
 		i++;
 	}
 	return (SUCCESS);

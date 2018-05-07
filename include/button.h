@@ -20,10 +20,15 @@ typedef struct ft_button_s
 	button_func_t button_func;
 }ft_button_t;
 
+typedef struct button_s {
+	sfRectangleShape *rect;
+	sfText *text;
+	button_func_t button_func;
+} button_t;
+
 int draw_credit(rpg_t *rpg);
 int draw_scene_1(rpg_t *rpg);
 int draw_setting(rpg_t *rpg);
-button_func_t get_func_button(char const *ft);
 
 static const ft_button_t ft_buttons[] = {
 	{"play", draw_scene_1},
@@ -31,12 +36,9 @@ static const ft_button_t ft_buttons[] = {
 	{"credit", draw_credit},
 };
 
-typedef struct button_s {
-	sfRectangleShape *rect;
-	sfText *text;
-	button_func_t button_func;
-} button_t;
-
-int manage_button(rpg_t *rpg, button_t **button, sfEvent *event);
+button_func_t get_func_button(char const *ft);
+int check_over(rpg_t __attribute((unused))*rpg, button_t *button, int x, int y);
+int check_clic(rpg_t *rpg, button_t *button, int x, int y);
+int manage_buttons(rpg_t *rpg, button_t **button, sfEvent *event);
 
 #endif

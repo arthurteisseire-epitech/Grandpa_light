@@ -27,11 +27,12 @@ static int handle_events(rpg_t *rpg)
 {
 	handle_exit(rpg);
 	if (rpg->event->type == sfEvtKeyPressed) {
-		player_event(rpg);
+		if (rpg->scenes[rpg->curr_scene]->map != NULL)
+			player_event(rpg);
 		change_scene(rpg);
 	}
 	if (rpg->scenes[rpg->curr_scene]->buttons != NULL)
-		manage_button(rpg, rpg->scenes[rpg->curr_scene]->buttons, rpg->event);
+		manage_buttons(rpg, rpg->scenes[rpg->curr_scene]->buttons, rpg->event);
 	return (SUCCESS);
 }
 

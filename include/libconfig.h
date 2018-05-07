@@ -300,48 +300,48 @@ extern LIBCONFIG_API config_setting_t *config_setting_lookup(
 	config_setting_t *setting, const char *path);
 
 extern LIBCONFIG_API int config_lookup_int(const config_t *config,
-	const char *path, int *value);
+		const char *path, int *value);
 extern LIBCONFIG_API int config_lookup_int64(const config_t *config,
-	const char *path,
-	long long *value);
+		const char *path,
+		long long *value);
 extern LIBCONFIG_API int config_lookup_float(const config_t *config,
-	const char *path, double *value);
+		const char *path, double *value);
 extern LIBCONFIG_API int config_lookup_bool(const config_t *config,
-	const char *path, int *value);
+		const char *path, int *value);
 extern LIBCONFIG_API int config_lookup_string(const config_t *config,
-	const char *path,
-	const char **value);
+		const char *path,
+		const char **value);
 
 #define /* config_setting_t * */ config_root_setting( \
-  /* const config_t * */ C)                           \
-  ((C)->root)
+		/* const config_t * */ C)                           \
+		((C)->root)
 
 #define  /* void */ config_set_default_format(/* config_t * */ C,       \
-                                              /* short */ F)            \
-  (C)->default_format = (F)
+		/* short */ F)            \
+		(C)->default_format = (F)
 
 #define /* short */ config_get_default_format(/* config_t * */ C)       \
-  ((C)->default_format)
+	((C)->default_format)
 
 #define /* unsigned short */ config_setting_source_line(   \
-  /* const config_setting_t * */ S)                        \
-  ((S)->line)
+		/* const config_setting_t * */ S)                        \
+		((S)->line)
 
 #define /* const char */ config_setting_source_file(    \
-  /* const config_setting_t * */ S)                     \
-  ((S)->file)
+		/* const config_setting_t * */ S)                     \
+		((S)->file)
 
 #define /* const char * */ config_error_text(/* const config_t * */ C)  \
-  ((C)->error_text)
+	((C)->error_text)
 
 #define /* const char * */ config_error_file(/* const config_t * */ C)  \
-  ((C)->error_file)
+	((C)->error_file)
 
 #define /* int */ config_error_line(/* const config_t * */ C)   \
-  ((C)->error_line)
+	((C)->error_line)
 
 #define /* config_error_t */ config_error_type(/* const config_t * */ C) \
-  ((C)->error_type)
+	((C)->error_type)
 
 #ifdef __cplusplus
 }
