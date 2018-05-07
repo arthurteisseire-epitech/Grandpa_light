@@ -75,6 +75,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DMAP)apply_on_map.c		\
 		$(DMAPACT)action_lever.c	\
 		$(DMAPACT)action_door.c		\
+		$(DMAPACT)action_laser.c	\
 		$(DSCENE)change_scene.c		\
 		$(DSCENE)manage_buttons.c 	\
 		$(DTOOLS)vec.c			\

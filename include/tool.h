@@ -8,5 +8,6 @@
 #ifndef TOOL_H
 #define TOOL_H
 
+int action_laser(rpg_t *rpg, tile_t *laser);
 
 #endif

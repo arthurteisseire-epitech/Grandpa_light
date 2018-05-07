@@ -30,8 +30,8 @@ laser_t *init_laser(sfVector2f pos)
 
 	if (laser == NULL)
 		return (NULL);
-	laser->vertical = 1;
-	laser->horizontal = 1;
+	laser->vertical = 0;
+	laser->horizontal = 0;
 	laser->hor_rect = sfRectangleShape_create();
 	laser->vert_rect = sfRectangleShape_create();
 	if (laser->hor_rect == NULL || laser->vert_rect == NULL)
