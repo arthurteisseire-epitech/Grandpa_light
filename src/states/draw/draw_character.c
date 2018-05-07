@@ -6,10 +6,10 @@
 */
 
 #include "rpg.h"
-#include "character.h"
+#include "player.h"
 
 void draw_character(rpg_t *rpg)
 {
-	sfRenderWindow_drawRectangleShape(rpg->window, rpg->character->rect,
+	sfRenderWindow_drawRectangleShape(rpg->window, rpg->player->rect,
 	NULL);
 }

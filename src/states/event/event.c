@@ -11,7 +11,7 @@
 #include "camera.h"
 #include "define.h"
 #include "button.h"
-#include "character.h"
+#include "player.h"
 #include "tile.h"
 #include "tool.h"
 

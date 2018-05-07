@@ -9,7 +9,7 @@
 #include "rpg.h"
 #include "scene.h"
 #include "define.h"
-#include "character.h"
+#include "player.h"
 #include "tile.h"
 
 void player_rotation(rpg_t *rpg)
@@ -27,19 +27,19 @@ void player_rotation(rpg_t *rpg)
 void player_movement(rpg_t *rpg)
 {
 	if (rpg->event->key.code == sfKeyZ) {
-		move_player(rpg, &rpg->character->pos, MOVE_UP);
+		move_player(rpg, &rpg->player->pos, MOVE_UP);
 		rotate_player(rpg, DIR_UP, MOVE_UP);
 	}
 	if (rpg->event->key.code == sfKeyQ) {
-		move_player(rpg, &rpg->character->pos, MOVE_LEFT);
+		move_player(rpg, &rpg->player->pos, MOVE_LEFT);
 		rotate_player(rpg, DIR_LEFT, MOVE_LEFT);
 	}
 	if (rpg->event->key.code == sfKeyS) {
-		move_player(rpg, &rpg->character->pos, MOVE_DOWN);
+		move_player(rpg, &rpg->player->pos, MOVE_DOWN);
 		rotate_player(rpg, DIR_DOWN, MOVE_DOWN);
 	}
 	if (rpg->event->key.code == sfKeyD) {
-		move_player(rpg, &rpg->character->pos, MOVE_RIGHT);
+		move_player(rpg, &rpg->player->pos, MOVE_RIGHT);
 		rotate_player(rpg, DIR_RIGHT, MOVE_RIGHT);
 	}
 }
@@ -50,8 +50,8 @@ void player_action(rpg_t *rpg)
 	static tile_t *tile;
 
 	if (sfKeyboard_isKeyPressed(sfKeySpace)) {
-		pos.x = rpg->character->pos.x;
-		pos.y = rpg->character->pos.y;
+		pos.x = rpg->player->pos.x;
+		pos.y = rpg->player->pos.y;
 		tile = rpg->scenes[rpg->curr_scene]->map->tiles[pos.x][pos.y];
 		if (tile->func != NULL && tile->is_action)
 			tile->func(rpg, tile);

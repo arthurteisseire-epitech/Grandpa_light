@@ -15,7 +15,7 @@ static const init_arr_t init_arr[] = {
 	init_event,
 	init_config,
 	init_textures,
-	init_character,
+	init_player,
 	init_scenes,
 	init_clock,
 	init_window,

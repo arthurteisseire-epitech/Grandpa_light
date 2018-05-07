@@ -45,7 +45,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DEVENT)event.c		\
 		$(DEVENT)player_event.c		\
 		$(DINIT)init.c			\
-		$(DINIT)init_character.c	\
+		$(DINIT)init_player.c		\
 		$(DINIT)init_event.c		\
 		$(DINIT)init_window.c		\
 		$(DINIT)init_scenes.c		\

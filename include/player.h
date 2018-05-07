@@ -38,7 +38,7 @@ typedef struct inventory_s {
 	object_t *items[MAX_ITEMS + 1];
 } inventory_t;
 
-typedef struct character_s {
+typedef struct player_s {
 	sfRectangleShape *rect;
 	texture_t **anim;
 	inventory_t *inventory;
@@ -46,12 +46,12 @@ typedef struct character_s {
 	sfVector2f pos;
 	int id_anim;
 	int curr_frame;
-} character_t;
+} player_t;
 
 void rotate_player(rpg_t *rpg, float angle, sfVector2f dir);
 void move_player(rpg_t *rpg, sfVector2f *pos, sfVector2f move);
-void set_player_pos(character_t *player);
-void animate_sprite(character_t *player, sfClock *clock);
+void set_player_pos(player_t *player);
+void animate_sprite(player_t *player, sfClock *clock);
 
 void player_rotation(rpg_t *rpg);
 void player_movement(rpg_t *rpg);

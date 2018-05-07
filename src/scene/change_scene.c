@@ -10,13 +10,13 @@
 #include "scene.h"
 #include "camera.h"
 #include "define.h"
-#include "character.h"
+#include "player.h"
 #include "tile.h"
 #include "tool.h"
 
 void place_in_spawn(rpg_t *rpg)
 {
-	rpg->character->pos = get_pos_tile_by_name(
+	rpg->player->pos = get_pos_tile_by_name(
 		rpg->scenes[rpg->curr_scene]->map, tile_pos_line, "spawn");
 	update_shader(rpg->scenes[rpg->curr_scene]->map);
 }

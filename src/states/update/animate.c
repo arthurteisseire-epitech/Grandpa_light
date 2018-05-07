@@ -7,17 +7,17 @@
 
 #include "rpg.h"
 #include "texture.h"
-#include "character.h"
+#include "player.h"
 #include "vec.h"
 #include "tile.h"
 
-void set_player_pos(character_t *player)
+void set_player_pos(player_t *player)
 {
 	sfRectangleShape_setPosition(player->rect
 		, add_vec(scale_vec(player->pos, SIZE_TILE), VEC_HALF_TILE));
 }
 
-void animate_sprite(character_t *player, sfClock *clock)
+void animate_sprite(player_t *player, sfClock *clock)
 {
 	static float step = 0.1;
 	sfTime time = sfClock_getElapsedTime(clock);

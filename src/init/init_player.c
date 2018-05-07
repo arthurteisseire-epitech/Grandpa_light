@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2017
-** File Name : init_character.c
+** File Name : init_player.c
 ** File description:
 ** by Arthur Teisseire
 */
@@ -9,37 +9,42 @@
 #include <stdlib.h>
 #include "my.h"
 #include "rpg.h"
-#include "character.h"
+#include "player.h"
 #include "texture.h"
 #include "define.h"
 #include "init.h"
 #include "tile.h"
 
-int init_character(rpg_t *rpg)
+int init_player(rpg_t *rpg)
 {
 	int status;
-	config_setting_t *char_setting = config_setting_lookup(rpg->set, "character");
+	config_setting_t *player_set = config_setting_lookup(rpg->set, "player");
 
-	if (char_setting == NULL)
+	if (player_set == NULL)
 		return (WRONG_CONFIG_PATH);
-	rpg->character = malloc(sizeof(character_t));
-	if (rpg->character == NULL)
+	rpg->player = malloc(sizeof(player_t));
+	if (rpg->player == NULL)
 		return (MALLOC_FAILED);
-	status = init_shape(&rpg->character->rect, char_setting);
+	status = init_shape(&rpg->player->rect, player_set);
 	if (status != SUCCESS)
 		return (status);
-	status = init_anims(rpg, &rpg->character->anim, char_setting);
+	status = init_anims(rpg, &rpg->player->anim, player_set);
 	if (status != SUCCESS)
 		return (status);
-	sfRectangleShape_setTexture(rpg->character->rect,
-		rpg->character->anim[0]->texture, sfTrue);
-	sfRectangleShape_setOrigin(rpg->character->rect, VEC_HALF_TILE);
-	sfRectangleShape_setTextureRect(rpg->character->rect,
-		rpg->character->anim[0]->rects[0]->rect);
-	rpg->character->pos = get_cfg_vec(char_setting, "pos");
-	rpg->character->curr_frame = 0;
-	rpg->character->id_anim = 0;
+	sfRectangleShape_setTexture(rpg->player->rect,
+		rpg->player->anim[0]->texture, sfTrue);
+	sfRectangleShape_setOrigin(rpg->player->rect, VEC_HALF_TILE);
+	sfRectangleShape_setTextureRect(rpg->player->rect,
+		rpg->player->anim[0]->rects[0]->rect);
+	set_player_stat(rpg->player, player_set);
 	return (status);
+}
+
+void set_player_stat(player_t *player, config_setting_t *this_set)
+{
+	player->pos = get_cfg_vec(this_set, "pos");
+	player->curr_frame = 0;
+	player->id_anim = 0;
 }
 
 int init_anims(rpg_t *rpg, texture_t ***textures, config_setting_t *parent)

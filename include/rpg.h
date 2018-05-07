@@ -20,7 +20,7 @@ typedef struct window_s window_t;
 typedef struct event_s event_t;
 typedef struct config_t config_t;
 typedef struct config_setting_t config_setting_t;
-typedef struct character_s character_t;
+typedef struct player_s player_t;
 
 typedef struct rpg_s {
 	sfEvent *event;
@@ -32,7 +32,7 @@ typedef struct rpg_s {
 	int curr_scene;
 	int nb_scenes;
 	config_setting_t *set;
-	character_t *character;
+	player_t *player;
 } rpg_t;
 
 int game_loop(rpg_t *rpg);

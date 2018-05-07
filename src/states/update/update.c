@@ -9,11 +9,11 @@
 #include "scene.h"
 #include "button.h"
 #include "define.h"
-#include "character.h"
+#include "player.h"
 
 int update(rpg_t *rpg)
 {
-	set_player_pos(rpg->character);
-	animate_sprite(rpg->character, rpg->clock);
+	set_player_pos(rpg->player);
+	animate_sprite(rpg->player, rpg->clock);
 	return (SUCCESS);
 }
