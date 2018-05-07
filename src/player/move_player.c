@@ -5,12 +5,10 @@
 ** Ozz
 */
 
-#include <SFML/Graphics.h>
-#include <SFML/System/Vector2.h>
+#include "rpg.h"
 #include "player.h"
 #include "tile.h"
 #include "scene.h"
-#include "rpg.h"
 #include "vec.h"
 
 char is_in_map(map_t *map, sfVector2f pos)

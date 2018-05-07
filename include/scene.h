@@ -10,12 +10,16 @@
 
 #include <SFML/Graphics.h>
 
-#define FIRST_SCENE 0
 #define CURR_SCENE rpg->scenes[rpg->curr_scene]
+#define SCENE_MENU 0
+#define SC_HUB 4
+
+#define FIRST_SCENE SCENE_MENU
 
 #ifndef NB_FT_SCENE
 	#define NB_FT_SCENE 1
 #endif
+
 
 
 typedef struct rpg_s rpg_t;
