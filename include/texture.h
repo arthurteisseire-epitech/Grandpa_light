@@ -14,6 +14,7 @@
 #define TX_TILE_LASER 1
 #define TX_TILE_LEVER 2
 #define TX_TILE_DOOR 3
+#define TX_TILE_ROOM 4
 
 typedef struct config_setting_t config_setting_t;
 typedef struct tile_s tile_t;

@@ -10,13 +10,15 @@
 
 #include <SFML/Graphics.h>
 
-#define FIRST_SCENE 0
 #define CURR_SCENE rpg->scenes[rpg->curr_scene]
+#define SCENE_MENU 0
+#define SC_HUB 4
+
+#define FIRST_SCENE SCENE_MENU
 
 #ifndef NB_FT_SCENE
 	#define NB_FT_SCENE 1
 #endif
-
 
 typedef struct rpg_s rpg_t;
 typedef struct sprite_s sprite_t;
@@ -29,12 +31,9 @@ int loop_menu(rpg_t *rpg);
 typedef struct map_s {
 	sfVector2u size;
 	tile_t ***tiles;
-	sfVector2i start;
-	sfVector2i end;
 } map_t;
 
 typedef int (*scene_func)(rpg_t *);
-
 
 typedef struct scene_s {
 	map_t *map;
@@ -47,7 +46,7 @@ typedef struct ft_scene_s
 {
 	char *name;
 	scene_func scene_func;
-}ft_scene_t;
+} ft_scene_t;
 
 static const ft_scene_t ft_scene[] = {
 	{"menu", loop_menu},

@@ -61,8 +61,8 @@ void player_action(rpg_t *rpg)
 int player_event(rpg_t *rpg)
 {
 	if (rpg->scenes[rpg->curr_scene]->map != NULL) {
-		player_rotation(rpg);
 		player_action(rpg);
+		player_rotation(rpg);
 		player_movement(rpg);
 	}
 	return (SUCCESS);

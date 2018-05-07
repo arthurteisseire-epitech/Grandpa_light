@@ -30,8 +30,8 @@ void set_light_value(map_t *map, sfVector2f pos, float brightness)
 {
 	if (is_in_map(map, pos)) {
 		if (brightness - LIGHT_POWER > MIN_BRIGHT)
-			map->tiles[(int)pos.x][(int)pos.y]->light_level = (float)(
-				brightness - LIGHT_POWER);
+			map->tiles[(int)pos.x][(int)pos.y]->light_level =
+				(float)(brightness - LIGHT_POWER);
 		map->tiles[(int)pos.x][(int)pos.y]->lighted = 1;
 	}
 }

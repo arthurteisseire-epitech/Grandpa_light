@@ -2,20 +2,13 @@
 ** EPITECH PROJECT, 2017
 ** File Name : animate.c
 ** File description:
-** Ozz
+** by Arthur Teisseire
 */
 
-#include "rpg.h"
-#include "texture.h"
+#include <SFML/Graphics.h>
 #include "player.h"
-#include "vec.h"
-#include "tile.h"
-
-void set_player_pos(player_t *player)
-{
-	sfRectangleShape_setPosition(player->rect
-		, add_vec(scale_vec(player->pos, SIZE_TILE), VEC_HALF_TILE));
-}
+#include "texture.h"
+#include "define.h"
 
 void animate_sprite(player_t *player, sfClock *clock)
 {

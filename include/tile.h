@@ -11,11 +11,16 @@
 #include <SFML/Graphics.h>
 
 #define MASK_NAME(color) ((color).b & 0x0f)
-#define NB_TILE 8
+#define NB_TILE 9
 #define SIZE_TILE 64
 #define LASER_LENGTH 2
 #define VEC_0_0 (sfVector2f){0.0, 0.0}
 #define VEC_HALF_TILE (sfVector2f){(float)SIZE_TILE / 2, (float)SIZE_TILE / 2}
+
+#define UP 0b00000000
+#define DOWN 0b00000001
+#define RIGHT 0b00000010
+#define LEFT 0b00000011
 
 #define NO_BRIGHT 0.1
 #define MIN_BRIGHT 0.3
@@ -50,6 +55,7 @@ typedef struct tile_s {
 	texture_t *tx;
 	int index_rect;
 	int curr_frame;
+	sfVector2u pos;
 } tile_t;
 
 typedef struct tile_list_s {
@@ -81,5 +87,7 @@ int tile_pos_line(map_t __attribute((unused))*map, tile_t **tiles, void *name);
 
 int action_door(rpg_t __attribute((unused))*rpg, tile_t *tile);
 int action_lever(rpg_t *rpg, tile_t *tile);
+int action_end(rpg_t *rpg, tile_t *tile);
+int action_room(rpg_t *rpg, tile_t *tile);
 
 #endif

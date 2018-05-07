@@ -49,9 +49,9 @@ void set_tile_values(tile_t *tile, int index_tile, sfVector2f pos,
 	tile->player_col = tile_list[index_tile].player_col;
 	tile->laser_col = tile_list[index_tile].laser_col;
 	tile->is_action = tile_list[index_tile].is_action;
-	tile->active = (char)color.r & 0b00000001;
-	tile->direction = (char)color.r & 0b00000110;
-	tile->chanel = (char)color.g & 0x0f;
+	tile->active = (char)(color.r & 0b00000001);
+	tile->direction = (char)(color.r & 0b00000110);
+	tile->chanel = (char)(color.g & 0x0f);
 	tile->rect = sfRectangleShape_create();
 	tile->laser = init_laser(pos);
 	tile->light = sfRectangleShape_create();
@@ -59,6 +59,7 @@ void set_tile_values(tile_t *tile, int index_tile, sfVector2f pos,
 	tile->lighted = 0;
 	tile->index_rect = 0;
 	tile->curr_frame = 0;
+	tile->pos = pos;
 }
 
 int init_tile(rpg_t *rpg, tile_t *tile, int index_tile, sfVector2f pos)

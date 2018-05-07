@@ -21,22 +21,24 @@ const tile_list_t tile_list[NB_TILE] = {
 	{{0x00, 0x00, 0x04, 0x00},
 		"spawn", FALSE, FALSE, FALSE, NULL, TX_TILE},
 	{{0x00, 0x00, 0x05, 0x00},
-		"end", FALSE, FALSE, FALSE, NULL, TX_TILE},
+		"end", FALSE, FALSE, TRUE, action_end, TX_TILE},
 	{{0x00, 0x00, 0x06, 0x00},
 		"laser_beam", FALSE, FALSE, TRUE, NULL, TX_TILE_LASER},
 	{{0x00, 0x00, 0x07, 0x00},
 		"on_off", FALSE, FALSE, TRUE, action_lever, TX_TILE_LEVER},
 	{{0x00, 0x00, 0x08, 0x00},
 		"door", TRUE, TRUE, FALSE, action_door, TX_TILE_DOOR},
+	{{0x00, 0x00, 0x09, 0x00},
+		"room", FALSE, FALSE, TRUE, action_room, TX_TILE_ROOM},
 	/*
 	 *{{0x00, 0x00, 0x06, 0x00},
-	 *        "door", TRUE, TRUE, NULL, TX_TILE_DOOR},
+	 *	"door", TRUE, TRUE, NULL, TX_TILE_DOOR},
 	 *{{0x00, 0x00, 0x07, 0x00},
-	 *        "switch", FALSE, TRUE, NULL, TX_TILE_SWITCH},
+	 *	"switch", FALSE, TRUE, NULL, TX_TILE_SWITCH},
 	 *{{0x00, 0x00, 0x08, 0x00},
-	 *        "ls_beam", TRUE, TRUE, NULL, TX_TILE_LS_BEAM},
+	 *	"ls_beam", TRUE, TRUE, NULL, TX_TILE_LS_BEAM},
 	 *{{0x00, 0x00, 0x0a, 0x00},
-	 *        "ls_receptor", TRUE, TRUE, NULL, TX_TILE_LS_RECEPTOR}
+	 *	"ls_receptor", TRUE, TRUE, NULL, TX_TILE_LS_RECEPTOR}
 	 */
 };
 
