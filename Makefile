@@ -21,6 +21,8 @@ DESTROY	=	$(DSRC)destroy/
 DMAP	=	$(DSRC)map/
 DMAPACT	=	$(DMAP)action/
 DSCENE	=	$(DSRC)scene/
+DBUTTON	=	$(DSRC)button/
+DBUTACT	=	$(DBUTTON)action/
 DPLAYER	=	$(DSRC)player/
 DTX	=	$(DSRC)texture/
 DSTATES	=	$(DSRC)states/
@@ -52,7 +54,6 @@ SRC     =	$(DSRC)main.c			\
 		$(DINIT)init_config.c		\
 		$(DINIT)init_clock.c		\
 		$(DINIT)init_shape.c		\
-		$(DINIT)init_ftbutton.c		\
 		$(DESTROY)destroy.c		\
 		$(DESTROY)destroy_window.c	\
 		$(DESTROY)destroy_event.c	\
@@ -73,8 +74,11 @@ SRC     =	$(DSRC)main.c			\
 		$(DMAPACT)action_room.c		\
 		$(DMAPACT)action_end.c		\
 		$(DSCENE)change_scene.c		\
-		$(DSCENE)manage_buttons.c 	\
-		$(DSCENE)button_play.c 		\
+		$(DBUTTON)manage_buttons.c 	\
+		$(DBUTTON)get_func_button.c 	\
+		$(DBUTACT)button_play.c		\
+		$(DBUTACT)button_setting.c	\
+		$(DBUTACT)button_credit.c	\
 		$(DTOOLS)vec.c			\
 		$(DTOOLS)get_rect.c		\
 		$(DTOOLS)is_pos_in_rect.c	\
