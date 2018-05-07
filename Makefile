@@ -74,6 +74,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DMAPACT)action_end.c		\
 		$(DSCENE)change_scene.c		\
 		$(DSCENE)manage_buttons.c 	\
+		$(DSCENE)button_play.c 		\
 		$(DTOOLS)vec.c			\
 		$(DTOOLS)get_rect.c		\
 		$(DTOOLS)is_pos_in_rect.c	\

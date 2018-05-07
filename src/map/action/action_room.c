@@ -13,6 +13,7 @@
 int action_room(rpg_t *rpg, tile_t *tile)
 {
 	rpg->curr_scene = tile->chanel;
-	place_in_spawn(rpg);
+	if (rpg->scenes[rpg->curr_scene]->map != NULL)
+		place_in_spawn(rpg);
 	return (SUCCESS);
 }

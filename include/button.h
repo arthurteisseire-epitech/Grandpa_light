@@ -27,11 +27,11 @@ typedef struct button_s {
 } button_t;
 
 int draw_credit(rpg_t *rpg);
-int draw_scene_1(rpg_t *rpg);
+int button_play(rpg_t *rpg);
 int draw_setting(rpg_t *rpg);
 
 static const ft_button_t ft_buttons[] = {
-	{"play", draw_scene_1},
+	{"play", button_play},
 	{"setting", draw_setting},
 	{"credit", draw_credit},
 };
