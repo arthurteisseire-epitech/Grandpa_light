@@ -13,17 +13,21 @@
 
 const tile_list_t tile_list[NB_TILE] = {
 	{{0x00, 0x00, 0x01, 0x00},
-		"wall", TRUE, TRUE, NULL, TX_TILE},
+		"wall", TRUE, TRUE, FALSE, NULL, TX_TILE},
 	{{0x00, 0x00, 0x02, 0x00},
-		"ground", FALSE, FALSE, NULL, TX_TILE},
+		"ground", FALSE, FALSE, FALSE, NULL, TX_TILE},
 	{{0x00, 0x00, 0x03, 0x00},
-		"glass", TRUE, FALSE, NULL, TX_TILE},
+		"glass", TRUE, TRUE, FALSE, action_door, TX_TILE},
 	{{0x00, 0x00, 0x04, 0x00},
-		"spawn", FALSE, FALSE, NULL, TX_TILE},
+		"spawn", FALSE, FALSE, FALSE, NULL, TX_TILE},
 	{{0x00, 0x00, 0x05, 0x00},
-		"end", FALSE, FALSE, NULL, TX_TILE},
+		"end", FALSE, FALSE, FALSE, NULL, TX_TILE},
 	{{0x00, 0x00, 0x06, 0x00},
-		"laser_beam", FALSE, FALSE, NULL, TX_TILE_ACTIVABLE}
+		"laser_beam", FALSE, FALSE, TRUE, NULL, TX_TILE_LASER},
+	{{0x00, 0x00, 0x07, 0x00},
+		"on_off", FALSE, FALSE, TRUE, action_lever, TX_TILE_LEVER},
+	{{0x00, 0x00, 0x08, 0x00},
+		"door", TRUE, TRUE, FALSE, action_door, TX_TILE_DOOR},
 	/*
 	 *{{0x00, 0x00, 0x06, 0x00},
 	 *        "door", TRUE, TRUE, NULL, TX_TILE_DOOR},

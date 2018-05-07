@@ -17,10 +17,7 @@
 #include "texture.h"
 #include "define.h"
 
-static sfVector2f prod(sfVector2f v1, sfVector2i v2)
-{
-	return ((sfVector2f){v1.x * v2.x, v1.y * v2.y});
-}
+#include "vec.h"
 
 int parse_image_line(rpg_t *rpg, map_t *map, sfImage *image, int row)
 {
@@ -34,6 +31,8 @@ int parse_image_line(rpg_t *rpg, map_t *map, sfImage *image, int row)
 		map->tiles[row][col] = malloc(sizeof(tile_t));
 		if (map->tiles[row][col] == NULL)
 			return (MALLOC_FAILED);
+		set_tile_values(map->tiles[row][col], index,
+			(sfVector2f){row, col}, color);
 		status = init_tile(rpg, map->tiles[row][col], index,
 			(sfVector2f){row, col});
 		if (status != SUCCESS)
@@ -42,22 +41,10 @@ int parse_image_line(rpg_t *rpg, map_t *map, sfImage *image, int row)
 	return (SUCCESS);
 }
 
-rectangle_t *get_rect(texture_t *texture, char *name)
-{
-	int i = 0;
-
-	while (texture->rects[i] != NULL) {
-		if (my_strcmp(texture->rects[i]->name, name) == 0)
-			return (texture->rects[i]);
-		i++;
-	}
-	return (texture->rects[0]);
-}
-
 static laser_t *init_laser(sfVector2f pos)
 {
 	laser_t *laser = malloc(sizeof(laser_t));
-	sfVector2f tile_pos = prod(pos, (sfVector2i){SIZE_TILE, SIZE_TILE});
+	sfVector2f tile_pos = scale_vec(pos, SIZE_TILE);
 	sfVector2f horizontal_pos = {tile_pos.x + SIZE_TILE / 2, tile_pos.y};
 	sfVector2f vertical_pos = {tile_pos.x, tile_pos.y + SIZE_TILE / 2};
 	sfVector2f laser_size = {SIZE_TILE, LASER_LENGTH};
@@ -79,26 +66,41 @@ static laser_t *init_laser(sfVector2f pos)
 	return (laser);
 }
 
+void set_tile_values(tile_t *tile, int index_tile, sfVector2f pos,
+	sfColor color)
+{
+	tile->name = tile_list[index_tile].name;
+	tile->func = tile_list[index_tile].func;
+	tile->player_col = tile_list[index_tile].player_col;
+	tile->laser_col = tile_list[index_tile].laser_col;
+	tile->is_action = tile_list[index_tile].is_action;
+	tile->active = (char)color.r & 0b00000001;
+	tile->direction = (char)color.r & 0b00000110;
+	tile->chanel = (char)color.g & 0x0f;
+	tile->rect = sfRectangleShape_create();
+	tile->laser = init_laser(pos);
+	tile->light = sfRectangleShape_create();
+	tile->light_level = 0.1;
+	tile->lighted = 0;
+	tile->index_rect = 0;
+	tile->curr_frame = 0;
+}
+
 int init_tile(rpg_t *rpg, tile_t *tile, int index_tile, sfVector2f pos)
 {
 	texture_t *texture = rpg->tx_tile[tile_list[index_tile].idx_texture];
 
-	tile->name = tile_list[index_tile].name;
-	tile->action = tile_list[index_tile].action;
-	tile->player_col = tile_list[index_tile].player_col;
-	tile->laser_col = tile_list[index_tile].laser_col;
-	tile->active = (char)(tile_list[index_tile].color.r & 0b00000001);
-	tile->direction = (char)(tile_list[index_tile].color.r & 0b00000110);
-	tile->chanel = (char)(tile_list[index_tile].color.g & 0x0f);
-	tile->sprite = sfSprite_create();
-	tile->laser = init_laser(pos);
-	if (tile->sprite == NULL || tile->laser == NULL)
+	if (tile->rect == NULL || tile->laser == NULL || tile->light == NULL)
 		return (MALLOC_FAILED);
-	sfSprite_setTexture(tile->sprite, texture->texture, sfTrue);
-	sfSprite_setTextureRect(tile->sprite,
+	sfRectangleShape_setPosition(tile->light, scale_vec(pos, SIZE_TILE));
+	sfRectangleShape_setSize(tile->light,
+		(sfVector2f){SIZE_TILE, SIZE_TILE});
+	sfRectangleShape_setTexture(tile->rect, texture->texture, sfTrue);
+	sfRectangleShape_setTextureRect(tile->rect,
 		get_rect(texture, tile->name)->rect);
-	sfSprite_setPosition(tile->sprite,
-		prod(pos, (sfVector2i){SIZE_TILE, SIZE_TILE}));
-	sfSprite_setScale(tile->sprite, (sfVector2f){1, 1});
+	sfRectangleShape_setPosition(tile->rect, scale_vec(pos, SIZE_TILE));
+	sfRectangleShape_setSize(tile->rect,
+		(sfVector2f){SIZE_TILE, SIZE_TILE});
+	tile->tx = texture;
 	return (SUCCESS);
 }

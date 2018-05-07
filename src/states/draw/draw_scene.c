@@ -12,7 +12,7 @@
 
 void draw_tile(rpg_t *rpg, tile_t *tile)
 {
-	sfRenderWindow_drawSprite(rpg->window, tile->sprite, NULL);
+	sfRenderWindow_drawRectangleShape(rpg->window, tile->rect, NULL);
 	if (tile->laser->horizontal)
 		sfRenderWindow_drawRectangleShape(rpg->window,
 			tile->laser->hor_rect, NULL);
@@ -21,11 +21,17 @@ void draw_tile(rpg_t *rpg, tile_t *tile)
 			tile->laser->vert_rect, NULL);
 }
 
+void draw_light(rpg_t *rpg, tile_t *tile)
+{
+	sfRenderWindow_drawRectangleShape(rpg->window, tile->light, NULL);
+}
+
 void draw_map(rpg_t *rpg, map_t *map)
 {
 	for (unsigned int x = 0; x < map->size.x; x++) {
 		for (unsigned int y = 0; y < map->size.y; y++) {
 			draw_tile(rpg, map->tiles[x][y]);
+			draw_light(rpg, map->tiles[x][y]);
 		}
 	}
 }

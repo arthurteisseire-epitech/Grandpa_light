@@ -9,6 +9,7 @@
 #define RPG_H
 
 #include <SFML/Graphics.h>
+#include <SFML/Audio.h>
 
 #define TITLE "rpg"
 
@@ -19,11 +20,12 @@ typedef struct window_s window_t;
 typedef struct event_s event_t;
 typedef struct config_t config_t;
 typedef struct config_setting_t config_setting_t;
-typedef struct character_s character_t;
+typedef struct player_s player_t;
 
 typedef struct rpg_s {
 	sfEvent *event;
 	sfRenderWindow *window;
+	sfMusic **musics;
 	scene_t **scenes;
 	texture_t **tx_tile;
 	texture_t **tx_game;
@@ -31,7 +33,7 @@ typedef struct rpg_s {
 	int curr_scene;
 	int nb_scenes;
 	config_setting_t *set;
-	character_t *character;
+	player_t *player;
 } rpg_t;
 
 int game_loop(rpg_t *rpg);

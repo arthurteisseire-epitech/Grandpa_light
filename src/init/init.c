@@ -11,13 +11,12 @@
 #include "define.h"
 #include "scene.h"
 
-typedef int (*init_arr_t)(rpg_t *);
-
 static const init_arr_t init_arr[] = {
 	init_event,
 	init_config,
+	init_musics,
 	init_textures,
-	init_character,
+	init_player,
 	init_scenes,
 	init_clock,
 	init_window,

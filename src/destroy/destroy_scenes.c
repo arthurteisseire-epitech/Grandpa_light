@@ -20,7 +20,7 @@ static void destroy_laser(laser_t *laser)
 
 static void destroy_tile(tile_t *tile)
 {
-	sfSprite_destroy(tile->sprite);
+	sfRectangleShape_destroy(tile->rect);
 	destroy_laser(tile->laser);
 	free(tile);
 }

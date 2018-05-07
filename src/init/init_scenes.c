@@ -16,6 +16,16 @@
 #include "parse.h"
 #include "define.h"
 
+scene_func get_func_scene(char const *ft)
+{
+	if (ft == NULL)
+		return (NULL);
+	for (int i = 0; i != NB_FT_SCENE; i++)
+		if (my_strcmp(ft, ft_scene[i].name) == 0)
+			return (ft_scene[i].scene_func);
+	return (NULL);
+}
+
 int init_scenes(rpg_t *rpg)
 {
 	int status = SUCCESS;
@@ -43,10 +53,13 @@ int init_scenes(rpg_t *rpg)
 int fill_scene(rpg_t *rpg, config_setting_t *scenes_setting, int index)
 {
 	int status;
+	char const *ft = NULL;
 	config_setting_t *scene_setting = config_setting_get_elem(
 		scenes_setting, index);
 	const char *str;
 
+	config_setting_lookup_string(scene_setting, "name", &ft);
+	rpg->scenes[index]->scene_loop = (get_func_scene(ft));
 	status = init_buttons(rpg, &rpg->scenes[index]->buttons, scene_setting);
 	if (status != SUCCESS)
 		return (status);

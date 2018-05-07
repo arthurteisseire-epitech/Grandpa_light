@@ -19,24 +19,30 @@ typedef struct button_s button_t;
 typedef struct rectangle_s rectangle_t;
 typedef struct config_t config_t;
 typedef struct map_s map_t;
+typedef struct player_s player_t;
+typedef struct sfMusic sfMusic;
 
 typedef int (*init_arr_t)(rpg_t *);
 
 int init(rpg_t *rpg);
 int init_window(rpg_t *rpg);
 int init_event(rpg_t *rpg);
-int init_character(rpg_t *rpg);
+int init_musics(rpg_t *rpg);
+int init_music(sfMusic **music, config_setting_t *parent, int i);
+int init_player(rpg_t *rpg);
+void set_player_stat(player_t *player, config_setting_t *this_set);
+int init_anims(rpg_t *rpg, texture_t ***textures, config_setting_t *parent);
+int init_anim(rpg_t *rpg, texture_t **texture, config_setting_t *parent, int i);
 int init_clock(rpg_t *rpg);
 int init_config(rpg_t *rpg);
 int init_scenes(rpg_t *rpg);
 int fill_scene(rpg_t *rpg, config_setting_t *parent, int index);
-int init_buttons(rpg_t *rpg, button_t ***buttons, config_setting_t *parent);
-int init_button(rpg_t *rpg, button_t *button, config_setting_t *parent, int i);
 int init_text(sfText **text, config_setting_t *parent);
 int fill_text(sfText *text, config_setting_t *text_setting);
 int init_map(rpg_t *rpg, map_t **map, const char *path);
 int init_buttons(rpg_t *rpg, button_t ***buttons, config_setting_t *parent);
-int init_shape(rpg_t *rpg, sfRectangleShape **rect, config_setting_t *parent);
+int init_button(rpg_t *rpg, button_t **button, config_setting_t *parent, int i);
+int init_shape(sfRectangleShape **rect, config_setting_t *parent);
 int init_textures(rpg_t *rpg);
 int fill_textures(texture_t ***textures, config_setting_t *parent,
 	const char *name);
