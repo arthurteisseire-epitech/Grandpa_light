@@ -11,7 +11,7 @@
 #include <SFML/Graphics.h>
 
 #define MASK_NAME(color) ((color).b & 0x0f)
-#define NB_TILE 8
+#define NB_TILE 9
 #define SIZE_TILE 64
 #define VEC_0_0 (sfVector2f){0.0, 0.0}
 #define VEC_HALF_TILE (sfVector2f){(float)SIZE_TILE / 2, (float)SIZE_TILE / 2}
@@ -79,5 +79,7 @@ int tile_pos_line(map_t __attribute((unused))*map, tile_t **tiles, void *name);
 
 int action_door(rpg_t __attribute((unused))*rpg, tile_t *tile);
 int action_lever(rpg_t *rpg, tile_t *tile);
+int action_end(rpg_t *rpg, tile_t *tile);
+int action_room(rpg_t *rpg, tile_t *tile);
 
 #endif

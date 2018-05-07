@@ -70,6 +70,8 @@ SRC     =	$(DSRC)main.c			\
 		$(DMAP)gen_light_shader.c	\
 		$(DMAPACT)action_lever.c	\
 		$(DMAPACT)action_door.c		\
+		$(DMAPACT)action_room.c		\
+		$(DMAPACT)action_end.c		\
 		$(DSCENE)change_scene.c		\
 		$(DSCENE)manage_buttons.c 	\
 		$(DTOOLS)vec.c			\
