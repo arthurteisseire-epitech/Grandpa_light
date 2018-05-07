@@ -24,14 +24,7 @@ void animate_sprite(character_t *player, sfClock *clock)
 
 	if ((int)sfTime_asSeconds(time) < step)
 		return;
-	if (player->anim[player->id_anim]->rects[player->curr_frame + 1] != NULL) {
-		player->curr_frame++;
-		sfRectangleShape_setTextureRect(player->rect,
-		player->anim[player->id_anim]->rects[player->curr_frame]->rect);
-	} else {
-		player->curr_frame = 0;
-		sfRectangleShape_setTextureRect(player->rect,
-		player->anim[player->id_anim]->rects[0]->rect);
-	}
+	shift_texture_rect(player->rect, player->anim[player->id_anim]
+	, &player->curr_frame);
 	sfClock_restart(clock);
 }

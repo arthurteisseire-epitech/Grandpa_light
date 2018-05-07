@@ -45,7 +45,9 @@ typedef struct tile_s {
 	laser_t *laser;
 	sfRectangleShape *rect;
 	sfRectangleShape *light;
+	texture_t *tx;
 	int index_rect;
+	int curr_frame;
 } tile_t;
 
 typedef struct tile_list_s {

@@ -34,6 +34,6 @@ sfIntRect *get_texture_rect_by_name(texture_t *texture, char const *name);
 int set_texture_by_setting(texture_t **textures, sfRectangleShape *rect,
 	config_setting_t *parent);
 rectangle_t *get_rect(texture_t *texture, char *name);
-void shift_texture_rect(texture_t **textures, tile_t *tile);
+void shift_texture_rect(sfRectangleShape *rect, texture_t *tx, int *index_rect);
 
 #endif

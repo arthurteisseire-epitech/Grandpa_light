@@ -74,6 +74,7 @@ void set_tile_values(tile_t *tile, int index_tile, sfVector2f pos, sfColor color
 	tile->light_level = 0.1;
 	tile->lighted = 0;
 	tile->index_rect = 0;
+	tile->curr_frame = 0;
 }
 
 int init_tile(rpg_t *rpg, tile_t *tile, int index_tile, sfVector2f pos)
@@ -92,5 +93,6 @@ int init_tile(rpg_t *rpg, tile_t *tile, int index_tile, sfVector2f pos)
 		coord_mult(pos, (sfVector2i){SIZE_TILE, SIZE_TILE}));
 	sfRectangleShape_setSize(tile->rect
 			, (sfVector2f){SIZE_TILE, SIZE_TILE});
+	tile->tx = texture;
 	return (SUCCESS);
 }
