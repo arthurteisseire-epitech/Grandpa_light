@@ -21,6 +21,7 @@ DESTROY	=	$(DSRC)destroy/
 DMAP	=	$(DSRC)map/
 DMAPACT	=	$(DMAP)action/
 DSCENE	=	$(DSRC)scene/
+DPLAYER	=	$(DSRC)player/
 DTX	=	$(DSRC)texture/
 DSTATES	=	$(DSRC)states/
 DTOOLS	=	$(DSRC)tools/
@@ -37,13 +38,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DRAW)draw_scene.c		\
 		$(DRAW)draw_player.c		\
 		$(DUPDATE)update.c		\
-		$(DUPDATE)move_player.c		\
-		$(DUPDATE)rotate_player.c	\
-		$(DUPDATE)animate.c		\
-		$(DUPDATE)light_shader.c	\
-		$(DUPDATE)gen_light_shader.c	\
 		$(DEVENT)event.c		\
-		$(DEVENT)player_event.c		\
 		$(DINIT)init.c			\
 		$(DINIT)init_player.c		\
 		$(DINIT)init_event.c		\
@@ -71,6 +66,8 @@ SRC     =	$(DSRC)main.c			\
 		$(DSRC)loop_menu.c 		\
 		$(DPARSE)tile_list.c		\
 		$(DMAP)apply_on_map.c		\
+		$(DMAP)light_shader.c		\
+		$(DMAP)gen_light_shader.c	\
 		$(DMAPACT)action_lever.c	\
 		$(DMAPACT)action_door.c		\
 		$(DSCENE)change_scene.c		\
@@ -78,8 +75,12 @@ SRC     =	$(DSRC)main.c			\
 		$(DTOOLS)vec.c			\
 		$(DTOOLS)get_rect.c		\
 		$(DTOOLS)is_pos_in_rect.c	\
+		$(DTOOLS)animate.c		\
 		$(DTX)get_texture.c		\
 		$(DTX)shift_texture_rect.c	\
+		$(DPLAYER)player_event.c	\
+		$(DPLAYER)move_player.c		\
+		$(DPLAYER)rotate_player.c	\
 
 LDFLAGS	=	-lc_graph_prog -lconfig
 CFLAGS	+=	-Wall -W -Wextra -I$(INC) -g
