@@ -30,32 +30,37 @@ void set_light_value(map_t *map, sfVector2f pos, float brightness)
 {
 	if (is_in_map(map, pos)) {
 		if (brightness - LIGHT_POWER > MIN_BRIGHT)
-			map->tiles[(int)pos.x][(int)pos.y]->light_level
-				= (float)(brightness - LIGHT_POWER);
+			map->tiles[(int)pos.x][(int)pos.y]->light_level = (float)(
+				brightness - LIGHT_POWER);
 		map->tiles[(int)pos.x][(int)pos.y]->lighted = 1;
 	}
 }
 
-void adj_tile_light(map_t *map, sfVector2f pos, float brightness, sfVector2f dir)
+void adj_tile_light(map_t *map, sfVector2f pos, float brightness,
+	sfVector2f dir)
 {
 	map->tiles[(int)pos.x][(int)pos.y]->light_level = brightness;
 	if (dir.x) {
-		set_light_value(map, add_vec(pos, (sfVector2f){0.0, -1.0}), brightness);
-		set_light_value(map, add_vec(pos, (sfVector2f){0.0, 1.0}), brightness);
+		set_light_value(map, add_vec(pos, (sfVector2f){0.0, -1.0}),
+			brightness);
+		set_light_value(map, add_vec(pos, (sfVector2f){0.0, 1.0}),
+			brightness);
 	} else {
-		set_light_value(map, add_vec(pos, (sfVector2f){-1.0, 0.0}), brightness);
-		set_light_value(map, add_vec(pos, (sfVector2f){1.0, 0.0}), brightness);
+		set_light_value(map, add_vec(pos, (sfVector2f){-1.0, 0.0}),
+			brightness);
+		set_light_value(map, add_vec(pos, (sfVector2f){1.0, 0.0}),
+			brightness);
 	}
 }
 
 void generate_shader(map_t *map, sfVector2f pos, sfVector2f dir)
 {
-	float brightness = 1.0;	
+	float brightness = 1.0;
 
 	refresh_light(map);
 	while (is_in_map(map, pos) && brightness > NO_BRIGHT) {
 		adj_tile_light(map, pos, brightness, dir);
-		map->tiles[(int)pos.x][(int)pos.y]->lighted= 1;
+		map->tiles[(int)pos.x][(int)pos.y]->lighted = 1;
 		if (map->tiles[(int)pos.x][(int)pos.y]->laser_col)
 			break;
 		brightness -= LIGHT_POWER;
