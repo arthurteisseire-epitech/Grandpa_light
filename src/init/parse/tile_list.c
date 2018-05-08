@@ -30,6 +30,8 @@ const tile_list_t tile_list[NB_TILE] = {
 		"door", TRUE, TRUE, FALSE, action_door, TX_TILE_DOOR},
 	{{0x00, 0x00, 0x09, 0x00},
 		"room", FALSE, FALSE, TRUE, action_room, TX_TILE_ROOM},
+	{{0x00, 0x00, 0x0a, 0x00},
+		"ls_receptor", TRUE, TRUE, NULL, TX_TILE_LS_RECEPTOR}
 	/*
 	 *{{0x00, 0x00, 0x06, 0x00},
 	 *	"door", TRUE, TRUE, NULL, TX_TILE_DOOR},
@@ -37,9 +39,8 @@ const tile_list_t tile_list[NB_TILE] = {
 	 *	"switch", FALSE, TRUE, NULL, TX_TILE_SWITCH},
 	 *{{0x00, 0x00, 0x08, 0x00},
 	 *	"ls_beam", TRUE, TRUE, NULL, TX_TILE_LS_BEAM},
-	 *{{0x00, 0x00, 0x0a, 0x00},
-	 *	"ls_receptor", TRUE, TRUE, NULL, TX_TILE_LS_RECEPTOR}
-	 */
+	*/
+
 };
 
 int index_tile_by_color(sfColor color)

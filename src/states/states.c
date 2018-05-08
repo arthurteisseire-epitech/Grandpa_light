@@ -18,4 +18,5 @@ int states(rpg_t *rpg)
 		DR(rpg->scenes[rpg->curr_scene]->scene_loop(rpg));
 	DR(draw(rpg));
 	return (SUCCESS);
+
 }

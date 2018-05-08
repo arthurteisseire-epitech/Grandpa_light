@@ -6,6 +6,7 @@
 */
 
 #include <SFML/Graphics.h>
+#include "my.h"
 #include "vec.h"
 #include "scene.h"
 #include "tool.h"
@@ -33,15 +34,20 @@ int action_laser(rpg_t *rpg, tile_t *laser)
 	char hor_laser = laser->direction == LEFT || laser->direction == RIGHT;
 	char ver_laser = laser->direction == UP || laser->direction == DOWN;
 	map_t *map = rpg->scenes[rpg->curr_scene]->map;
-	sfVector2i size = {map->size.x, map->size.y};
 
 	laser->active = !laser->active;
-	while (pos.x < size.x && pos.y < size.y) {
-		map->tiles[(int)pos.x][(int)pos.y]->laser->horizontal =
-			(laser->active && hor_laser);
-		map->tiles[(int)pos.x][(int)pos.y]->laser->vertical =
-			(laser->active && ver_laser);
+	while (pos.x < map->size.x && pos.y < map->size.y &&
+		map->tiles[(int)pos.x][(int)pos.y]->laser_col) {
+		map->tiles[(int)pos.x][(int)pos.y]->laser->horizontal = (
+			laser->active && hor_laser);
+		map->tiles[(int)pos.x][(int)pos.y]->laser->vertical = (
+			laser->active && ver_laser);
 		pos = add_vec(pos, direction);
 	}
+	if (pos.x < map->size.x && pos.y < map->size.y && !my_strcmp(
+		map->tiles[(int)pos.x][(int)pos.y]->name, "ls_receptor") &&
+		map->tiles[(int)pos.x][(int)pos.y]->func != NULL)
+		map->tiles[(int)pos.x][(int)pos.y]->func(rpg,
+			map->tiles[(int)pos.x][(int)pos.y]);
 	return (SUCCESS);
 }
