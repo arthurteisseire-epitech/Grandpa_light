@@ -83,6 +83,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DTOOLS)get_rect.c		\
 		$(DTOOLS)is_pos_in_rect.c	\
 		$(DTOOLS)animate.c		\
+		$(DTOOLS)inverse.c		\
 		$(DTX)get_texture.c		\
 		$(DTX)shift_texture_rect.c	\
 		$(DPLAYER)player_event.c	\
