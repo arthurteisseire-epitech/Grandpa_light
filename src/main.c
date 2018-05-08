@@ -16,17 +16,13 @@
 
 int main(void)
 {
-	int status;
 	rpg_t *rpg = malloc(sizeof(rpg_t));
 
-	if (rpg == NULL)
-		return (MALLOC_FAILED);
-	status = init(rpg);
-	if (status != SUCCESS)
-		return (status);
+	CM(rpg);
+	DR(init(rpg));
 	if (rpg->musics != NULL)
 		sfMusic_play(rpg->musics[0]);
-	status = game_loop(rpg);
+	DR(game_loop(rpg));
 	destroy(rpg);
-	return (status);
+	return (SUCCESS);
 }

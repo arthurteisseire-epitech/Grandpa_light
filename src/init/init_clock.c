@@ -13,7 +13,6 @@ int init_clock(rpg_t *rpg)
 {
 	rpg->clock = sfClock_create();
 
-	if (rpg->clock == NULL)
-		return (MALLOC_FAILED);
+	CM(rpg->clock);
 	return (SUCCESS);
 }

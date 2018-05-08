@@ -12,5 +12,6 @@
 
 int action_laser(rpg_t *rpg, tile_t *laser);
 int is_pos_in_rect(sfVector2i pos, sfFloatRect rect);
+void inverse(unsigned int *a, unsigned int *b);
 
 #endif

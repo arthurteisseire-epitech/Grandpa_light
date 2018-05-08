@@ -10,6 +10,7 @@
 #include "scene.h"
 #include "tile.h"
 #include "destroy.h"
+#include "tool.h"
 
 static void destroy_laser(laser_t *laser)
 {
@@ -27,6 +28,7 @@ static void destroy_tile(tile_t *tile)
 
 static void destroy_map(map_t *map)
 {
+	inverse(&map->size.x, &map->size.y);
 	for (unsigned int row = 0; row < map->size.y; row++) {
 		for (unsigned int col = 0; col < map->size.x; col++)
 			destroy_tile(map->tiles[row][col]);

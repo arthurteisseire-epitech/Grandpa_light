@@ -20,8 +20,7 @@ int init_text(sfText **text, config_setting_t *parent)
 		return (SUCCESS);
 	}
 	*text = sfText_create();
-	if (*text == NULL)
-		return (MALLOC_FAILED);
+	CM(*text);
 	return (fill_text(*text, text_setting));
 }
 

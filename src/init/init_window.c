@@ -15,9 +15,8 @@ int init_window(rpg_t *rpg)
 	sfVideoMode mode = {1920, 1080, 32};
 
 	rpg->window = sfRenderWindow_create(
-		mode, TITLE, sfResize | sfClose, NULL);
-	if (rpg->window == NULL)
-		return (MALLOC_FAILED);
+		mode, TITLE, sfResize | sfFullscreen | sfClose, NULL);
+	CM(rpg->window);
 	sfRenderWindow_setFramerateLimit(rpg->window, 60);
 	return (SUCCESS);
 }

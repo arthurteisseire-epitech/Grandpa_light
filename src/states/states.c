@@ -12,18 +12,10 @@
 
 int states(rpg_t *rpg)
 {
-	int status = SUCCESS;
-
-	status = event(rpg);
-	if (status != SUCCESS)
-		return (status);
-	status = update(rpg);
-	if (status != SUCCESS)
-		return (status);
+	DR(event(rpg));
+	DR(update(rpg));
 	if (rpg->scenes[rpg->curr_scene]->scene_loop != NULL)
-		status = rpg->scenes[rpg->curr_scene]->scene_loop(rpg);
-	status = draw(rpg);
-	if (status != SUCCESS)
-		return (status);
-	return (status);
+		DR(rpg->scenes[rpg->curr_scene]->scene_loop(rpg));
+	DR(draw(rpg));
+	return (SUCCESS);
 }

@@ -28,7 +28,6 @@ scene_func get_func_scene(char const *ft)
 
 int init_scenes(rpg_t *rpg)
 {
-	int status = SUCCESS;
 	config_setting_t *setting;
 
 	setting = config_setting_lookup(rpg->set, "scenes");
@@ -40,19 +39,15 @@ int init_scenes(rpg_t *rpg)
 		return (MALLOC_FAILED);
 	for (int i = 0; i < rpg->nb_scenes; i++) {
 		rpg->scenes[i] = malloc(sizeof(scene_t));
-		if (rpg->scenes[i] == NULL)
-			return (MALLOC_FAILED);
-		status = fill_scene(rpg, setting, i);
-		if (status != SUCCESS)
-			return (status);
+		CM(rpg->scenes[i]);
+		DR(fill_scene(rpg, setting, i));
 	}
 	rpg->scenes[rpg->nb_scenes] = NULL;
-	return (status);
+	return (SUCCESS);
 }
 
 int fill_scene(rpg_t *rpg, config_setting_t *scenes_setting, int index)
 {
-	int status;
 	char const *ft = NULL;
 	config_setting_t *scene_setting = config_setting_get_elem(
 		scenes_setting, index);
@@ -60,14 +55,11 @@ int fill_scene(rpg_t *rpg, config_setting_t *scenes_setting, int index)
 
 	config_setting_lookup_string(scene_setting, "name", &ft);
 	rpg->scenes[index]->scene_loop = (get_func_scene(ft));
-	status = init_buttons(rpg, &rpg->scenes[index]->buttons, scene_setting);
-	if (status != SUCCESS)
-		return (status);
+	DR(init_buttons(rpg, &rpg->scenes[index]->buttons, scene_setting));
 	if (!config_setting_lookup_string(scene_setting, "map", &str)) {
 		rpg->scenes[index]->map = NULL;
 		return (SUCCESS);
 	}
-	status = init_map(rpg, &rpg->scenes[index]->map, str);
-	rpg->scenes[index]->text = NULL;
-	return (status);
+	DR(init_map(rpg, &rpg->scenes[index]->map, str));
+	return (SUCCESS);
 }

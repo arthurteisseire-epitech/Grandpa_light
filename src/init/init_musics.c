@@ -13,7 +13,6 @@
 
 int init_musics(rpg_t *rpg)
 {
-	int status;
 	unsigned int nb_musics;
 	config_setting_t *musics_set = config_setting_lookup(rpg->set, "musics");
 
@@ -23,11 +22,8 @@ int init_musics(rpg_t *rpg)
 	}
 	nb_musics = config_setting_length(musics_set);
 	rpg->musics = malloc(sizeof(sfMusic **) * (nb_musics + 1));
-	for (unsigned int i = 0; i < nb_musics; i++) {
-		status = init_music(&rpg->musics[i], musics_set, i);
-		if (status != SUCCESS)
-			return (status);
-	}
+	for (unsigned int i = 0; i < nb_musics; i++)
+		DR(init_music(&rpg->musics[i], musics_set, i));
 	rpg->musics[nb_musics] = NULL;
 	return (SUCCESS);
 }

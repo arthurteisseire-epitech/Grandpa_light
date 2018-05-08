@@ -21,7 +21,6 @@
 
 int parse_image_line(rpg_t *rpg, map_t *map, sfImage *image, int row)
 {
-	int status;
 	sfColor color;
 	int index;
 
@@ -29,14 +28,10 @@ int parse_image_line(rpg_t *rpg, map_t *map, sfImage *image, int row)
 		color = sfImage_getPixel(image, row, col);
 		index = index_tile_by_color(color);
 		map->tiles[row][col] = malloc(sizeof(tile_t));
-		if (map->tiles[row][col] == NULL)
-			return (MALLOC_FAILED);
-		set_tile_values(map->tiles[row][col], index,
-			(sfVector2f){row, col}, color);
-		status = init_tile(rpg, map->tiles[row][col], index,
-			(sfVector2f){row, col});
-		if (status != SUCCESS)
-			return (status);
+		CM(map->tiles[row][col]);
+		set_tile_values(map->tiles[row][col], index, (sfVector2f){row, col}, color);
+		DR(init_tile(rpg, map->tiles[row][col], index,
+			(sfVector2f){row, col}));
 	}
 	return (SUCCESS);
 }

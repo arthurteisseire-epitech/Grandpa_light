@@ -11,6 +11,16 @@
 #include "scene.h"
 #include "define.h"
 #include "parse.h"
+#include "tool.h"
+
+static int init_row(rpg_t *rpg, map_t *map, sfImage *image, unsigned int row)
+{
+	map->tiles[row] = malloc(sizeof(tile_t *) * (map->size.x + 1));
+	CM(map->tiles[row]);
+	map->tiles[row][map->size.x] = NULL;
+	DR(parse_image_line(rpg, map, image, row));
+	return (SUCCESS);
+}
 
 int init_map(rpg_t *rpg, map_t **map, const char *path)
 {
@@ -19,21 +29,14 @@ int init_map(rpg_t *rpg, map_t **map, const char *path)
 	if (image == NULL)
 		return (WRONG_PATH);
 	(*map) = malloc(sizeof(map_t));
-	if ((*map) == NULL)
-		return (MALLOC_FAILED);
+	CM(*map);
 	(*map)->size = sfImage_getSize(image);
+	inverse(&(*map)->size.x, &(*map)->size.y);
 	(*map)->tiles = malloc(sizeof(tile_t **) * ((*map)->size.y + 1));
-	if ((*map)->tiles == NULL)
-		return (MALLOC_FAILED);
-	for (unsigned int row = 0; row < (*map)->size.y; row++) {
-		(*map)->tiles[row] =
-			malloc(sizeof(tile_t *) * ((*map)->size.x + 1));
-		if ((*map)->tiles[row] == NULL)
-			return (MALLOC_FAILED);
-		(*map)->tiles[row][(*map)->size.x] = NULL;
-		if (parse_image_line(rpg, *map, image, row) == -1)
-			return (-1);
-	}
+	CM((*map)->tiles);
+	for (unsigned int row = 0; row < (*map)->size.y; row++)
+		DR(init_row(rpg, *map, image, row));
 	(*map)->tiles[(*map)->size.y] = NULL;
+	inverse(&(*map)->size.x, &(*map)->size.y);
 	return (SUCCESS);
 }
