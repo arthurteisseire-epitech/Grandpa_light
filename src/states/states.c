@@ -22,6 +22,8 @@ int states(rpg_t *rpg)
 		return (status);
 	if (rpg->scenes[rpg->curr_scene]->scene_loop != NULL)
 		status = rpg->scenes[rpg->curr_scene]->scene_loop(rpg);
+	if (status != SUCCESS)
+		return (status);
 	status = draw(rpg);
 	if (status != SUCCESS)
 		return (status);
