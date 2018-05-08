@@ -14,6 +14,5 @@ void shift_texture_rect(sfRectangleShape *rect, texture_t *tx, int *index_rect)
 		(*index_rect) = 0;
 	else
 		(*index_rect)++;
-	sfRectangleShape_setTextureRect(rect
-		, tx->rects[*index_rect]->rect);
+	sfRectangleShape_setTextureRect(rect, tx->rects[*index_rect]->rect);
 }
