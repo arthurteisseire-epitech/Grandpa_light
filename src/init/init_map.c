@@ -15,38 +15,27 @@
 
 static int init_row(rpg_t *rpg, map_t *map, sfImage *image, unsigned int row)
 {
-	int status;
-
 	map->tiles[row] = malloc(sizeof(tile_t *) * (map->size.x + 1));
-	if (map->tiles[row] == NULL)
-		return (MALLOC_FAILED);
+	CM(map->tiles[row]);
 	map->tiles[row][map->size.x] = NULL;
-	status = parse_image_line(rpg, map, image, row);
-	if (status != SUCCESS)
-		return (status);
+	DR(parse_image_line(rpg, map, image, row));
 	return (SUCCESS);
 }
 
 int init_map(rpg_t *rpg, map_t **map, const char *path)
 {
 	sfImage *image = sfImage_createFromFile(path);
-	int status;
 
 	if (image == NULL)
 		return (WRONG_PATH);
 	(*map) = malloc(sizeof(map_t));
-	if ((*map) == NULL)
-		return (MALLOC_FAILED);
+	CM(*map);
 	(*map)->size = sfImage_getSize(image);
 	inverse(&(*map)->size.x, &(*map)->size.y);
 	(*map)->tiles = malloc(sizeof(tile_t **) * ((*map)->size.y + 1));
-	if ((*map)->tiles == NULL)
-		return (MALLOC_FAILED);
-	for (unsigned int row = 0; row < (*map)->size.y; row++) {
-		status = init_row(rpg, *map, image, row);
-		if (status != SUCCESS)
-			return (status);
-	}
+	CM((*map)->tiles);
+	for (unsigned int row = 0; row < (*map)->size.y; row++)
+		DR(init_row(rpg, *map, image, row));
 	(*map)->tiles[(*map)->size.y] = NULL;
 	inverse(&(*map)->size.x, &(*map)->size.y);
 	return (SUCCESS);

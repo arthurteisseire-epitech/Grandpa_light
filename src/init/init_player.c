@@ -17,27 +17,21 @@
 
 int init_player(rpg_t *rpg)
 {
-	int status;
 	config_setting_t *player_set = config_setting_lookup(rpg->set, "player");
 
 	if (player_set == NULL)
 		return (WRONG_CONFIG_PATH);
 	rpg->player = malloc(sizeof(player_t));
-	if (rpg->player == NULL)
-		return (MALLOC_FAILED);
-	status = init_shape(&rpg->player->rect, player_set);
-	if (status != SUCCESS)
-		return (status);
-	status = init_anims(rpg, &rpg->player->anim, player_set);
-	if (status != SUCCESS)
-		return (status);
+	CM(rpg->player);
+	DR(init_shape(&rpg->player->rect, player_set));
+	DR(init_anims(rpg, &rpg->player->anim, player_set));
 	sfRectangleShape_setTexture(rpg->player->rect,
 		rpg->player->anim[0]->texture, sfTrue);
 	sfRectangleShape_setOrigin(rpg->player->rect, VEC_HALF_TILE);
 	sfRectangleShape_setTextureRect(rpg->player->rect,
 		rpg->player->anim[0]->rects[0]->rect);
 	set_player_stat(rpg->player, player_set);
-	return (status);
+	return (SUCCESS);
 }
 
 void set_player_stat(player_t *player, config_setting_t *this_set)
@@ -49,7 +43,6 @@ void set_player_stat(player_t *player, config_setting_t *this_set)
 
 int init_anims(rpg_t *rpg, texture_t ***textures, config_setting_t *parent)
 {
-	int status;
 	unsigned int nb_tx;
 	config_setting_t *tx_set = config_setting_lookup(parent, "textures");
 
@@ -57,13 +50,9 @@ int init_anims(rpg_t *rpg, texture_t ***textures, config_setting_t *parent)
 		return (TEXTURE_NOT_FOUND);
 	nb_tx = config_setting_length(tx_set);
 	*textures = malloc(sizeof(texture_t *) * (nb_tx + 1));
-	if (*textures == NULL)
-		return (MALLOC_FAILED);
-	for (unsigned int i = 0; i < nb_tx; i++) {
-		status = init_anim(rpg, &(*textures)[i], tx_set, i);
-		if (status != SUCCESS)
-			return (status);
-	}
+	CM(*textures);
+	for (unsigned int i = 0; i < nb_tx; i++)
+		DR(init_anim(rpg, &(*textures)[i], tx_set, i));
 	(*textures)[nb_tx] = NULL;
 	return (SUCCESS);
 }

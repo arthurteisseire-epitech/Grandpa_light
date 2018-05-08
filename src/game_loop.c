@@ -11,12 +11,7 @@
 
 int game_loop(rpg_t *rpg)
 {
-	int status = SUCCESS;
-
-	while (sfRenderWindow_isOpen(rpg->window)) {
-		status = states(rpg);
-		if (status != SUCCESS)
-			return (status);
-	}
-	return (status);
+	while (sfRenderWindow_isOpen(rpg->window))
+		DR(states(rpg));
+	return (SUCCESS);
 }

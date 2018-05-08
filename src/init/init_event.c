@@ -13,7 +13,6 @@
 int init_event(rpg_t *rpg)
 {
 	rpg->event = malloc(sizeof(sfEvent));
-	if (rpg->event == NULL)
-		return (MALLOC_FAILED);
+	CM(rpg->event);
 	return (SUCCESS);
 }

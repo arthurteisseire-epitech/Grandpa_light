@@ -8,6 +8,14 @@
 #ifndef DEFINE_H
 #define DEFINE_H
 
+#define DOMINO_RETURN(status) if ((status) != SUCCESS) \
+			return (status)
+#define CHECK_MALLOC(ptr) if ((ptr) == NULL) \
+			return (MALLOC_FAILED)
+
+#define DR DOMINO_RETURN
+#define CM CHECK_MALLOC
+
 #define TRUE 1
 #define FALSE 0
 
