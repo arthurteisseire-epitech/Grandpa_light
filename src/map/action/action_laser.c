@@ -35,6 +35,7 @@ int action_laser(rpg_t *rpg, tile_t *laser)
 	map_t *map = rpg->scenes[rpg->curr_scene]->map;
 	sfVector2i size = {map->size.x, map->size.y};
 
+	printf("LASER\n");
 	laser->active = !laser->active;
 	while (pos.x < size.x && pos.y < size.y) {
 		map->tiles[(int)pos.x][(int)pos.y]->laser->horizontal =
