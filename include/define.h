@@ -21,6 +21,5 @@ void my_puterror(char const *str);
 #define WRONG_CONFIG_PATH my_puterror("In .cfg: Wrong config path\n"), -4
 #define TEXTURE_NOT_FOUND my_puterror("In .cfg: Texture not found\n"), -5
 #define MUSIC_NOT_FOUND my_puterror("In .cfg: Music not found\n"), -5
-#define CHECK_STATUS(status) if ((status) != SUCCESS)\
-return ((status));
+
 #endif

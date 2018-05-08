@@ -18,7 +18,7 @@
 int init_buttons(rpg_t *rpg, button_t ***buttons, config_setting_t *parent)
 {
 	int status;
-	unsigned int nb_buttons;
+	int nb_buttons;
 	config_setting_t *buttons_set = config_setting_lookup(parent,
 		"buttons");
 
@@ -30,7 +30,7 @@ int init_buttons(rpg_t *rpg, button_t ***buttons, config_setting_t *parent)
 	(*buttons) = malloc(sizeof(button_t) * (nb_buttons + 1));
 	if (*buttons == NULL)
 		return (MALLOC_FAILED);
-	for (unsigned int i = 0; i < nb_buttons; i++) {
+	for (int i = 0; i < nb_buttons; i++) {
 		status = init_button(rpg, &(*buttons)[i], buttons_set, i);
 		if (status != SUCCESS)
 			return (status);

@@ -15,13 +15,10 @@ void draw_tile(rpg_t *rpg, tile_t *tile)
 	sfRenderWindow_drawRectangleShape(rpg->window, tile->rect, NULL);
 	if (tile->laser->horizontal)
 		sfRenderWindow_drawRectangleShape(rpg->window,
-			tile->laser->rect, NULL);
-	if (tile->laser->vertical) {
-		sfRectangleShape_setRotation(tile->laser->rect, 90);
+			tile->laser->hor_rect, NULL);
+	if (tile->laser->vertical)
 		sfRenderWindow_drawRectangleShape(rpg->window,
-			tile->laser->rect, NULL);
-		sfRectangleShape_setRotation(tile->laser->rect, 0);
-	}
+			tile->laser->vert_rect, NULL);
 }
 
 void draw_light(rpg_t *rpg, tile_t *tile)
@@ -47,7 +44,8 @@ void draw_buttons(rpg_t *rpg, button_t **buttons)
 		sfRenderWindow_drawRectangleShape(rpg->window, buttons[i]->rect,
 			NULL);
 		if (buttons[i]->text != NULL)
-			sfRenderWindow_drawText(rpg->window, buttons[i]->text, NULL);
+			sfRenderWindow_drawText(rpg->window, buttons[i]->text,
+				NULL);
 		i++;
 	}
 }

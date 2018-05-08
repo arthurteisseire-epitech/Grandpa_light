@@ -21,6 +21,7 @@ typedef struct config_t config_t;
 typedef struct map_s map_t;
 typedef struct player_s player_t;
 typedef struct sfMusic sfMusic;
+typedef struct laser_s laser_t;
 
 typedef int (*init_arr_t)(rpg_t *);
 
@@ -50,6 +51,7 @@ int init_texture(texture_t **texture, config_setting_t *tx_setting);
 int set_texture_rects(rectangle_t ***rects, config_setting_t *parent);
 int set_texture_rect(rectangle_t *rect, config_setting_t *set, sfVector2f size,
 	int i);
+laser_t *init_laser(sfVector2f pos);
 sfVector2f get_cfg_vec(config_setting_t *parent, char const *name);
 sfVector2f scale(sfSprite *sprite, sfVector2f new);
 

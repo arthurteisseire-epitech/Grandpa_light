@@ -50,8 +50,8 @@ void player_action(rpg_t *rpg)
 	static tile_t *tile;
 
 	if (sfKeyboard_isKeyPressed(sfKeySpace)) {
-		pos.x = rpg->player->pos.x;
-		pos.y = rpg->player->pos.y;
+		pos.x = (int)rpg->player->pos.x;
+		pos.y = (int)rpg->player->pos.y;
 		tile = rpg->scenes[rpg->curr_scene]->map->tiles[pos.x][pos.y];
 		if (tile->func != NULL && tile->is_action)
 			tile->func(rpg, tile);

@@ -54,6 +54,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DINIT)init_config.c		\
 		$(DINIT)init_clock.c		\
 		$(DINIT)init_shape.c		\
+		$(DINIT)init_laser.c		\
 		$(DESTROY)destroy.c		\
 		$(DESTROY)destroy_window.c	\
 		$(DESTROY)destroy_event.c	\
@@ -62,6 +63,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DESTROY)destroy_textures.c	\
 		$(DESTROY)destroy_config.c	\
 		$(DESTROY)destroy_clock.c	\
+		$(DESTROY)destroy_text.c	\
 		$(DESTROY)destroy_musics.c	\
 		$(DPARSE)parse_image.c		\
 		$(DSRC)loop_menu.c 		\
@@ -71,6 +73,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DMAP)gen_light_shader.c	\
 		$(DMAPACT)action_lever.c	\
 		$(DMAPACT)action_door.c		\
+		$(DMAPACT)action_laser.c	\
 		$(DMAPACT)action_room.c		\
 		$(DMAPACT)action_end.c		\
 		$(DSCENE)change_scene.c		\
