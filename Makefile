@@ -74,6 +74,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DMAPACT)action_lever.c	\
 		$(DMAPACT)action_door.c		\
 		$(DMAPACT)action_laser.c	\
+		$(DMAPACT)action_laser_captor.c	\
 		$(DMAPACT)action_room.c		\
 		$(DMAPACT)action_end.c		\
 		$(DSCENE)change_scene.c		\
