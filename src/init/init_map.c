@@ -26,8 +26,8 @@ int init_map(rpg_t *rpg, map_t **map, const char *path)
 	if ((*map)->tiles == NULL)
 		return (MALLOC_FAILED);
 	for (unsigned int row = 0; row < (*map)->size.y; row++) {
-		(*map)->tiles[row] = malloc(
-			sizeof(tile_t *) * ((*map)->size.x + 1));
+		(*map)->tiles[row] =
+			malloc(sizeof(tile_t *) * ((*map)->size.x + 1));
 		if ((*map)->tiles[row] == NULL)
 			return (MALLOC_FAILED);
 		(*map)->tiles[row][(*map)->size.x] = NULL;

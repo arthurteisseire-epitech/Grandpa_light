@@ -13,7 +13,7 @@
 #define MASK_NAME(color) ((color).b & 0x0f)
 #define NB_TILE 9
 #define SIZE_TILE 64
-#define LASER_LENGTH 2
+#define LASER_LENGTH 3
 #define VEC_0_0 (sfVector2f){0.0, 0.0}
 #define VEC_HALF_TILE (sfVector2f){(float)SIZE_TILE / 2, (float)SIZE_TILE / 2}
 
@@ -55,7 +55,7 @@ typedef struct tile_s {
 	texture_t *tx;
 	int index_rect;
 	int curr_frame;
-	sfVector2u pos;
+	sfVector2f pos;
 } tile_t;
 
 typedef struct tile_list_s {
@@ -82,12 +82,13 @@ tile_t *apply_on_map(rpg_t *rpg, get_tile_t func, void *data);
 tile_t *get_tile_by_name(rpg_t *rpg, tile_t **tiles, void *name);
 tile_t *set_tile_by_chanel(rpg_t *rpg, tile_t **tiles, void *data);
 sfVector2f get_pos_tile_by_name(map_t *map, pos_tile_t func, void *name);
-int tile_pos_line(map_t __attribute((unused))*map, tile_t **tiles, void *name);
+int tile_pos_line(map_t __attribute((unused)) *map, tile_t **tiles, void *name);
 
-
-int action_door(rpg_t __attribute((unused))*rpg, tile_t *tile);
+int action_door(rpg_t __attribute((unused)) *rpg, tile_t *tile);
 int action_lever(rpg_t *rpg, tile_t *tile);
 int action_end(rpg_t *rpg, tile_t *tile);
 int action_room(rpg_t *rpg, tile_t *tile);
+int action_laser(rpg_t *rpg, tile_t *laser);
+int action_laser_captor(rpg_t *rpg, tile_t *tile);
 
 #endif
