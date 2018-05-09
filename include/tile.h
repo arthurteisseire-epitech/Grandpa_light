@@ -11,7 +11,7 @@
 #include <SFML/Graphics.h>
 
 #define MASK_NAME(color) ((color).b & 0x0f)
-#define NB_TILE 10
+#define NB_TILE 11
 #define SIZE_TILE 64
 #define LASER_LENGTH 3
 #define VEC_HALF_TILE (sfVector2f){(float)SIZE_TILE / 2, (float)SIZE_TILE / 2}

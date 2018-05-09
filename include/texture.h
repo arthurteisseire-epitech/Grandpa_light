@@ -16,6 +16,7 @@
 #define TX_TILE_LEVER 3
 #define TX_TILE_DOOR 4
 #define TX_TILE_ROOM 5
+#define TX_TILE_LIGHT 6
 
 typedef struct config_setting_t config_setting_t;
 typedef struct tile_s tile_t;
