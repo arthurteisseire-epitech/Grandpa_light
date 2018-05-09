@@ -9,10 +9,10 @@
 #include "define.h"
 #include "rpg.h"
 
-int init_clock(rpg_t *rpg)
+int init_clock(sfClock **clock)
 {
-	rpg->clock = sfClock_create();
+	*clock = sfClock_create();
 
-	CM(rpg->clock);
+	CM(*clock);
 	return (SUCCESS);
 }

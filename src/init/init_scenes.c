@@ -43,6 +43,8 @@ int init_scenes(rpg_t *rpg)
 	for (int i = 0; i < rpg->nb_scenes; i++) {
 		rpg->scenes[i] = malloc(sizeof(scene_t));
 		CM(rpg->scenes[i]);
+		rpg->scenes[i]->anim_tiles = NULL;
+		rpg->curr_scene = i;
 		DR(fill_scene(rpg, setting, i));
 	}
 	rpg->scenes[rpg->nb_scenes] = NULL;
@@ -58,7 +60,7 @@ int fill_scene(rpg_t *rpg, config_setting_t *scenes_setting, int index)
 	const char *str;
 
 	config_setting_lookup_string(scene_setting, "name", &ft);
-	rpg->scenes[index]->scene_loop = (get_func_scene(ft));
+	rpg->scenes[index]->scene_loop = get_func_scene(ft);
 	DR(init_buttons(rpg, &rpg->scenes[index]->buttons, scene_setting));
 	if (!config_setting_lookup_string(scene_setting, "map", &str)) {
 		rpg->scenes[index]->map = NULL;

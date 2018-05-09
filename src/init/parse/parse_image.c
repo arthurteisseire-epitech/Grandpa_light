@@ -31,6 +31,8 @@ int parse_image_line(rpg_t *rpg, map_t *map, sfImage *image, int row)
 		DR(set_tile_values(map->tiles[row][col], index, (sfVector2f){row, col}, color));
 		DR(init_tile(rpg, map->tiles[row][col], index,
 			(sfVector2f){row, col}));
+		add_anim_tile(&rpg->scenes[rpg->curr_scene]->anim_tiles
+		, map->tiles[row][col]);
 	}
 	return (SUCCESS);
 }
@@ -53,7 +55,6 @@ int set_tile_values(tile_t *tile, int index_tile, sfVector2f pos, sfColor color)
 	CM(tile->light);
 	tile->light_level = 0.1;
 	tile->lighted = 0;
-	tile->index_rect = 0;
 	tile->curr_frame = 0;
 	tile->pos = pos;
 	return (SUCCESS);

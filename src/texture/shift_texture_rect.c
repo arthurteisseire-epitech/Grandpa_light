@@ -8,11 +8,11 @@
 #include "texture.h"
 #include "tile.h"
 
-void shift_texture_rect(sfRectangleShape *rect, texture_t *tx, int *index_rect)
+void shift_texture_rect(sfRectangleShape *rect, texture_t *tx, int *curr_frame)
 {
-	if (tx->rects[*index_rect + 1] == NULL)
-		(*index_rect) = 0;
+	if (tx->rects[*curr_frame + 1] == NULL)
+		(*curr_frame) = 0;
 	else
-		(*index_rect)++;
-	sfRectangleShape_setTextureRect(rect, tx->rects[*index_rect]->rect);
+		(*curr_frame)++;
+	sfRectangleShape_setTextureRect(rect, tx->rects[*curr_frame]->rect);
 }

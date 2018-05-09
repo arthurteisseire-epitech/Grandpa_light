@@ -59,13 +59,14 @@ SRC	=	$(DPUT)my_put_nbr.c		\
 		$(DARRAY)free_array.c		\
 		$(DARRAY)split.c		\
 		$(DARRAY)array_to_str.c		\
+		$(DARRAY)my_realloc.c		\
 		$(DSRC)get_next_line.c 		\
 		$(DENV)get_env_value.c		\
 		$(DENV)index_name.c		\
 		$(DENV)disp_env.c		\
 		$(DENV)set_env_value.c		\
 		$(DFILE)my_fdcpy.c		\
-		$(DFILE)write_in_file.c 	\
+		$(DFILE)write_in_file.c
 
 CFLAGS	+=	-Wall -W -Wextra -I$(INC)
 OBJ	=	$(SRC:.c=.o)

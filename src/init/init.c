@@ -18,7 +18,6 @@ static const init_arr_t init_arr[] = {
 	init_textures,
 	init_player,
 	init_scenes,
-	init_clock,
 	init_window,
 	NULL
 };
@@ -31,6 +30,7 @@ int init(rpg_t *rpg)
 		DR(init_arr[i](rpg));
 		i++;
 	}
+	DR(init_clock(&rpg->clock));
 	rpg->curr_scene = FIRST_SCENE;
 	return (SUCCESS);
 }
