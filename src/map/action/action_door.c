@@ -14,7 +14,8 @@
 int action_door(rpg_t __attribute((unused))*rpg, tile_t *tile)
 {
 	shift_texture_rect(tile->rect, tile->tx, &tile->curr_frame);
-	tile->player_col = !tile->player_col;
-	tile->laser_col = !tile->laser_col;
+	tile->active = !tile->active;
+	tile->player_col = !tile->active;
+	tile->laser_col = !tile->active;
 	return (SUCCESS);
 }
