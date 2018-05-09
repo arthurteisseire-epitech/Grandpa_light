@@ -43,6 +43,8 @@ int init_scenes(rpg_t *rpg)
 	for (int i = 0; i < rpg->nb_scenes; i++) {
 		rpg->scenes[i] = malloc(sizeof(scene_t));
 		CM(rpg->scenes[i]);
+		rpg->scenes[i]->anim_tiles = NULL;
+		rpg->curr_scene = i;
 		DR(fill_scene(rpg, setting, i));
 	}
 	rpg->scenes[rpg->nb_scenes] = NULL;

@@ -12,13 +12,19 @@ void *my_realloc(void **array, void *data)
 {
 	int i = 0;
 	void **ptr1 = array;
-	void **new = malloc(sizeof(void *) * (my_arrlen(array) + 2));
-
-	while (ptr1[i] != NULL) {
-		new[i] = ptr1[i];
-		i++;
+	void **new;
+	
+	if (array == NULL) {
+		new = malloc(sizeof(void *) * 2);
+	} else {
+		new = malloc(sizeof(void *) * (my_arrlen(array) + 2));
+		while (ptr1[i] != NULL) {
+			new[i] = ptr1[i];
+			i++;
+		}
 	}
 	new[i] = data;
 	new[i + 1] = NULL;
+	free(array);
 	return (new);
 }

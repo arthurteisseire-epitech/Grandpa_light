@@ -34,7 +34,7 @@ const tile_list_t tile_list[NB_TILE] = {
 		"ls_receptor", TRUE, TRUE, TRUE, action_laser_captor,
 		TX_TILE_LASER_CAPTOR},
 	{{0x00, 0x00, 0x0b, 0x00},
-		"light", TRUE, TRUE, FALSE, NULL, TX_TILE_LIGHT},
+		"torch", TRUE, TRUE, FALSE, NULL, TX_TILE_LIGHT},
 	/*
 	 *{{0x00, 0x00, 0x06, 0x00},
 	 *	"door", TRUE, TRUE, NULL, TX_TILE_DOOR},
