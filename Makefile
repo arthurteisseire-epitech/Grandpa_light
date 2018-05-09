@@ -69,6 +69,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DSRC)loop_menu.c 		\
 		$(DPARSE)tile_list.c		\
 		$(DMAP)apply_on_map.c		\
+		$(DMAP)get_tile_pos.c		\
 		$(DMAP)light_shader.c		\
 		$(DMAP)gen_light_shader.c	\
 		$(DMAPACT)action_lever.c	\

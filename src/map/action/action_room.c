@@ -7,11 +7,14 @@
 
 #include "rpg.h"
 #include "tile.h"
+#include "texture.h"
 #include "scene.h"
 #include "define.h"
 
 int action_room(rpg_t *rpg, tile_t *tile)
 {
+	if (!tile->active)
+		return (SUCCESS);
 	rpg->curr_scene = tile->chanel;
 	if (rpg->scenes[rpg->curr_scene]->map != NULL)
 		place_in_spawn(rpg);
