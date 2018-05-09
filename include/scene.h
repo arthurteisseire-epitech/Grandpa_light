@@ -37,6 +37,7 @@ typedef int (*scene_func)(rpg_t *);
 
 typedef struct scene_s {
 	map_t *map;
+	tile_t ***anim_tiles;
 	button_t **buttons;
 	sfText **text;
 	scene_func scene_loop;
