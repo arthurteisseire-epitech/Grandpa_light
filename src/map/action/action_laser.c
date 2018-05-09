@@ -35,6 +35,7 @@ int action_laser(rpg_t *rpg, tile_t *laser)
 	char ver_laser = laser->direction == UP || laser->direction == DOWN;
 	map_t *map = rpg->scenes[rpg->curr_scene]->map;
 
+	printf("LASER\n");
 	laser->active = !laser->active;
 	while (pos.x < map->size.x && pos.y < map->size.y &&
 		map->tiles[(int)pos.x][(int)pos.y]->laser_col) {
