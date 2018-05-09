@@ -78,6 +78,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DMAPACT)action_laser_captor.c	\
 		$(DMAPACT)action_room.c		\
 		$(DMAPACT)action_end.c		\
+		$(DMAPACT)swap_laser.c		\
 		$(DMAPACT)get_tile.c		\
 		$(DSCENE)change_scene.c		\
 		$(DBUTTON)manage_buttons.c 	\
@@ -91,12 +92,11 @@ SRC     =	$(DSRC)main.c			\
 		$(DTOOLS)animate.c		\
 		$(DTOOLS)inverse.c		\
 		$(DTOOLS)open_first_room.c	\
-		$(DTOOLS)simple_access.c	\
 		$(DTX)get_texture.c		\
 		$(DTX)shift_texture_rect.c	\
 		$(DPLAYER)player_event.c	\
 		$(DPLAYER)move_player.c		\
-		$(DPLAYER)rotate_player.c	\
+		$(DPLAYER)rotate_player.c
 
 LDFLAGS	=	-lc_graph_prog -lconfig
 CFLAGS	+=	-Wall -W -Wextra -I$(INC) -g

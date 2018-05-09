@@ -29,12 +29,12 @@ tile_t *get_next_tile(rpg_t *rpg, char *name)
 	static sfVector2u pos = {0, 0};
 	tile_t *tile = NULL;
 
-	if (tiles != rpg_tiles(rpg))
+	if (tiles != RPG_TILES(rpg))
 		pos = (sfVector2u){0, 0};
-	tiles = rpg_tiles(rpg);
-	while (pos.x < rpg_map(rpg)->size.x) {
+	tiles = RPG_TILES(rpg);
+	while (pos.x < RPG_MAP(rpg)->size.x) {
 		tile = find_tile_in_line(tiles, name, &pos,
-			rpg_map(rpg)->size.y);
+			RPG_MAP(rpg)->size.y);
 		if (tile != NULL) {
 			pos.y++;
 			return (tile);
