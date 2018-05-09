@@ -24,6 +24,30 @@ static int init_row(rpg_t *rpg, map_t *map, sfImage *image, unsigned int row)
 	return (SUCCESS);
 }
 
+static void open_door(tile_t *tile)
+{
+	if (my_strcmp(tile->name, "door") == 0 && tile->active) {
+		tile->laser_col = 0;
+		tile->player_col = 0;
+		shift_texture_rect(tile->rect, tile->tx, &tile->curr_frame);
+	}
+}
+
+static void open_doors(tile_t ***tiles)
+{
+	int row = 0;
+	int col;
+
+	while (tiles[row] != NULL) {
+		col = 0;
+		while (tiles[row][col] != NULL) {
+			open_door(tiles[row][col]);
+			col++;
+		}
+		row++;
+	}
+}
+
 int init_map(rpg_t *rpg, map_t **map, const char *path)
 {
 	sfImage *image = sfImage_createFromFile(path);
@@ -40,5 +64,6 @@ int init_map(rpg_t *rpg, map_t **map, const char *path)
 		DR(init_row(rpg, *map, image, row));
 	(*map)->tiles[(*map)->size.y] = NULL;
 	inverse(&(*map)->size.x, &(*map)->size.y);
+	open_doors((*map)->tiles);
 	return (SUCCESS);
 }

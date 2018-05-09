@@ -37,14 +37,14 @@ int parse_image_line(rpg_t *rpg, map_t *map, sfImage *image, int row)
 
 int set_tile_values(tile_t *tile, int index_tile, sfVector2f pos, sfColor color)
 {
+	tile->active = (char)(color.r & 0b00000001);
+	tile->direction = (char)(color.r & 0b00000110);
+	tile->chanel = (char)(color.g & 0x0f);
 	tile->name = tile_list[index_tile].name;
 	tile->func = tile_list[index_tile].func;
 	tile->player_col = tile_list[index_tile].player_col;
 	tile->laser_col = tile_list[index_tile].laser_col;
 	tile->is_action = tile_list[index_tile].is_action;
-	tile->active = (char)(color.r & 0b00000001);
-	tile->direction = (char)(color.r & 0b00000110);
-	tile->chanel = (char)(color.g & 0x0f);
 	tile->rect = sfRectangleShape_create();
 	tile->laser = init_laser(pos);
 	tile->light = sfRectangleShape_create();
