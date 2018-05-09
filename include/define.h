@@ -19,8 +19,6 @@
 #define TRUE 1
 #define FALSE 0
 
-#define DIMG "assets/images/"
-
 void my_puterror(char const *str);
 
 #define SUCCESS 0
@@ -29,5 +27,19 @@ void my_puterror(char const *str);
 #define WRONG_CONFIG_PATH my_puterror("In .cfg: Wrong config path\n"), -4
 #define TEXTURE_NOT_FOUND my_puterror("In .cfg: Texture not found\n"), -5
 #define MUSIC_NOT_FOUND my_puterror("In .cfg: Music not found\n"), -5
+#define SOUND_NOT_FOUND my_puterror("In .cfg: Sound not found\n"), -5
+
+#define MAX_LASER 200
+
+#define LAS_STR "laser_beam"
+#define CAP_STR "ls_receptor"
+#define ROOM_STR "room"
+#define DOOR_STR "door"
+#define LEV_STR "on_off"
+#define END_STR "end"
+#define WALL_STR "wall"
+#define GROUND_STR "ground"
+#define GLASS_STR "glass"
+#define SPAWN_STR "spawn"
 
 #endif

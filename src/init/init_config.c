@@ -17,7 +17,8 @@ int init_config(rpg_t *rpg)
 
 	config_init(&config);
 	if (config_read_file(&config, "data/rpg.cfg") != CONFIG_TRUE)
-		return (WRONG_PATH);
+		return (my_puterror(
+			"In init_config : data/rpg.cfg : "), WRONG_PATH);
 	rpg->set = config_lookup(&config, "rpg");
 	if (rpg->set == NULL)
 		return (WRONG_CONFIG_PATH);

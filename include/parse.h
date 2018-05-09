@@ -25,6 +25,6 @@ int parse_image_line(rpg_t *rpg, map_t *map, sfImage *image, int row);
 int fill_map_row(rpg_t *rpg, map_t *map, sfImage *image, int row);
 
 int init_tile(rpg_t *rpg, tile_t *tile, int index_tile, sfVector2f pos);
-void set_tile_values(tile_t *tile, int index_tile, sfVector2f pos, sfColor color);
+int set_tile_values(tile_t *tile, int index_tile, sfVector2f pos, sfColor color);
 
 #endif

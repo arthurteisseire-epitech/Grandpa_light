@@ -28,15 +28,14 @@ int parse_image_line(rpg_t *rpg, map_t *map, sfImage *image, int row)
 		index = index_tile_by_color(color);
 		map->tiles[row][col] = malloc(sizeof(tile_t));
 		CM(map->tiles[row][col]);
-		set_tile_values(map->tiles[row][col], index, (sfVector2f){row, col}, color);
+		DR(set_tile_values(map->tiles[row][col], index, (sfVector2f){row, col}, color));
 		DR(init_tile(rpg, map->tiles[row][col], index,
 			(sfVector2f){row, col}));
 	}
 	return (SUCCESS);
 }
 
-void set_tile_values(tile_t *tile, int index_tile, sfVector2f pos,
-	sfColor color)
+int set_tile_values(tile_t *tile, int index_tile, sfVector2f pos, sfColor color)
 {
 	tile->name = tile_list[index_tile].name;
 	tile->func = tile_list[index_tile].func;
@@ -49,11 +48,15 @@ void set_tile_values(tile_t *tile, int index_tile, sfVector2f pos,
 	tile->rect = sfRectangleShape_create();
 	tile->laser = init_laser(pos);
 	tile->light = sfRectangleShape_create();
+	CM(tile->rect);
+	CM(tile->laser);
+	CM(tile->light);
 	tile->light_level = 0.1;
 	tile->lighted = 0;
 	tile->index_rect = 0;
 	tile->curr_frame = 0;
 	tile->pos = pos;
+	return (SUCCESS);
 }
 
 int init_tile(rpg_t *rpg, tile_t *tile, int index_tile, sfVector2f pos)

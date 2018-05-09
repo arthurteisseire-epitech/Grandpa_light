@@ -5,6 +5,7 @@
 ** by Arthur Teisseire
 */
 
+#include <malloc.h>
 #include "my.h"
 #include "rpg.h"
 #include "scene.h"
@@ -44,7 +45,21 @@ void player_movement(rpg_t *rpg)
 	}
 }
 
-void player_action(rpg_t *rpg)
+static int exec_tile(rpg_t *rpg, tile_t *tile)
+{
+	int *activated;
+
+	if (tile->func != NULL && tile->is_action) {
+		activated = swap_lasers(rpg);
+		CM(activated);
+		tile->func(rpg, tile);
+		swap_lasers_back(rpg, activated);
+		free(activated);
+	}
+	return (SUCCESS);
+}
+
+int player_action(rpg_t *rpg)
 {
 	static sfVector2i pos;
 	static tile_t *tile;
@@ -53,15 +68,15 @@ void player_action(rpg_t *rpg)
 		pos.x = (int)rpg->player->pos.x;
 		pos.y = (int)rpg->player->pos.y;
 		tile = rpg->scenes[rpg->curr_scene]->map->tiles[pos.x][pos.y];
-		if (tile->func != NULL && tile->is_action)
-			tile->func(rpg, tile);
+		DR(exec_tile(rpg, tile));
 	}
+	return (SUCCESS);
 }
 
 int player_event(rpg_t *rpg)
 {
 	if (rpg->scenes[rpg->curr_scene]->map != NULL) {
-		player_action(rpg);
+		DR(player_action(rpg));
 		player_rotation(rpg);
 		player_movement(rpg);
 	}

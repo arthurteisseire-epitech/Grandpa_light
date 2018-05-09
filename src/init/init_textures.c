@@ -53,10 +53,10 @@ int init_texture(texture_t **texture, config_setting_t *tx_setting)
 	CM(*texture);
 	config_setting_lookup_string(tx_setting, "path", &str);
 	if (str == NULL)
-		return (WRONG_CONFIG_PATH);
+		return (my_puterror("In init_texture : path :"), WRONG_CONFIG_PATH);
 	(*texture)->texture = sfTexture_createFromFile(str, NULL);
 	if ((*texture)->texture == NULL)
-		return (WRONG_PATH);
+		return (my_puterror("In init_texture : str :"), WRONG_PATH);
 	config_setting_lookup_string(tx_setting, "name", &(*texture)->name);
 	if ((*texture)->name == NULL)
 		return (WRONG_CONFIG_PATH);

@@ -37,7 +37,7 @@ int fill_text(sfText *text, config_setting_t *text_setting)
 		return (WRONG_CONFIG_PATH);
 	font = sfFont_createFromFile(str);
 	if (font == NULL)
-		return (WRONG_PATH);
+		return (my_puterror("In fill_text : font :"), WRONG_PATH);
 	sfText_setFont(text, font);
 	config_setting_lookup_int(text_setting, "size", &size);
 	sfText_setCharacterSize(text, size);

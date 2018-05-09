@@ -26,6 +26,7 @@ typedef struct rpg_s {
 	sfEvent *event;
 	sfRenderWindow *window;
 	sfMusic **musics;
+	sfSound **sounds;
 	scene_t **scenes;
 	texture_t **tx_tile;
 	texture_t **tx_game;

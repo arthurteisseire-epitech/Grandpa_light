@@ -78,6 +78,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DMAPACT)action_laser_captor.c	\
 		$(DMAPACT)action_room.c		\
 		$(DMAPACT)action_end.c		\
+		$(DMAPACT)get_tile.c		\
 		$(DSCENE)change_scene.c		\
 		$(DBUTTON)manage_buttons.c 	\
 		$(DBUTTON)get_func_button.c 	\
@@ -90,6 +91,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DTOOLS)animate.c		\
 		$(DTOOLS)inverse.c		\
 		$(DTOOLS)open_first_room.c	\
+		$(DTOOLS)simple_access.c	\
 		$(DTX)get_texture.c		\
 		$(DTX)shift_texture_rect.c	\
 		$(DPLAYER)player_event.c	\

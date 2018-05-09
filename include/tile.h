@@ -78,6 +78,7 @@ void generate_shader(map_t *map, sfVector2f pos, sfVector2f dir);
 char is_in_map(map_t *map, sfVector2f pos);
 
 tile_t *apply_on_map(rpg_t *rpg, get_tile_t func, void *data);
+tile_t *get_next_tile(rpg_t *rpg, char *name);
 tile_t *get_tile_by_name(rpg_t *rpg, tile_t **tiles, void *name);
 tile_t *set_tile_by_chanel(rpg_t *rpg, tile_t **tiles, void *data);
 tile_t *get_tile_by_chanel(rpg_t *rpg, tile_t **tiles, void *data);
@@ -90,5 +91,8 @@ int action_end(rpg_t *rpg, tile_t *tile);
 int action_room(rpg_t *rpg, tile_t *tile);
 int action_laser(rpg_t *rpg, tile_t *laser);
 int action_laser_captor(rpg_t *rpg, tile_t *tile);
+
+int *swap_lasers(rpg_t *rpg);
+void swap_lasers_back(rpg_t *rpg, const int *active_list);
 
 #endif

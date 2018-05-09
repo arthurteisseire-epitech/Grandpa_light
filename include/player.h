@@ -55,7 +55,7 @@ void animate_sprite(player_t *player, sfClock *clock);
 
 void player_rotation(rpg_t *rpg);
 void player_movement(rpg_t *rpg);
-void player_action(rpg_t *rpg);
+int player_action(rpg_t *rpg);
 int player_event(rpg_t *rpg);
 
 #endif

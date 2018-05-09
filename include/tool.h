@@ -18,4 +18,9 @@ void inverse(unsigned int *a, unsigned int *b);
 void set_rect(tile_t *tile);
 void open_first_room(rpg_t *rpg);
 
+map_t *rpg_map(rpg_t *rpg);
+tile_t *map_tile(map_t *map, sfVector2f pos);
+tile_t ***rpg_tiles(rpg_t *rpg);
+scene_t *rpg_scene(rpg_t *rpg);
+
 #endif

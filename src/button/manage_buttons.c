@@ -23,7 +23,7 @@ int check_over(rpg_t *rpg, button_t *button, sfVector2i pos)
 	return (SUCCESS);
 }
 
-int check_clic(rpg_t *rpg, button_t *button, sfVector2i pos)
+int check_click(rpg_t *rpg, button_t *button, sfVector2i pos)
 {
 	sfFloatRect rect = sfRectangleShape_getGlobalBounds(button->rect);
 
@@ -45,7 +45,7 @@ int manage_buttons(rpg_t *rpg, button_t **buttons, sfEvent *event)
 	if (event->type == sfEvtMouseMoved)
 		mouse_func = check_over;
 	else if (event->type == sfEvtMouseButtonPressed)
-		mouse_func = check_clic;
+		mouse_func = check_click;
 	if (mouse_func == NULL)
 		return (SUCCESS);
 	while (buttons[i] != NULL) {

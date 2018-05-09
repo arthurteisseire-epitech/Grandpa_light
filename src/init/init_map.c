@@ -29,7 +29,7 @@ int init_map(rpg_t *rpg, map_t **map, const char *path)
 	sfImage *image = sfImage_createFromFile(path);
 
 	if (image == NULL)
-		return (WRONG_PATH);
+		return (my_puterror("In init_map : image : "), WRONG_PATH);
 	(*map) = malloc(sizeof(map_t));
 	CM(*map);
 	(*map)->size = sfImage_getSize(image);

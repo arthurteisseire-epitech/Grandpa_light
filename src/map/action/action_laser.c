@@ -6,6 +6,9 @@
 */
 
 #include <SFML/Graphics.h>
+#include <SFML/Audio.h>
+#include <malloc.h>
+#include <memory.h>
 #include "my.h"
 #include "vec.h"
 #include "scene.h"
@@ -14,9 +17,10 @@
 #include "define.h"
 #include "rpg.h"
 
-static inline tile_t *tile(map_t *map, sfVector2f pos)
+static char in_map(sfVector2f pos, map_t *map)
 {
-	return (map->tiles[(int)pos.x][(int)pos.y]);
+	return (pos.x < map->size.x && pos.y < map->size.y && pos.x > 0 &&
+		pos.y > 0);
 }
 
 static sfVector2f get_direction(char dir)
@@ -41,15 +45,44 @@ int action_laser(rpg_t *rpg, tile_t *laser)
 	map_t *map = rpg->scenes[rpg->curr_scene]->map;
 
 	laser->active = !laser->active;
-	while (pos.x < map->size.x && pos.y < map->size.y &&
-		tile(map, pos)->laser_col == FALSE) {
-		tile(map, pos)->laser->horizontal = laser->active && hor_laser;
-		tile(map, pos)->laser->vertical = laser->active && ver_laser;
+	while (in_map(pos, map) && map_tile(map, pos)->laser_col == FALSE) {
+		map_tile(map, pos)->laser->horizontal =
+			laser->active && hor_laser;
+		map_tile(map, pos)->laser->vertical =
+			laser->active && ver_laser;
 		pos = add_vec(pos, direction);
+		if (in_map(pos, map) &&
+			map_tile(map, pos)->func == action_laser_captor)
+			map_tile(map, pos)->func(rpg, map_tile(map, pos));
 	}
-	if (pos.x < map->size.x && pos.y < map->size.y &&
-		!my_strcmp(tile(map, pos)->name, "ls_receptor") &&
-		tile(map, pos)->func != NULL)
-		tile(map, pos)->func(rpg, tile(map, pos));
 	return (SUCCESS);
+}
+
+int *swap_lasers(rpg_t *rpg)
+{
+	int *active_list = malloc(sizeof(int) * MAX_LASER);
+	int idx = 0;
+
+	if (active_list == NULL)
+		return (NULL);
+	for (tile_t *act_laser = get_next_tile(rpg, LAS_STR);
+		act_laser != NULL; act_laser = get_next_tile(rpg, LAS_STR)) {
+		if (act_laser->active) {
+			action_laser(rpg, act_laser);
+			active_list[idx++] = 1;
+		} else
+			active_list[idx++] = 0;
+	}
+	return (active_list);
+}
+
+void swap_lasers_back(rpg_t *rpg, const int *active_list)
+{
+	int idx = 0;
+
+	for (tile_t *act_laser = get_next_tile(rpg, LAS_STR);
+		act_laser != NULL; act_laser = get_next_tile(rpg, LAS_STR)) {
+		if (active_list[idx++] == 1)
+			action_laser(rpg, act_laser);
+	}
 }

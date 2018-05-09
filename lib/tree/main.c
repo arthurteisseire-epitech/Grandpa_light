@@ -46,8 +46,8 @@ int main(void)
 		puts(item);
 	int nb_nodes = btree_node_count(root);
 	int nb_levels = btree_level_count(root);
-	printf("NB_NODES: %d\n", nb_nodes);
-	printf("NB_LEVELS: %d\n", nb_levels);
+	("NB_NODES: %d\n", nb_nodes);
+	("NB_LEVELS: %d\n", nb_levels);
 	btree_free(root, NULL);
 	return (0);
 }
