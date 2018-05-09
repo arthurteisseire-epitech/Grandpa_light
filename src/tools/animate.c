@@ -12,12 +12,10 @@
 
 void animate_sprite(player_t *player, sfClock *clock)
 {
-	static float step = 0.1;
-	sfTime time = sfClock_getElapsedTime(clock);
+	static float delta_time = 0.0f;
 
-	if ((int)sfTime_asSeconds(time) < step)
+	if (wait_delta_frame(clock, &delta_time) == FALSE)
 		return;
 	shift_texture_rect(player->rect, player->anim[player->id_anim]
 	, &player->curr_frame);
-	sfClock_restart(clock);
 }

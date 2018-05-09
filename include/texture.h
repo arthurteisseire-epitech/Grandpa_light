@@ -16,6 +16,9 @@
 #define TX_TILE_LEVER 3
 #define TX_TILE_DOOR 4
 #define TX_TILE_ROOM 5
+#define TX_TILE_LIGHT 6
+
+#define DELTA_FRAME 0.2f
 
 typedef struct config_setting_t config_setting_t;
 typedef struct tile_s tile_t;
@@ -36,6 +39,7 @@ sfIntRect *get_texture_rect_by_name(texture_t *texture, char const *name);
 int set_texture_by_setting(texture_t **textures, sfRectangleShape *rect,
 	config_setting_t *parent);
 rectangle_t *get_rect(texture_t *texture, char *name);
-void shift_texture_rect(sfRectangleShape *rect, texture_t *tx, int *index_rect);
+void shift_texture_rect(sfRectangleShape *rect, texture_t *tx, int *curr_frame);
+int wait_delta_frame(sfClock *clock, float *delta_time);
 
 #endif

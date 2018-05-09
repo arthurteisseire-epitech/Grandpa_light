@@ -55,6 +55,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DINIT)init_clock.c		\
 		$(DINIT)init_shape.c		\
 		$(DINIT)init_laser.c		\
+		$(DINIT)init_anim_tiles.c	\
 		$(DESTROY)destroy.c		\
 		$(DESTROY)destroy_window.c	\
 		$(DESTROY)destroy_event.c	\
@@ -62,7 +63,6 @@ SRC     =	$(DSRC)main.c			\
 		$(DESTROY)destroy_buttons.c	\
 		$(DESTROY)destroy_textures.c	\
 		$(DESTROY)destroy_config.c	\
-		$(DESTROY)destroy_clock.c	\
 		$(DESTROY)destroy_text.c	\
 		$(DESTROY)destroy_musics.c	\
 		$(DPARSE)parse_image.c		\
@@ -72,6 +72,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DMAP)get_tile_pos.c		\
 		$(DMAP)light_shader.c		\
 		$(DMAP)gen_light_shader.c	\
+		$(DMAP)update_anim_tiles.c	\
 		$(DMAPACT)action_lever.c	\
 		$(DMAPACT)action_door.c		\
 		$(DMAPACT)action_laser.c	\
@@ -94,6 +95,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DTOOLS)open_first_room.c	\
 		$(DTX)get_texture.c		\
 		$(DTX)shift_texture_rect.c	\
+		$(DTX)wait_delta_frame.c	\
 		$(DPLAYER)player_event.c	\
 		$(DPLAYER)move_player.c		\
 		$(DPLAYER)rotate_player.c

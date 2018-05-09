@@ -17,6 +17,7 @@ int	index_name(char *var_name, char **env);
 void	disp_env(char **env);
 int	set_env_value(char *name, char *new_value, char **env);
 
+void*	my_realloc(void **array, void *data);
 char**	split(char *str, char const *flags);
 char*	array_to_str(char **array, char *between);
 void	free_array(void **array);

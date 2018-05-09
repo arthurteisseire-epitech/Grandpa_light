@@ -5,7 +5,7 @@
 ** by Arthur Teisseire
 */
 
-int apply_on_array(void **array, int (*applyf)(void *))
+int apply_on_array(void **array, int (*applyf)())
 {
 	int status;
 	int i = 0;
