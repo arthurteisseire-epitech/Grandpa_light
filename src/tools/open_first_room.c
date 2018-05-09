@@ -13,7 +13,7 @@
 void set_rect(tile_t *tile)
 {
 	if (tile->chanel == 1)
-		shift_texture_rect(tile->rect, tile->tx, &tile->index_rect);
+		shift_texture_rect(tile->rect, tile->tx, &tile->curr_frame);
 }
 
 void open_first_room(rpg_t *rpg)

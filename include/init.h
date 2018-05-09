@@ -34,7 +34,6 @@ int init_player(rpg_t *rpg);
 void set_player_stat(player_t *player, config_setting_t *this_set);
 int init_anims(rpg_t *rpg, texture_t ***textures, config_setting_t *parent);
 int init_anim(rpg_t *rpg, texture_t **texture, config_setting_t *parent, int i);
-int init_clock(rpg_t *rpg);
 int init_config(rpg_t *rpg);
 int init_scenes(rpg_t *rpg);
 int fill_scene(rpg_t *rpg, config_setting_t *parent, int index);
@@ -44,6 +43,7 @@ int init_map(rpg_t *rpg, map_t **map, const char *path);
 int init_buttons(rpg_t *rpg, button_t ***buttons, config_setting_t *parent);
 int init_button(rpg_t *rpg, button_t **button, config_setting_t *parent, int i);
 int init_shape(sfRectangleShape **rect, config_setting_t *parent);
+int init_clock(sfClock ** clock);;
 int init_textures(rpg_t *rpg);
 int fill_textures(texture_t ***textures, config_setting_t *parent,
 	const char *name);

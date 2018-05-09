@@ -52,7 +52,6 @@ typedef struct tile_s {
 	sfRectangleShape *rect;
 	sfRectangleShape *light;
 	texture_t *tx;
-	int index_rect;
 	int curr_frame;
 	sfVector2f pos;
 } tile_t;
@@ -77,6 +76,7 @@ void update_shader(map_t *map);
 void generate_shader(map_t *map, sfVector2f pos, sfVector2f dir);
 char is_in_map(map_t *map, sfVector2f pos);
 
+void update_anim_tiles(rpg_t *rpg, sfClock *clock);
 tile_t *apply_on_map(rpg_t *rpg, get_tile_t func, void *data);
 tile_t *get_tile_by_name(rpg_t *rpg, tile_t **tiles, void *name);
 tile_t *set_tile_by_chanel(rpg_t *rpg, tile_t **tiles, void *data);

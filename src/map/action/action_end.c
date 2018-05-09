@@ -24,7 +24,7 @@ int action_end(rpg_t *rpg, tile_t *tile)
 		return (SUCCESS);
 	if (!room->active) {
 		room->active = TRUE;
-		shift_texture_rect(room->rect, room->tx, &room->index_rect);
+		shift_texture_rect(room->rect, room->tx, &room->curr_frame);
 	}
 	return (SUCCESS);
 }
