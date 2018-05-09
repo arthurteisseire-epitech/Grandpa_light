@@ -8,6 +8,8 @@
 #include <stdlib.h>
 #include "my.h"
 #include "rpg.h"
+#include "tile.h"
+#include "texture.h"
 #include "scene.h"
 #include "define.h"
 #include "parse.h"

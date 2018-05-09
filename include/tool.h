@@ -10,8 +10,12 @@
 
 #include <SFML/Graphics.h>
 
-int action_laser(rpg_t *rpg, tile_t *laser);
+typedef struct rpg_s rpg_t;
+typedef struct tile_s tile_t;
+
 int is_pos_in_rect(sfVector2i pos, sfFloatRect rect);
 void inverse(unsigned int *a, unsigned int *b);
+void set_rect(tile_t *tile);
+void open_first_room(rpg_t *rpg);
 
 #endif

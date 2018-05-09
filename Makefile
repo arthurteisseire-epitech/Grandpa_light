@@ -69,6 +69,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DSRC)loop_menu.c 		\
 		$(DPARSE)tile_list.c		\
 		$(DMAP)apply_on_map.c		\
+		$(DMAP)get_tile_pos.c		\
 		$(DMAP)light_shader.c		\
 		$(DMAP)gen_light_shader.c	\
 		$(DMAPACT)action_lever.c	\
@@ -88,6 +89,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DTOOLS)is_pos_in_rect.c	\
 		$(DTOOLS)animate.c		\
 		$(DTOOLS)inverse.c		\
+		$(DTOOLS)open_first_room.c	\
 		$(DTX)get_texture.c		\
 		$(DTX)shift_texture_rect.c	\
 		$(DPLAYER)player_event.c	\

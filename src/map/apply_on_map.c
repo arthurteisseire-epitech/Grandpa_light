@@ -53,28 +53,16 @@ tile_t *set_tile_by_chanel(rpg_t *rpg, tile_t **tiles, void *data)
 	return (NULL);
 }
 
-sfVector2f get_pos_tile_by_name(map_t *map, pos_tile_t func, void *name)
-{
-	int y = 0;
-	float x = 0;
-
-	while (map->tiles[y]) {
-		x = func(map, map->tiles[y], name);
-		if (x != -1)
-			return ((sfVector2f){y, x});
-		y++;
-	}
-	return ((sfVector2f){0.0, 0.0});
-}
-
-int tile_pos_line(map_t __attribute((unused))*map, tile_t **tiles, void *name)
+tile_t *get_tile_by_chanel(rpg_t *rpg, tile_t **tiles, void *data)
 {
 	int i = 0;
+	tile_t *tile = data;
 
+	(void)rpg;
 	while (tiles[i]) {
-		if (my_strcmp(tiles[i]->name, name) == 0)
-			return (i);
+		if (tile->chanel == tiles[i]->chanel)
+			return (tiles[i]);
 		i++;
 	}
-	return (-1);
+	return (NULL);
 }

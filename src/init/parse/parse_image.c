@@ -16,7 +16,6 @@
 #include "init.h"
 #include "texture.h"
 #include "define.h"
-
 #include "vec.h"
 
 int parse_image_line(rpg_t *rpg, map_t *map, sfImage *image, int row)

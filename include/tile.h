@@ -80,6 +80,7 @@ char is_in_map(map_t *map, sfVector2f pos);
 tile_t *apply_on_map(rpg_t *rpg, get_tile_t func, void *data);
 tile_t *get_tile_by_name(rpg_t *rpg, tile_t **tiles, void *name);
 tile_t *set_tile_by_chanel(rpg_t *rpg, tile_t **tiles, void *data);
+tile_t *get_tile_by_chanel(rpg_t *rpg, tile_t **tiles, void *data);
 sfVector2f get_pos_tile_by_name(map_t *map, pos_tile_t func, void *name);
 int tile_pos_line(map_t __attribute((unused)) *map, tile_t **tiles, void *name);
 
