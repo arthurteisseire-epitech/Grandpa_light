@@ -14,11 +14,10 @@ typedef struct rpg_s rpg_t;
 typedef struct sprite_s sprite_t;
 typedef int (*button_func_t)(rpg_t *);
 
-typedef struct ft_button_s
-{
+typedef struct ft_button_s {
 	char *name;
 	button_func_t button_func;
-}ft_button_t;
+} ft_button_t;
 
 typedef struct button_s {
 	sfRectangleShape *rect;
@@ -30,11 +29,8 @@ int button_play(rpg_t *rpg);
 int button_setting(rpg_t *rpg);
 int button_credit(rpg_t *rpg);
 
-static const ft_button_t ft_buttons[] = {
-	{"play", button_play},
-	{"setting", button_setting},
-	{"credit", button_credit},
-};
+static const ft_button_t ft_buttons[] = {{"play", button_play},
+	{"setting", button_setting}, {"credit", button_credit},};
 
 button_func_t get_func_button(char const *ft);
 int check_over(rpg_t *rpg, button_t *button, sfVector2i pos);
