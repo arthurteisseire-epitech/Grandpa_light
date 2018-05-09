@@ -31,6 +31,7 @@ int init_musics(rpg_t *rpg)
 int init_music(sfMusic **music, config_setting_t *parent, int i)
 {
 	const char *str;
+	int loop = 1;
 	double vol = 1.0;
 	config_setting_t *music_set = config_setting_get_elem(parent, i);
 
@@ -41,6 +42,8 @@ int init_music(sfMusic **music, config_setting_t *parent, int i)
 	if (*music == NULL)
 		return (MUSIC_NOT_FOUND);
 	config_setting_lookup_float(music_set, "volume", &vol);
-	sfMusic_setVolume(*music, vol);
+	config_setting_lookup_int(music_set, "loop", &loop);
+	sfMusic_setLoop(*music, loop);
+	sfMusic_setVolume(*music, (float)vol);
 	return (SUCCESS);
 }

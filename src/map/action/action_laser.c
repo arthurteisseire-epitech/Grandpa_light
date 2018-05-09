@@ -14,6 +14,11 @@
 #include "define.h"
 #include "rpg.h"
 
+static inline tile_t *tile(map_t *map, sfVector2f pos)
+{
+	return (map->tiles[(int)pos.x][(int)pos.y]);
+}
+
 static sfVector2f get_direction(char dir)
 {
 	if (dir == LEFT)
@@ -35,20 +40,16 @@ int action_laser(rpg_t *rpg, tile_t *laser)
 	char ver_laser = laser->direction == UP || laser->direction == DOWN;
 	map_t *map = rpg->scenes[rpg->curr_scene]->map;
 
-	printf("LASER\n");
 	laser->active = !laser->active;
 	while (pos.x < map->size.x && pos.y < map->size.y &&
-		map->tiles[(int)pos.x][(int)pos.y]->laser_col) {
-		map->tiles[(int)pos.x][(int)pos.y]->laser->horizontal = (
-			laser->active && hor_laser);
-		map->tiles[(int)pos.x][(int)pos.y]->laser->vertical = (
-			laser->active && ver_laser);
+		tile(map, pos)->laser_col == FALSE) {
+		tile(map, pos)->laser->horizontal = laser->active && hor_laser;
+		tile(map, pos)->laser->vertical = laser->active && ver_laser;
 		pos = add_vec(pos, direction);
 	}
-	if (pos.x < map->size.x && pos.y < map->size.y && !my_strcmp(
-		map->tiles[(int)pos.x][(int)pos.y]->name, "ls_receptor") &&
-		map->tiles[(int)pos.x][(int)pos.y]->func != NULL)
-		map->tiles[(int)pos.x][(int)pos.y]->func(rpg,
-			map->tiles[(int)pos.x][(int)pos.y]);
+	if (pos.x < map->size.x && pos.y < map->size.y &&
+		!my_strcmp(tile(map, pos)->name, "ls_receptor") &&
+		tile(map, pos)->func != NULL)
+		tile(map, pos)->func(rpg, tile(map, pos));
 	return (SUCCESS);
 }
