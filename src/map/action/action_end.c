@@ -16,10 +16,15 @@ int action_end(rpg_t *rpg, tile_t *tile)
 	tile_t *room;
 
 	rpg->curr_scene = SC_HUB;
-	if (rpg->scenes[rpg->curr_scene]->map != NULL)
-		place_in_spawn(rpg);
+	if (rpg->scenes[rpg->curr_scene]->map == NULL)
+		return (SUCCESS);
+	place_in_spawn(rpg);
 	room = apply_on_map(rpg, get_tile_by_chanel, tile);
-	room->active = !room->active;
-	shift_texture_rect(room->rect, room->tx, 0);
+	if (room == rpg->scenes[rpg->curr_scene]->map->tiles[0][0])
+		return (SUCCESS);
+	if (!room->active) {
+		room->active = TRUE;
+		shift_texture_rect(room->rect, room->tx, &room->index_rect);
+	}
 	return (SUCCESS);
 }

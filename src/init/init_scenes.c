@@ -13,8 +13,11 @@
 #include "scene.h"
 #include "button.h"
 #include "init.h"
+#include "tile.h"
+#include "texture.h"
 #include "parse.h"
 #include "define.h"
+#include "tool.h"
 
 scene_func get_func_scene(char const *ft)
 {
@@ -43,6 +46,7 @@ int init_scenes(rpg_t *rpg)
 		DR(fill_scene(rpg, setting, i));
 	}
 	rpg->scenes[rpg->nb_scenes] = NULL;
+	open_first_room(rpg);
 	return (SUCCESS);
 }
 
