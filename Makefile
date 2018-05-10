@@ -73,6 +73,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DMAP)apply_on_map.c		\
 		$(DTILE)get_tile_pos.c		\
 		$(DTILE)update_anim_tiles.c	\
+		$(DTILE)exec_tile.c		\
 		$(DTILACT)action_lever.c	\
 		$(DTILACT)action_door.c		\
 		$(DTILACT)action_laser.c	\
