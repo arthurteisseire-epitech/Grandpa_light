@@ -21,6 +21,7 @@ typedef struct event_s event_t;
 typedef struct config_t config_t;
 typedef struct config_setting_t config_setting_t;
 typedef struct player_s player_t;
+typedef struct achievement_s achievement_t;
 
 typedef struct rpg_s {
 	sfEvent *event;
@@ -35,6 +36,7 @@ typedef struct rpg_s {
 	int nb_scenes;
 	config_setting_t *set;
 	player_t *player;
+	achievement_t *achievement;
 } rpg_t;
 
 int game_loop(rpg_t *rpg);

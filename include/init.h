@@ -22,6 +22,7 @@ typedef struct map_s map_t;
 typedef struct player_s player_t;
 typedef struct sfMusic sfMusic;
 typedef struct laser_s laser_t;
+typedef struct achievement_s achievement_t;
 
 typedef int (*init_arr_t)(rpg_t *);
 
@@ -43,6 +44,7 @@ int init_map(rpg_t *rpg, map_t **map, const char *path);
 int init_buttons(rpg_t *rpg, button_t ***buttons, config_setting_t *parent);
 int init_button(rpg_t *rpg, button_t **button, config_setting_t *parent, int i);
 int init_shape(sfRectangleShape **rect, config_setting_t *parent);
+int init_achievement(rpg_t *rpg);
 laser_t *init_laser(sfVector2f pos);
 int init_clock(sfClock ** clock);
 int init_textures(rpg_t *rpg);

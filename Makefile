@@ -18,6 +18,7 @@ LIBS	=	-L$(DMY) -l$(MY) -L$(DLCFG) -l$(LCFG)
 DSRC	=	src/
 DINIT	=	$(DSRC)init/
 DESTROY	=	$(DSRC)destroy/
+DACHIVE	=	$(DSRC)achievement/
 DMAP	=	$(DSRC)map/
 DTILE	=	$(DSRC)tile/
 DTILACT	=	$(DTILE)action/
@@ -42,6 +43,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DUPDATE)update.c		\
 		$(DEVENT)event.c		\
 		$(DINIT)init.c			\
+		$(DINIT)init_achievements.c	\
 		$(DINIT)init_player.c		\
 		$(DINIT)init_event.c		\
 		$(DINIT)init_window.c		\
@@ -67,6 +69,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DESTROY)destroy_config.c	\
 		$(DESTROY)destroy_text.c	\
 		$(DESTROY)destroy_musics.c	\
+		$(DACHIVE)achievement.c		\
 		$(DSRC)loop_menu.c 		\
 		$(DMAP)light_shader.c		\
 		$(DMAP)gen_light_shader.c	\

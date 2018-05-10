@@ -28,6 +28,7 @@ void my_puterror(char const *str);
 #define TEXTURE_NOT_FOUND my_puterror("In .cfg: Texture not found\n"), -5
 #define MUSIC_NOT_FOUND my_puterror("In .cfg: Music not found\n"), -5
 #define SOUND_NOT_FOUND my_puterror("In .cfg: Sound not found\n"), -5
+#define FONT_NOT_FOUND my_puterror("In .cfg: Font not found\n"), -5
 
 #define MAX_LASER 200
 
