@@ -31,6 +31,8 @@ int loop_menu(rpg_t *rpg);
 typedef struct map_s {
 	sfVector2u size;
 	tile_t ***tiles;
+	char **light_map;
+	sfRectangleShape **raycast_circle;
 } map_t;
 
 typedef int (*scene_func)(rpg_t *);

@@ -72,6 +72,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DMAP)get_tile_pos.c		\
 		$(DMAP)light_shader.c		\
 		$(DMAP)gen_light_shader.c	\
+		$(DMAP)player_light.c		\
 		$(DMAPACT)action_lever.c	\
 		$(DMAPACT)action_door.c		\
 		$(DMAPACT)action_laser.c	\
@@ -96,7 +97,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DPLAYER)move_player.c		\
 		$(DPLAYER)rotate_player.c	\
 
-LDFLAGS	=	-lc_graph_prog -lconfig
+LDFLAGS	=	-lc_graph_prog -lconfig -lm
 CFLAGS	+=	-Wall -W -Wextra -I$(INC) -g
 
 OBJ	=	$(SRC:.c=.o)

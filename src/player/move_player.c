@@ -15,7 +15,8 @@ char is_in_map(map_t *map, sfVector2f pos)
 {
 	if (pos.x < 0 || pos.y < 0)
 		return (0);
-	else if (pos.x >= (float)map->size.x || pos.y >= (float)(map->size.y))
+	else if ((unsigned int)pos.x >= map->size.x
+			|| (unsigned int)pos.y >= (map->size.y))
 		return (0);
 	else
 		return (1);
