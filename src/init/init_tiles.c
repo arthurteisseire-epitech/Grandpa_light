@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2017
-** File Name : parse_image.c
+** File Name : init_tiles.c
 ** File description:
 ** by Arthur Teisseire
 */

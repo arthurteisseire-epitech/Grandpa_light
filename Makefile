@@ -19,7 +19,8 @@ DSRC	=	src/
 DINIT	=	$(DSRC)init/
 DESTROY	=	$(DSRC)destroy/
 DMAP	=	$(DSRC)map/
-DMAPACT	=	$(DMAP)action/
+DTILE	=	$(DSRC)tile/
+DTILACT	=	$(DTILE)action/
 DSCENE	=	$(DSRC)scene/
 DBUTTON	=	$(DSRC)button/
 DBUTACT	=	$(DBUTTON)action/
@@ -30,7 +31,6 @@ DTOOLS	=	$(DSRC)tools/
 DEVENT	=	$(DSTATES)event/
 DUPDATE	=	$(DSTATES)update/
 DRAW	=	$(DSTATES)draw/
-DPARSE	=	$(DINIT)parse/
 DTOOLS	=	$(DSRC)tools/
 
 SRC     =	$(DSRC)main.c			\
@@ -56,6 +56,8 @@ SRC     =	$(DSRC)main.c			\
 		$(DINIT)init_shape.c		\
 		$(DINIT)init_laser.c		\
 		$(DINIT)init_anim_tiles.c	\
+		$(DINIT)init_tiles.c		\
+		$(DINIT)tile_list.c		\
 		$(DESTROY)destroy.c		\
 		$(DESTROY)destroy_window.c	\
 		$(DESTROY)destroy_event.c	\
@@ -65,22 +67,19 @@ SRC     =	$(DSRC)main.c			\
 		$(DESTROY)destroy_config.c	\
 		$(DESTROY)destroy_text.c	\
 		$(DESTROY)destroy_musics.c	\
-		$(DPARSE)parse_image.c		\
 		$(DSRC)loop_menu.c 		\
-		$(DPARSE)tile_list.c		\
-		$(DMAP)apply_on_map.c		\
-		$(DMAP)get_tile_pos.c		\
 		$(DMAP)light_shader.c		\
 		$(DMAP)gen_light_shader.c	\
-		$(DMAP)update_anim_tiles.c	\
-		$(DMAPACT)action_lever.c	\
-		$(DMAPACT)action_door.c		\
-		$(DMAPACT)action_laser.c	\
-		$(DMAPACT)action_laser_captor.c	\
-		$(DMAPACT)action_room.c		\
-		$(DMAPACT)action_end.c		\
-		$(DMAPACT)swap_laser.c		\
-		$(DMAPACT)get_tile.c		\
+		$(DMAP)apply_on_map.c		\
+		$(DTILE)get_tile_pos.c		\
+		$(DTILE)update_anim_tiles.c	\
+		$(DTILACT)action_lever.c	\
+		$(DTILACT)action_door.c		\
+		$(DTILACT)action_laser.c	\
+		$(DTILACT)action_laser_captor.c	\
+		$(DTILACT)action_room.c		\
+		$(DTILACT)action_end.c		\
+		$(DTILACT)get_tile.c		\
 		$(DSCENE)change_scene.c		\
 		$(DBUTTON)manage_buttons.c 	\
 		$(DBUTTON)get_func_button.c 	\
