@@ -61,29 +61,27 @@ int action_laser(rpg_t *rpg, tile_t *laser)
 
 int *swap_lasers(rpg_t *rpg)
 {
-	int *active_list = malloc(sizeof(int) * MAX_LASER);
 	int idx = 0;
 
-	if (active_list == NULL)
-		return (NULL);
+	RPG_MAP(rpg)->active_lasers[0] = 0;
 	for (tile_t *act_laser = get_next_tile(rpg, LAS_STR);
 		act_laser != NULL; act_laser = get_next_tile(rpg, LAS_STR)) {
 		if (act_laser->active) {
 			action_laser(rpg, act_laser);
-			active_list[idx++] = 1;
+			RPG_MAP(rpg)->active_lasers[idx++] = 1;
 		} else
-			active_list[idx++] = 0;
+			RPG_MAP(rpg)->active_lasers[idx++] = 0;
 	}
-	return (active_list);
+	return (RPG_MAP(rpg)->active_lasers);
 }
 
-void swap_lasers_back(rpg_t *rpg, const int *active_list)
+void swap_lasers_back(rpg_t *rpg)
 {
 	int idx = 0;
 
 	for (tile_t *act_laser = get_next_tile(rpg, LAS_STR);
 		act_laser != NULL; act_laser = get_next_tile(rpg, LAS_STR)) {
-		if (active_list[idx++] == 1)
+		if (RPG_MAP(rpg)->active_lasers[idx++] == 1)
 			action_laser(rpg, act_laser);
 	}
 }

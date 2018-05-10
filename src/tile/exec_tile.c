@@ -12,14 +12,10 @@
 
 int exec_tile(rpg_t *rpg, tile_t *tile)
 {
-	int *activated;
-
 	if (tile->func != NULL && tile->is_action) {
-		activated = swap_lasers(rpg);
-		CM(activated);
+		swap_lasers(rpg);
 		tile->func(rpg, tile);
-		swap_lasers_back(rpg, activated);
-		free(activated);
+		swap_lasers_back(rpg);
 	}
 	return (SUCCESS);
 }

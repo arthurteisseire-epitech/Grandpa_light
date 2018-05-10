@@ -29,8 +29,6 @@ void my_puterror(char const *str);
 #define MUSIC_NOT_FOUND my_puterror("In .cfg: Music not found\n"), -5
 #define SOUND_NOT_FOUND my_puterror("In .cfg: Sound not found\n"), -5
 
-#define MAX_LASER 200
-
 #define LAS_STR "laser_beam"
 #define CAP_STR "ls_receptor"
 #define ROOM_STR "room"

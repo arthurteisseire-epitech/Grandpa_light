@@ -14,6 +14,8 @@
 #define SCENE_MENU 0
 #define SC_HUB 3
 
+#define MAX_LASER 200
+
 #define FIRST_SCENE SCENE_MENU
 
 #ifndef NB_FT_SCENE
@@ -30,6 +32,7 @@ int loop_menu(rpg_t *rpg);
 
 typedef struct map_s {
 	sfVector2u size;
+	int active_lasers[MAX_LASER];
 	tile_t ***tiles;
 } map_t;
 
