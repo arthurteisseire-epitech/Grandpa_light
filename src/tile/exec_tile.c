@@ -7,15 +7,20 @@
 
 #include <stdlib.h>
 #include "rpg.h"
+#include "scene.h"
 #include "tile.h"
 #include "define.h"
+#include "tool.h"
 
 int exec_tile(rpg_t *rpg, tile_t *tile)
 {
 	if (tile->func != NULL && tile->is_action) {
-		swap_lasers(rpg);
+		if (tile->func != action_end)
+			swap_lasers(rpg);
 		tile->func(rpg, tile);
-		swap_lasers_back(rpg);
+		if (tile->func != action_end)
+			swap_lasers_back(rpg);
+		init_lasers(RPG_MAP(rpg));
 	}
 	return (SUCCESS);
 }

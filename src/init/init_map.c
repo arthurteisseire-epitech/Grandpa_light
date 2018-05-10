@@ -48,7 +48,7 @@ static void open_doors(tile_t ***tiles)
 	}
 }
 
-static void init_lasers(map_t *map)
+void init_lasers(map_t *map)
 {
 	for (unsigned int i = 0; i < MAX_LASER; i++)
 		map->active_lasers[i] = 0;

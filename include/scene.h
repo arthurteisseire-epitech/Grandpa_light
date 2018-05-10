@@ -28,8 +28,6 @@ typedef struct tile_s tile_t;
 typedef struct texture_s texture_t;
 typedef struct button_s button_t;
 
-int loop_menu(rpg_t *rpg);
-
 typedef struct map_s {
 	sfVector2u size;
 	int active_lasers[MAX_LASER];
@@ -52,6 +50,8 @@ typedef struct ft_scene_s
 	scene_func scene_func;
 } ft_scene_t;
 
+int loop_menu(rpg_t *rpg);
+
 static const ft_scene_t ft_scene[] = {
 	{"menu", loop_menu},
 };
@@ -60,5 +60,7 @@ void change_scene(rpg_t *rpg);
 void place_in_spawn(rpg_t *rpg);
 int manage_button(rpg_t *rpg, button_t **button, sfEvent *event);
 int add_anim_tile(tile_t ***tiles, tile_t *tile);
+
+void init_lasers(map_t *map);
 
 #endif
