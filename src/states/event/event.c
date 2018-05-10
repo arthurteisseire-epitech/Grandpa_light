@@ -32,7 +32,8 @@ static int handle_events(rpg_t *rpg)
 		change_scene(rpg);
 	}
 	if (rpg->scenes[rpg->curr_scene]->buttons != NULL)
-		manage_buttons(rpg, rpg->scenes[rpg->curr_scene]->buttons, rpg->event);
+		manage_buttons(rpg, rpg->scenes[rpg->curr_scene]->buttons,
+			rpg->event);
 	return (SUCCESS);
 }
 

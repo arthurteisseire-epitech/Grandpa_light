@@ -12,6 +12,7 @@
 #include "define.h"
 #include "player.h"
 #include "tile.h"
+#include "tool.h"
 
 void player_rotation(rpg_t *rpg)
 {

@@ -94,5 +94,8 @@ int action_laser_captor(rpg_t *rpg, tile_t *tile);
 
 int *swap_lasers(rpg_t *rpg);
 void swap_lasers_back(rpg_t *rpg, const int *active_list);
+void rotate_laser(rpg_t *rpg, tile_t *laser);
+
+void rotate_sprite(tile_t *laser, float angle);
 
 #endif
