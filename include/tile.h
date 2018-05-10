@@ -85,6 +85,7 @@ tile_t *get_tile_by_chanel(rpg_t *rpg, tile_t **tiles, void *data);
 sfVector2f get_pos_tile_by_name(map_t *map, pos_tile_t func, void *name);
 int tile_pos_line(map_t __attribute((unused)) *map, tile_t **tiles, void *name);
 
+int exec_tile(rpg_t *rpg, tile_t *tile);
 int action_door(rpg_t __attribute((unused)) *rpg, tile_t *tile);
 int action_lever(rpg_t *rpg, tile_t *tile);
 int action_end(rpg_t *rpg, tile_t *tile);
