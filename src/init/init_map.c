@@ -48,6 +48,12 @@ static void open_doors(tile_t ***tiles)
 	}
 }
 
+void init_lasers(map_t *map)
+{
+	for (unsigned int i = 0; i < MAX_LASER; i++)
+		map->active_lasers[i] = 0;
+}
+
 int init_map(rpg_t *rpg, map_t **map, const char *path)
 {
 	sfImage *image = sfImage_createFromFile(path);
@@ -65,5 +71,6 @@ int init_map(rpg_t *rpg, map_t **map, const char *path)
 	(*map)->tiles[(*map)->size.y] = NULL;
 	inverse(&(*map)->size.x, &(*map)->size.y);
 	open_doors((*map)->tiles);
+	init_lasers((*map));
 	return (SUCCESS);
 }

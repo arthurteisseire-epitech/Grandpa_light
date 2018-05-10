@@ -38,8 +38,7 @@ int init_scenes(rpg_t *rpg)
 		return (WRONG_CONFIG_PATH);
 	rpg->nb_scenes = config_setting_length(setting);
 	rpg->scenes = malloc(sizeof(scene_t *) * (rpg->nb_scenes + 1));
-	if (rpg->scenes == NULL)
-		return (MALLOC_FAILED);
+	CM(rpg->scenes);
 	for (int i = 0; i < rpg->nb_scenes; i++) {
 		rpg->scenes[i] = malloc(sizeof(scene_t));
 		CM(rpg->scenes[i]);
