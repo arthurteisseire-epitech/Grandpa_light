@@ -10,12 +10,19 @@
 
 #include <SFML/Graphics.h>
 
+#define HEXA_COLOR(color_nb) ((sfColor) {				\
+				(char)((color_nb >> 16) & 0xff),	\
+				(char)((color_nb >> 8) & 0xff),		\
+				(char)((color_nb) & 0xff),		\
+				255})
+
 typedef struct achievement_s {
 	sfRectangleShape *rect;
 	sfRectangleShape *icon;
 	sfText *title;
 	sfText *desc;
-	sfText *xp;
+	sfText *xp_text;
+	int xp;
 } achievement_t;
 
 #endif

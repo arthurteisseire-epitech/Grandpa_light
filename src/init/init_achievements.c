@@ -13,6 +13,19 @@
 #include "init.h"
 #include "define.h"
 
+static void set_achievement_color(achievement_t *achievement
+, config_setting_t *parent)
+{
+	int color_nb = 0xffffff;
+
+	config_setting_lookup_int(parent, "xp_color", &color_nb);
+	sfText_setColor(achievement->xp_text, HEXA_COLOR(color_nb));
+	config_setting_lookup_int(parent, "title_color", &color_nb);
+	sfText_setColor(achievement->title, HEXA_COLOR(color_nb));
+	config_setting_lookup_int(parent, "dest_color", &color_nb);
+	sfText_setColor(achievement->desc, HEXA_COLOR(color_nb));
+}
+
 static void set_achievement_pos(achievement_t *achieve
 , config_setting_t *parent)
 {
@@ -22,7 +35,7 @@ static void set_achievement_pos(achievement_t *achieve
 	sfRectangleShape_setPosition(achieve->rect, pos);
 	sfRectangleShape_setPosition(achieve->icon, (sfVector2f){pos.x + off.x, pos.y + off.y});
 	off = get_cfg_vec(parent, "xp_offset");
-	sfText_setPosition(achieve->xp, (sfVector2f){pos.x + off.x, pos.y + off.y});
+	sfText_setPosition(achieve->xp_text, (sfVector2f){pos.x + off.x, pos.y + off.y});
 	off = get_cfg_vec(parent, "title_offset");
 	sfText_setPosition(achieve->title, (sfVector2f){pos.x + off.x, pos.y + off.y});
 	off = get_cfg_vec(parent, "desc_offset");
@@ -39,7 +52,7 @@ static void set_achievement_size(achievement_t *achieve
 	size = get_cfg_vec(parent, "icon_size");
 	sfRectangleShape_setSize(achieve->icon, size);
 	config_setting_lookup_int(parent, "xp_size", &font_size);
-	sfText_setCharacterSize(achieve->xp, font_size);
+	sfText_setCharacterSize(achieve->xp_text, font_size);
 	config_setting_lookup_int(parent, "title_size", &font_size);
 	sfText_setCharacterSize(achieve->title, font_size);
 	config_setting_lookup_int(parent, "desc_size", &font_size);
@@ -57,7 +70,7 @@ static int set_achievement_font(achievement_t *achieve
 		return (FONT_NOT_FOUND);
 	font = sfFont_createFromFile(str);
 	CM(font);
-	sfText_setFont(achieve->xp, font);
+	sfText_setFont(achieve->xp_text, font);
 	config_setting_lookup_string(parent, "title_font", &str);
 	if (str == NULL)
 		return (FONT_NOT_FOUND);
@@ -90,11 +103,12 @@ int init_achievement(rpg_t *rpg)
 	CM(rpg->achievement->title);
 	rpg->achievement->desc = sfText_create();
 	CM(rpg->achievement->desc);
-	rpg->achievement->xp = sfText_create();
-	CM(rpg->achievement->xp);
+	rpg->achievement->xp_text = sfText_create();
+	CM(rpg->achievement->xp_text);
 	DR(set_texture_by_setting(rpg->tx_game, rpg->achievement->rect, achieves_set));
 	DR(set_achievement_font(rpg->achievement, achieves_set));
 	set_achievement_pos(rpg->achievement, achieves_set);
 	set_achievement_size(rpg->achievement, achieves_set);
+	set_achievement_color(rpg->achievement, achieves_set);
 	return (SUCCESS);
 }
