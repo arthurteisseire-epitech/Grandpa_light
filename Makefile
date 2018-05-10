@@ -70,6 +70,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DESTROY)destroy_text.c	\
 		$(DESTROY)destroy_musics.c	\
 		$(DACHIVE)achievement.c		\
+		$(DACHIVE)set_achievement.c	\
 		$(DSRC)loop_menu.c 		\
 		$(DMAP)light_shader.c		\
 		$(DMAP)gen_light_shader.c	\

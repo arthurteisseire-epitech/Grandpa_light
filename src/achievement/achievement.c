@@ -30,13 +30,33 @@ config_setting_t *find_setting_by_name(config_setting_t *array_set
 	return (elem);
 }
 
+static char const *get_xp_text(rpg_t *rpg, config_setting_t *parent)
+{
+	char *tmp;
+	int xp = 0;
+	char *xp_text = "XP: ";
+
+	config_setting_lookup_int(parent, "xp", &xp);
+	tmp = my_itoa(xp);
+	if (xp > 0) {
+		xp_text = concat(my_strdup(xp_text), "+", 1);
+		xp_text = concat(xp_text, tmp, my_strlen(tmp));
+	} else {
+		xp_text = concat(my_strdup(xp_text), tmp, my_strlen(tmp));
+	}
+	if (xp_text == NULL)
+		return (NULL);
+	rpg->achievement->xp = xp;
+	free(tmp);
+	return (xp_text);
+}
+
 static int set_strings(rpg_t *rpg, config_setting_t *parent, char const *name)
 {
 	char const *title = "This, is a great achievement\n";
-	char const *desc = "Must: +1";
-	char const *xp_text = "XP: ";
-	char *tmp;
-	int xp = 0;
+	char const *desc = "Note: +1";
+	char const *head = "New Achievement";
+	char const *xp_text;
 	config_setting_t *array_set;
 	config_setting_t *elem_set;
 
@@ -45,21 +65,15 @@ static int set_strings(rpg_t *rpg, config_setting_t *parent, char const *name)
 	config_setting_lookup_string(parent, "xp_text", &xp_text);
 	config_setting_lookup_string(elem_set, "title", &title);
 	config_setting_lookup_string(elem_set, "desc", &desc);
-	config_setting_lookup_int(elem_set, "xp", &xp);
-	tmp = my_itoa(xp);
-	if (xp > 0) {
-		xp_text = concat(my_strdup(xp_text), "+", 1);
-		xp_text = concat((char *)xp_text, tmp, my_strlen(tmp));
-	} else {
-		xp_text = concat(my_strdup(xp_text), tmp, my_strlen(tmp));
-	}
-	free(tmp);
+	config_setting_lookup_string(elem_set, "head", &head);
+	xp_text = get_xp_text(rpg, elem_set);
+	CM(xp_text);
 	sfText_setString(rpg->achievement->title, title);
 	sfText_setString(rpg->achievement->desc, desc);
 	sfText_setString(rpg->achievement->xp_text, xp_text);
+	sfText_setString(rpg->achievement->head, head);
 	DR(set_texture_by_setting(rpg->tx_game, rpg->achievement->icon, elem_set));
-	free((void *)xp_text);
-	return (SUCCESS);
+	return (free((void *)xp_text), SUCCESS);
 }
 
 int fill_achievement(rpg_t *rpg, char const *name)
@@ -87,4 +101,5 @@ void draw_achievement(rpg_t *rpg)
 	sfRenderWindow_drawText(rpg->window, rpg->achievement->title, NULL);
 	sfRenderWindow_drawText(rpg->window, rpg->achievement->desc, NULL);
 	sfRenderWindow_drawText(rpg->window, rpg->achievement->xp_text, NULL);
+	sfRenderWindow_drawText(rpg->window, rpg->achievement->head, NULL);
 }
