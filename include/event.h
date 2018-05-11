@@ -14,9 +14,10 @@ typedef int (*scene_func)(rpg_t *);
 int event_menu(rpg_t *rpg);
 void handle_exit_key(rpg_t *rpg);
 int handle_events(rpg_t *rpg);
+int event_pause(rpg_t *rpg);
 
 #ifndef NB_FT_SCENE
-	#define NB_FT_SCENE 2
+	#define NB_FT_SCENE 3
 #endif
 
 typedef struct ft_scene_s
@@ -28,6 +29,7 @@ typedef struct ft_scene_s
 static const ft_scene_t ft_scene[] = {
 	{"default", handle_events},
 	{"menu", event_menu},
+	{"pause", event_pause},
 };
 
 

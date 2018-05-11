@@ -17,18 +17,27 @@
 
 void handle_exit_key(rpg_t *rpg)
 {
-	if (sfKeyboard_isKeyPressed(sfKeyEscape))
+	if (sfKeyboard_isKeyPressed(sfKeyEscape)) {
 		sfRenderWindow_close(rpg->window);
+	}
+}
+
+void handle_pause_key(rpg_t *rpg)
+{
+	if (sfKeyboard_isKeyPressed(sfKeyEscape)) {
+		rpg->scene_paused = rpg->curr_scene;
+		rpg->curr_scene = SC_PAUSE;
+	}
 }
 
 int handle_events(rpg_t *rpg)
 {
-	handle_exit_key(rpg); //deviendra handle pause
 	if (rpg->event->type == sfEvtKeyPressed) {
 		if (rpg->scenes[rpg->curr_scene]->map != NULL)
 			player_event(rpg);
 		change_scene(rpg);
 	}
+	handle_pause_key(rpg);
 	return (SUCCESS);
 }
 

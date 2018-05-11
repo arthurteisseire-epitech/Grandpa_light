@@ -91,6 +91,8 @@ SRC     =	$(DSRC)main.c			\
 		$(DBUTACT)button_play.c		\
 		$(DBUTACT)button_setting.c	\
 		$(DBUTACT)button_exit.c	\
+		$(DBUTACT)button_return.c	\
+		$(DBUTACT)button_pause.c		\
 		$(DTOOLS)vec.c			\
 		$(DTOOLS)get_rect.c		\
 		$(DTOOLS)is_pos_in_rect.c	\
@@ -103,7 +105,9 @@ SRC     =	$(DSRC)main.c			\
 		$(DPLAYER)player_event.c	\
 		$(DPLAYER)move_player.c		\
 		$(DPLAYER)rotate_player.c 	\
-		$(DEVENT)event_menu.c
+		$(DEVENT)event_menu.c 		\
+		$(DEVENT)event_pause.c 		\
+
 
 LDFLAGS	=	-lc_graph_prog -lconfig
 CFLAGS	+=	-Wall -W -Wextra -I$(INC) -g
