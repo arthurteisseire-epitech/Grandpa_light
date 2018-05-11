@@ -29,6 +29,8 @@ typedef struct map_s {
 	sfVector2u size;
 	int active_lasers[MAX_LASER];
 	tile_t ***tiles;
+	char **light_map;
+	sfRectangleShape **raycast_circle;
 } map_t;
 
 typedef struct scene_s {

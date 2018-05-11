@@ -16,5 +16,6 @@ sfVector2f scale_vec(sfVector2f vec1, int factor);
 sfVector2f add_vec(sfVector2f vec1, sfVector2f vec2);
 sfVector2f sub_vec(sfVector2f vec1, sfVector2f vec2);
 sfVector2f get_cfg_vec(config_setting_t *parent, char const *name);
+sfVector2f inv_scale_vec(sfVector2f vec1, int factor);
 
 #endif

@@ -85,6 +85,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DTILACT)action_end.c		\
 		$(DTILACT)get_tile.c		\
 		$(DTILACT)rotate_laser.c	\
+		$(DMAP)player_light.c		\
 		$(DSCENE)change_scene.c		\
 		$(DBUTTON)manage_buttons.c 	\
 		$(DBUTTON)get_func_button.c 	\
@@ -105,7 +106,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DPLAYER)rotate_player.c 	\
 		$(DEVENT)event_menu.c
 
-LDFLAGS	=	-lc_graph_prog -lconfig
+LDFLAGS	=	-lc_graph_prog -lconfig -lm
 CFLAGS	+=	-Wall -W -Wextra -I$(INC) -g
 
 OBJ	=	$(SRC:.c=.o)

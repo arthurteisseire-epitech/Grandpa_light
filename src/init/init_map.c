@@ -69,6 +69,7 @@ int init_map(rpg_t *rpg, map_t **map, const char *path)
 	(*map) = malloc(sizeof(map_t));
 	CM(*map);
 	(*map)->size = sfImage_getSize(image);
+	(*map)->raycast_circle = NULL;
 	inverse(&(*map)->size.x, &(*map)->size.y);
 	(*map)->tiles = malloc(sizeof(tile_t **) * ((*map)->size.y + 1));
 	CM((*map)->tiles);
