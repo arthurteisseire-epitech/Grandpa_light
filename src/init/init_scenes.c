@@ -23,7 +23,7 @@
 scene_func get_func_scene(char const *ft)
 {
 	if (ft == NULL)
-		return (NULL);
+		return (ft_scene[0].scene_func);
 	for (int i = 0; i != NB_FT_SCENE; i++)
 		if (my_strcmp(ft, ft_scene[i].name) == 0)
 			return (ft_scene[i].scene_func);

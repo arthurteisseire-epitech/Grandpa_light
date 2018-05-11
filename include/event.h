@@ -26,8 +26,8 @@ typedef struct ft_scene_s
 } ft_scene_t;
 
 static const ft_scene_t ft_scene[] = {
+	{"default", handle_events},
 	{"menu", event_menu},
-	{"game", handle_events},
 };
 
 
