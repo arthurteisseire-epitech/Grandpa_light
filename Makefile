@@ -97,9 +97,9 @@ SRC     =	$(DSRC)main.c			\
 		$(DTOOLS)animate.c		\
 		$(DTOOLS)inverse.c		\
 		$(DTOOLS)open_first_room.c	\
+		$(DTOOLS)wait_delta_frame.c	\
 		$(DTX)get_texture.c		\
 		$(DTX)shift_texture_rect.c	\
-		$(DTX)wait_delta_frame.c	\
 		$(DPLAYER)player_event.c	\
 		$(DPLAYER)move_player.c		\
 		$(DPLAYER)rotate_player.c

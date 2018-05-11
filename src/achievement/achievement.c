@@ -12,6 +12,7 @@
 #include "achievement.h"
 #include "texture.h"
 #include "define.h"
+#include "tool.h"
 
 config_setting_t *find_setting_by_name(config_setting_t *array_set
 	, const char *name)
@@ -91,15 +92,19 @@ int fill_achievement(rpg_t *rpg, char const *name)
 
 void draw_achievement(rpg_t *rpg)
 {
+	static float delta_time = 0.0f;
+
 	if (rpg->achievement == NULL)
 		return;
-	fill_achievement(rpg, "first_achievement");
-	sfRenderWindow_drawRectangleShape(rpg->window
-		, rpg->achievement->rect, NULL);
-	sfRenderWindow_drawRectangleShape(rpg->window
-		, rpg->achievement->icon, NULL);
-	sfRenderWindow_drawText(rpg->window, rpg->achievement->title, NULL);
-	sfRenderWindow_drawText(rpg->window, rpg->achievement->desc, NULL);
-	sfRenderWindow_drawText(rpg->window, rpg->achievement->xp_text, NULL);
-	sfRenderWindow_drawText(rpg->window, rpg->achievement->head, NULL);
+	if (delta_time + DELTA_ACHIEVE >= sfTime_asSeconds(sfClock_getElapsedTime(rpg->clock))) {
+		sfRenderWindow_drawRectangleShape(rpg->window
+			, rpg->achievement->rect, NULL);
+		sfRenderWindow_drawRectangleShape(rpg->window
+			, rpg->achievement->icon, NULL);
+		sfRenderWindow_drawText(rpg->window, rpg->achievement->title, NULL);
+		sfRenderWindow_drawText(rpg->window, rpg->achievement->desc, NULL);
+		sfRenderWindow_drawText(rpg->window, rpg->achievement->xp_text, NULL);
+		sfRenderWindow_drawText(rpg->window, rpg->achievement->head, NULL);
+	} else
+		delta_time = sfTime_asSeconds(sfClock_getElapsedTime(rpg->clock));
 }

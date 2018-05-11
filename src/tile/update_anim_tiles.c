@@ -10,6 +10,7 @@
 #include "texture.h"
 #include "tile.h"
 #include "define.h"
+#include "tool.h"
 
 void update_anim_tiles(rpg_t *rpg, sfClock *clock)
 {
@@ -17,7 +18,7 @@ void update_anim_tiles(rpg_t *rpg, sfClock *clock)
 	tile_t **tiles;
 	static float delta_time = 0.0f;
 
-	if (wait_delta_frame(clock, &delta_time) == FALSE)
+	if (wait_delta_frame(clock, &delta_time, DELTA_FRAME) == FALSE)
 		return;
 	tiles = rpg->scenes[rpg->curr_scene]->anim_tiles;
 	if (tiles == NULL)
