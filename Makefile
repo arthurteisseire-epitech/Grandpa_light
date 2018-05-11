@@ -81,6 +81,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DTILACT)action_room.c		\
 		$(DTILACT)action_end.c		\
 		$(DTILACT)get_tile.c		\
+		$(DTILACT)rotate_laser.c	\
 		$(DSCENE)change_scene.c		\
 		$(DBUTTON)manage_buttons.c 	\
 		$(DBUTTON)get_func_button.c 	\

@@ -21,8 +21,10 @@ static sfVector2f get_direction(char dir)
 {
 	if (dir == LEFT)
 		return ((sfVector2f){-1, 0});
-	if (dir == RIGHT)
+	if (dir == RIGHT) {
+		printf("RIGHTTTTTTTTTTTTTTTTTTTTTTTTTTT\n");
 		return ((sfVector2f){1, 0});
+	}
 	if (dir == UP)
 		return ((sfVector2f){0, -1});
 	if (dir == DOWN)
@@ -50,11 +52,15 @@ int action_laser(rpg_t *rpg, tile_t *laser)
 		MAP_TILE(map, pos)->laser->vertical =
 			laser->active && ver_laser;
 		pos = add_vec(pos, direction);
+		printf("dir laser : (%f, %f) ; dir receptor : %i=>(%f, %f), tile == receptor : %i\n",
+			direction.x, direction.y, MAP_TILE(map, pos)->direction,
+			get_direction(MAP_TILE(map, pos)->direction).x,
+			get_direction(MAP_TILE(map, pos)->direction).y, MAP_TILE(map, pos)->func == action_laser_captor);
 		if (IN_MAP && check_receptor_dir(
 			get_direction(MAP_TILE(map, pos)->direction),
-				direction) && MAP_TILE(map, pos)->func ==
-				action_laser_captor)MAP_TILE(map, pos)->func(
-			rpg, MAP_TILE(map, pos));
+			direction) &&
+			MAP_TILE(map, pos)->func == action_laser_captor)
+			MAP_TILE(map, pos)->func(rpg, MAP_TILE(map, pos));
 	}
 	return (SUCCESS);
 }
