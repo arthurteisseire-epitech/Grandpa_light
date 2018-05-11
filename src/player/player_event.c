@@ -16,6 +16,8 @@
 
 void player_rotation(rpg_t *rpg)
 {
+	if (!my_strcmp(RPG_TILE(rpg, rpg->player->pos)->name, LAS_STR))
+		rotate_laser(rpg, RPG_TILE(rpg, rpg->player->pos));
 	if (rpg->event->key.code == sfKeyUp)
 		rotate_player(rpg, DIR_UP, MOVE_UP);
 	if (rpg->event->key.code == sfKeyLeft)

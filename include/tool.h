@@ -20,9 +20,10 @@ void open_first_room(rpg_t *rpg);
 int wait_delta_frame(sfClock *clock, float *delta_time, float delta_frame);
 
 #define RPG_MAP(rpg) ((rpg)->scenes[(rpg)->curr_scene]->map)
-#define MAP_TILE(map, pos) (map->tiles[(int)(pos.x)][(int)(pos.y)])
+#define MAP_TILE(map, pos) ((map)->tiles[(int)((pos).x)][(int)((pos).y)])
 #define RPG_TILES(rpg) ((rpg)->scenes[(rpg)->curr_scene]->map->tiles)
-#define RPG_TILE(rpg, pos) (MAP_TILE(RPG_MAP((rpg), pos)))
+#define RPG_TILE(rpg, pos) ((rpg)->scenes[(rpg)->curr_scene]->map->tiles[(int)((pos).x)]\
+[(int)((pos).y)])
 #define RPG_SCENE(rpg) ((rpg)->scenes[(rpg)->curr_scene])
 #define IN_MAP (pos.x < map->size.x && pos.y < map->size.y && pos.x > 0 &&\
 pos.y > 0)

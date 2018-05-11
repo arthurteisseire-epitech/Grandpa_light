@@ -24,7 +24,8 @@ void update_anim_tiles(rpg_t *rpg, sfClock *clock)
 	if (tiles == NULL)
 		return;
 	while (tiles[i] != NULL) {
-		shift_texture_rect(tiles[i]->rect, tiles[i]->tx, &tiles[i]->curr_frame);
+		shift_texture_rect(tiles[i]->rect, tiles[i]->tx,
+			&tiles[i]->curr_frame);
 		i++;
 	}
 }

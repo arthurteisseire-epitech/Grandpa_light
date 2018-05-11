@@ -14,14 +14,26 @@ void rotate_sprite(tile_t *laser, float angle)
 	sfRectangleShape_setRotation(laser->rect, angle);
 }
 
+void rotate(rpg_t *rpg, tile_t *laser, float angle, char dir)
+{
+	char was_active = laser->active;
+
+	if (was_active)
+		action_laser(rpg, laser);
+	rotate_sprite(laser, angle);
+	laser->direction = dir;
+	if (was_active)
+		action_laser(rpg, laser);
+}
+
 void rotate_laser(rpg_t *rpg, tile_t *laser)
 {
 	if (rpg->event->key.code == sfKeyUp)
-		rotate_sprite(laser, DIR_UP);
+		rotate(rpg, laser, DIR_UP, UP);
 	if (rpg->event->key.code == sfKeyLeft)
-		rotate_sprite(laser, DIR_LEFT);
+		rotate(rpg, laser, DIR_LEFT, LEFT);
 	if (rpg->event->key.code == sfKeyDown)
-		rotate_sprite(laser, DIR_DOWN);
+		rotate(rpg, laser, DIR_DOWN, DOWN);
 	if (rpg->event->key.code == sfKeyRight)
-		rotate_sprite(laser, DIR_RIGHT);
+		rotate(rpg, laser, DIR_RIGHT, RIGHT);
 }
