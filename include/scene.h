@@ -17,7 +17,7 @@
 #define MAX_LASER 200
 
 #define FIRST_SCENE SCENE_MENU
-#define SC_PAUSE 3
+#define SC_PAUSE 4
 
 typedef struct rpg_s rpg_t;
 typedef struct sprite_s sprite_t;
