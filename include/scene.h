@@ -41,7 +41,7 @@ typedef struct scene_s {
 	tile_t **anim_tiles;
 	button_t **buttons;
 	sfText **text;
-	scene_func scene_loop;
+	scene_func scene_event;
 } scene_t;
 
 typedef struct ft_scene_s
@@ -53,7 +53,7 @@ typedef struct ft_scene_s
 int loop_menu(rpg_t *rpg);
 
 static const ft_scene_t ft_scene[] = {
-	{"menu", loop_menu},
+	{"menu", event_menu},
 };
 
 void change_scene(rpg_t *rpg);
