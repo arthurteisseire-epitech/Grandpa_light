@@ -70,6 +70,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DESTROY)destroy_text.c	\
 		$(DESTROY)destroy_musics.c	\
 		$(DACHIVE)achievement.c		\
+		$(DACHIVE)set_achievement.c	\
 		$(DSRC)loop_menu.c 		\
 		$(DMAP)light_shader.c		\
 		$(DMAP)gen_light_shader.c	\
@@ -96,9 +97,9 @@ SRC     =	$(DSRC)main.c			\
 		$(DTOOLS)animate.c		\
 		$(DTOOLS)inverse.c		\
 		$(DTOOLS)open_first_room.c	\
+		$(DTOOLS)wait_delta_frame.c	\
 		$(DTX)get_texture.c		\
 		$(DTX)shift_texture_rect.c	\
-		$(DTX)wait_delta_frame.c	\
 		$(DPLAYER)player_event.c	\
 		$(DPLAYER)move_player.c		\
 		$(DPLAYER)rotate_player.c

@@ -12,9 +12,12 @@
 			return (status)
 #define CHECK_MALLOC(ptr) if ((ptr) == NULL) \
 			return (MALLOC_FAILED)
+#define CHECK_FONT(ptr) if ((ptr) == NULL) \
+			return (FONT_NOT_FOUND)
 
 #define DR DOMINO_RETURN
 #define CM CHECK_MALLOC
+#define CF CHECK_FONT
 
 #define TRUE 1
 #define FALSE 0

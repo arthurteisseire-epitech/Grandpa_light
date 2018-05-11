@@ -9,12 +9,13 @@
 #include "player.h"
 #include "texture.h"
 #include "define.h"
+#include "tool.h"
 
 void animate_sprite(player_t *player, sfClock *clock)
 {
 	static float delta_time = 0.0f;
 
-	if (wait_delta_frame(clock, &delta_time) == FALSE)
+	if (wait_delta_frame(clock, &delta_time, DELTA_FRAME) == FALSE)
 		return;
 	shift_texture_rect(player->rect, player->anim[player->id_anim]
 	, &player->curr_frame);
