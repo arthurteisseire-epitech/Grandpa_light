@@ -70,7 +70,6 @@ SRC     =	$(DSRC)main.c			\
 		$(DESTROY)destroy_text.c	\
 		$(DESTROY)destroy_musics.c	\
 		$(DACHIVE)achievement.c		\
-		$(DSRC)loop_menu.c 		\
 		$(DMAP)light_shader.c		\
 		$(DMAP)gen_light_shader.c	\
 		$(DMAP)apply_on_map.c		\
@@ -101,7 +100,8 @@ SRC     =	$(DSRC)main.c			\
 		$(DTX)wait_delta_frame.c	\
 		$(DPLAYER)player_event.c	\
 		$(DPLAYER)move_player.c		\
-		$(DPLAYER)rotate_player.c
+		$(DPLAYER)rotate_player.c 	\
+		$(DEVENT)event_menu.c
 
 LDFLAGS	=	-lc_graph_prog -lconfig
 CFLAGS	+=	-Wall -W -Wextra -I$(INC) -g
