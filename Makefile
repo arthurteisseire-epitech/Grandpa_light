@@ -89,7 +89,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DBUTTON)get_func_button.c 	\
 		$(DBUTACT)button_play.c		\
 		$(DBUTACT)button_setting.c	\
-		$(DBUTACT)button_credit.c	\
+		$(DBUTACT)button_exit.c	\
 		$(DTOOLS)vec.c			\
 		$(DTOOLS)get_rect.c		\
 		$(DTOOLS)is_pos_in_rect.c	\

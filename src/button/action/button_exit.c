@@ -9,10 +9,8 @@
 #include "scene.h"
 #include "define.h"
 
-int button_credit(rpg_t *rpg)
+int button_exit(rpg_t *rpg)
 {
-	rpg->curr_scene = SC_HUB;
-	if (rpg->scenes[rpg->curr_scene]->map != NULL)
-		place_in_spawn(rpg);
+	sfRenderWindow_close(rpg->window);
 	return (SUCCESS);
 }

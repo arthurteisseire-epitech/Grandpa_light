@@ -29,8 +29,9 @@ int check_click(rpg_t *rpg, button_t *button, sfVector2i pos)
 
 	if (is_pos_in_rect(pos, rect)) {
 		sfRectangleShape_setOutlineThickness(button->rect, 4.0);
-		if (button->button_func != NULL)
+		if (button->button_func != NULL) {
 			button->button_func(rpg);
+		}
 	} else
 		sfRectangleShape_setOutlineThickness(button->rect, 0.0);
 	return (SUCCESS);
