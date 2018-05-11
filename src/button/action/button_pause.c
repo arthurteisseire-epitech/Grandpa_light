@@ -9,7 +9,7 @@
 #include "scene.h"
 #include "define.h"
 
-int button_return(rpg_t *rpg)
+int button_pase(rpg_t *rpg)
 {
 	rpg->curr_scene = rpg->scene_paused;
 	return (SUCCESS);

@@ -27,8 +27,6 @@ int handle_pause_key(rpg_t *rpg)
 	if (sfKeyboard_isKeyPressed(sfKeyEscape)) {
 		rpg->scene_paused = rpg->curr_scene;
 		rpg->curr_scene = SC_PAUSE;
-			printf("rpg (%p) in event = %d\n", rpg, rpg->curr_scene);
-
 		return (1);
 	}
 	return (0);
@@ -62,6 +60,8 @@ int event(rpg_t *rpg)
 		handle_general_event(rpg);
 		if (rpg->scenes[rpg->curr_scene]->scene_event != NULL)
 			DR(rpg->scenes[rpg->curr_scene]->scene_event(rpg));
+		if (rpg->curr_scene == SC_PAUSE)
+			break;
 	}
 	return (SUCCESS);
 }
