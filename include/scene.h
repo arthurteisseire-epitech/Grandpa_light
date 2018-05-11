@@ -44,6 +44,6 @@ void place_in_spawn(rpg_t *rpg);
 int manage_button(rpg_t *rpg, button_t **button, sfEvent *event);
 int add_anim_tile(tile_t ***tiles, tile_t *tile);
 
-void init_lasers(map_t *map);
+void init_lasers(rpg_t *rpg);
 
 #endif

@@ -40,6 +40,5 @@ int set_texture_by_setting(texture_t **textures, sfRectangleShape *rect,
 	config_setting_t *parent);
 rectangle_t *get_rect(texture_t *texture, char *name);
 void shift_texture_rect(sfRectangleShape *rect, texture_t *tx, int *curr_frame);
-int wait_delta_frame(sfClock *clock, float *delta_time);
 
 #endif

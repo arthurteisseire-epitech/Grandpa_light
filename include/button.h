@@ -11,7 +11,7 @@
 #include <SFML/Graphics.h>
 
 #ifndef NB_FT_BUTTON
-#define NB_FT_BUTTON 3
+	#define NB_FT_BUTTON 3
 #endif
 
 typedef struct rpg_s rpg_t;
