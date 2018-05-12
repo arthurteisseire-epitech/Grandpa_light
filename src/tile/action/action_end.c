@@ -16,6 +16,7 @@ int action_end(rpg_t *rpg, tile_t *tile)
 	tile_t *room;
 
 	rpg->curr_scene = SC_HUB;
+	rpg->prev_scene = rpg->curr_scene;
 	if (rpg->scenes[rpg->curr_scene]->map == NULL)
 		return (SUCCESS);
 	place_in_spawn(rpg);

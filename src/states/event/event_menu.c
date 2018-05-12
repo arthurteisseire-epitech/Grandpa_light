@@ -8,9 +8,10 @@
 #include <stdio.h>
 #include "rpg.h"
 #include "define.h"
+#include "event.h"
 
-int loop_menu(rpg_t __attribute((unused))*rpg)
+int event_menu(rpg_t *rpg)
 {
-//	printf("cette boucle de printf est indépendante des autres scenes, nous somme dans menu\n");
+	handle_exit_key(rpg);
 	return (SUCCESS);
 }

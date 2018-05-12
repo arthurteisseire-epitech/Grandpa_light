@@ -12,9 +12,12 @@
 			return (status)
 #define CHECK_MALLOC(ptr) if ((ptr) == NULL) \
 			return (MALLOC_FAILED)
+#define CHECK_FONT(ptr) if ((ptr) == NULL) \
+			return (FONT_NOT_FOUND)
 
 #define DR DOMINO_RETURN
 #define CM CHECK_MALLOC
+#define CF CHECK_FONT
 
 #define TRUE 1
 #define FALSE 0
@@ -28,6 +31,7 @@ void my_puterror(char const *str);
 #define TEXTURE_NOT_FOUND my_puterror("In .cfg: Texture not found\n"), -5
 #define MUSIC_NOT_FOUND my_puterror("In .cfg: Music not found\n"), -5
 #define SOUND_NOT_FOUND my_puterror("In .cfg: Sound not found\n"), -5
+#define FONT_NOT_FOUND my_puterror("In .cfg: Font not found\n"), -5
 
 #define LAS_STR "laser_beam"
 #define CAP_STR "ls_receptor"

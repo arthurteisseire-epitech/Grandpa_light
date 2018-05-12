@@ -14,8 +14,6 @@ int states(rpg_t *rpg)
 {
 	DR(event(rpg));
 	DR(update(rpg));
-	if (rpg->scenes[rpg->curr_scene]->scene_loop != NULL)
-		DR(rpg->scenes[rpg->curr_scene]->scene_loop(rpg));
 	DR(draw(rpg));
 	return (SUCCESS);
 }

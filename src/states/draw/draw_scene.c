@@ -41,8 +41,9 @@ void draw_buttons(rpg_t *rpg, button_t **buttons)
 	int i = 0;
 
 	while (buttons[i]) {
-		sfRenderWindow_drawRectangleShape(rpg->window, buttons[i]->rect,
-			NULL);
+		if (buttons[i]->rect)
+			sfRenderWindow_drawRectangleShape(rpg->window
+			, buttons[i]->rect, NULL);
 		if (buttons[i]->text != NULL)
 			sfRenderWindow_drawText(rpg->window, buttons[i]->text,
 				NULL);

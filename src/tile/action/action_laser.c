@@ -50,11 +50,17 @@ int action_laser(rpg_t *rpg, tile_t *laser)
 		MAP_TILE(map, pos)->laser->vertical =
 			laser->active && ver_laser;
 		pos = add_vec(pos, direction);
+		/*
+		 *printf("dir laser : (%f, %f) ; dir receptor : %i=>(%f, %f), tile == receptor : %i\n",
+		 *        direction.x, direction.y, MAP_TILE(map, pos)->direction,
+		 *        get_direction(MAP_TILE(map, pos)->direction).x,
+		 *        get_direction(MAP_TILE(map, pos)->direction).y, MAP_TILE(map, pos)->func == action_laser_captor);
+		 */
 		if (IN_MAP && check_receptor_dir(
 			get_direction(MAP_TILE(map, pos)->direction),
-				direction) && MAP_TILE(map, pos)->func ==
-				action_laser_captor)MAP_TILE(map, pos)->func(
-			rpg, MAP_TILE(map, pos));
+			direction) &&
+			MAP_TILE(map, pos)->func == action_laser_captor)
+			MAP_TILE(map, pos)->func(rpg, MAP_TILE(map, pos));
 	}
 	return (SUCCESS);
 }

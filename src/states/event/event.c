@@ -15,22 +15,16 @@
 #include "tile.h"
 #include "tool.h"
 
-static void handle_exit(rpg_t *rpg)
+void handle_exit_key(rpg_t *rpg)
 {
-	if (rpg->event->type == sfEvtClosed)
-		sfRenderWindow_close(rpg->window);
 	if (sfKeyboard_isKeyPressed(sfKeyEscape))
 		sfRenderWindow_close(rpg->window);
 }
 
-static int handle_events(rpg_t *rpg)
+static int handle_general_event(rpg_t *rpg)
 {
-	handle_exit(rpg);
-	if (rpg->event->type == sfEvtKeyPressed) {
-		if (rpg->scenes[rpg->curr_scene]->map != NULL)
-			player_event(rpg);
-		change_scene(rpg);
-	}
+	if (rpg->event->type == sfEvtClosed)
+		sfRenderWindow_close(rpg->window);
 	if (rpg->scenes[rpg->curr_scene]->buttons != NULL)
 		manage_buttons(rpg, rpg->scenes[rpg->curr_scene]->buttons,
 			rpg->event);
@@ -39,7 +33,10 @@ static int handle_events(rpg_t *rpg)
 
 int event(rpg_t *rpg)
 {
-	while (sfRenderWindow_pollEvent(rpg->window, rpg->event))
-		handle_events(rpg);
+	while (sfRenderWindow_pollEvent(rpg->window, rpg->event)) {
+		handle_general_event(rpg);
+		if (rpg->scenes[rpg->curr_scene]->event != NULL)
+			DR(rpg->scenes[rpg->curr_scene]->event(rpg));
+	}
 	return (SUCCESS);
 }

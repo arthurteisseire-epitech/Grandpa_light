@@ -15,6 +15,7 @@
 #include "init.h"
 #include "tile.h"
 #include "texture.h"
+#include "event.h"
 #include "parse.h"
 #include "define.h"
 #include "tool.h"
@@ -22,7 +23,7 @@
 scene_func get_func_scene(char const *ft)
 {
 	if (ft == NULL)
-		return (NULL);
+		return (ft_scene[0].scene_func);
 	for (int i = 0; i != NB_FT_SCENE; i++)
 		if (my_strcmp(ft, ft_scene[i].name) == 0)
 			return (ft_scene[i].scene_func);
@@ -59,7 +60,7 @@ int fill_scene(rpg_t *rpg, config_setting_t *scenes_setting, int index)
 	const char *str;
 
 	config_setting_lookup_string(scene_setting, "name", &ft);
-	rpg->scenes[index]->scene_loop = get_func_scene(ft);
+	rpg->scenes[index]->event = get_func_scene(ft);
 	DR(init_buttons(rpg, &rpg->scenes[index]->buttons, scene_setting));
 	if (!config_setting_lookup_string(scene_setting, "map", &str)) {
 		rpg->scenes[index]->map = NULL;

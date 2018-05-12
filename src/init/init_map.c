@@ -48,10 +48,16 @@ static void open_doors(tile_t ***tiles)
 	}
 }
 
-void init_lasers(map_t *map)
+void init_lasers(rpg_t *rpg)
 {
-	for (unsigned int i = 0; i < MAX_LASER; i++)
-		map->active_lasers[i] = 0;
+	tile_t *laser = get_next_tile(rpg, LAS_STR);
+	int i = 0;
+
+	while (laser != NULL) {
+		RPG_MAP(rpg)->active_lasers[i] = laser->active;
+		laser = get_next_tile(rpg, LAS_STR);
+		i++;
+	}
 }
 
 int init_map(rpg_t *rpg, map_t **map, const char *path)
@@ -72,6 +78,6 @@ int init_map(rpg_t *rpg, map_t **map, const char *path)
 	(*map)->tiles[(*map)->size.y] = NULL;
 	inverse(&(*map)->size.x, &(*map)->size.y);
 	open_doors((*map)->tiles);
-	init_lasers((*map));
+	init_lasers(rpg);
 	return (SUCCESS);
 }
