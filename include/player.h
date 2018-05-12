@@ -29,9 +29,8 @@ typedef struct rpg_s rpg_t;
 typedef struct texture_s texture_t;
 
 typedef struct stat_s {
-	int nb_photons;
-	int damage;
-	int hp;
+	int xp;
+	int level;
 } stat_t;
 
 typedef struct inventory_s {

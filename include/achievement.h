@@ -28,6 +28,7 @@ typedef struct achievement_s {
 	sfText *xp_text;
 	sfText *head;
 	int xp;
+	int nb_achieves;
 } achievement_t;
 
 void set_achievement_color(achievement_t *achievement

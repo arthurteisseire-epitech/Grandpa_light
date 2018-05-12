@@ -33,5 +33,6 @@ int init(rpg_t *rpg)
 	}
 	DR(init_clock(&rpg->clock));
 	rpg->curr_scene = FIRST_SCENE;
+	fill_menu_status(rpg);
 	return (SUCCESS);
 }
