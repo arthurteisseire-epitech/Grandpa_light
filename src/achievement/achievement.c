@@ -12,6 +12,7 @@
 #include "achievement.h"
 #include "texture.h"
 #include "define.h"
+#include "player.h"
 #include "tool.h"
 
 config_setting_t *find_setting_by_name(config_setting_t *array_set
@@ -48,6 +49,7 @@ static char const *get_xp_text(rpg_t *rpg, config_setting_t *parent)
 	if (xp_text == NULL)
 		return (NULL);
 	rpg->achievement->xp = xp;
+	rpg->player->stats->xp += xp;
 	free(tmp);
 	return (xp_text);
 }
