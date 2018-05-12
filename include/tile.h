@@ -16,7 +16,7 @@
 #define LASER_LENGTH 3
 #define VEC_HALF_TILE (sfVector2f){(float)SIZE_TILE / 2, (float)SIZE_TILE / 2}
 
-#define RIGHT_ANGLE 90.0
+#define RIGHT_ANGLE -90.0
 
 #define RIGHT 0b00000000
 #define UP 0b00000010
