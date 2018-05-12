@@ -33,6 +33,7 @@ typedef struct rpg_s {
 	texture_t **tx_game;
 	sfClock *clock;
 	int curr_scene;
+	int prev_scene;
 	int nb_scenes;
 	config_setting_t *set;
 	player_t *player;

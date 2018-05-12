@@ -16,6 +16,7 @@ int action_room(rpg_t *rpg, tile_t *tile)
 	if (!tile->active)
 		return (SUCCESS);
 	rpg->curr_scene = tile->chanel;
+	rpg->prev_scene = rpg->curr_scene;
 	if (rpg->scenes[rpg->curr_scene]->map != NULL)
 		place_in_spawn(rpg);
 	return (SUCCESS);

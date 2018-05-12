@@ -60,7 +60,7 @@ int fill_scene(rpg_t *rpg, config_setting_t *scenes_setting, int index)
 	const char *str;
 
 	config_setting_lookup_string(scene_setting, "name", &ft);
-	rpg->scenes[index]->scene_event = get_func_scene(ft);
+	rpg->scenes[index]->event = get_func_scene(ft);
 	DR(init_buttons(rpg, &rpg->scenes[index]->buttons, scene_setting));
 	if (!config_setting_lookup_string(scene_setting, "map", &str)) {
 		rpg->scenes[index]->map = NULL;

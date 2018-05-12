@@ -10,6 +10,8 @@
 
 int menu_status(rpg_t *rpg)
 {
-	(void)rpg;
+	if (sfKeyboard_isKeyPressed(sfKeyP)) {
+		rpg->curr_scene = rpg->prev_scene;
+	}
 	return (SUCCESS);
 }

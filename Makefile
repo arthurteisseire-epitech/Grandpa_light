@@ -42,6 +42,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DRAW)draw_player.c		\
 		$(DUPDATE)update.c		\
 		$(DEVENT)event.c		\
+		$(DEVENT)event_map.c		\
 		$(DEVENT)event_status_menu.c	\
 		$(DINIT)init.c			\
 		$(DINIT)init_achievements.c	\
@@ -88,7 +89,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DTILACT)rotate_laser.c	\
 		$(DMAP)player_light.c		\
 		$(DSCENE)change_scene.c		\
-		$(DSCENE)fill_menu_status.c	\
+		$(DSCENE)menu_status.c		\
 		$(DBUTTON)manage_buttons.c 	\
 		$(DBUTTON)get_func_button.c 	\
 		$(DBUTACT)button_play.c		\

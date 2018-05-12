@@ -21,17 +21,6 @@ void handle_exit_key(rpg_t *rpg)
 		sfRenderWindow_close(rpg->window);
 }
 
-int handle_events(rpg_t *rpg)
-{
-	handle_exit_key(rpg); //deviendra handle pause
-	if (rpg->event->type == sfEvtKeyPressed) {
-		if (rpg->scenes[rpg->curr_scene]->map != NULL)
-			player_event(rpg);
-		change_scene(rpg);
-	}
-	return (SUCCESS);
-}
-
 static int handle_general_event(rpg_t *rpg)
 {
 	if (rpg->event->type == sfEvtClosed)
@@ -46,8 +35,8 @@ int event(rpg_t *rpg)
 {
 	while (sfRenderWindow_pollEvent(rpg->window, rpg->event)) {
 		handle_general_event(rpg);
-		if (rpg->scenes[rpg->curr_scene]->scene_event != NULL)
-			DR(rpg->scenes[rpg->curr_scene]->scene_event(rpg));
+		if (rpg->scenes[rpg->curr_scene]->event != NULL)
+			DR(rpg->scenes[rpg->curr_scene]->event(rpg));
 	}
 	return (SUCCESS);
 }
