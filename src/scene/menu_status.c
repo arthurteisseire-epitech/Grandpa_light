@@ -78,12 +78,16 @@ int fill_menu_status(rpg_t *rpg)
 	index_menu_status = get_setting_index(scene_set, "menu_status");
 	if (index_menu_status != SC_MENU_STATUS)
 		return (WRONG_CONFIG_PATH);
+	DR(sfText_concat_int(rpg, rpg->scenes[SC_MENU_STATUS]->buttons[3]->text
+	, rpg->player->stats->light_radius, 3));
 	DR(sfText_concat_int(rpg, rpg->scenes[SC_MENU_STATUS]->buttons[4]->text
-	, rpg->player->stats->xp, 4));
+	, rpg->player->stats->level, 4));
 	DR(sfText_concat_int(rpg, rpg->scenes[SC_MENU_STATUS]->buttons[5]->text
-	, rpg->player->stats->level, 5));
+	, rpg->player->stats->xp, 5));
 	DR(sfText_concat_int(rpg, rpg->scenes[SC_MENU_STATUS]->buttons[6]->text
-	, rpg->achievement->nb_achieves, 6));
+	, rpg->player->stats->xp_to_up - rpg->player->stats->xp, 6));
+	DR(sfText_concat_int(rpg, rpg->scenes[SC_MENU_STATUS]->buttons[7]->text
+	, rpg->achievement->nb_achieves, 7));
 	return (SUCCESS);
 }
 

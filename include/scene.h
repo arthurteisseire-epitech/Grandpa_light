@@ -41,6 +41,7 @@ typedef struct scene_s {
 	button_t **buttons;
 	sfText **text;
 	scene_func event;
+	char completed;
 } scene_t;
 
 void change_scene(rpg_t *rpg);
