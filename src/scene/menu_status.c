@@ -52,8 +52,32 @@ int sfText_concat_int(rpg_t *rpg, sfText *text, int nb, int index)
 	return (SUCCESS);
 }
 
+static int get_setting_index(config_setting_t *parent, const char *name)
+{
+	config_setting_t *elem;
+	char const *str = NULL;
+	unsigned int len = config_setting_length(parent);
+	
+	for (unsigned int i = 0; i < len; i++) {
+		elem = config_setting_get_elem(parent, i);
+		config_setting_lookup_string(elem, "name", &str);
+		if (str != NULL && my_strcmp(name, str) == 0)
+			return (i);
+		str = NULL;
+	}
+	return (SUCCESS);
+}
+
 int fill_menu_status(rpg_t *rpg)
 {
+	config_setting_t *scene_set = config_setting_lookup(rpg->set, "scenes");
+	int index_menu_status;
+
+	if (scene_set == NULL)
+		return (WRONG_CONFIG_PATH);
+	index_menu_status = get_setting_index(scene_set, "menu_status");
+	if (index_menu_status != SC_MENU_STATUS)
+		return (WRONG_CONFIG_PATH);
 	DR(sfText_concat_int(rpg, rpg->scenes[SC_MENU_STATUS]->buttons[4]->text
 	, rpg->player->stats->xp, 4));
 	DR(sfText_concat_int(rpg, rpg->scenes[SC_MENU_STATUS]->buttons[5]->text
