@@ -21,6 +21,10 @@
 #define RIGHT 0b00000010
 #define LEFT 0b00000011
 
+#define LEFT_UP (sfVector2f){0.0, 0.0}
+#define RAYCAST_NB 30
+#define RAYCAST_RADIUS 200
+
 #define NO_BRIGHT 0.1
 #define MIN_BRIGHT 0.3
 #define LIGHT_POWER 0.25
@@ -98,5 +102,6 @@ void swap_lasers_back(rpg_t *rpg);
 void rotate_laser(rpg_t *rpg, tile_t *laser);
 
 void rotate_sprite(tile_t *laser, float angle);
+void gen_raycast(map_t *map, sfVector2f pos, sfVector2f dir);
 
 #endif

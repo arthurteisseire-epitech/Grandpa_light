@@ -18,7 +18,8 @@ void place_in_spawn(rpg_t *rpg)
 {
 	rpg->player->pos = get_pos_tile_by_name(
 		rpg->scenes[rpg->curr_scene]->map, tile_pos_line, "spawn");
-	update_shader(rpg->scenes[rpg->curr_scene]->map);
+	update_shader(rpg->scenes[rpg->curr_scene]->map);	
+	rotate_player(rpg, DIR_UP, MOVE_UP);
 }
 
 void change_scene(rpg_t *rpg)

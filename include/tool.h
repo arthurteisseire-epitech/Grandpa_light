@@ -13,6 +13,8 @@
 typedef struct rpg_s rpg_t;
 typedef struct tile_s tile_t;
 
+#define PI 3.14159265358979323846
+
 int is_pos_in_rect(sfVector2i pos, sfFloatRect rect);
 void inverse(unsigned int *a, unsigned int *b);
 void set_rect(tile_t *tile);
