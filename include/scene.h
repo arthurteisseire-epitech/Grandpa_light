@@ -12,9 +12,9 @@
 
 #define CURR_SCENE rpg->scenes[rpg->curr_scene]
 #define SCENE_MENU 0
-#define SC_HUB 3
+#define SC_HUB 4
 
-#define SC_MENU_STATUS 4
+#define SC_MENU_STATUS 5
 
 #define MAX_LASER 200
 
@@ -41,6 +41,7 @@ typedef struct scene_s {
 	button_t **buttons;
 	sfText **text;
 	scene_func event;
+	char completed;
 } scene_t;
 
 void change_scene(rpg_t *rpg);

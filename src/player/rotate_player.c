@@ -13,7 +13,6 @@
 void rotate_player(rpg_t *rpg, float angle, sfVector2f dir)
 {
 	sfRectangleShape_setRotation(rpg->player->rect, angle);
-	generate_shader(rpg->scenes[rpg->curr_scene]->map, rpg->player->pos,
-		dir);
+	generate_shader(rpg->scenes[rpg->curr_scene]->map, rpg->player, dir);
 	update_shader(rpg->scenes[rpg->curr_scene]->map);
 }

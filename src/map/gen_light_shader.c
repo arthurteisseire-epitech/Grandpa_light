@@ -9,12 +9,12 @@
 #include "define.h"
 #include "tile.h"
 #include "scene.h"
+#include "player.h"
 #include "vec.h"
 
 void set_refresh(tile_t *tile)
 {
 	if (tile->lighted)
-		//tile->light_level = MIN_BRIGHT;
 		tile->light_level = NO_BRIGHT;
 	else
 		tile->light_level = NO_BRIGHT;
@@ -49,14 +49,14 @@ static int init_light_map(float **light_map, sfVector2u size)
 }
 */
 
-void player_light(map_t *map, sfVector2f pos, sfVector2f dir)
+void player_light(map_t *map, player_t *player, sfVector2f dir)
 {
-	gen_raycast(map, pos, dir);
+	gen_raycast(map, player, dir);
 }
 
-void generate_shader(map_t *map, sfVector2f pos, sfVector2f dir)
+void generate_shader(map_t *map, player_t *player, sfVector2f dir)
 {
 	refresh_light(map);
-	player_light(map, pos, dir);
+	player_light(map, player, dir);
 	//torch_light(map);
 }

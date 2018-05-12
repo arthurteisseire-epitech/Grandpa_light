@@ -21,8 +21,7 @@
 #define ANIM_STAY 0
 #define ANIM_MOVE 1
 
-#include <SFML/Graphics/Types.h>
-#include <SFML/System.h>
+#include <SFML/Graphics.h>
 
 typedef struct object_s object_t;
 typedef struct rpg_s rpg_t;
@@ -31,6 +30,9 @@ typedef struct texture_s texture_t;
 typedef struct stat_s {
 	int xp;
 	int level;
+	float light_radius;
+	sfColor light_color;
+	int xp_to_up;
 } stat_t;
 
 typedef struct inventory_s {

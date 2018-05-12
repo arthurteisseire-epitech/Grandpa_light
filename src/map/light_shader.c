@@ -25,7 +25,8 @@ void update_shader(map_t *map)
 {
 	for (unsigned int x = 0; x < map->size.x; x++) {
 		for (unsigned int y = 0; y < map->size.y; y++) {
-			set_light(map->tiles[x][y]->light, map->tiles[x][y]->light_level);
+			set_light(map->tiles[x][y]->light
+			, map->tiles[x][y]->light_level);
 		}
 	}
 }
