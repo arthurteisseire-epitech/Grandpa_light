@@ -87,6 +87,7 @@ int fill_achievement(rpg_t *rpg, char const *name)
 	if (achieves_set == NULL)
 		return (WRONG_CONFIG_PATH);
 	set_strings(rpg, achieves_set, name);
+	rpg->achievement->nb_achieves++;
 	return (SUCCESS);
 }
 

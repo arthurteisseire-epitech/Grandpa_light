@@ -23,6 +23,7 @@ int init_player(rpg_t *rpg)
 		return (WRONG_CONFIG_PATH);
 	rpg->player = malloc(sizeof(player_t));
 	CM(rpg->player);
+	DR(init_stats(&rpg->player->stats));
 	DR(init_shape(&rpg->player->rect, player_set));
 	DR(init_anims(rpg, &rpg->player->anim, player_set));
 	sfRectangleShape_setTexture(rpg->player->rect,
@@ -31,6 +32,15 @@ int init_player(rpg_t *rpg)
 	sfRectangleShape_setTextureRect(rpg->player->rect,
 		rpg->player->anim[0]->rects[0]->rect);
 	set_player_stat(rpg->player, player_set);
+	return (SUCCESS);
+}
+
+int init_stats(stat_t **stat)
+{
+	*stat = malloc(sizeof(stat_t));
+	CM(*stat);
+	(*stat)->level = 0;
+	(*stat)->xp = 0;
 	return (SUCCESS);
 }
 

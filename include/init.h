@@ -23,6 +23,7 @@ typedef struct player_s player_t;
 typedef struct sfMusic sfMusic;
 typedef struct laser_s laser_t;
 typedef struct achievement_s achievement_t;
+typedef struct stat_s stat_t;
 
 typedef int (*init_arr_t)(rpg_t *);
 
@@ -32,6 +33,7 @@ int init_event(rpg_t *rpg);
 int init_musics(rpg_t *rpg);
 int init_music(sfMusic **music, config_setting_t *parent, int i);
 int init_player(rpg_t *rpg);
+int init_stats(stat_t **stat);
 void set_player_stat(player_t *player, config_setting_t *this_set);
 int init_anims(rpg_t *rpg, texture_t ***textures, config_setting_t *parent);
 int init_anim(rpg_t *rpg, texture_t **texture, config_setting_t *parent, int i);
