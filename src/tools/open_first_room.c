@@ -14,7 +14,7 @@ void set_rect(tile_t *tile)
 {
 	if (tile->chanel == 1) {
 		shift_texture_rect(tile->rect, tile->tx, &tile->curr_frame);
-		tile->active = 0;
+		tile->active = 1;
 	}
 }
 

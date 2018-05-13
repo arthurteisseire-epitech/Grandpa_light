@@ -9,5 +9,6 @@
 
 int button_size(rpg_t *rpg)
 {
+	(void)rpg;
 	return (0);
 }

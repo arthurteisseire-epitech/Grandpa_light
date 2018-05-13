@@ -64,6 +64,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DINIT)init_shape.c		\
 		$(DINIT)init_laser.c		\
 		$(DINIT)init_anim_tiles.c	\
+		$(DINIT)init_vertex.c		\
 		$(DINIT)init_tiles.c		\
 		$(DINIT)tile_list.c		\
 		$(DESTROY)destroy.c		\
@@ -102,10 +103,10 @@ SRC     =	$(DSRC)main.c			\
 		$(DBUTTON)get_func_button.c 	\
 		$(DBUTACT)button_play.c		\
 		$(DBUTACT)button_setting.c	\
-		$(DBUTACT)button_exit.c	\
+		$(DBUTACT)button_exit.c		\
 		$(DBUTACT)button_return.c	\
-		$(DBUTACT)button_pause.c		\
-		$(DBUTACT)button_volume.c		\
+		$(DBUTACT)button_pause.c	\
+		$(DBUTACT)button_volume.c	\
 		$(DBUTACT)button_size.c		\
 		$(DTOOLS)vec.c			\
 		$(DTOOLS)get_rect.c		\
@@ -116,6 +117,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DTOOLS)wait_delta_frame.c	\
 		$(DTOOLS)get_highest_chanel.c	\
 		$(DTOOLS)find_setting_by_name.c	\
+		$(DTOOLS)particule.c		\
 		$(DTX)get_texture.c		\
 		$(DTX)shift_texture_rect.c	\
 		$(DPLAYER)player_event.c	\

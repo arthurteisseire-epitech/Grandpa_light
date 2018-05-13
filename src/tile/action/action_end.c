@@ -49,8 +49,8 @@ int action_end(rpg_t *rpg, tile_t *tile)
 		return (SUCCESS);
 	rpg->prev_scene = rpg->curr_scene;
 	rpg->curr_scene = SC_HUB;
-	room = apply_on_map(rpg, get_tile_by_chanel, tile);
 	apply_on_map(rpg, set_tile_by_chanel, tile);
+	room = apply_on_map(rpg, get_tile_by_chanel, tile);
 	rpg->curr_scene = rpg->prev_scene;
 	if (room == rpg->scenes[SC_HUB]->map->tiles[0][0])
 		return (SUCCESS);
