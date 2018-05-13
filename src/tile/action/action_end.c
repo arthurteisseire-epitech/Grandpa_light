@@ -5,23 +5,37 @@
 ** by Arthur Teisseire
 */
 
+#include <stdlib.h>
+#include "my.h"
 #include "rpg.h"
 #include "scene.h"
 #include "tile.h"
 #include "texture.h"
 #include "player.h"
+#include "init.h"
 #include "define.h"
 
 static void update_stats(rpg_t *rpg, tile_t *tile)
 {
-	rpg->player->stats->xp += (tile->chanel + 1) * 3;
-	while (rpg->player->stats->xp >= rpg->player->stats->xp_to_up) {
-		rpg->player->stats->xp -= rpg->player->stats->xp_to_up;
-		rpg->player->stats->xp_to_up += 5;
-		rpg->player->stats->level++;
-		rpg->player->stats->light_radius += 
-			(rpg->player->stats->level + 1) * 20;
-	}
+	update_xp(rpg, (tile->chanel + 1) * 3);
+	rpg->player->stats->nb_orbe++;
+	set_inventory_text(rpg);
+}
+
+static int change_tile(rpg_t *rpg, tile_t *tile)
+{
+	int index = index_tile_by_name(GROUND_STR);
+	texture_t *texture = rpg->tx_tile[tile_list[index].idx_texture];
+
+	tile->name = tile_list[index].name;
+	tile->func = tile_list[index].func;
+	tile->tx = texture;
+	tile->curr_frame = 0;
+	sfRectangleShape_setTexture(tile->rect, texture->texture, sfTrue);
+	sfRectangleShape_setTextureRect(tile->rect
+	, get_rect(texture, tile->name)->rect);
+	rm_anim_tile(CURR_SCENE->anim_tiles, tile);
+	return (SUCCESS);
 }
 
 int action_end(rpg_t *rpg, tile_t *tile)
@@ -31,17 +45,21 @@ int action_end(rpg_t *rpg, tile_t *tile)
 	if (CURR_SCENE->completed == FALSE)
 		update_stats(rpg, tile);
 	CURR_SCENE->completed = TRUE;
-	rpg->curr_scene = SC_HUB;
-	rpg->prev_scene = rpg->curr_scene;
-	if (CURR_SCENE->map == NULL)
+	if (rpg->scenes[SC_HUB]->map == NULL)
 		return (SUCCESS);
-	place_in_spawn(rpg);
+	rpg->prev_scene = rpg->curr_scene;
+	rpg->curr_scene = SC_HUB;
 	room = apply_on_map(rpg, get_tile_by_chanel, tile);
-	if (room == CURR_SCENE->map->tiles[0][0])
+	apply_on_map(rpg, set_tile_by_chanel, tile);
+	rpg->curr_scene = rpg->prev_scene;
+	if (room == rpg->scenes[SC_HUB]->map->tiles[0][0])
 		return (SUCCESS);
 	if (!room->active) {
 		room->active = TRUE;
 		shift_texture_rect(room->rect, room->tx, &room->curr_frame);
 	}
+	DR(change_tile(rpg, tile));
+	generate_shader(CURR_SCENE->map, rpg->player);
+	update_shader(CURR_SCENE->map);
 	return (SUCCESS);
 }

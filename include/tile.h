@@ -28,8 +28,8 @@
 #define DOWN 0b00000110
 
 #define LEFT_UP (sfVector2f){0.0, 0.0}
-#define RAYCAST_NB 30
-#define RAYCAST_RADIUS 50.0f
+#define RAYCAST_NB 110
+#define RAYCAST_RADIUS 100.0f
 
 #define NO_BRIGHT 0.1
 #define MIN_BRIGHT 0.3
@@ -87,6 +87,8 @@ typedef int (*pos_tile_t)(map_t *, tile_t **, void *);
 extern const tile_list_t tile_list[];
 
 int index_tile_by_color(sfColor color);
+int index_tile_by_name(char *name);
+
 void update_shader(map_t *map);
 char is_in_map(map_t *map, sfVector2f pos);
 void player_light(map_t *map, player_t *player);
@@ -110,6 +112,8 @@ int action_room(rpg_t *rpg, tile_t *tile);
 int action_laser(rpg_t *rpg, tile_t *laser);
 int action_laser_captor(rpg_t *rpg, tile_t *tile);
 int action_granpa(rpg_t *rpg, tile_t *tile);
+int action_unlocker(rpg_t *rpg, tile_t *tile);
+int action_spawn(rpg_t *rpg, tile_t *tile);
 
 int *swap_lasers(rpg_t *rpg);
 void swap_lasers_back(rpg_t *rpg);
@@ -117,5 +121,7 @@ void rotate_laser(rpg_t *rpg, tile_t *laser);
 
 void rotate_sprite(tile_t *laser, float angle);
 int refresh_torch(rpg_t *rpg, tile_t *tile);
+sfVector2f get_pos_tile(map_t *map, tile_t *tile);
+void rm_anim_tile(tile_t **tiles, tile_t *tile);
 
 #endif

@@ -26,14 +26,15 @@ static int get_str(rpg_t *rpg, const char **str, int index)
 
 	scene_set = config_setting_lookup(rpg->set, "scenes");
 	if (scene_set == NULL)
-		return (WRONG_CONFIG_PATH);
+		return (my_puterror("get str: lookup scenes:"),
+		WRONG_CONFIG_PATH);
 	menu_status_set = find_setting_by_name(scene_set, "menu_status");
 	buttons_set = config_setting_lookup(menu_status_set, "buttons");
 	elem = config_setting_get_elem(buttons_set, index);
 	text_set = config_setting_lookup(elem, "text");
 	config_setting_lookup_string(text_set, "str", str);
 	if (str == NULL)
-		return (WRONG_CONFIG_PATH);
+		return (my_puterror("get str: lookup str:"), WRONG_CONFIG_PATH);
 	return (SUCCESS);
 }
 
@@ -74,12 +75,14 @@ int fill_menu_status(rpg_t *rpg)
 	int index_menu_status;
 
 	if (scene_set == NULL)
-		return (WRONG_CONFIG_PATH);
+		return (my_puterror("fill menu status: lookup scenes:"),
+		WRONG_CONFIG_PATH);
 	index_menu_status = get_setting_index(scene_set, "menu_status");
 	if (index_menu_status != SC_MENU_STATUS)
-		return (WRONG_CONFIG_PATH);
-	DR(sfText_concat_int(rpg, rpg->scenes[SC_MENU_STATUS]->buttons[3]->text
-	, rpg->player->stats->light_radius, 3));
+		return (my_puterror("fill text: get set idx:"),
+		WRONG_CONFIG_PATH);
+	DR(sfText_concat_int(rpg, rpg->scenes[SC_MENU_STATUS]->buttons[3]->text,
+		rpg->player->stats->light_radius, 3));
 	DR(sfText_concat_int(rpg, rpg->scenes[SC_MENU_STATUS]->buttons[4]->text
 	, rpg->player->stats->level, 4));
 	DR(sfText_concat_int(rpg, rpg->scenes[SC_MENU_STATUS]->buttons[5]->text
@@ -93,7 +96,8 @@ int fill_menu_status(rpg_t *rpg)
 
 void launch_menu_status(rpg_t *rpg)
 {
-	if (sfKeyboard_isKeyPressed(sfKeyO)) {
+	if (rpg->event->key.code == sfKeyO && rpg->event->type == sfEvtKeyReleased) {
+		fill_achievement(rpg, "achievement_status");
 		fill_menu_status(rpg);
 		rpg->curr_scene = SC_MENU_STATUS;
 	}

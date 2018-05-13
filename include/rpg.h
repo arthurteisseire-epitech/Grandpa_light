@@ -40,6 +40,7 @@ typedef struct rpg_s {
 	config_setting_t *set;
 	player_t *player;
 	achievement_t *achievement;
+	char is_achieve;
 } rpg_t;
 
 int game_loop(rpg_t *rpg);

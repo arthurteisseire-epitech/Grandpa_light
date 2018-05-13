@@ -13,12 +13,14 @@
 
 int event_map(rpg_t *rpg)
 {
-	handle_exit_key(rpg); //deviendra handle pause
+	set_inventory_text(rpg);
+	if (handle_pause_key(rpg))
+		return (SUCCESS);
 	if (rpg->event->type == sfEvtKeyPressed) {
 		if (CURR_SCENE->map != NULL)
 			player_event(rpg);
-		launch_menu_status(rpg);
 	}
+	launch_menu_status(rpg);
 	return (SUCCESS);
 }
 

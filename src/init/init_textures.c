@@ -18,7 +18,8 @@ int init_textures(rpg_t *rpg)
 	config_setting_t *parent = rpg->set;
 
 	if (parent == NULL)
-		return (WRONG_CONFIG_PATH);
+		return (my_puterror("init_textures: no parent"),
+		WRONG_CONFIG_PATH);
 	DR(fill_textures(&rpg->tx_tile, parent, "tx_tile"));
 	DR(fill_textures(&rpg->tx_game, parent, "tx_game"));
 	return (SUCCESS);
@@ -33,7 +34,8 @@ int fill_textures(texture_t ***textures, config_setting_t *parent,
 	config_setting_t *tx_setting;
 
 	if (textures_setting == NULL)
-		return (WRONG_CONFIG_PATH);
+		return (my_puterror("fill_textures: lookup name"),
+		WRONG_CONFIG_PATH);
 	nb_textures = config_setting_length(textures_setting);
 	*textures = malloc(sizeof(texture_t **) * (nb_textures + 1));
 	CM(*textures);
@@ -60,7 +62,8 @@ int init_texture(texture_t **texture, config_setting_t *tx_setting)
 		return (my_puterror("In init_texture: str: "), WRONG_PATH);
 	config_setting_lookup_string(tx_setting, "name", &(*texture)->name);
 	if ((*texture)->name == NULL)
-		return (WRONG_CONFIG_PATH);
+		return (my_puterror("In init_texture: lookup str:"),
+		WRONG_CONFIG_PATH);
 	DR(set_texture_rects(&(*texture)->rects, tx_setting));
 	return (SUCCESS);
 }
@@ -73,7 +76,8 @@ int set_texture_rects(rectangle_t ***rects, config_setting_t *parent)
 	sfVector2f size = get_cfg_vec(parent, "size");
 
 	if (names_setting == NULL)
-		return (WRONG_CONFIG_PATH);
+		return (my_puterror("set tx rect: lookup names:"),
+		WRONG_CONFIG_PATH);
 	nb_rects = config_setting_length(names_setting);
 	*rects = malloc(sizeof(rectangle_t *) * (nb_rects + 1));
 	CM(*rects);
@@ -91,7 +95,8 @@ int set_texture_rect(rectangle_t *rect, config_setting_t *set, sfVector2f size,
 {
 	rect->name = config_setting_get_string_elem(set, i);
 	if (rect->name == NULL)
-		return (WRONG_CONFIG_PATH);
+		return (my_puterror("set tx rect: get string elem:"),
+		WRONG_CONFIG_PATH);
 	rect->rect.width = (int)size.x;
 	rect->rect.height = (int)size.y;
 	rect->rect.left = (int)(i * size.x);

@@ -10,6 +10,7 @@
 #include "init.h"
 #include "define.h"
 #include "scene.h"
+#include "achievement.h"
 
 static const init_arr_t init_arr[] = {
 	init_event,
@@ -35,5 +36,6 @@ int init(rpg_t *rpg)
 	rpg->curr_scene = FIRST_SCENE;
 	rpg->prev_scene = FIRST_SCENE;
 	fill_menu_status(rpg);
+	fill_achievement(rpg, "launch_game");
 	return (SUCCESS);
 }

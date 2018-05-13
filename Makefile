@@ -41,6 +41,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DRAW)draw.c			\
 		$(DRAW)draw_scene.c		\
 		$(DRAW)draw_player.c		\
+		$(DRAW)draw_achievement.c	\
 		$(DUPDATE)update.c		\
 		$(DEVENT)event.c		\
 		$(DEVENT)event_map.c		\
@@ -89,6 +90,8 @@ SRC     =	$(DSRC)main.c			\
 		$(DTILACT)action_room.c		\
 		$(DTILACT)action_end.c		\
 		$(DTILACT)action_torch.c	\
+		$(DTILACT)action_unlocker.c	\
+		$(DTILACT)action_spawn.c	\
 		$(DTILACT)get_tile.c		\
 		$(DTILACT)rotate_laser.c	\
 		$(DTILACT)action_granpalight.c	\
@@ -99,7 +102,9 @@ SRC     =	$(DSRC)main.c			\
 		$(DBUTTON)get_func_button.c 	\
 		$(DBUTACT)button_play.c		\
 		$(DBUTACT)button_setting.c	\
-		$(DBUTACT)button_exit.c		\
+		$(DBUTACT)button_exit.c	\
+		$(DBUTACT)button_return.c	\
+		$(DBUTACT)button_pause.c		\
 		$(DTOOLS)vec.c			\
 		$(DTOOLS)get_rect.c		\
 		$(DTOOLS)is_pos_in_rect.c	\
@@ -108,13 +113,17 @@ SRC     =	$(DSRC)main.c			\
 		$(DTOOLS)open_first_room.c	\
 		$(DTOOLS)wait_delta_frame.c	\
 		$(DTOOLS)get_highest_chanel.c	\
+		$(DTOOLS)find_setting_by_name.c	\
 		$(DTX)get_texture.c		\
 		$(DTX)shift_texture_rect.c	\
 		$(DPLAYER)player_event.c	\
+		$(DPLAYER)update_xp.c		\
 		$(DPLAYER)move_player.c		\
 		$(DPLAYER)rotate_player.c	\
 		$(DDIAL)get_next_dialog.c	\
-		$(DDIAL)update_text.c
+		$(DDIAL)update_text.c		\
+		$(DEVENT)event_pause.c 		\
+		$(DPLAYER)inventory.c
 
 LDFLAGS	=	-lc_graph_prog -lconfig -lm
 CFLAGS	+=	-Wall -W -Wextra -I$(INC) -g

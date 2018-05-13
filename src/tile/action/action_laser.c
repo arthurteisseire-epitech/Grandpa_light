@@ -44,13 +44,13 @@ int action_laser(rpg_t *rpg, tile_t *laser)
 	map_t *map = CURR_SCENE->map;
 
 	laser->active = !laser->active;
-	while (IN_MAP && MAP_TILE(map, pos)->laser_col == FALSE) {
+	while (IN_MAP(pos, map) && MAP_TILE(map, pos)->laser_col == FALSE) {
 		MAP_TILE(map, pos)->laser->horizontal =
 			laser->active && hor_laser;
 		MAP_TILE(map, pos)->laser->vertical =
 			laser->active && ver_laser;
 		pos = add_vec(pos, direction);
-		if (IN_MAP && check_receptor_dir(
+		if (IN_MAP(pos, map) && check_receptor_dir(
 			get_direction(MAP_TILE(map, pos)->direction),
 			direction) &&
 			MAP_TILE(map, pos)->func == action_laser_captor)

@@ -36,8 +36,8 @@ int draw(rpg_t *rpg)
 	draw_scene(rpg, CURR_SCENE);
 	if (CURR_SCENE->map != NULL) {
 		draw_player(rpg);
-		//draw_debug(rpg);
 	}
+	draw_on_achievement(rpg);
 	sfRenderWindow_display(rpg->window);
 	return (SUCCESS);
 }

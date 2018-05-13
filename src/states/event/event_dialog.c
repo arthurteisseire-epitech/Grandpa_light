@@ -14,15 +14,16 @@
 
 void dialog_continue(rpg_t *rpg)
 {
-	if (rpg->event->key.code == sfKeySpace ||
-		rpg->event->key.code == sfKeyReturn)
+	if (rpg->event->key.code == sfKeySpace)
 		update_text(rpg);
 }
 
 void dialog_skip(rpg_t *rpg)
 {
-	if (rpg->event->key.code == sfKeyEscape)
+	if (rpg->event->key.code == sfKeyReturn) {
 		rpg->curr_scene = SC_HUB;
+		rpg->prev_scene = SC_HUB;
+	}
 }
 
 int event_dialog(rpg_t *rpg)

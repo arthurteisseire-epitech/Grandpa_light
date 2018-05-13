@@ -16,7 +16,6 @@
 #include "tile.h"
 #include "texture.h"
 #include "event.h"
-#include "parse.h"
 #include "define.h"
 #include "tool.h"
 
@@ -36,7 +35,7 @@ int init_scenes(rpg_t *rpg)
 
 	setting = config_setting_lookup(rpg->set, "scenes");
 	if (setting == NULL)
-		return (WRONG_CONFIG_PATH);
+		return (my_puterror("lookup scenes: "), WRONG_CONFIG_PATH);
 	rpg->nb_scenes = config_setting_length(setting);
 	rpg->scenes = malloc(sizeof(scene_t *) * (rpg->nb_scenes + 1));
 	CM(rpg->scenes);
