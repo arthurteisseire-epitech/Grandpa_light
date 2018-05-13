@@ -19,7 +19,7 @@ const tile_list_t tile_list[NB_TILE] = {
 	{{0x00, 0x00, 0x03, 0x00},
 		GLASS_STR, TRUE, FALSE, FALSE, action_door, TX_TILE},
 	{{0x00, 0x00, 0x04, 0x00},
-		SPAWN_STR, FALSE, FALSE, FALSE, NULL, TX_TILE},
+		SPAWN_STR, FALSE, FALSE, TRUE, action_spawn, TX_TILE},
 	{{0x00, 0x00, 0x05, 0x00},
 		END_STR, FALSE, FALSE, TRUE, action_end, TX_TILE},
 	{{0x00, 0x00, 0x06, 0x00},
@@ -35,7 +35,17 @@ const tile_list_t tile_list[NB_TILE] = {
 		TX_TILE_LASER_CAPTOR},
 	{{0x00, 0x00, 0x0b, 0x00},
 		TORCH_STR, FALSE, FALSE, FALSE, refresh_torch, TX_TILE_LIGHT},
+	{{0x00, 0x00, 0x0c, 0x00},
+		UNLOCKER_STR, FALSE, FALSE, TRUE, action_unlocker, TX_TILE_UNLOCKER},
 };
+
+int index_tile_by_name(char *name)
+{
+	for (int i = 0; i < NB_TILE; i++)
+		if (my_strcmp(tile_list[i].name, name) == 0)
+			return (i);
+	return (1);
+}
 
 int index_tile_by_color(sfColor color)
 {

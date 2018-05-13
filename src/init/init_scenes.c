@@ -16,7 +16,6 @@
 #include "tile.h"
 #include "texture.h"
 #include "event.h"
-#include "parse.h"
 #include "define.h"
 #include "tool.h"
 

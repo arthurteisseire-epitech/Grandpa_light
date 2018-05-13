@@ -44,7 +44,7 @@ int action_laser(rpg_t *rpg, tile_t *laser)
 	map_t *map = rpg->scenes[rpg->curr_scene]->map;
 
 	laser->active = !laser->active;
-	while (IN_MAP && MAP_TILE(map, pos)->laser_col == FALSE) {
+	while (IN_MAP(pos, map) && MAP_TILE(map, pos)->laser_col == FALSE) {
 		MAP_TILE(map, pos)->laser->horizontal =
 			laser->active && hor_laser;
 		MAP_TILE(map, pos)->laser->vertical =
@@ -56,7 +56,7 @@ int action_laser(rpg_t *rpg, tile_t *laser)
 		 *        get_direction(MAP_TILE(map, pos)->direction).x,
 		 *        get_direction(MAP_TILE(map, pos)->direction).y, MAP_TILE(map, pos)->func == action_laser_captor);
 		 */
-		if (IN_MAP && check_receptor_dir(
+		if (IN_MAP(pos, map) && check_receptor_dir(
 			get_direction(MAP_TILE(map, pos)->direction),
 			direction) &&
 			MAP_TILE(map, pos)->func == action_laser_captor)
