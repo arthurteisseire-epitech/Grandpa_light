@@ -96,6 +96,7 @@ void launch_menu_status(rpg_t *rpg)
 	if (sfKeyboard_isKeyPressed(sfKeyO)) {
 		fill_achievement(rpg, "achievement_status");
 		fill_menu_status(rpg);
+		rpg->prev_scene = rpg->curr_scene;
 		rpg->curr_scene = SC_MENU_STATUS;
 	}
 }

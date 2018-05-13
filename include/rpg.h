@@ -26,6 +26,7 @@ typedef struct achievement_s achievement_t;
 typedef struct rpg_s {
 	sfEvent *event;
 	sfRenderWindow *window;
+	sfVertexArray *vertex_array;
 	sfMusic **musics;
 	sfSound **sounds;
 	scene_t **scenes;
