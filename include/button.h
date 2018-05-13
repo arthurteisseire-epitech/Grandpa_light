@@ -11,7 +11,7 @@
 #include <SFML/Graphics.h>
 
 #ifndef NB_FT_BUTTON
-	#define NB_FT_BUTTON 7
+	#define NB_FT_BUTTON 8
 #endif
 
 typedef struct rpg_s rpg_t;
@@ -36,6 +36,7 @@ int button_return(rpg_t *rpg);
 int button_pause(rpg_t *rpg);
 int button_volume(rpg_t *rpg);
 int button_size(rpg_t *rpg);
+int button_htp(rpg_t *rpg);
 
 static const ft_button_t ft_buttons[] = {{"play", button_play},
 	{"setting", button_setting}, {"exit", button_exit},
@@ -43,6 +44,7 @@ static const ft_button_t ft_buttons[] = {{"play", button_play},
 	{"stop_pause", button_pause},
 	{"volume", button_volume},
 	{"size", button_size},
+	{"htp", button_htp},
 	};
 
 button_func_t get_func_button(char const *ft);

@@ -17,6 +17,7 @@
 #define SC_MENU_STATUS 17
 #define SC_PAUSE 18
 #define SC_SETTINGS 19
+#define SC_HTP 20
 
 #define MAX_LASER 200
 
