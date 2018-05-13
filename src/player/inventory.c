@@ -17,6 +17,8 @@ int set_inventory_text(rpg_t *rpg)
 	char *nb = my_itoa(rpg->player->stats->nb_orbe);
 
 	CM(nb);
+	printf("%s\n", nb);
+	printf("NB_ORB: %d\n", rpg->player->stats->nb_orbe);
 	sfText_setString(rpg->player->items[0]->text, nb);
 	free(nb);
 	return (SUCCESS);

@@ -14,7 +14,6 @@
 int event_map(rpg_t *rpg)
 {
 	handle_exit_key(rpg); //deviendra handle pause
-	set_inventory_text(rpg);
 	if (rpg->event->type == sfEvtKeyPressed) {
 		if (rpg->scenes[rpg->curr_scene]->map != NULL)
 			player_event(rpg);

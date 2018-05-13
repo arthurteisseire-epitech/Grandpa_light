@@ -35,7 +35,6 @@ int add_anim_tile(tile_t ***tiles, tile_t *tile)
 
 static void empty(void __attribute((unused))*a)
 {
-
 }
 
 void rm_anim_tile(tile_t **tiles, tile_t *tile)

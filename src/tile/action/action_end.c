@@ -22,10 +22,11 @@ static void update_stats(rpg_t *rpg, tile_t *tile)
 		rpg->player->stats->xp -= rpg->player->stats->xp_to_up;
 		rpg->player->stats->xp_to_up += 5;
 		rpg->player->stats->level++;
-		rpg->player->stats->nb_orbe++;
 		rpg->player->stats->light_radius += 
 			(rpg->player->stats->level + 1) * 20;
 	}
+	rpg->player->stats->nb_orbe++;
+	set_inventory_text(rpg);
 }
 
 static int change_tile(rpg_t *rpg, tile_t *tile)
