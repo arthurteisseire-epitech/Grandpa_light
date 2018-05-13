@@ -21,7 +21,7 @@ const tile_list_t tile_list[NB_TILE] = {
 	{{0x00, 0x00, 0x04, 0x00},
 		SPAWN_STR, FALSE, FALSE, TRUE, action_spawn, TX_TILE},
 	{{0x00, 0x00, 0x05, 0x00},
-		END_STR, FALSE, FALSE, TRUE, action_end, TX_TILE},
+		ORB_STR, FALSE, FALSE, TRUE, action_end, TX_TILE_ORB},
 	{{0x00, 0x00, 0x06, 0x00},
 		LAS_STR, FALSE, FALSE, TRUE, action_laser, TX_TILE_LASER},
 	{{0x00, 0x00, 0x07, 0x00},

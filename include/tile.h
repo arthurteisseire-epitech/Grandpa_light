@@ -117,5 +117,6 @@ void rotate_laser(rpg_t *rpg, tile_t *laser);
 void rotate_sprite(tile_t *laser, float angle);
 int refresh_torch(rpg_t *rpg, tile_t *tile);
 sfVector2f get_pos_tile(map_t *map, tile_t *tile);
+void rm_anim_tile(tile_t **tiles, tile_t *tile);
 
 #endif

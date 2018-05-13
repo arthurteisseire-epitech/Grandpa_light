@@ -18,6 +18,7 @@
 #define TX_TILE_ROOM 5
 #define TX_TILE_LIGHT 6
 #define TX_TILE_UNLOCKER 7
+#define TX_TILE_ORB 8
 #define DELTA_FRAME 0.2f
 
 typedef struct config_setting_t config_setting_t;

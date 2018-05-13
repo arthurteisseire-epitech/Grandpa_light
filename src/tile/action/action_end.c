@@ -5,6 +5,7 @@
 ** by Arthur Teisseire
 */
 
+#include <stdlib.h>
 #include "my.h"
 #include "rpg.h"
 #include "scene.h"
@@ -16,15 +17,9 @@
 
 static void update_stats(rpg_t *rpg, tile_t *tile)
 {
-	rpg->player->stats->xp += (tile->chanel + 1) * 3;
-	while (rpg->player->stats->xp >= rpg->player->stats->xp_to_up) {
-		rpg->player->stats->xp -= rpg->player->stats->xp_to_up;
-		rpg->player->stats->xp_to_up += 5;
-		rpg->player->stats->level++;
-		rpg->player->stats->nb_orbe++;
-		rpg->player->stats->light_radius += 
-			(rpg->player->stats->level + 1) * 20;
-	}
+	update_xp(rpg, (tile->chanel + 1) * 3);
+	rpg->player->stats->nb_orbe++;
+	set_inventory_text(rpg);
 }
 
 static int change_tile(rpg_t *rpg, tile_t *tile)
@@ -39,6 +34,7 @@ static int change_tile(rpg_t *rpg, tile_t *tile)
 	sfRectangleShape_setTexture(tile->rect, texture->texture, sfTrue);
 	sfRectangleShape_setTextureRect(tile->rect
 	, get_rect(texture, tile->name)->rect);
+	rm_anim_tile(CURR_SCENE->anim_tiles, tile);
 	return (SUCCESS);
 }
 

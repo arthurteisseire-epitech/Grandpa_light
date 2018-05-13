@@ -38,7 +38,7 @@ void my_puterror(char const *str);
 #define ROOM_STR "room"
 #define DOOR_STR "door"
 #define LEV_STR "on_off"
-#define END_STR "end"
+#define ORB_STR "orb"
 #define WALL_STR "wall"
 #define GROUND_STR "ground"
 #define GLASS_STR "glass"

@@ -18,7 +18,7 @@ int exec_tile(rpg_t *rpg, tile_t *tile)
 		if (tile->func != action_end)
 			swap_lasers(rpg);
 		tile->func(rpg, tile);
-		if (tile->func != action_end)
+		if (tile->func != NULL && tile->func != action_end)
 			swap_lasers_back(rpg);
 		init_lasers(rpg);
 	}
