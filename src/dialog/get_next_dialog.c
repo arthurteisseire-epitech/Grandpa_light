@@ -10,11 +10,11 @@
 
 const char dialogs[16][30000] = {
 	"Greetings, lost light.;Welcome into this world,\n"
- 	"you might be somewhat lost, "
+ 	"you might be somewhat lost,\n"
 	"but don't worry, I will guide you.;First of all, you shall know why "
-	"you are here.;This world, as you can see, has slipped down into "
+	"you are here.;This world, as you can see,\nhas slipped down into "
 	"darkness.;That must be fought.;You are the Light which will allow "
-	"this place to shine again.;You shall bring Enlightenment to this "
+	"this place\nto shine again.;You shall bring Enlightenment to this "
 	"world.;To do so, you must first collect the Orbs of Light,\n which you "
 	"will find in the surrounding rooms;"
 	"They will allow you to access deeper, \ndarker, more complex rooms.;"
