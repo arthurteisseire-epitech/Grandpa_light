@@ -10,7 +10,7 @@ INC	=	include
 DLIB	=	lib/
 DMY	=	$(DLIB)my/
 MY	=	my
-DLCFG	=	$(DLIB)libconfig
+DLCFG	=	extern_libs/libconfig-1.7.2/
 
 LCFG	=	config
 LIBS	=	-L$(DMY) -l$(MY) -L$(DLCFG) -l$(LCFG)
@@ -140,6 +140,7 @@ all: $(NAME)
 
 $(NAME):	$(OBJ)
 	make -C $(DMY)
+	cd $(DLCFG) && gcc -fPIC -shared lib/*.c -o libconfig.so && cd ../..
 	$(CC) -o $(NAME) $(OBJ) $(LIBS) $(LDFLAGS)
 
 clean:
