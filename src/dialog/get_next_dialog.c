@@ -9,15 +9,16 @@
 #include "my.h"
 
 const char dialogs[16][30000] = {
-	"Greetings, lost soul.;Welcome into my world, you might somewhat lost, "
+	"Greetings, lost light.;Welcome into this world,\n"
+ 	"you might be somewhat lost, "
 	"but don't worry, I will guide you.;First of all, you shall know why "
 	"you are here.;This world, as you can see, has slipped down into "
 	"darkness.;That must be fought.;You are the Light which will allow "
 	"this place to shine again.;You shall bring Enlightenment to this "
-	"world.;To do so, you must first collect the Orbs of Light, which you "
-	"will find in the rooms that you can access from this one.;"
-	"They will allow you to access deeper, darker, more complex rooms.;"
-	"And when you find them all, then the Enlightenment shall happen and "
+	"world.;To do so, you must first collect the Orbs of Light,\n which you "
+	"will find in the surrounding rooms;"
+	"They will allow you to access deeper, \ndarker, more complex rooms.;"
+	"And when you find them all, then the Enlightenment\nshall happen and "
 	"the darkness shall scatter.;I wish you good luck !;",
 	"Good job, you are making great progress !;",
 	"Well, I see that you are advancing in your quest !;", "Good luck !;",
