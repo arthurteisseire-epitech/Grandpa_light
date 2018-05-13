@@ -26,6 +26,7 @@ int init_player(rpg_t *rpg)
 	DR(init_stats(&rpg->player->stats));
 	DR(init_shape(&rpg->player->rect, player_set));
 	DR(init_anims(rpg, &rpg->player->anim, player_set));
+	DR(init_buttons(rpg, &rpg->player->items, player_set));
 	sfRectangleShape_setTexture(rpg->player->rect,
 		rpg->player->anim[0]->texture, sfTrue);
 	sfRectangleShape_setOrigin(rpg->player->rect, VEC_HALF_TILE);
@@ -43,6 +44,7 @@ int init_stats(stat_t **stat)
 	(*stat)->xp = 0;
 	(*stat)->xp_to_up = 10;
 	(*stat)->light_radius = RAYCAST_RADIUS;
+	(*stat)->nb_orbe = 0;
 	return (SUCCESS);
 }
 

@@ -13,6 +13,7 @@
 
 int event_map(rpg_t *rpg)
 {
+	set_inventory_text(rpg);
 	if (rpg->event->type == sfEvtKeyPressed) {
 		if (handle_pause_key(rpg))
 			return (SUCCESS);

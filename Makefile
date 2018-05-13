@@ -86,6 +86,8 @@ SRC     =	$(DSRC)main.c			\
 		$(DTILACT)action_room.c		\
 		$(DTILACT)action_end.c		\
 		$(DTILACT)action_torch.c	\
+		$(DTILACT)action_unlocker.c	\
+		$(DTILACT)action_spawn.c	\
 		$(DTILACT)get_tile.c		\
 		$(DTILACT)rotate_laser.c	\
 		$(DMAP)player_light.c		\
@@ -112,7 +114,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DPLAYER)rotate_player.c 	\
 		$(DEVENT)event_menu.c 		\
 		$(DEVENT)event_pause.c 		\
-
+		$(DPLAYER)inventory.c 		\
 
 LDFLAGS	=	-lc_graph_prog -lconfig -lm
 CFLAGS	+=	-Wall -W -Wextra -I$(INC) -g

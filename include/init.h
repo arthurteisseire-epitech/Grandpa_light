@@ -43,6 +43,7 @@ int fill_scene(rpg_t *rpg, config_setting_t *parent, int index);
 int init_text(sfText **text, config_setting_t *parent);
 int fill_text(sfText *text, config_setting_t *text_setting);
 int init_map(rpg_t *rpg, map_t **map, const char *path);
+int init_tile(rpg_t *rpg, tile_t *tile, int index_tile, sfVector2f pos);
 int init_buttons(rpg_t *rpg, button_t ***buttons, config_setting_t *parent);
 int init_button(rpg_t *rpg, button_t **button, config_setting_t *parent, int i);
 int init_shape(sfRectangleShape **rect, config_setting_t *parent);

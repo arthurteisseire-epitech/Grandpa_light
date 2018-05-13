@@ -26,6 +26,7 @@
 typedef struct object_s object_t;
 typedef struct rpg_s rpg_t;
 typedef struct texture_s texture_t;
+typedef struct button_s button_t;
 
 typedef struct stat_s {
 	int xp;
@@ -33,16 +34,13 @@ typedef struct stat_s {
 	float light_radius;
 	sfColor light_color;
 	int xp_to_up;
+	int nb_orbe;
 } stat_t;
-
-typedef struct inventory_s {
-	object_t *items[MAX_ITEMS + 1];
-} inventory_t;
 
 typedef struct player_s {
 	sfRectangleShape *rect;
+	button_t **items;
 	texture_t **anim;
-	inventory_t *inventory;
 	stat_t *stats;
 	sfVector2f pos;
 	int id_anim;
@@ -58,5 +56,7 @@ void player_rotation(rpg_t *rpg);
 void player_movement(rpg_t *rpg);
 int player_action(rpg_t *rpg);
 int player_event(rpg_t *rpg);
+
+int set_inventory_text(rpg_t *rpg);
 
 #endif
