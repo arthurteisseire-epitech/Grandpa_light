@@ -8,6 +8,8 @@
 #ifndef STATES_H
 #define STATES_H
 
+#include <SFML/Graphics.h>
+
 typedef struct rpg_s rpg_t;
 typedef struct scene_s scene_t;
 typedef struct button_s button_t;

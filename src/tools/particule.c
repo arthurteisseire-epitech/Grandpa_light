@@ -51,3 +51,12 @@ void draw_particules(rpg_t *rpg, sfVertexArray *array)
 	sfVertexArray_setPrimitiveType(array, sfLinesStrip);
 	sfRenderWindow_drawVertexArray(rpg->window, array, NULL);
 }
+
+void draw_lparticules(rpg_t *rpg, sfVertexArray *array)
+{
+	sfFloatRect rect = {10, 10, 200, 100};
+
+	generate_particules(array, rect, 100);
+	sfVertexArray_setPrimitiveType(array, sfTrianglesStrip);
+	sfRenderWindow_drawVertexArray(rpg->window, array, NULL);
+}
