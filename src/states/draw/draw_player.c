@@ -7,9 +7,12 @@
 
 #include "rpg.h"
 #include "player.h"
+#include "button.h"
+#include "states.h"
 
 void draw_player(rpg_t *rpg)
 {
 	sfRenderWindow_drawRectangleShape(rpg->window, rpg->player->rect,
 	NULL);
+	draw_buttons(rpg, rpg->player->items);
 }

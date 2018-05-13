@@ -85,6 +85,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DTILACT)action_laser_captor.c	\
 		$(DTILACT)action_room.c		\
 		$(DTILACT)action_end.c		\
+		$(DTILACT)action_unlocker.c	\
 		$(DTILACT)get_tile.c		\
 		$(DTILACT)rotate_laser.c	\
 		$(DMAP)player_light.c		\

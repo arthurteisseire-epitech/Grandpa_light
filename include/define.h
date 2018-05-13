@@ -43,5 +43,6 @@ void my_puterror(char const *str);
 #define GROUND_STR "ground"
 #define GLASS_STR "glass"
 #define SPAWN_STR "spawn"
+#define UNLOCKER_STR "unlocker"
 
 #endif

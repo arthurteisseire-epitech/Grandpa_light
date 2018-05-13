@@ -30,7 +30,7 @@ config_setting_t *find_setting_by_name(config_setting_t *array_set
 #define RPG_TILE(rpg, pos) ((rpg)->scenes[(rpg)->curr_scene]->map->tiles[(int)((pos).x)]\
 [(int)((pos).y)])
 #define RPG_SCENE(rpg) ((rpg)->scenes[(rpg)->curr_scene])
-#define IN_MAP (pos.x < map->size.x && pos.y < map->size.y && pos.x > 0 &&\
-pos.y > 0)
+#define IN_MAP(pos, map) ((pos.x) < (map->size.x) && (pos.y) < (map->size.y) && (pos.x) > 0 &&\
+(pos.y) > 0)
 
 #endif

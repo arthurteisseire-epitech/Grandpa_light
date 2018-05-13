@@ -11,7 +11,7 @@
 #include <SFML/Graphics.h>
 
 #define MASK_NAME(color) ((color).b & 0x0f)
-#define NB_TILE 11
+#define NB_TILE 12
 #define SIZE_TILE 64
 #define LASER_LENGTH 3
 #define VEC_HALF_TILE (sfVector2f){(float)SIZE_TILE / 2, (float)SIZE_TILE / 2}
@@ -24,8 +24,8 @@
 #define DOWN 0b00000110
 
 #define LEFT_UP (sfVector2f){0.0, 0.0}
-#define RAYCAST_NB 30
-#define RAYCAST_RADIUS 50.0f
+#define RAYCAST_NB 110
+#define RAYCAST_RADIUS 500.0f
 
 #define NO_BRIGHT 0.1
 #define MIN_BRIGHT 0.3
@@ -101,6 +101,7 @@ int action_end(rpg_t *rpg, tile_t *tile);
 int action_room(rpg_t *rpg, tile_t *tile);
 int action_laser(rpg_t *rpg, tile_t *laser);
 int action_laser_captor(rpg_t *rpg, tile_t *tile);
+int action_unlocker(rpg_t *rpg, tile_t *tile);
 
 int *swap_lasers(rpg_t *rpg);
 void swap_lasers_back(rpg_t *rpg);
