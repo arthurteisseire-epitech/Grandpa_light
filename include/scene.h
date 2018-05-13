@@ -13,8 +13,8 @@
 #define CURR_SCENE rpg->scenes[rpg->curr_scene]
 #define SCENE_MENU 0
 #define SC_HUB 3
-
 #define SC_MENU_STATUS 4
+#define SC_DIALOG 5
 
 #define MAX_LASER 200
 

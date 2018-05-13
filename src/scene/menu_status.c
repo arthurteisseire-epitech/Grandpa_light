@@ -42,11 +42,11 @@ int sfText_concat_int(rpg_t *rpg, sfText *text, int nb, int index)
 	const char *str = NULL;
 	char *nb_str;
 
-		DR(get_str(rpg, &str, index));
+	DR(get_str(rpg, &str, index));
 	nb_str = my_itoa(nb);
-		CM(nb_str);
+	CM(nb_str);
 	str = concat(my_strdup(str), nb_str, my_strlen(nb_str));
-		CM(str);
+	CM(str);
 	sfText_setString(text, str);
 	free(nb_str);
 	return (SUCCESS);
@@ -54,13 +54,13 @@ int sfText_concat_int(rpg_t *rpg, sfText *text, int nb, int index)
 
 int fill_menu_status(rpg_t *rpg)
 {
-		DR(sfText_concat_int(rpg,
+	DR(sfText_concat_int(rpg,
 		rpg->scenes[SC_MENU_STATUS]->buttons[4]->text,
 		rpg->player->stats->xp, 4));
-		DR(sfText_concat_int(rpg,
+	DR(sfText_concat_int(rpg,
 		rpg->scenes[SC_MENU_STATUS]->buttons[5]->text,
 		rpg->player->stats->level, 5));
-		DR(sfText_concat_int(rpg,
+	DR(sfText_concat_int(rpg,
 		rpg->scenes[SC_MENU_STATUS]->buttons[6]->text,
 		rpg->achievement->nb_achieves, 6));
 	return (SUCCESS);

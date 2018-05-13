@@ -44,6 +44,8 @@ SRC     =	$(DSRC)main.c			\
 		$(DEVENT)event.c		\
 		$(DEVENT)event_map.c		\
 		$(DEVENT)event_status_menu.c	\
+		$(DEVENT)event_menu.c	\
+		$(DEVENT)event_granpa.c	\
 		$(DINIT)init.c			\
 		$(DINIT)init_achievements.c	\
 		$(DINIT)init_player.c		\
@@ -87,6 +89,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DTILACT)action_end.c		\
 		$(DTILACT)get_tile.c		\
 		$(DTILACT)rotate_laser.c	\
+		$(DTILACT)action_granpalight.c	\
 		$(DMAP)player_light.c		\
 		$(DSCENE)change_scene.c		\
 		$(DSCENE)menu_status.c		\
@@ -102,12 +105,12 @@ SRC     =	$(DSRC)main.c			\
 		$(DTOOLS)inverse.c		\
 		$(DTOOLS)open_first_room.c	\
 		$(DTOOLS)wait_delta_frame.c	\
+		$(DTOOLS)get_highest_chanel.c	\
 		$(DTX)get_texture.c		\
 		$(DTX)shift_texture_rect.c	\
 		$(DPLAYER)player_event.c	\
 		$(DPLAYER)move_player.c		\
-		$(DPLAYER)rotate_player.c 	\
-		$(DEVENT)event_menu.c
+		$(DPLAYER)rotate_player.c
 
 LDFLAGS	=	-lc_graph_prog -lconfig -lm
 CFLAGS	+=	-Wall -W -Wextra -I$(INC) -g

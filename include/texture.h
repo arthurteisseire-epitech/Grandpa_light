@@ -17,6 +17,8 @@
 #define TX_TILE_DOOR 4
 #define TX_TILE_ROOM 5
 #define TX_TILE_LIGHT 6
+#define TX_TILE_GRANPA 7
+#define TX_TILE_ACT_GRANPA 8
 
 #define DELTA_FRAME 0.2f
 

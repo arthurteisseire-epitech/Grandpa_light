@@ -34,7 +34,12 @@ const tile_list_t tile_list[NB_TILE] = {
 		CAP_STR, TRUE, TRUE, TRUE, action_laser_captor,
 		TX_TILE_LASER_CAPTOR},
 	{{0x00, 0x00, 0x0b, 0x00},
-		"torch", TRUE, TRUE, FALSE, NULL, TX_TILE_LIGHT},
+		"torch", TRUE, FALSE, FALSE, NULL, TX_TILE_LIGHT},
+	{{0x00, 0x00, 0x0c, 0x00},
+		"granpa", TRUE, TRUE, FALSE, NULL, TX_TILE_GRANPA},
+	{{0x00, 0x00, 0x0d, 0x00},
+		"character_dialog", FALSE, FALSE, TRUE, action_granpa,
+		TX_TILE_ACT_GRANPA}
 	/*
 	 *{{0x00, 0x00, 0x06, 0x00},
 	 *	"door", TRUE, TRUE, NULL, TX_TILE_DOOR},
