@@ -19,6 +19,7 @@ int main(void)
 	rpg_t *rpg = malloc(sizeof(rpg_t));
 
 	CM(rpg);
+	srand((unsigned int)(unsigned long int)rpg);
 	DR(init(rpg));
 	if (rpg->musics != NULL)
 		sfMusic_play(rpg->musics[0]);

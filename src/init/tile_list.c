@@ -36,7 +36,13 @@ const tile_list_t tile_list[NB_TILE] = {
 	{{0x00, 0x00, 0x0b, 0x00},
 		TORCH_STR, FALSE, FALSE, FALSE, refresh_torch, TX_TILE_LIGHT},
 	{{0x00, 0x00, 0x0c, 0x00},
-		UNLOCKER_STR, FALSE, FALSE, TRUE, action_unlocker, TX_TILE_UNLOCKER},
+		"granpa_tile", TRUE, TRUE, FALSE, NULL, TX_TILE_GRANPA},
+	{{0x00, 0x00, 0x0d, 0x00},
+		"granpa_act_tile", FALSE, FALSE, TRUE, action_granpa,
+		TX_TILE_ACT_GRANPA},
+	{{0x00, 0x00, 0x0e, 0x00},
+		UNLOCKER_STR, FALSE, FALSE, TRUE, action_unlocker,
+		TX_TILE_UNLOCKER}
 };
 
 int index_tile_by_name(char *name)

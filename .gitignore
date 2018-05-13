@@ -10,7 +10,6 @@ vgcore*
 *.a
 a.out
 *.swp
-<<<<<<< HEAD
 .idea
 *.a
 cmake*

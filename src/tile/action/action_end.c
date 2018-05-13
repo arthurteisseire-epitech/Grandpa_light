@@ -42,9 +42,9 @@ int action_end(rpg_t *rpg, tile_t *tile)
 {
 	tile_t *room;
 
-	if (rpg->scenes[rpg->curr_scene]->completed == FALSE)
+	if (CURR_SCENE->completed == FALSE)
 		update_stats(rpg, tile);
-	rpg->scenes[rpg->curr_scene]->completed = TRUE;
+	CURR_SCENE->completed = TRUE;
 	if (rpg->scenes[SC_HUB]->map == NULL)
 		return (SUCCESS);
 	rpg->prev_scene = rpg->curr_scene;

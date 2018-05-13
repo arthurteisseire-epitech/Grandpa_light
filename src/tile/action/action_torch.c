@@ -14,8 +14,8 @@
 int refresh_torch(rpg_t __attribute((unused))*rpg, tile_t *tile)
 {
 	tile->active = !tile->active;
-	generate_shader(rpg->scenes[rpg->curr_scene]->map, rpg->player);
-	generate_shader(rpg->scenes[rpg->curr_scene]->map, rpg->player);
-	update_shader(rpg->scenes[rpg->curr_scene]->map);
+	generate_shader(CURR_SCENE->map, rpg->player);
+	generate_shader(CURR_SCENE->map, rpg->player);
+	update_shader(CURR_SCENE->map);
 	return (SUCCESS);
 }

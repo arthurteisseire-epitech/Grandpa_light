@@ -15,7 +15,7 @@ tile_t *apply_on_map(rpg_t *rpg, get_tile_t func, void *data)
 {
 	tile_t *tile;
 	int i = 0;
-	map_t *map = rpg->scenes[rpg->curr_scene]->map;
+	map_t *map = CURR_SCENE->map;
 
 	while (map->tiles[i]) {
 		tile = func(rpg, map->tiles[i], data);

@@ -33,6 +33,7 @@ DEVENT	=	$(DSTATES)event/
 DUPDATE	=	$(DSTATES)update/
 DRAW	=	$(DSTATES)draw/
 DTOOLS	=	$(DSRC)tools/
+DDIAL	=	$(DSRC)dialog/
 
 SRC     =	$(DSRC)main.c			\
 		$(DSRC)game_loop.c		\
@@ -45,6 +46,8 @@ SRC     =	$(DSRC)main.c			\
 		$(DEVENT)event.c		\
 		$(DEVENT)event_map.c		\
 		$(DEVENT)event_status_menu.c	\
+		$(DEVENT)event_menu.c		\
+		$(DEVENT)event_dialog.c		\
 		$(DINIT)init.c			\
 		$(DINIT)init_achievements.c	\
 		$(DINIT)init_player.c		\
@@ -91,6 +94,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DTILACT)action_spawn.c	\
 		$(DTILACT)get_tile.c		\
 		$(DTILACT)rotate_laser.c	\
+		$(DTILACT)action_granpalight.c	\
 		$(DMAP)player_light.c		\
 		$(DSCENE)change_scene.c		\
 		$(DSCENE)menu_status.c		\
@@ -110,17 +114,19 @@ SRC     =	$(DSRC)main.c			\
 		$(DTOOLS)inverse.c		\
 		$(DTOOLS)open_first_room.c	\
 		$(DTOOLS)wait_delta_frame.c	\
+		$(DTOOLS)get_highest_chanel.c	\
 		$(DTOOLS)find_setting_by_name.c	\
 		$(DTX)get_texture.c		\
 		$(DTX)shift_texture_rect.c	\
 		$(DPLAYER)player_event.c	\
 		$(DPLAYER)update_xp.c		\
 		$(DPLAYER)move_player.c		\
-		$(DPLAYER)rotate_player.c 	\
-		$(DEVENT)event_menu.c 		\
 		$(DEVENT)event_settings.c 	\
+		$(DPLAYER)rotate_player.c	\
+		$(DDIAL)get_next_dialog.c	\
+		$(DDIAL)update_text.c		\
 		$(DEVENT)event_pause.c 		\
-		$(DPLAYER)inventory.c 		\
+		$(DPLAYER)inventory.c
 
 LDFLAGS	=	-lc_graph_prog -lconfig -lm
 CFLAGS	+=	-Wall -W -Wextra -I$(INC) -g

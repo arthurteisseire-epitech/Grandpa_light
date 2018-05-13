@@ -22,6 +22,7 @@ typedef struct config_t config_t;
 typedef struct config_setting_t config_setting_t;
 typedef struct player_s player_t;
 typedef struct achievement_s achievement_t;
+typedef struct dialog_s dialog_t;
 
 typedef struct rpg_s {
 	sfEvent *event;
@@ -31,6 +32,7 @@ typedef struct rpg_s {
 	scene_t **scenes;
 	texture_t **tx_tile;
 	texture_t **tx_game;
+	dialog_t *dialog;
 	sfClock *clock;
 	int curr_scene;
 	int prev_scene;

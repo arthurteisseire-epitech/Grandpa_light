@@ -15,8 +15,9 @@
 
 #define SC_HUB 16
 #define SC_MENU_STATUS 17
-#define SC_PAUSE 18
-#define SC_SETTINGS 19
+#define SC_DIALOG 18
+#define SC_PAUSE 19
+#define SC_SETTINGS 20
 
 #define MAX_LASER 200
 

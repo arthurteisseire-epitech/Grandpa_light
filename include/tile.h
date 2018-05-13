@@ -11,12 +11,16 @@
 #include <SFML/Graphics.h>
 
 #define MASK_NAME(color) ((color).b & 0x0f)
-#define NB_TILE 12
+#define NB_TILE 14
 #define SIZE_TILE 64
 #define LASER_LENGTH 3
 #define VEC_HALF_TILE (sfVector2f){(float)SIZE_TILE / 2, (float)SIZE_TILE / 2}
 
-#define RIGHT_ANGLE -90.0
+#define DIAL_BOX_IDX 1
+#define DIAL_GRANPA_IDX 0
+#define LAST_CHANEL 15
+
+#define RIGHT_ANGLE (-90.0)
 
 #define RIGHT 0b00000000
 #define UP 0b00000010
@@ -107,6 +111,7 @@ int action_end(rpg_t *rpg, tile_t *tile);
 int action_room(rpg_t *rpg, tile_t *tile);
 int action_laser(rpg_t *rpg, tile_t *laser);
 int action_laser_captor(rpg_t *rpg, tile_t *tile);
+int action_granpa(rpg_t *rpg, tile_t *tile);
 int action_unlocker(rpg_t *rpg, tile_t *tile);
 int action_spawn(rpg_t *rpg, tile_t *tile);
 

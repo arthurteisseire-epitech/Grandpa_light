@@ -52,19 +52,19 @@ int set_texture_by_setting(texture_t **textures, sfRectangleShape *rect,
 	config_setting_t *tx_setting = config_setting_lookup(parent, "texture");
 
 	if (tx_setting == NULL)
-		return (WRONG_CONFIG_PATH);
+		return (my_puterror("texture: "), WRONG_CONFIG_PATH);
 	config_setting_lookup_string(tx_setting, "name", &str);
 	if (str == NULL)
-		return (WRONG_CONFIG_PATH);
+		return (my_puterror("texture name: "), WRONG_CONFIG_PATH);
 	tx = get_texture_by_name(textures, str);
 	if (tx == NULL)
-		return (TEXTURE_NOT_FOUND);
+		return (my_puterror("get tx by name: "), TEXTURE_NOT_FOUND);
 	config_setting_lookup_string(tx_setting, "rect", &str);
 	if (str == NULL)
-		return (WRONG_CONFIG_PATH);
+		return (my_puterror("texture rect : "), WRONG_CONFIG_PATH);
 	rect_int = get_texture_rect_by_name(tx, str);
 	if (rect_int == NULL)
-		return (WRONG_CONFIG_PATH);
+		return (my_puterror("get tx rect by name "), WRONG_CONFIG_PATH);
 	set_rectangle(rect, tx, rect_int);
 	return (SUCCESS);
 }
