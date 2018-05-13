@@ -5,6 +5,7 @@
 ** Created by Adrien FABRE,
 */
 
+#include <stdlib.h>
 #include "my.h"
 #include "rpg.h"
 #include "button.h"
@@ -33,7 +34,7 @@ int action_granpa(rpg_t *rpg, __attribute((unused))tile_t *tile)
 		open_first_room(rpg);
 		dialog = 0;
 	} else if (highest_active_chanel < LAST_CHANEL)
-		dialog = (int)(((unsigned long int)(&dialog) % 14) + 1);
+		dialog = rand() % 14 + 1;
 	else
 		dialog = LAST_CHANEL;
 	DR(prepare_dialog_scene(rpg, dialog));

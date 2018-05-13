@@ -39,6 +39,6 @@ config_setting_t *find_setting_by_name(config_setting_t *array_set
 int get_highest_active_chanel(map_t const *map);
 
 char *get_next_dialog(int idx);
-int update_text(button_t *button);
+int update_text(rpg_t *rpg);
 
 #endif

@@ -12,10 +12,15 @@
 #include "button.h"
 #include "tool.h"
 
-int update_text(button_t *button)
+int update_text(rpg_t *rpg)
 {
 	const char *actual_str = get_next_dialog(-1);
 
-	sfText_setString(button->text, actual_str);
-	return (actual_str == NULL || *actual_str == '\0');
+	if (actual_str == NULL || *actual_str == '\0') {
+		rpg->curr_scene = SC_HUB;
+		return (1);
+	}
+	sfText_setString(RPG_SCENE(rpg)->buttons[DIAL_BOX_IDX]->text,
+		actual_str);
+	return (0);
 }
