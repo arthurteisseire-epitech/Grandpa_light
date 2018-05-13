@@ -10,7 +10,7 @@ INC	=	include
 DLIB	=	lib/
 DMY	=	$(DLIB)my/
 MY	=	my
-DLCFG	=	$(DLIB)libconfig
+DLCFG	=	extern_libs/libconfig-1.7.2/
 
 LCFG	=	config
 LIBS	=	-L$(DMY) -l$(MY) -L$(DLCFG) -l$(LCFG)
@@ -108,6 +108,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DBUTACT)button_pause.c	\
 		$(DBUTACT)button_volume.c	\
 		$(DBUTACT)button_size.c		\
+		$(DBUTACT)button_htp.c		\
 		$(DTOOLS)vec.c			\
 		$(DTOOLS)get_rect.c		\
 		$(DTOOLS)is_pos_in_rect.c	\
@@ -140,6 +141,7 @@ all: $(NAME)
 
 $(NAME):	$(OBJ)
 	make -C $(DMY)
+	cd $(DLCFG) && gcc -fPIC -shared lib/*.c -o libconfig.so && cd ../..
 	$(CC) -o $(NAME) $(OBJ) $(LIBS) $(LDFLAGS)
 
 clean:

@@ -18,6 +18,7 @@
 #define SC_DIALOG 18
 #define SC_PAUSE 19
 #define SC_SETTINGS 20
+#define SC_HTP 21
 
 #define MAX_LASER 200
 
