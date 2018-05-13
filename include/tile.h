@@ -16,8 +16,8 @@
 #define LASER_LENGTH 3
 #define VEC_HALF_TILE (sfVector2f){(float)SIZE_TILE / 2, (float)SIZE_TILE / 2}
 
-#define DIAL_BOX_IDX 0
-#define DIAL_GRANPA_IDX 1
+#define DIAL_BOX_IDX 1
+#define DIAL_GRANPA_IDX 0
 #define LAST_CHANEL 15
 
 #define RIGHT_ANGLE (-90.0)

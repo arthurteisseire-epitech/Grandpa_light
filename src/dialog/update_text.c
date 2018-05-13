@@ -20,6 +20,7 @@ int update_text(rpg_t *rpg)
 		rpg->curr_scene = SC_HUB;
 		return (1);
 	}
+	sfText_setColor(RPG_SCENE(rpg)->buttons[DIAL_BOX_IDX]->text, sfBlack);
 	sfText_setString(RPG_SCENE(rpg)->buttons[DIAL_BOX_IDX]->text,
 		actual_str);
 	return (0);
