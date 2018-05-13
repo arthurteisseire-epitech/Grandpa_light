@@ -49,7 +49,7 @@ typedef struct player_s {
 	int curr_frame;
 } player_t;
 
-void rotate_player(rpg_t *rpg, float angle, sfVector2f dir);
+void rotate_player(rpg_t *rpg, float angle);
 void move_player(rpg_t *rpg, sfVector2f *pos, sfVector2f move);
 void set_player_pos(player_t *player);
 void animate_sprite(player_t *player, sfClock *clock);

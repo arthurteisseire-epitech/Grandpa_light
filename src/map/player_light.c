@@ -22,33 +22,21 @@ sfVector2f get_tile_pos(sfVector2f pos, int angle, int dist)
 	return (inv_scale_vec(new_pos, SIZE_TILE));
 }
 
-float get_dir_scale(sfVector2f dir, int angle)
-{
-	int dir_angle;
-
-	if (dir.x || dir.y)
-		dir_angle = dir.x * 180 + dir.y * 270;
-	else
-		dir_angle = 0.01 + dir.y * 90;
-	return (1 + angle / dir_angle);
-}
-
-int ray_collide(map_t *map, player_t *player, int angle, sfVector2f dir)
+int ray_collide(map_t *map, sfVector2f pos, int radius, int angle)
 {
 	sfVector2f tile_pos;
 	tile_t *tile;
 	int i = 0;	
 	float light_lv;
-	float dir_scale = get_dir_scale(dir, angle);
 
-	while (i < player->stats->light_radius) {
-		tile_pos = get_tile_pos(player->pos, angle, i);
+	while (i < radius) {
+		tile_pos = get_tile_pos(pos, angle, i);
 		if (!is_in_map(map, tile_pos)) {
 			return (i);
 		}
 		tile = map->tiles[(int)tile_pos.x][(int)tile_pos.y];
 		tile->lighted = 1;
-		light_lv = 1 - ((float)i / player->stats->light_radius);
+		light_lv = 1 - ((float)i / radius);
 		if (tile->light_level < light_lv)
 			tile->light_level = light_lv; 
 		if (tile->laser_col) {
@@ -68,26 +56,26 @@ sfColor gen_color(int step)
 	return (color);
 }
 
-void gen_raycast(map_t *map, player_t *player, sfVector2f dir)
+void gen_raycast(map_t *map, sfVector2f pos, int radius)
 {
 	sfRectangleShape **raycast_circle = 
 		malloc(sizeof(sfRectangleShape *) * (RAYCAST_NB + 1));
-	sfVector2f old_pos = player->pos;
+	sfVector2f old_pos = pos;
 	int angle;
 
-	player->pos = add_vec(scale_vec(player->pos, SIZE_TILE)
+	pos = add_vec(scale_vec(pos, SIZE_TILE)
 	, VEC_HALF_TILE);
 	for (int step = 0; step < RAYCAST_NB; step++) {
 		angle = 360 / RAYCAST_NB * (float)step;
 		raycast_circle[step] = sfRectangleShape_create();
 		sfRectangleShape_setFillColor(raycast_circle[step]
 			, gen_color(step));
-		sfRectangleShape_setPosition(raycast_circle[step], player->pos);
+		sfRectangleShape_setPosition(raycast_circle[step], pos);
 		sfRectangleShape_setRotation(raycast_circle[step] , angle);
 		sfRectangleShape_setSize(raycast_circle[step] , (sfVector2f)
-			{ray_collide(map, player, angle, dir), 3});
+			{ray_collide(map, pos, radius, angle), 3});
 	}
 	raycast_circle[RAYCAST_NB] = NULL;	
 	map->raycast_circle = raycast_circle;
-	player->pos = old_pos;
+	pos = old_pos;
 }

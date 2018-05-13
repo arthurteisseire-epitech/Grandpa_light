@@ -34,7 +34,7 @@ const tile_list_t tile_list[NB_TILE] = {
 		CAP_STR, TRUE, TRUE, TRUE, action_laser_captor,
 		TX_TILE_LASER_CAPTOR},
 	{{0x00, 0x00, 0x0b, 0x00},
-		"torch", TRUE, TRUE, FALSE, NULL, TX_TILE_LIGHT},
+		TORCH_STR, FALSE, FALSE, FALSE, refresh_torch, TX_TILE_LIGHT},
 };
 
 int index_tile_by_color(sfColor color)

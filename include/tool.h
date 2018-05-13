@@ -24,6 +24,7 @@ int wait_delta_frame(sfClock *clock, float *delta_time, float delta_frame);
 config_setting_t *find_setting_by_name(config_setting_t *array_set
 	, const char *name);
 
+#define ABS(x) (x < 0 ? -x : x)
 #define RPG_MAP(rpg) ((rpg)->scenes[(rpg)->curr_scene]->map)
 #define MAP_TILE(map, pos) ((map)->tiles[(int)((pos).x)][(int)((pos).y)])
 #define RPG_TILES(rpg) ((rpg)->scenes[(rpg)->curr_scene]->map->tiles)
