@@ -101,6 +101,8 @@ SRC     =	$(DSRC)main.c			\
 		$(DBUTACT)button_exit.c	\
 		$(DBUTACT)button_return.c	\
 		$(DBUTACT)button_pause.c		\
+		$(DBUTACT)button_volume.c		\
+		$(DBUTACT)button_size.c		\
 		$(DTOOLS)vec.c			\
 		$(DTOOLS)get_rect.c		\
 		$(DTOOLS)is_pos_in_rect.c	\
