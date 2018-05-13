@@ -35,7 +35,7 @@ const tile_list_t tile_list[NB_TILE] = {
 		TX_TILE_LASER_CAPTOR},
 	{{0x00, 0x00, 0x0b, 0x00},
 		TORCH_STR, FALSE, FALSE, FALSE, refresh_torch, TX_TILE_LIGHT},
-	{{0x00, 0x00, 0x0c, 0x00},
+	{{0x00, 0x00, 0x0e, 0x00},
 		UNLOCKER_STR, FALSE, FALSE, TRUE, action_unlocker, TX_TILE_UNLOCKER},
 };
 
