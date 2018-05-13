@@ -10,7 +10,7 @@
 
 int menu_status(rpg_t *rpg)
 {
-	if (sfKeyboard_isKeyPressed(sfKeyP)) {
+	if (rpg->event->key.code == sfKeyO && rpg->event->type == sfEvtKeyReleased) {
 		rpg->curr_scene = rpg->prev_scene;
 	}
 	return (SUCCESS);
