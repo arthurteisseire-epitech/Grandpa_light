@@ -118,6 +118,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DPLAYER)move_player.c		\
 		$(DPLAYER)rotate_player.c 	\
 		$(DEVENT)event_menu.c 		\
+		$(DEVENT)event_settings.c 	\
 		$(DEVENT)event_pause.c 		\
 		$(DPLAYER)inventory.c 		\
 
