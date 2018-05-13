@@ -12,6 +12,7 @@
 #include "texture.h"
 #include "scene.h"
 #include "tile.h"
+#include "player.h"
 #include "tool.h"
 #include "define.h"
 #include "event.h"
@@ -33,6 +34,7 @@ int action_granpa(rpg_t *rpg, __attribute((unused))tile_t *tile)
 	if (highest_active_chanel == 0) {
 		open_first_room(rpg);
 		dialog = 0;
+		rpg->player->stats->nb_orbe++;
 	} else if (highest_active_chanel < LAST_CHANEL)
 		dialog = rand() % 14 + 1;
 	else
