@@ -45,7 +45,7 @@ int init_stats(stat_t **stat)
 	(*stat)->xp = 0;
 	(*stat)->xp_to_up = 10;
 	(*stat)->light_radius = RAYCAST_RADIUS;
-	(*stat)->nb_orbe = 0;
+	(*stat)->nb_orbe = 1;
 	return (SUCCESS);
 }
 

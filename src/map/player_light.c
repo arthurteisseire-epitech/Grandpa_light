@@ -66,7 +66,7 @@ void gen_raycast(map_t *map, sfVector2f pos, int radius)
 	pos = add_vec(scale_vec(pos, SIZE_TILE)
 	, VEC_HALF_TILE);
 	for (int step = 0; step < RAYCAST_NB; step++) {
-		angle = 360 / RAYCAST_NB * (float)step;
+		angle = ((float)step / RAYCAST_NB) * 360;
 		raycast_circle[step] = sfRectangleShape_create();
 		sfRectangleShape_setFillColor(raycast_circle[step]
 			, gen_color(step));

@@ -28,10 +28,10 @@
 #define DOWN 0b00000110
 
 #define LEFT_UP (sfVector2f){0.0, 0.0}
-#define RAYCAST_NB 110
-#define RAYCAST_RADIUS 100.0f
+#define RAYCAST_NB 100
+#define RAYCAST_RADIUS 400.0f
 
-#define NO_BRIGHT 0.1
+#define NO_BRIGHT 0.0
 #define MIN_BRIGHT 0.3
 #define TORCH_RADIUS 130
 typedef struct sprite_s sprite_t;

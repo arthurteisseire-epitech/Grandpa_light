@@ -37,9 +37,11 @@ int action_unlocker(rpg_t *rpg, tile_t *tile)
 {
 	tile_t *door = get_door(rpg, tile);
 
-	if (door && rpg->player->stats->nb_orbe >= door->chanel
+	printf("toot\n");
+	if (door && rpg->player->stats->nb_orbe >= tile->chanel
 	&& !door->active) {
-		rpg->player->stats->nb_orbe -= door->chanel;
+		printf("nb_orb: %d, door->chanel: %d\n", rpg->player->stats->nb_orbe, door->chanel);
+		rpg->player->stats->nb_orbe -= tile->chanel;
 		action_door(rpg, door);
 	}
 	return (SUCCESS);
