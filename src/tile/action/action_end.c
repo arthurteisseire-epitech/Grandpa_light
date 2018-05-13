@@ -58,5 +58,7 @@ int action_end(rpg_t *rpg, tile_t *tile)
 		shift_texture_rect(room->rect, room->tx, &room->curr_frame);
 	}
 	DR(change_tile(rpg, tile));
+	generate_shader(CURR_SCENE->map, rpg->player);
+	update_shader(CURR_SCENE->map);
 	return (SUCCESS);
 }

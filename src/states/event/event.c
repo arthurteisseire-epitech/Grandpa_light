@@ -14,6 +14,7 @@
 #include "player.h"
 #include "tile.h"
 #include "tool.h"
+#include "achievement.h"
 
 void handle_exit_key(rpg_t *rpg)
 {
@@ -27,6 +28,7 @@ int handle_pause_key(rpg_t *rpg)
 	if (rpg->event->key.code == sfKeyEscape && rpg->event->type == sfEvtKeyReleased) {
 		rpg->prev_scene = rpg->curr_scene;
 		rpg->curr_scene = SC_PAUSE;
+		fill_achievement(rpg, "menu_pause");
 		return (1);
 	}
 	return (0);

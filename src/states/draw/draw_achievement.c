@@ -13,17 +13,21 @@
 void draw_on_achievement(rpg_t *rpg)
 {
 	static float delta_time = 0.0f;
+	static float wait = 0.0f;
 	sfTime time = sfClock_getElapsedTime(rpg->clock);
 	
-	if (!rpg->is_achieve || rpg->achievement == NULL) {
-		delta_time = sfTime_asSeconds(time);
+	if (rpg->achievement == NULL)
 		return;
+	if (rpg->is_achieve) {
+		wait += DELTA_ACHIEVE;
+		rpg->is_achieve = FALSE;
+		delta_time = sfTime_asSeconds(time);
 	}
-	if (sfTime_asSeconds(time) <= delta_time + DELTA_ACHIEVE) {
+	if (sfTime_asSeconds(time) <= delta_time + wait) {
 		draw_achievement(rpg);
 		return;
 	}
-	delta_time = sfTime_asSeconds(time);
+	wait = 0.0f;
 	rpg->is_achieve = FALSE;
 }
 
