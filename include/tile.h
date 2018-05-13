@@ -104,6 +104,7 @@ int action_room(rpg_t *rpg, tile_t *tile);
 int action_laser(rpg_t *rpg, tile_t *laser);
 int action_laser_captor(rpg_t *rpg, tile_t *tile);
 int action_unlocker(rpg_t *rpg, tile_t *tile);
+int action_spawn(rpg_t *rpg, tile_t *tile);
 
 int *swap_lasers(rpg_t *rpg);
 void swap_lasers_back(rpg_t *rpg);

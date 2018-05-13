@@ -19,7 +19,7 @@ const tile_list_t tile_list[NB_TILE] = {
 	{{0x00, 0x00, 0x03, 0x00},
 		GLASS_STR, TRUE, TRUE, FALSE, action_door, TX_TILE},
 	{{0x00, 0x00, 0x04, 0x00},
-		SPAWN_STR, FALSE, FALSE, FALSE, NULL, TX_TILE},
+		SPAWN_STR, FALSE, FALSE, TRUE, action_spawn, TX_TILE},
 	{{0x00, 0x00, 0x05, 0x00},
 		END_STR, FALSE, FALSE, TRUE, action_end, TX_TILE},
 	{{0x00, 0x00, 0x06, 0x00},
