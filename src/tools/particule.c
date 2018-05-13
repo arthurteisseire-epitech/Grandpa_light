@@ -10,18 +10,17 @@
 #include "rpg.h"
 #include "tool.h"
 
-sfVector2f get_random_pos(sfIntRect rect)
+sfVector2f get_random_pos(sfFloatRect rect)
 {
 	sfVector2f res;
 
-	res.x = rand() % rect.width + rect.left;
-	res.y = rand() % rect.height + rect.top;
+	res.x = rand() % (int)rect.width + rect.left;
+	res.y = rand() % (int)rect.height + rect.top;
 	return (res);
 }
 
-void generate_particules(sfVertexArray *array, int nb)
+void generate_particules(sfVertexArray *array, sfFloatRect rect, int nb)
 {
-	sfIntRect rect = {10, 10, 200, 100};
 	sfVector2f pos = get_random_pos(rect);
 	sfVertex *tmp;
 	sfVertex vertex = {.position = (sfVector2f){pos.x, pos.y}
@@ -46,7 +45,18 @@ void generate_particules(sfVertexArray *array, int nb)
 
 void draw_particules(rpg_t *rpg, sfVertexArray *array)
 {
-	generate_particules(array, 100);
+	sfFloatRect rect = {10, 10, 200, 100};
+
+	generate_particules(array, rect, 100);
 	sfVertexArray_setPrimitiveType(array, sfLinesStrip);
+	sfRenderWindow_drawVertexArray(rpg->window, array, NULL);
+}
+
+void draw_lparticules(rpg_t *rpg, sfVertexArray *array)
+{
+	sfFloatRect rect = {10, 10, 200, 100};
+
+	generate_particules(array, rect, 100);
+	sfVertexArray_setPrimitiveType(array, sfTrianglesStrip);
 	sfRenderWindow_drawVertexArray(rpg->window, array, NULL);
 }

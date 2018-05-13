@@ -38,6 +38,10 @@ int draw(rpg_t *rpg)
 	if (CURR_SCENE->map != NULL) {
 		draw_player(rpg);
 	}
+	if (rpg->curr_scene == SCENE_MENU)
+		draw_particules(rpg, rpg->vertex_array);
+	if (rpg->curr_scene == SC_PAUSE)
+		draw_lparticules(rpg, rpg->vertex_array);
 	sfRenderWindow_display(rpg->window);
 	return (SUCCESS);
 }

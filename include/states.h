@@ -8,6 +8,8 @@
 #ifndef STATES_H
 #define STATES_H
 
+#include <SFML/Graphics.h>
+
 typedef struct rpg_s rpg_t;
 typedef struct scene_s scene_t;
 typedef struct button_s button_t;
@@ -22,5 +24,6 @@ void draw_on_achievement(rpg_t *rpg);
 void draw_scene(rpg_t *rpg, scene_t *scene);
 void draw_buttons(rpg_t *rpg, button_t **buttons);
 void draw_player(rpg_t *rpg);
+void draw_laser_particule(rpg_t *rpg);
 
 #endif

@@ -36,6 +36,8 @@ int wait_delta_frame(sfClock *clock, float *delta_time, float delta_frame);
 config_setting_t *find_setting_by_name(config_setting_t *array_set,
 	const char *name);
 void draw_particules(rpg_t *rpg, sfVertexArray *array);
+void generate_particules(sfVertexArray *array, sfFloatRect rect, int nb);
+void draw_lparticules(rpg_t *rpg, sfVertexArray *array);
 
 int get_highest_active_chanel(map_t const *map);
 
