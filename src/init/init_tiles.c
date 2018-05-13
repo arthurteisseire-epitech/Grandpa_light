@@ -32,7 +32,7 @@ int parse_image_line(rpg_t *rpg, map_t *map, sfImage *image, int row)
 			(sfVector2f){row, col}, color);
 		DR(init_tile(rpg, map->tiles[row][col], index,
 			(sfVector2f){row, col}));
-		add_anim_tile(&rpg->scenes[rpg->curr_scene]->anim_tiles,
+		add_anim_tile(&CURR_SCENE->anim_tiles,
 			map->tiles[row][col]);
 	}
 	return (SUCCESS);

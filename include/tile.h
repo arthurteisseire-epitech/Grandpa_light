@@ -16,6 +16,8 @@
 #define LASER_LENGTH 3
 #define VEC_HALF_TILE (sfVector2f){(float)SIZE_TILE / 2, (float)SIZE_TILE / 2}
 
+#define DIAL_BOX_IDX 0
+#define DIAL_GRANPA_IDX 1
 #define LAST_CHANEL 15
 
 #define RIGHT_ANGLE (-90.0)
@@ -27,16 +29,16 @@
 
 #define LEFT_UP (sfVector2f){0.0, 0.0}
 #define RAYCAST_NB 30
-#define RAYCAST_RADIUS 200
+#define RAYCAST_RADIUS 50.0f
 
 #define NO_BRIGHT 0.1
 #define MIN_BRIGHT 0.3
-#define LIGHT_POWER 0.25
-
+#define TORCH_RADIUS 130
 typedef struct sprite_s sprite_t;
 typedef struct rpg_s rpg_t;
 typedef struct texture_s texture_t;
 typedef struct map_s map_t;
+typedef struct player_s player_t;
 
 typedef struct laser_s {
 	char horizontal;
@@ -74,6 +76,11 @@ typedef struct tile_list_s {
 	int idx_texture;
 } tile_list_t;
 
+typedef struct light_s {
+	sfVector2f pos;
+	int radius;
+} light_t;
+
 typedef tile_t *(*get_tile_t)(rpg_t *, tile_t **, void *);
 typedef int (*pos_tile_t)(map_t *, tile_t **, void *);
 
@@ -81,8 +88,10 @@ extern const tile_list_t tile_list[];
 
 int index_tile_by_color(sfColor color);
 void update_shader(map_t *map);
-void generate_shader(map_t *map, sfVector2f pos, sfVector2f dir);
 char is_in_map(map_t *map, sfVector2f pos);
+void player_light(map_t *map, player_t *player);
+void generate_shader(map_t *map, player_t *player);
+void gen_raycast(map_t *map, sfVector2f pos, int radius);
 
 void update_anim_tiles(rpg_t *rpg, sfClock *clock);
 tile_t *apply_on_map(rpg_t *rpg, get_tile_t func, void *data);
@@ -107,6 +116,6 @@ void swap_lasers_back(rpg_t *rpg);
 void rotate_laser(rpg_t *rpg, tile_t *laser);
 
 void rotate_sprite(tile_t *laser, float angle);
-void gen_raycast(map_t *map, sfVector2f pos, sfVector2f dir);
+int refresh_torch(rpg_t *rpg, tile_t *tile);
 
 #endif

@@ -12,7 +12,7 @@
 int button_setting(rpg_t *rpg)
 {
 	rpg->curr_scene = SC_HUB;
-	if (rpg->scenes[rpg->curr_scene]->map != NULL)
+	if (CURR_SCENE->map != NULL)
 		place_in_spawn(rpg);
 	return (SUCCESS);
 }

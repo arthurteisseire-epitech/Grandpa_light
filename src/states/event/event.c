@@ -25,8 +25,8 @@ static int handle_general_event(rpg_t *rpg)
 {
 	if (rpg->event->type == sfEvtClosed)
 		sfRenderWindow_close(rpg->window);
-	if (rpg->scenes[rpg->curr_scene]->buttons != NULL)
-		manage_buttons(rpg, rpg->scenes[rpg->curr_scene]->buttons,
+	if (CURR_SCENE->buttons != NULL)
+		manage_buttons(rpg, CURR_SCENE->buttons,
 			rpg->event);
 	return (SUCCESS);
 }
@@ -35,8 +35,8 @@ int event(rpg_t *rpg)
 {
 	while (sfRenderWindow_pollEvent(rpg->window, rpg->event)) {
 		handle_general_event(rpg);
-		if (rpg->scenes[rpg->curr_scene]->event != NULL)
-			DR(rpg->scenes[rpg->curr_scene]->event(rpg));
+		if (CURR_SCENE->event != NULL)
+			DR(CURR_SCENE->event(rpg));
 	}
 	return (SUCCESS);
 }

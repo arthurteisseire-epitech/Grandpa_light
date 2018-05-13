@@ -34,7 +34,7 @@ void move_player(rpg_t *rpg, sfVector2f *pos, sfVector2f move)
 {
 	sfVector2f new_pos = add_vec(*pos, move);
 
-	if (!collide(rpg->scenes[rpg->curr_scene]->map, new_pos)) {
+	if (!collide(CURR_SCENE->map, new_pos)) {
 		*pos = new_pos;
 	}
 }

@@ -41,6 +41,8 @@ int init_stats(stat_t **stat)
 	CM(*stat);
 	(*stat)->level = 0;
 	(*stat)->xp = 0;
+	(*stat)->xp_to_up = 10;
+	(*stat)->light_radius = RAYCAST_RADIUS;
 	return (SUCCESS);
 }
 

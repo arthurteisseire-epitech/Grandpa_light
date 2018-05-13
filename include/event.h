@@ -18,7 +18,7 @@ int menu_status(rpg_t *rpg);
 int event_dialog(rpg_t *rpg);
 
 #ifndef NB_FT_SCENE
-	#define NB_FT_SCENE 3
+	#define NB_FT_SCENE 4
 #endif
 
 typedef struct ft_scene_s {
@@ -26,7 +26,7 @@ typedef struct ft_scene_s {
 	scene_func_t scene_func;
 } ft_scene_t;
 
-static const ft_scene_t ft_scene[] = {
+static const ft_scene_t ft_scene[NB_FT_SCENE] = {
 	{"default", event_map},
 	{"menu", event_menu},
 	{"menu_status", menu_status},

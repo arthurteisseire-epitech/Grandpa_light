@@ -33,6 +33,7 @@ DEVENT	=	$(DSTATES)event/
 DUPDATE	=	$(DSTATES)update/
 DRAW	=	$(DSTATES)draw/
 DTOOLS	=	$(DSRC)tools/
+DDIAL	=	$(DSRC)dialog/
 
 SRC     =	$(DSRC)main.c			\
 		$(DSRC)game_loop.c		\
@@ -44,8 +45,8 @@ SRC     =	$(DSRC)main.c			\
 		$(DEVENT)event.c		\
 		$(DEVENT)event_map.c		\
 		$(DEVENT)event_status_menu.c	\
-		$(DEVENT)event_menu.c	\
-		$(DEVENT)event_granpa.c	\
+		$(DEVENT)event_menu.c		\
+		$(DEVENT)event_dialog.c		\
 		$(DINIT)init.c			\
 		$(DINIT)init_achievements.c	\
 		$(DINIT)init_player.c		\
@@ -87,6 +88,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DTILACT)action_laser_captor.c	\
 		$(DTILACT)action_room.c		\
 		$(DTILACT)action_end.c		\
+		$(DTILACT)action_torch.c	\
 		$(DTILACT)get_tile.c		\
 		$(DTILACT)rotate_laser.c	\
 		$(DTILACT)action_granpalight.c	\
@@ -110,7 +112,9 @@ SRC     =	$(DSRC)main.c			\
 		$(DTX)shift_texture_rect.c	\
 		$(DPLAYER)player_event.c	\
 		$(DPLAYER)move_player.c		\
-		$(DPLAYER)rotate_player.c
+		$(DPLAYER)rotate_player.c	\
+		$(DDIAL)get_next_dialog.c	\
+		$(DDIAL)update_text.c
 
 LDFLAGS	=	-lc_graph_prog -lconfig -lm
 CFLAGS	+=	-Wall -W -Wextra -I$(INC) -g

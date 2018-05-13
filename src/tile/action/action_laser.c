@@ -41,7 +41,7 @@ int action_laser(rpg_t *rpg, tile_t *laser)
 	sfVector2f pos = add_vec(laser->pos, direction);
 	char hor_laser = laser->direction == LEFT || laser->direction == RIGHT;
 	char ver_laser = laser->direction == UP || laser->direction == DOWN;
-	map_t *map = rpg->scenes[rpg->curr_scene]->map;
+	map_t *map = CURR_SCENE->map;
 
 	laser->active = !laser->active;
 	while (IN_MAP && MAP_TILE(map, pos)->laser_col == FALSE) {
