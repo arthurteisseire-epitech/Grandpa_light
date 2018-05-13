@@ -35,7 +35,7 @@ int init_scenes(rpg_t *rpg)
 
 	setting = config_setting_lookup(rpg->set, "scenes");
 	if (setting == NULL)
-		return (WRONG_CONFIG_PATH);
+		return (my_puterror("lookup scenes: "), WRONG_CONFIG_PATH);
 	rpg->nb_scenes = config_setting_length(setting);
 	rpg->scenes = malloc(sizeof(scene_t *) * (rpg->nb_scenes + 1));
 	CM(rpg->scenes);
@@ -47,7 +47,6 @@ int init_scenes(rpg_t *rpg)
 		DR(fill_scene(rpg, setting, i));
 	}
 	rpg->scenes[rpg->nb_scenes] = NULL;
-	open_first_room(rpg);
 	return (SUCCESS);
 }
 

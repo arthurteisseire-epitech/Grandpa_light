@@ -12,8 +12,10 @@
 
 void set_rect(tile_t *tile)
 {
-	if (tile->chanel == 1)
+	if (tile->chanel == 1) {
 		shift_texture_rect(tile->rect, tile->tx, &tile->curr_frame);
+		tile->active = 1;
+	}
 }
 
 void open_first_room(rpg_t *rpg)
@@ -31,4 +33,3 @@ void open_first_room(rpg_t *rpg)
 		row++;
 	}
 }
-

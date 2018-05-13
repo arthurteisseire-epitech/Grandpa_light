@@ -41,7 +41,8 @@ static int init_sound(sfSound **sound, config_setting_t *parent, int i)
 		return (SOUND_NOT_FOUND);
 	config_setting_lookup_string(sound_set, "path", &str);
 	if (str == NULL)
-		return (WRONG_CONFIG_PATH);
+		return (my_puterror("init sound: lookup paths:"),
+		WRONG_CONFIG_PATH);
 	config_setting_lookup_float(sound_set, "volume", &vol);
 	config_setting_lookup_int(sound_set, "loop", &loop);
 	sfSound_setLoop(*sound, loop);

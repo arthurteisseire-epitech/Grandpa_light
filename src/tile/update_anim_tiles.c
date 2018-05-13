@@ -20,7 +20,7 @@ void update_anim_tiles(rpg_t *rpg, sfClock *clock)
 
 	if (wait_delta_frame(clock, &delta_time, DELTA_FRAME) == FALSE)
 		return;
-	tiles = rpg->scenes[rpg->curr_scene]->anim_tiles;
+	tiles = CURR_SCENE->anim_tiles;
 	if (tiles == NULL)
 		return;
 	while (tiles[i] != NULL) {

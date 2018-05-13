@@ -17,7 +17,7 @@ int event_map(rpg_t *rpg)
 	if (handle_pause_key(rpg))
 		return (SUCCESS);
 	if (rpg->event->type == sfEvtKeyPressed) {
-		if (rpg->scenes[rpg->curr_scene]->map != NULL)
+		if (CURR_SCENE->map != NULL)
 			player_event(rpg);
 	}
 	launch_menu_status(rpg);

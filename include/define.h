@@ -14,10 +14,13 @@
 			return (MALLOC_FAILED)
 #define CHECK_FONT(ptr) if ((ptr) == NULL) \
 			return (FONT_NOT_FOUND)
+#define CHECK_TEXTURE(tx) if ((tx) == NULL) \
+			return (TEXTURE_NOT_FOUND)
 
 #define DR DOMINO_RETURN
 #define CM CHECK_MALLOC
 #define CF CHECK_FONT
+#define CT CHECK_TEXTURE
 
 #define TRUE 1
 #define FALSE 0

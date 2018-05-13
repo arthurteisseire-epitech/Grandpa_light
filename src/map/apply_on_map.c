@@ -15,7 +15,7 @@ tile_t *apply_on_map(rpg_t *rpg, get_tile_t func, void *data)
 {
 	tile_t *tile;
 	int i = 0;
-	map_t *map = rpg->scenes[rpg->curr_scene]->map;
+	map_t *map = CURR_SCENE->map;
 
 	while (map->tiles[i]) {
 		tile = func(rpg, map->tiles[i], data);
@@ -60,7 +60,8 @@ tile_t *get_tile_by_chanel(rpg_t *rpg, tile_t **tiles, void *data)
 
 	(void)rpg;
 	while (tiles[i]) {
-		if (tile->chanel == tiles[i]->chanel)
+		if (tile->chanel == tiles[i]->chanel 
+		&& tiles[i]->func == action_room)
 			return (tiles[i]);
 		i++;
 	}

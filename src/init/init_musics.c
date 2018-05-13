@@ -37,7 +37,8 @@ int init_music(sfMusic **music, config_setting_t *parent, int i)
 
 	config_setting_lookup_string(music_set, "path", &str);
 	if (str == NULL)
-		return (WRONG_CONFIG_PATH);
+		return (my_puterror("init music: lookup path: "),
+		WRONG_CONFIG_PATH);
 	*music = sfMusic_createFromFile(str);
 	if (*music == NULL)
 		return (MUSIC_NOT_FOUND);

@@ -9,10 +9,11 @@
 #include "my.h"
 #include "rpg.h"
 #include "scene.h"
-#include "define.h"
+#include "event.h"
 #include "player.h"
 #include "tile.h"
 #include "tool.h"
+#include "define.h"
 
 void player_rotation(rpg_t *rpg)
 {
@@ -56,7 +57,7 @@ int player_action(rpg_t *rpg)
 	if (sfKeyboard_isKeyPressed(sfKeySpace)) {
 		pos.x = (int)rpg->player->pos.x;
 		pos.y = (int)rpg->player->pos.y;
-		tile = rpg->scenes[rpg->curr_scene]->map->tiles[pos.x][pos.y];
+		tile = CURR_SCENE->map->tiles[pos.x][pos.y];
 		DR(exec_tile(rpg, tile));
 	}
 	return (SUCCESS);
@@ -64,8 +65,8 @@ int player_action(rpg_t *rpg)
 
 int player_event(rpg_t *rpg)
 {
-	if (rpg->scenes[rpg->curr_scene]->map != NULL) {
-		DR(player_action(rpg));
+	DR(player_action(rpg));
+	if (RPG_SCENE(rpg)->event != event_dialog) {
 		player_rotation(rpg);
 		player_movement(rpg);
 	}

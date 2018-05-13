@@ -96,7 +96,8 @@ int fill_achievement(rpg_t *rpg, char const *name)
 
 	achieves_set = config_setting_lookup(rpg->set, "achievements");
 	if (achieves_set == NULL)
-		return (WRONG_CONFIG_PATH);
+		return (my_puterror("fill achievement: lookup achievements:"),
+		WRONG_CONFIG_PATH);
 	DR(set_texture_by_setting(rpg->tx_game
 			, rpg->achievement->rect, achieves_set));
 	fill_it(rpg, achieves_set, name);

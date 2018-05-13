@@ -29,6 +29,8 @@ tile_t *get_next_tile(rpg_t *rpg, char *name)
 	static sfVector2u pos = {0, 0};
 	tile_t *tile = NULL;
 
+	if (!RPG_MAP(rpg) || !RPG_TILES(rpg))
+		return (NULL);
 	if (tiles != RPG_TILES(rpg))
 		pos = (sfVector2u){0, 0};
 	tiles = RPG_TILES(rpg);

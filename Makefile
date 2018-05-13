@@ -33,6 +33,7 @@ DEVENT	=	$(DSTATES)event/
 DUPDATE	=	$(DSTATES)update/
 DRAW	=	$(DSTATES)draw/
 DTOOLS	=	$(DSRC)tools/
+DDIAL	=	$(DSRC)dialog/
 
 SRC     =	$(DSRC)main.c			\
 		$(DSRC)game_loop.c		\
@@ -45,6 +46,8 @@ SRC     =	$(DSRC)main.c			\
 		$(DEVENT)event.c		\
 		$(DEVENT)event_map.c		\
 		$(DEVENT)event_status_menu.c	\
+		$(DEVENT)event_menu.c		\
+		$(DEVENT)event_dialog.c		\
 		$(DINIT)init.c			\
 		$(DINIT)init_achievements.c	\
 		$(DINIT)init_player.c		\
@@ -61,6 +64,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DINIT)init_shape.c		\
 		$(DINIT)init_laser.c		\
 		$(DINIT)init_anim_tiles.c	\
+		$(DINIT)init_vertex.c		\
 		$(DINIT)init_tiles.c		\
 		$(DINIT)tile_list.c		\
 		$(DESTROY)destroy.c		\
@@ -91,6 +95,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DTILACT)action_spawn.c	\
 		$(DTILACT)get_tile.c		\
 		$(DTILACT)rotate_laser.c	\
+		$(DTILACT)action_granpalight.c	\
 		$(DMAP)player_light.c		\
 		$(DSCENE)change_scene.c		\
 		$(DSCENE)menu_status.c		\
@@ -98,10 +103,10 @@ SRC     =	$(DSRC)main.c			\
 		$(DBUTTON)get_func_button.c 	\
 		$(DBUTACT)button_play.c		\
 		$(DBUTACT)button_setting.c	\
-		$(DBUTACT)button_exit.c	\
+		$(DBUTACT)button_exit.c		\
 		$(DBUTACT)button_return.c	\
-		$(DBUTACT)button_pause.c		\
-		$(DBUTACT)button_volume.c		\
+		$(DBUTACT)button_pause.c	\
+		$(DBUTACT)button_volume.c	\
 		$(DBUTACT)button_size.c		\
 		$(DBUTACT)button_htp.c		\
 		$(DTOOLS)vec.c			\
@@ -111,17 +116,20 @@ SRC     =	$(DSRC)main.c			\
 		$(DTOOLS)inverse.c		\
 		$(DTOOLS)open_first_room.c	\
 		$(DTOOLS)wait_delta_frame.c	\
+		$(DTOOLS)get_highest_chanel.c	\
 		$(DTOOLS)find_setting_by_name.c	\
+		$(DTOOLS)particule.c		\
 		$(DTX)get_texture.c		\
 		$(DTX)shift_texture_rect.c	\
 		$(DPLAYER)player_event.c	\
 		$(DPLAYER)update_xp.c		\
 		$(DPLAYER)move_player.c		\
-		$(DPLAYER)rotate_player.c 	\
-		$(DEVENT)event_menu.c 		\
 		$(DEVENT)event_settings.c 	\
+		$(DPLAYER)rotate_player.c	\
+		$(DDIAL)get_next_dialog.c	\
+		$(DDIAL)update_text.c		\
 		$(DEVENT)event_pause.c 		\
-		$(DPLAYER)inventory.c 		\
+		$(DPLAYER)inventory.c
 
 LDFLAGS	=	-lc_graph_prog -lconfig -lm
 CFLAGS	+=	-Wall -W -Wextra -I$(INC) -g
