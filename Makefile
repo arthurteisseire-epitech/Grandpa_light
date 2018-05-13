@@ -108,6 +108,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DPLAYER)player_event.c	\
 		$(DPLAYER)move_player.c		\
 		$(DPLAYER)rotate_player.c 	\
+		$(DPLAYER)inventory.c 		\
 		$(DEVENT)event_menu.c
 
 LDFLAGS	=	-lc_graph_prog -lconfig -lm
