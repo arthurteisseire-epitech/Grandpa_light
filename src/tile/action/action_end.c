@@ -5,6 +5,7 @@
 ** by Arthur Teisseire
 */
 
+#include <stdlib.h>
 #include "my.h"
 #include "rpg.h"
 #include "scene.h"
@@ -39,6 +40,7 @@ static int change_tile(rpg_t *rpg, tile_t *tile)
 	sfRectangleShape_setTexture(tile->rect, texture->texture, sfTrue);
 	sfRectangleShape_setTextureRect(tile->rect
 	, get_rect(texture, tile->name)->rect);
+	rm_anim_tile(CURR_SCENE->anim_tiles, tile);
 	return (SUCCESS);
 }
 

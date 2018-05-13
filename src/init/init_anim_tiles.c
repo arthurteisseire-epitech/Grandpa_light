@@ -5,13 +5,17 @@
 ** by Arthur Teisseire
 */
 
+#include <stdlib.h>
 #include "my.h"
+#include "destroy.h"
+#include "rpg.h"
 #include "scene.h"
 #include "tile.h"
 #include "define.h"
 
 static char *anim_names[] = {
-	"torch",
+	TORCH_STR,
+	ORB_STR,
 	NULL
 };
 
@@ -27,4 +31,21 @@ int add_anim_tile(tile_t ***tiles, tile_t *tile)
 		i++;
 	}
 	return (SUCCESS);
+}
+
+static void empty(void __attribute((unused))*a)
+{
+
+}
+
+void rm_anim_tile(tile_t **tiles, tile_t *tile)
+{
+	int i = 0;
+
+	while (tiles[i] != NULL) {
+		if (tiles[i] == tile)
+			break;
+		i++;
+	}
+	rm_arrelem((void **)tiles, i, empty);
 }
