@@ -30,10 +30,15 @@ static void update_stats(rpg_t *rpg, tile_t *tile)
 static int change_tile(rpg_t *rpg, tile_t *tile)
 {
 	int index = index_tile_by_name(GROUND_STR);
+	texture_t *texture = rpg->tx_tile[tile_list[index].idx_texture];
 
 	tile->name = tile_list[index].name;
 	tile->func = tile_list[index].func;
-	DR(init_tile(rpg, tile, index, tile->pos));
+	tile->tx = texture;
+	tile->curr_frame = 0;
+	sfRectangleShape_setTexture(tile->rect, texture->texture, sfTrue);
+	sfRectangleShape_setTextureRect(tile->rect
+	, get_rect(texture, tile->name)->rect);
 	return (SUCCESS);
 }
 

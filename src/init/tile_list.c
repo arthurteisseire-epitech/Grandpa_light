@@ -52,7 +52,7 @@ int index_tile_by_name(char *name)
 	for (int i = 0; i < NB_TILE; i++)
 		if (my_strcmp(tile_list[i].name, name) == 0)
 			return (i);
-	return (0);
+	return (1);
 }
 
 int index_tile_by_color(sfColor color)
