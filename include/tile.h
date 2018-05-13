@@ -29,7 +29,7 @@
 
 #define LEFT_UP (sfVector2f){0.0, 0.0}
 #define RAYCAST_NB 100
-#define RAYCAST_RADIUS 400.0f
+#define RAYCAST_RADIUS 120.0f
 
 #define NO_BRIGHT 0.0
 #define MIN_BRIGHT 0.3

@@ -11,6 +11,7 @@
 #include "states.h"
 #include "scene.h"
 #include "tile.h"
+#include "tool.h"
 
 void draw_raycast_circle(rpg_t *rpg)
 {
@@ -37,7 +38,6 @@ int draw(rpg_t *rpg)
 	if (CURR_SCENE->map != NULL) {
 		draw_player(rpg);
 	}
-	draw_on_achievement(rpg);
 	sfRenderWindow_display(rpg->window);
 	return (SUCCESS);
 }
