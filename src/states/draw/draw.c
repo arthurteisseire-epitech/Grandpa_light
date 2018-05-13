@@ -37,6 +37,7 @@ int draw(rpg_t *rpg)
 	draw_scene(rpg, rpg->scenes[rpg->curr_scene]);
 	if (rpg->scenes[rpg->curr_scene]->map != NULL) {
 		draw_player(rpg);
+		draw_laser_particule(rpg);
 	}
 	sfRenderWindow_display(rpg->window);
 	return (SUCCESS);

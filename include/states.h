@@ -22,5 +22,6 @@ void draw_on_achievement(rpg_t *rpg);
 void draw_scene(rpg_t *rpg, scene_t *scene);
 void draw_buttons(rpg_t *rpg, button_t **buttons);
 void draw_player(rpg_t *rpg);
+void draw_laser_particule(rpg_t *rpg);
 
 #endif

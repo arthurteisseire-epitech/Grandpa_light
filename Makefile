@@ -40,6 +40,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DRAW)draw.c			\
 		$(DRAW)draw_scene.c		\
 		$(DRAW)draw_player.c		\
+		$(DRAW)draw_laser_particule.c	\
 		$(DRAW)draw_achievement.c	\
 		$(DUPDATE)update.c		\
 		$(DEVENT)event.c		\
