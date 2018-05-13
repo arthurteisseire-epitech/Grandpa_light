@@ -79,6 +79,8 @@ typedef int (*pos_tile_t)(map_t *, tile_t **, void *);
 extern const tile_list_t tile_list[];
 
 int index_tile_by_color(sfColor color);
+int index_tile_by_name(char *name);
+
 void update_shader(map_t *map);
 char is_in_map(map_t *map, sfVector2f pos);
 void player_light(map_t *map, player_t *player, sfVector2f dir);
@@ -108,5 +110,6 @@ void swap_lasers_back(rpg_t *rpg);
 void rotate_laser(rpg_t *rpg, tile_t *laser);
 
 void rotate_sprite(tile_t *laser, float angle);
+sfVector2f get_pos_tile(map_t *map, tile_t *tile);
 
 #endif

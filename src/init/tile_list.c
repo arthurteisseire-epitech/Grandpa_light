@@ -47,6 +47,14 @@ const tile_list_t tile_list[NB_TILE] = {
 	*/
 };
 
+int index_tile_by_name(char *name)
+{
+	for (int i = 0; i < NB_TILE; i++)
+		if (my_strcmp(tile_list[i].name, name) == 0)
+			return (i);
+	return (0);
+}
+
 int index_tile_by_color(sfColor color)
 {
 	for (int i = 0; i < NB_TILE; i++)
