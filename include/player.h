@@ -21,17 +21,18 @@
 #define ANIM_STAY 0
 #define ANIM_MOVE 1
 
-#include <SFML/Graphics/Types.h>
-#include <SFML/System.h>
+#include <SFML/Graphics.h>
 
 typedef struct object_s object_t;
 typedef struct rpg_s rpg_t;
 typedef struct texture_s texture_t;
 
 typedef struct stat_s {
-	int nb_photons;
-	int damage;
-	int hp;
+	int xp;
+	int level;
+	float light_radius;
+	sfColor light_color;
+	int xp_to_up;
 } stat_t;
 
 typedef struct inventory_s {
@@ -48,7 +49,7 @@ typedef struct player_s {
 	int curr_frame;
 } player_t;
 
-void rotate_player(rpg_t *rpg, float angle, sfVector2f dir);
+void rotate_player(rpg_t *rpg, float angle);
 void move_player(rpg_t *rpg, sfVector2f *pos, sfVector2f move);
 void set_player_pos(player_t *player);
 void animate_sprite(player_t *player, sfClock *clock);

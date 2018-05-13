@@ -14,7 +14,6 @@
 
 static int create_sf(rpg_t *rpg)
 {
-	CM(rpg->achievement);
 	rpg->achievement->icon = sfRectangleShape_create();
 	CM(rpg->achievement->icon);
 	rpg->achievement->rect = sfRectangleShape_create();
@@ -38,6 +37,8 @@ int init_achievement(rpg_t *rpg)
 	if (achieves_set == NULL)
 		return (WRONG_CONFIG_PATH);
 	rpg->achievement = malloc(sizeof(achievement_t));
+	CM(rpg->achievement);
+	rpg->achievement->nb_achieves = 0;
 	DR(create_sf(rpg));
 	DR(set_texture_by_setting(rpg->tx_game, rpg->achievement->rect, achieves_set));
 	DR(set_achievement_font(rpg->achievement, achieves_set));

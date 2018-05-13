@@ -12,22 +12,25 @@
 #include "achievement.h"
 #include "texture.h"
 #include "define.h"
+#include "player.h"
 #include "tool.h"
 
 config_setting_t *find_setting_by_name(config_setting_t *array_set
 	, const char *name)
 {
 	config_setting_t *elem = array_set;
-	char const *str;
+	char const *str = NULL;
 	int i = 0;
 
 	while (elem != NULL) {
 		elem = config_setting_get_elem(array_set, i);
 		config_setting_lookup_string(elem, "name", &str);
-		if (my_strcmp(str, name) == 0)
+		if (str && my_strcmp(str, name) == 0)
 			return (elem);
 		i++;
 	}
+	if (str == NULL)
+		return (NULL);
 	return (elem);
 }
 
@@ -48,6 +51,7 @@ static char const *get_xp_text(rpg_t *rpg, config_setting_t *parent)
 	if (xp_text == NULL)
 		return (NULL);
 	rpg->achievement->xp = xp;
+	rpg->player->stats->xp += xp;
 	free(tmp);
 	return (xp_text);
 }
@@ -62,13 +66,12 @@ static int set_strings(rpg_t *rpg, config_setting_t *parent, char const *name)
 	config_setting_t *elem_set;
 
 	array_set = config_setting_lookup(parent, "array");
-	elem_set = find_setting_by_name(array_set, name);
+	CM(elem_set = find_setting_by_name(array_set, name));
 	config_setting_lookup_string(parent, "xp_text", &xp_text);
 	config_setting_lookup_string(elem_set, "title", &title);
 	config_setting_lookup_string(elem_set, "desc", &desc);
 	config_setting_lookup_string(elem_set, "head", &head);
-	xp_text = get_xp_text(rpg, elem_set);
-	CM(xp_text);
+	CM(xp_text = get_xp_text(rpg, elem_set));
 	sfText_setString(rpg->achievement->title, title);
 	sfText_setString(rpg->achievement->desc, desc);
 	sfText_setString(rpg->achievement->xp_text, xp_text);
@@ -87,6 +90,7 @@ int fill_achievement(rpg_t *rpg, char const *name)
 	if (achieves_set == NULL)
 		return (WRONG_CONFIG_PATH);
 	set_strings(rpg, achieves_set, name);
+	rpg->achievement->nb_achieves++;
 	return (SUCCESS);
 }
 

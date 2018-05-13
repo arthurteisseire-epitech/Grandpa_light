@@ -12,7 +12,9 @@
 
 #define CURR_SCENE rpg->scenes[rpg->curr_scene]
 #define SCENE_MENU 0
-#define SC_HUB 3
+
+#define SC_HUB 16
+#define SC_MENU_STATUS 17
 
 #define MAX_LASER 200
 
@@ -30,6 +32,8 @@ typedef struct map_s {
 	sfVector2u size;
 	int active_lasers[MAX_LASER];
 	tile_t ***tiles;
+	char **light_map;
+	sfRectangleShape **raycast_circle;
 } map_t;
 
 typedef struct scene_s {
@@ -37,13 +41,16 @@ typedef struct scene_s {
 	tile_t **anim_tiles;
 	button_t **buttons;
 	sfText **text;
-	scene_func scene_event;
+	scene_func event;
+	char completed;
 } scene_t;
 
 void change_scene(rpg_t *rpg);
 void place_in_spawn(rpg_t *rpg);
 int manage_button(rpg_t *rpg, button_t **button, sfEvent *event);
 int add_anim_tile(tile_t ***tiles, tile_t *tile);
+int fill_menu_status(rpg_t *rpg);
+void launch_menu_status(rpg_t *rpg);
 
 void init_lasers(rpg_t *rpg);
 

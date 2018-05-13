@@ -10,14 +10,34 @@
 #include "define.h"
 #include "states.h"
 #include "scene.h"
-#include "achievement.h"
+#include "tile.h"
+
+void draw_raycast_circle(rpg_t *rpg)
+{
+	int i = 0;
+	sfRectangleShape **rc_c = 
+		rpg->scenes[rpg->curr_scene]->map->raycast_circle;
+
+	while (rc_c[i] != NULL) {
+		sfRenderWindow_drawRectangleShape(rpg->window,rc_c[i] , NULL);
+		i++;
+	}
+}
+
+void draw_debug(rpg_t *rpg)
+{
+	if (rpg->scenes[rpg->curr_scene]->map->raycast_circle != NULL)
+		draw_raycast_circle(rpg);
+}
 
 int draw(rpg_t *rpg)
 {
 	sfRenderWindow_clear(rpg->window, sfBlack);
 	draw_scene(rpg, rpg->scenes[rpg->curr_scene]);
-	if (rpg->scenes[rpg->curr_scene]->map != NULL)
+	if (rpg->scenes[rpg->curr_scene]->map != NULL) {
 		draw_player(rpg);
+		//draw_debug(rpg);
+	}
 	sfRenderWindow_display(rpg->window);
 	return (SUCCESS);
 }

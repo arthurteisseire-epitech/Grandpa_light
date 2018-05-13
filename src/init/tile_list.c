@@ -17,7 +17,7 @@ const tile_list_t tile_list[NB_TILE] = {
 	{{0x00, 0x00, 0x02, 0x00},
 		GROUND_STR, FALSE, FALSE, FALSE, NULL, TX_TILE},
 	{{0x00, 0x00, 0x03, 0x00},
-		GLASS_STR, TRUE, TRUE, FALSE, action_door, TX_TILE},
+		GLASS_STR, TRUE, FALSE, FALSE, action_door, TX_TILE},
 	{{0x00, 0x00, 0x04, 0x00},
 		SPAWN_STR, FALSE, FALSE, FALSE, NULL, TX_TILE},
 	{{0x00, 0x00, 0x05, 0x00},
@@ -34,15 +34,7 @@ const tile_list_t tile_list[NB_TILE] = {
 		CAP_STR, TRUE, TRUE, TRUE, action_laser_captor,
 		TX_TILE_LASER_CAPTOR},
 	{{0x00, 0x00, 0x0b, 0x00},
-		"torch", TRUE, TRUE, FALSE, NULL, TX_TILE_LIGHT},
-	/*
-	 *{{0x00, 0x00, 0x06, 0x00},
-	 *	"door", TRUE, TRUE, NULL, TX_TILE_DOOR},
-	 *{{0x00, 0x00, 0x07, 0x00},
-	 *	"switch", FALSE, TRUE, NULL, TX_TILE_SWITCH},
-	 *{{0x00, 0x00, 0x08, 0x00},
-	 *	"ls_beam", TRUE, TRUE, NULL, TX_TILE_LS_BEAM},
-	*/
+		TORCH_STR, FALSE, FALSE, FALSE, refresh_torch, TX_TILE_LIGHT},
 };
 
 int index_tile_by_color(sfColor color)

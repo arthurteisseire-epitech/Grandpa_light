@@ -42,6 +42,8 @@ SRC     =	$(DSRC)main.c			\
 		$(DRAW)draw_player.c		\
 		$(DUPDATE)update.c		\
 		$(DEVENT)event.c		\
+		$(DEVENT)event_map.c		\
+		$(DEVENT)event_status_menu.c	\
 		$(DINIT)init.c			\
 		$(DINIT)init_achievements.c	\
 		$(DINIT)init_player.c		\
@@ -83,9 +85,12 @@ SRC     =	$(DSRC)main.c			\
 		$(DTILACT)action_laser_captor.c	\
 		$(DTILACT)action_room.c		\
 		$(DTILACT)action_end.c		\
+		$(DTILACT)action_torch.c	\
 		$(DTILACT)get_tile.c		\
 		$(DTILACT)rotate_laser.c	\
+		$(DMAP)player_light.c		\
 		$(DSCENE)change_scene.c		\
+		$(DSCENE)menu_status.c		\
 		$(DBUTTON)manage_buttons.c 	\
 		$(DBUTTON)get_func_button.c 	\
 		$(DBUTACT)button_play.c		\
@@ -109,7 +114,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DEVENT)event_pause.c 		\
 
 
-LDFLAGS	=	-lc_graph_prog -lconfig
+LDFLAGS	=	-lc_graph_prog -lconfig -lm
 CFLAGS	+=	-Wall -W -Wextra -I$(INC) -g
 
 OBJ	=	$(SRC:.c=.o)

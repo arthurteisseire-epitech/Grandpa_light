@@ -5,65 +5,56 @@
 ** Ozz
 */
 
+#include <stdlib.h>
+#include "define.h"
 #include "tile.h"
 #include "scene.h"
+#include "player.h"
 #include "vec.h"
-
-void set_refresh(tile_t *tile)
-{
-	if (tile->lighted)
-		tile->light_level = MIN_BRIGHT;
-	else
-		tile->light_level = NO_BRIGHT;
-}
+#include "my.h"
 
 void refresh_light(map_t *map)
 {
 	for (unsigned int x = 0; x < map->size.x; x++) {
 		for (unsigned int y = 0; y < map->size.y; y++) {
-			set_refresh(map->tiles[x][y]);
+			map->tiles[x][y]->light_level = NO_BRIGHT;
 		}
 	}
 }
 
-void set_light_value(map_t *map, sfVector2f pos, float brightness)
+light_t **get_torch(light_t **torchs, tile_t *tile)
 {
-	if (is_in_map(map, pos)) {
-		if (brightness - LIGHT_POWER > MIN_BRIGHT)
-			map->tiles[(int)pos.x][(int)pos.y]->light_level =
-				(float)(brightness - LIGHT_POWER);
-		map->tiles[(int)pos.x][(int)pos.y]->lighted = 1;
+	light_t *new_torch;
+
+	if (!my_strcmp(tile->name, TORCH_STR) && tile->active) {
+		new_torch = malloc(sizeof(light_t));
+		new_torch->pos = tile->pos;
+		new_torch->radius = TORCH_RADIUS;
+		torchs = my_realloc((void **)torchs, new_torch);
 	}
+	return (torchs);
 }
 
-void adj_tile_light(map_t *map, sfVector2f pos, float brightness,
-	sfVector2f dir)
+light_t **get_torchs(map_t *map)
 {
-	map->tiles[(int)pos.x][(int)pos.y]->light_level = brightness;
-	if (dir.x) {
-		set_light_value(map, add_vec(pos, (sfVector2f){0.0, -1.0}),
-			brightness);
-		set_light_value(map, add_vec(pos, (sfVector2f){0.0, 1.0}),
-			brightness);
-	} else {
-		set_light_value(map, add_vec(pos, (sfVector2f){-1.0, 0.0}),
-			brightness);
-		set_light_value(map, add_vec(pos, (sfVector2f){1.0, 0.0}),
-			brightness);
+	light_t **torchs = malloc(sizeof(light_t *));
+
+	torchs[0] = NULL;
+	for (unsigned int x = 0; x < map->size.x; x++) {
+		for (unsigned int y = 0; y < map->size.y; y++) {
+			torchs = get_torch(torchs, map->tiles[x][y]);
+		}
 	}
+	return (torchs);
 }
 
-void generate_shader(map_t *map, sfVector2f pos, sfVector2f dir)
+void generate_shader(map_t *map, player_t *player)
 {
-	float brightness = 1.0;
+	light_t **torchs = get_torchs(map);
 
 	refresh_light(map);
-	while (is_in_map(map, pos) && brightness > NO_BRIGHT) {
-		adj_tile_light(map, pos, brightness, dir);
-		map->tiles[(int)pos.x][(int)pos.y]->lighted = 1;
-		if (map->tiles[(int)pos.x][(int)pos.y]->laser_col)
-			break;
-		brightness -= LIGHT_POWER;
-		pos = add_vec(pos, dir);
+	gen_raycast(map, player->pos, player->stats->light_radius);
+	for (int i = 0; torchs[i] != NULL; i++) {
+		gen_raycast(map, torchs[i]->pos, torchs[i]->radius);
 	}
 }
