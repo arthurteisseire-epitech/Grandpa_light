@@ -24,7 +24,7 @@ void handle_exit_key(rpg_t *rpg)
 
 int handle_pause_key(rpg_t *rpg)
 {
-	if (sfKeyboard_isKeyPressed(sfKeyEscape)) {
+	if (rpg->event->key.code == sfKeyEscape && rpg->event->type == sfEvtKeyReleased) {
 		rpg->prev_scene = rpg->curr_scene;
 		rpg->curr_scene = SC_PAUSE;
 		return (1);

@@ -12,7 +12,7 @@
 
 int event_pause(rpg_t *rpg)
 {
-	if (sfKeyboard_isKeyPressed(sfKeyEscape))
+	if (rpg->event->key.code == sfKeyEscape && rpg->event->type == sfEvtKeyReleased)
 		rpg->curr_scene = rpg->prev_scene;
 	return (SUCCESS);
 }
