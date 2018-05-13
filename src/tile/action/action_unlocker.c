@@ -13,7 +13,7 @@
 #include "scene.h"
 #include "tool.h"
 
-int action_unlocker(rpg_t *rpg, tile_t *tile)
+static tile_t *get_door(rpg_t *rpg, tile_t *tile)
 {
 	sfVector2f pos[4] = {
 		{tile->pos.x + 1, tile->pos.y},
@@ -30,6 +30,13 @@ int action_unlocker(rpg_t *rpg, tile_t *tile)
 			break;
 		}
 	}
+	return (door);
+}
+
+int action_unlocker(rpg_t *rpg, tile_t *tile)
+{
+	tile_t *door = get_door(rpg, tile);
+
 	if (door && rpg->player->stats->nb_orbe >= door->chanel
 	&& !door->active) {
 		rpg->player->stats->nb_orbe -= door->chanel;

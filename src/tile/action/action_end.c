@@ -17,14 +17,7 @@
 
 static void update_stats(rpg_t *rpg, tile_t *tile)
 {
-	rpg->player->stats->xp += (tile->chanel + 1) * 3;
-	while (rpg->player->stats->xp >= rpg->player->stats->xp_to_up) {
-		rpg->player->stats->xp -= rpg->player->stats->xp_to_up;
-		rpg->player->stats->xp_to_up += 5;
-		rpg->player->stats->level++;
-		rpg->player->stats->light_radius += 
-			(rpg->player->stats->level + 1) * 20;
-	}
+	update_xp(rpg, (tile->chanel + 1) * 3);
 	rpg->player->stats->nb_orbe++;
 	set_inventory_text(rpg);
 }

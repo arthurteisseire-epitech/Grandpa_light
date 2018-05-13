@@ -39,6 +39,7 @@ int init_achievement(rpg_t *rpg)
 	rpg->achievement = malloc(sizeof(achievement_t));
 	CM(rpg->achievement);
 	rpg->achievement->nb_achieves = 0;
+	rpg->is_achieve = FALSE;
 	DR(create_sf(rpg));
 	DR(set_texture_by_setting(rpg->tx_game, rpg->achievement->rect, achieves_set));
 	DR(set_achievement_font(rpg->achievement, achieves_set));

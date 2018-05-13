@@ -57,6 +57,7 @@ void player_movement(rpg_t *rpg);
 int player_action(rpg_t *rpg);
 int player_event(rpg_t *rpg);
 
+void update_xp(rpg_t *rpg, int xp);
 int set_inventory_text(rpg_t *rpg);
 
 #endif

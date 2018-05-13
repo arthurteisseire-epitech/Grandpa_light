@@ -40,6 +40,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DRAW)draw.c			\
 		$(DRAW)draw_scene.c		\
 		$(DRAW)draw_player.c		\
+		$(DRAW)draw_achievement.c	\
 		$(DUPDATE)update.c		\
 		$(DEVENT)event.c		\
 		$(DEVENT)event_map.c		\
@@ -105,9 +106,11 @@ SRC     =	$(DSRC)main.c			\
 		$(DTOOLS)inverse.c		\
 		$(DTOOLS)open_first_room.c	\
 		$(DTOOLS)wait_delta_frame.c	\
+		$(DTOOLS)find_setting_by_name.c	\
 		$(DTX)get_texture.c		\
 		$(DTX)shift_texture_rect.c	\
 		$(DPLAYER)player_event.c	\
+		$(DPLAYER)update_xp.c		\
 		$(DPLAYER)move_player.c		\
 		$(DPLAYER)rotate_player.c 	\
 		$(DPLAYER)inventory.c 		\
