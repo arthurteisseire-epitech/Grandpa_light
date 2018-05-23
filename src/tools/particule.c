@@ -14,49 +14,28 @@ sfVector2f get_random_pos(sfFloatRect rect)
 {
 	sfVector2f res;
 
-	res.x = rand() % (int)rect.width + rect.left;
-	res.y = rand() % (int)rect.height + rect.top;
+	res.x = rand() % ((int)rect.width + 4) + rect.left - 2;
+	res.y = rand() % ((int)rect.height + 4) + rect.top - 2;
 	return (res);
 }
 
-void generate_particules(sfVertexArray *array, sfFloatRect rect, int nb)
+void generate_particules(sfVertexArray *array, sfFloatRect rect, int nb, int *i)
 {
 	sfVector2f pos = get_random_pos(rect);
 	sfVertex *tmp;
 	sfVertex vertex = {.position = (sfVector2f){pos.x, pos.y}
-	, .color = sfWhite};
-	static int nb_vertex = 0;
-	static int index = 0;
+	, .color = sfRed};
+	int nb_vertex = sfVertexArray_getVertexCount(array);
 
-	for (int i = 0; i < nb_vertex; i++) {
-		tmp = sfVertexArray_getVertex(array, i);
+	for (int index = 0; index < nb_vertex; index++) {
+		tmp = sfVertexArray_getVertex(array, index);
 		tmp->color.a -= 2;
 	}
 	if (nb_vertex < nb)
 		sfVertexArray_append(array, vertex);
 	else {
-		index = index + 1 > nb_vertex ? 0 : index + 1;
-		tmp = sfVertexArray_getVertex(array, index);
+		(*i) = (*i) + 1 >= nb_vertex ? 0 : (*i) + 1;
+		tmp = sfVertexArray_getVertex(array, *i);
 		*tmp = vertex;
 	}
-	if (nb_vertex <= nb)
-		nb_vertex++;
-}
-
-void draw_particules(rpg_t *rpg, sfVertexArray *array)
-{
-	sfFloatRect rect = {10, 10, 200, 100};
-
-	generate_particules(array, rect, 100);
-	sfVertexArray_setPrimitiveType(array, sfLinesStrip);
-	sfRenderWindow_drawVertexArray(rpg->window, array, NULL);
-}
-
-void draw_lparticules(rpg_t *rpg, sfVertexArray *array)
-{
-	sfFloatRect rect = {10, 10, 200, 100};
-
-	generate_particules(array, rect, 100);
-	sfVertexArray_setPrimitiveType(array, sfTrianglesStrip);
-	sfRenderWindow_drawVertexArray(rpg->window, array, NULL);
 }

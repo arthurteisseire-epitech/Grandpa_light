@@ -33,9 +33,13 @@ laser_t *init_laser(sfVector2f pos)
 		return (NULL);
 	laser->vertical = 0;
 	laser->horizontal = 0;
+	laser->index_particule = 0;
 	laser->hor_rect = sfRectangleShape_create();
 	laser->vert_rect = sfRectangleShape_create();
-	if (laser->hor_rect == NULL || laser->vert_rect == NULL)
+	laser->part_array = sfVertexArray_create();
+	//sfVertexArray_setPrimitiveType(laser->part_array, sfTrianglesStrip);
+	if (laser->hor_rect == NULL || laser->vert_rect == NULL
+	|| laser->part_array == NULL)
 		return (free(laser), NULL);
 	set_laser(laser, pos);
 	return (laser);

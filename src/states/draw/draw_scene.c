@@ -13,12 +13,22 @@
 void draw_tile(rpg_t *rpg, tile_t *tile)
 {
 	sfRenderWindow_drawRectangleShape(rpg->window, tile->rect, NULL);
-	if (tile->laser->horizontal)
+	if (tile->laser->horizontal) {
 		sfRenderWindow_drawRectangleShape(rpg->window,
 			tile->laser->hor_rect, NULL);
-	if (tile->laser->vertical)
+		update_particules(tile, tile->laser->part_array
+		, tile->laser->hor_rect);
+		sfRenderWindow_drawVertexArray(rpg->window
+		, tile->laser->part_array, NULL);
+	}
+	if (tile->laser->vertical) {
 		sfRenderWindow_drawRectangleShape(rpg->window,
 			tile->laser->vert_rect, NULL);
+		update_particules(tile, tile->laser->part_array
+		, tile->laser->vert_rect);
+		sfRenderWindow_drawVertexArray(rpg->window
+		, tile->laser->part_array, NULL);
+	}
 }
 
 void draw_light(rpg_t *rpg, tile_t *tile)
