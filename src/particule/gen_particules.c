@@ -24,7 +24,7 @@ void gen_particules(sfVertexArray *array, sfFloatRect rect, int nb, int *i)
 	sfVector2f pos = get_random_pos(rect);
 	sfVertex *tmp;
 	sfVertex vertex = {.position = (sfVector2f){pos.x, pos.y}
-	, .color = sfRed};
+	, .color = sfWhite};
 	int nb_vertex = sfVertexArray_getVertexCount(array);
 
 	for (int index = 0; index < nb_vertex; index++) {

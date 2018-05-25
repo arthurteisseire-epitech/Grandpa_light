@@ -33,7 +33,7 @@ int init_player(rpg_t *rpg)
 	sfRectangleShape_setOrigin(rpg->player->rect, VEC_HALF_TILE);
 	sfRectangleShape_setTextureRect(rpg->player->rect,
 		rpg->player->anim[0]->rects[0]->rect);
-	set_player_stat(rpg->player, player_set);
+	DR(set_player_stat(rpg->player, player_set));
 	return (SUCCESS);
 }
 
@@ -49,11 +49,15 @@ int init_stats(stat_t **stat)
 	return (SUCCESS);
 }
 
-void set_player_stat(player_t *player, config_setting_t *this_set)
+int set_player_stat(player_t *player, config_setting_t *this_set)
 {
 	player->pos = get_cfg_vec(this_set, "pos");
 	player->curr_frame = 0;
 	player->id_anim = 0;
+	player->part = sfVertexArray_create();
+	CM(player->part);
+	player->index_part = 0;
+	return (SUCCESS);
 }
 
 int init_anims(rpg_t *rpg, texture_t ***textures, config_setting_t *parent)

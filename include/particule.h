@@ -10,9 +10,15 @@
 
 #include <SFML/Graphics.h>
 
+#define RADIUS_LAS_PART 6
+#define NB_LAS_PART 200
+#define NB_PLAYER_PART 60
+
 typedef struct tile_s tile_t;
+typedef struct player_s player_t;
 
 void laser_part(tile_t *tile, sfVertexArray *array, sfRectangleShape *rect);
 void gen_particules(sfVertexArray *array, sfFloatRect rect, int nb, int *i);
+void player_part(player_t *player);
 
 #endif

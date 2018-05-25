@@ -45,6 +45,8 @@ typedef struct player_s {
 	sfVector2f pos;
 	int id_anim;
 	int curr_frame;
+	sfVertexArray *part;
+	int index_part;
 } player_t;
 
 void rotate_player(rpg_t *rpg, float angle);

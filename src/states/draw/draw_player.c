@@ -12,6 +12,7 @@
 
 void draw_player(rpg_t *rpg)
 {
+	sfRenderWindow_drawVertexArray(rpg->window, rpg->player->part, NULL);
 	sfRenderWindow_drawRectangleShape(rpg->window, rpg->player->rect,
 	NULL);
 	draw_buttons(rpg, rpg->player->items);

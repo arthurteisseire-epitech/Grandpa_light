@@ -131,6 +131,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DEVENT)event_pause.c 		\
 		$(DPLAYER)inventory.c		\
 		$(DPART)laser_particules.c	\
+		$(DPART)player_particules.c	\
 		$(DPART)gen_particules.c	\
 
 LDFLAGS	=	-lc_graph_prog -lconfig -lm

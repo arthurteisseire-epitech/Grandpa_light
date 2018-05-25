@@ -34,7 +34,7 @@ int init_musics(rpg_t *rpg);
 int init_music(sfMusic **music, config_setting_t *parent, int i);
 int init_player(rpg_t *rpg);
 int init_stats(stat_t **stat);
-void set_player_stat(player_t *player, config_setting_t *this_set);
+int set_player_stat(player_t *player, config_setting_t *this_set);
 int init_anims(rpg_t *rpg, texture_t ***textures, config_setting_t *parent);
 int init_anim(rpg_t *rpg, texture_t **texture, config_setting_t *parent, int i);
 int init_config(rpg_t *rpg);
