@@ -14,8 +14,8 @@ sfVector2f get_random_pos(sfFloatRect rect)
 {
 	sfVector2f res;
 
-	res.x = rand() % ((int)rect.width + 4) + rect.left - 2;
-	res.y = rand() % ((int)rect.height + 4) + rect.top - 2;
+	res.x = rand() % (unsigned int)rect.width + rect.left;
+	res.y = rand() % (unsigned int)rect.height + rect.top;
 	return (res);
 }
 

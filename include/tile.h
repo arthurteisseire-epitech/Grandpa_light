@@ -34,6 +34,10 @@
 #define NO_BRIGHT 0.0
 #define MIN_BRIGHT 0.3
 #define TORCH_RADIUS 130
+
+#define RADIUS_LAS_PART 6
+#define NB_LAS_PART 200
+
 typedef struct sprite_s sprite_t;
 typedef struct rpg_s rpg_t;
 typedef struct texture_s texture_t;
