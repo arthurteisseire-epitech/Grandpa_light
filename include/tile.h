@@ -100,7 +100,6 @@ char is_in_map(map_t *map, sfVector2f pos);
 void player_light(map_t *map, player_t *player);
 void generate_shader(map_t *map, player_t *player);
 void gen_raycast(map_t *map, sfVector2f pos, int radius);
-void update_particules(tile_t *tile, sfVertexArray *array, sfRectangleShape *rect);
 
 void update_anim_tiles(rpg_t *rpg, sfClock *clock);
 tile_t *apply_on_map(rpg_t *rpg, get_tile_t func, void *data);

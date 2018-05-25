@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2017
-** File Name : particule.c
+** File Name : gen_particules.c
 ** File description:
 ** by Arthur Teisseire
 */
@@ -14,12 +14,12 @@ sfVector2f get_random_pos(sfFloatRect rect)
 {
 	sfVector2f res;
 
-	res.x = rand() % (unsigned int)rect.width + rect.left;
-	res.y = rand() % (unsigned int)rect.height + rect.top;
+	res.x = rand() % (int)rect.width + rect.left;
+	res.y = rand() % (int)rect.height + rect.top;
 	return (res);
 }
 
-void generate_particules(sfVertexArray *array, sfFloatRect rect, int nb, int *i)
+void gen_particules(sfVertexArray *array, sfFloatRect rect, int nb, int *i)
 {
 	sfVector2f pos = get_random_pos(rect);
 	sfVertex *tmp;

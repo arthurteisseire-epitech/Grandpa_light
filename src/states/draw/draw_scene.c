@@ -9,6 +9,7 @@
 #include "scene.h"
 #include "tile.h"
 #include "button.h"
+#include "particule.h"
 
 void draw_tile(rpg_t *rpg, tile_t *tile)
 {
@@ -16,7 +17,7 @@ void draw_tile(rpg_t *rpg, tile_t *tile)
 	if (tile->laser->horizontal) {
 		sfRenderWindow_drawRectangleShape(rpg->window,
 			tile->laser->hor_rect, NULL);
-		update_particules(tile, tile->laser->part_array
+		laser_part(tile, tile->laser->part_array
 		, tile->laser->hor_rect);
 		sfRenderWindow_drawVertexArray(rpg->window
 		, tile->laser->part_array, NULL);
@@ -24,7 +25,7 @@ void draw_tile(rpg_t *rpg, tile_t *tile)
 	if (tile->laser->vertical) {
 		sfRenderWindow_drawRectangleShape(rpg->window,
 			tile->laser->vert_rect, NULL);
-		update_particules(tile, tile->laser->part_array
+		laser_part(tile, tile->laser->part_array
 		, tile->laser->vert_rect);
 		sfRenderWindow_drawVertexArray(rpg->window
 		, tile->laser->part_array, NULL);

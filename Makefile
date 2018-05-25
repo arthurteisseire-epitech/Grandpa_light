@@ -26,6 +26,7 @@ DSCENE	=	$(DSRC)scene/
 DBUTTON	=	$(DSRC)button/
 DBUTACT	=	$(DBUTTON)action/
 DPLAYER	=	$(DSRC)player/
+DPART	=	$(DSRC)particule/
 DTX	=	$(DSRC)texture/
 DSTATES	=	$(DSRC)states/
 DTOOLS	=	$(DSRC)tools/
@@ -43,7 +44,6 @@ SRC     =	$(DSRC)main.c			\
 		$(DRAW)draw_player.c		\
 		$(DRAW)draw_achievement.c	\
 		$(DUPDATE)update.c		\
-		$(DUPDATE)update_particules.c	\
 		$(DEVENT)event.c		\
 		$(DEVENT)event_map.c		\
 		$(DEVENT)event_status_menu.c	\
@@ -119,7 +119,6 @@ SRC     =	$(DSRC)main.c			\
 		$(DTOOLS)wait_delta_frame.c	\
 		$(DTOOLS)get_highest_chanel.c	\
 		$(DTOOLS)find_setting_by_name.c	\
-		$(DTOOLS)particule.c		\
 		$(DTX)get_texture.c		\
 		$(DTX)shift_texture_rect.c	\
 		$(DPLAYER)player_event.c	\
@@ -130,7 +129,9 @@ SRC     =	$(DSRC)main.c			\
 		$(DDIAL)get_next_dialog.c	\
 		$(DDIAL)update_text.c		\
 		$(DEVENT)event_pause.c 		\
-		$(DPLAYER)inventory.c
+		$(DPLAYER)inventory.c		\
+		$(DPART)laser_particules.c	\
+		$(DPART)gen_particules.c	\
 
 LDFLAGS	=	-lc_graph_prog -lconfig -lm
 CFLAGS	+=	-Wall -W -Wextra -I$(INC) -g
