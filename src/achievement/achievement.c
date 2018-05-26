@@ -90,7 +90,7 @@ static int fill_it(rpg_t *rpg, config_setting_t *parent, char const *name)
 	return (SUCCESS);
 }
 
-int fill_achievement(rpg_t *rpg, char const *name)
+int new_achievement(rpg_t *rpg, char const *name)
 {
 	config_setting_t *achieves_set;
 

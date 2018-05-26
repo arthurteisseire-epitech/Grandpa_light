@@ -37,6 +37,6 @@ int init(rpg_t *rpg)
 	rpg->curr_scene = FIRST_SCENE;
 	rpg->prev_scene = FIRST_SCENE;
 	fill_menu_status(rpg);
-	fill_achievement(rpg, "launch_game");
+	new_achievement(rpg, "launch_game");
 	return (SUCCESS);
 }

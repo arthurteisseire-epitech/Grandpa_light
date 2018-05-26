@@ -39,6 +39,6 @@ void set_achievement_size(achievement_t *achieve
 , config_setting_t *parent);
 int set_achievement_font(achievement_t *achieve
 , config_setting_t *parent);
-int fill_achievement(rpg_t *rpg, char const *name);
+int new_achievement(rpg_t *rpg, char const *name);
 
 #endif

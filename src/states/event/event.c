@@ -29,7 +29,7 @@ int handle_pause_key(rpg_t *rpg)
 		rpg->event->type == sfEvtKeyReleased) {
 		rpg->prev_scene = rpg->curr_scene;
 		rpg->curr_scene = SC_PAUSE;
-		fill_achievement(rpg, "menu_pause");
+		new_achievement(rpg, "menu_pause");
 		return (1);
 	}
 	return (0);

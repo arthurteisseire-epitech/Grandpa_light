@@ -16,6 +16,7 @@
 #include "tool.h"
 #include "define.h"
 #include "event.h"
+#include "achievement.h"
 
 static int prepare_dialog_scene(rpg_t *rpg, int dialog_nb)
 {
@@ -29,6 +30,7 @@ int action_granpa(rpg_t *rpg, __attribute((unused))tile_t *tile)
 	int highest_active_chanel = get_highest_active_chanel(RPG_MAP(rpg));
 	int dialog;
 
+	new_achievement(rpg, "granpa_light");
 	rpg->curr_scene = SC_DIALOG;
 	rpg->prev_scene = SC_HUB;
 	if (highest_active_chanel == 0) {

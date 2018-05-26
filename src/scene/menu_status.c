@@ -97,7 +97,7 @@ int fill_menu_status(rpg_t *rpg)
 void launch_menu_status(rpg_t *rpg)
 {
 	if (rpg->event->key.code == sfKeyO && rpg->event->type == sfEvtKeyReleased) {
-		fill_achievement(rpg, "achievement_status");
+		new_achievement(rpg, "menu_status");
 		fill_menu_status(rpg);
 		rpg->prev_scene = rpg->curr_scene;
 		rpg->curr_scene = SC_MENU_STATUS;
