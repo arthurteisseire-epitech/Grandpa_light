@@ -8,6 +8,9 @@
 #include <malloc.h>
 #include "vec.h"
 #include "tile.h"
+#include "init.h"
+#include "define.h"
+#include "particule.h"
 
 void set_laser(laser_t *laser, sfVector2f pos)
 {
@@ -31,16 +34,15 @@ laser_t *init_laser(sfVector2f pos)
 
 	if (laser == NULL)
 		return (NULL);
+	if (init_particule(&laser->particule
+	, LASER_PART_COLOR, NB_LASER_PART) != SUCCESS)
+		return (NULL);
 	laser->vertical = 0;
 	laser->horizontal = 0;
-	laser->index_particule = 0;
 	laser->hor_rect = sfRectangleShape_create();
 	laser->vert_rect = sfRectangleShape_create();
-	laser->part_array = sfVertexArray_create();
-	//sfVertexArray_setPrimitiveType(laser->part_array, sfTrianglesStrip);
-	if (laser->hor_rect == NULL || laser->vert_rect == NULL
-	|| laser->part_array == NULL)
-		return (free(laser), NULL);
+	if (laser->hor_rect == NULL || laser->vert_rect == NULL)
+		return (NULL);
 	set_laser(laser, pos);
 	return (laser);
 }

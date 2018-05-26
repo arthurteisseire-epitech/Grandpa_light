@@ -11,11 +11,9 @@
 
 void player_part(player_t *player)
 {
-	sfFloatRect r;
-
-	r.left = player->pos.x * SIZE_TILE;
-	r.top = player->pos.y * SIZE_TILE;
-	r.height = SIZE_TILE;
-	r.width = SIZE_TILE;
-	gen_particules(player->part, r, NB_PLAYER_PART, &player->index_part);
+	player->particule->rect.left = player->pos.x * SIZE_TILE;
+	player->particule->rect.top = player->pos.y * SIZE_TILE;
+	player->particule->rect.height = SIZE_TILE;
+	player->particule->rect.width = SIZE_TILE;
+	gen_particules(player->particule);
 }

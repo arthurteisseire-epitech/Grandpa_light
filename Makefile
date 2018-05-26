@@ -63,6 +63,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DINIT)init_config.c		\
 		$(DINIT)init_clock.c		\
 		$(DINIT)init_shape.c		\
+		$(DINIT)init_particule.c	\
 		$(DINIT)init_laser.c		\
 		$(DINIT)init_anim_tiles.c	\
 		$(DINIT)init_vertex.c		\

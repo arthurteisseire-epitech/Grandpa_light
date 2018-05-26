@@ -14,6 +14,7 @@
 #include "define.h"
 #include "init.h"
 #include "tile.h"
+#include "particule.h"
 
 int init_player(rpg_t *rpg)
 {
@@ -34,6 +35,8 @@ int init_player(rpg_t *rpg)
 	sfRectangleShape_setTextureRect(rpg->player->rect,
 		rpg->player->anim[0]->rects[0]->rect);
 	DR(set_player_stat(rpg->player, player_set));
+	DR(init_particule(&rpg->player->particule
+	, PLAYER_PART_COLOR, NB_PLAYER_PART));
 	return (SUCCESS);
 }
 
@@ -54,9 +57,6 @@ int set_player_stat(player_t *player, config_setting_t *this_set)
 	player->pos = get_cfg_vec(this_set, "pos");
 	player->curr_frame = 0;
 	player->id_anim = 0;
-	player->part = sfVertexArray_create();
-	CM(player->part);
-	player->index_part = 0;
 	return (SUCCESS);
 }
 

@@ -10,17 +10,16 @@
 #include "tool.h"
 #include "particule.h"
 
-void laser_part(tile_t *tile, sfVertexArray *array, sfRectangleShape *rect)
+void laser_part(tile_t *tile, sfRectangleShape *rect)
 {
-	sfFloatRect r = sfRectangleShape_getGlobalBounds(rect);
-
+	tile->laser->particule->rect = sfRectangleShape_getGlobalBounds(rect);
 	if (tile->laser->horizontal) {
-		r.top -= RADIUS_LAS_PART / 2;
-		r.height += RADIUS_LAS_PART;
+		tile->laser->particule->rect.top -= RADIUS_LAS_PART / 2;
+		tile->laser->particule->rect.height += RADIUS_LAS_PART;
 	}
 	if (tile->laser->vertical) {
-		r.left -= RADIUS_LAS_PART / 2;
-		r.width += RADIUS_LAS_PART;
+		tile->laser->particule->rect.left -= RADIUS_LAS_PART / 2;
+		tile->laser->particule->rect.width += RADIUS_LAS_PART;
 	}
-	gen_particules(array, r, NB_LAS_PART, &tile->laser->index_particule);
+	gen_particules(tile->laser->particule);
 }

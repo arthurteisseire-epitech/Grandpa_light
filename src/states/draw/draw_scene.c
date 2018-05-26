@@ -17,18 +17,16 @@ void draw_tile(rpg_t *rpg, tile_t *tile)
 	if (tile->laser->horizontal) {
 		sfRenderWindow_drawRectangleShape(rpg->window,
 			tile->laser->hor_rect, NULL);
-		laser_part(tile, tile->laser->part_array
-		, tile->laser->hor_rect);
+		laser_part(tile, tile->laser->hor_rect);
 		sfRenderWindow_drawVertexArray(rpg->window
-		, tile->laser->part_array, NULL);
+		, tile->laser->particule->vertex_array, NULL);
 	}
 	if (tile->laser->vertical) {
 		sfRenderWindow_drawRectangleShape(rpg->window,
 			tile->laser->vert_rect, NULL);
-		laser_part(tile, tile->laser->part_array
-		, tile->laser->vert_rect);
+		laser_part(tile, tile->laser->vert_rect);
 		sfRenderWindow_drawVertexArray(rpg->window
-		, tile->laser->part_array, NULL);
+		, tile->laser->particule->vertex_array, NULL);
 	}
 }
 

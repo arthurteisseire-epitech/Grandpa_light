@@ -10,15 +10,25 @@
 
 #include <SFML/Graphics.h>
 
+#define PLAYER_PART_COLOR ((sfColor){255, 255, 255, 255})
+#define LASER_PART_COLOR ((sfColor){255, 0, 0, 255})
 #define RADIUS_LAS_PART 6
-#define NB_LAS_PART 200
-#define NB_PLAYER_PART 60
+#define NB_LASER_PART 200
+#define NB_PLAYER_PART 40
 
 typedef struct tile_s tile_t;
 typedef struct player_s player_t;
 
-void laser_part(tile_t *tile, sfVertexArray *array, sfRectangleShape *rect);
-void gen_particules(sfVertexArray *array, sfFloatRect rect, int nb, int *i);
+typedef struct particule_s {
+	sfVertexArray *vertex_array;
+	sfFloatRect rect;
+	sfColor color;
+	unsigned int index_vertex;
+	unsigned int nb_particules;
+} particule_t;
+
+void laser_part(tile_t *tile, sfRectangleShape *rect);
+void gen_particules(particule_t *particule);
 void player_part(player_t *player);
 
 #endif

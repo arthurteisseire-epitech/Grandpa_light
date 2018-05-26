@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include "rpg.h"
 #include "tool.h"
+#include "particule.h"
 
 sfVector2f get_random_pos(sfFloatRect rect)
 {
@@ -19,23 +20,25 @@ sfVector2f get_random_pos(sfFloatRect rect)
 	return (res);
 }
 
-void gen_particules(sfVertexArray *array, sfFloatRect rect, int nb, int *i)
+void gen_particules(particule_t *particule)
 {
-	sfVector2f pos = get_random_pos(rect);
+	sfVector2f pos = get_random_pos(particule->rect);
 	sfVertex *tmp;
 	sfVertex vertex = {.position = (sfVector2f){pos.x, pos.y}
-	, .color = sfWhite};
-	int nb_vertex = sfVertexArray_getVertexCount(array);
+	, .color = particule->color};
+	unsigned int nb_vertex = sfVertexArray_getVertexCount(
+		particule->vertex_array);
 
-	for (int index = 0; index < nb_vertex; index++) {
-		tmp = sfVertexArray_getVertex(array, index);
+	for (unsigned int index = 0; index < nb_vertex; index++) {
+		tmp = sfVertexArray_getVertex(particule->vertex_array, index);
 		tmp->color.a -= 2;
 	}
-	if (nb_vertex < nb)
-		sfVertexArray_append(array, vertex);
+	if (nb_vertex < particule->nb_particules)
+		sfVertexArray_append(particule->vertex_array, vertex);
 	else {
-		(*i) = (*i) + 1 >= nb_vertex ? 0 : (*i) + 1;
-		tmp = sfVertexArray_getVertex(array, *i);
+		particule->index_vertex = (particule->index_vertex + 1 >=
+			nb_vertex) ? 0 : particule->index_vertex + 1;
+		tmp = sfVertexArray_getVertex(particule->vertex_array, particule->index_vertex);
 		*tmp = vertex;
 	}
 }

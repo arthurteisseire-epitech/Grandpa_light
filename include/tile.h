@@ -40,14 +40,15 @@ typedef struct rpg_s rpg_t;
 typedef struct texture_s texture_t;
 typedef struct map_s map_t;
 typedef struct player_s player_t;
+typedef struct vertex_s vertex_t;
+typedef struct particule_s particule_t;
 
 typedef struct laser_s {
 	char horizontal;
 	char vertical;
 	sfRectangleShape *vert_rect;
 	sfRectangleShape *hor_rect;
-	sfVertexArray *part_array;
-	int index_particule;
+	particule_t *particule;
 } laser_t;
 
 typedef struct tile_s {

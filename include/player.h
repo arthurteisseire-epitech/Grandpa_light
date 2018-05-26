@@ -27,6 +27,8 @@ typedef struct object_s object_t;
 typedef struct rpg_s rpg_t;
 typedef struct texture_s texture_t;
 typedef struct button_s button_t;
+typedef struct vertex_s vertex_t;
+typedef struct particule_s particule_t;
 
 typedef struct stat_s {
 	int xp;
@@ -45,8 +47,7 @@ typedef struct player_s {
 	sfVector2f pos;
 	int id_anim;
 	int curr_frame;
-	sfVertexArray *part;
-	int index_part;
+	particule_t *particule;
 } player_t;
 
 void rotate_player(rpg_t *rpg, float angle);
