@@ -14,6 +14,7 @@
 #include "player.h"
 #include "init.h"
 #include "define.h"
+#include "achievement.h"
 
 static void update_stats(rpg_t *rpg, tile_t *tile)
 {
@@ -22,7 +23,7 @@ static void update_stats(rpg_t *rpg, tile_t *tile)
 	set_inventory_text(rpg);
 }
 
-static int change_tile(rpg_t *rpg, tile_t *tile)
+static void change_tile(rpg_t *rpg, tile_t *tile)
 {
 	int index = index_tile_by_name(GROUND_STR);
 	texture_t *texture = rpg->tx_tile[tile_list[index].idx_texture];
@@ -35,13 +36,29 @@ static int change_tile(rpg_t *rpg, tile_t *tile)
 	sfRectangleShape_setTextureRect(tile->rect
 	, get_rect(texture, tile->name)->rect);
 	rm_anim_tile(CURR_SCENE->anim_tiles, tile);
-	return (SUCCESS);
+}
+
+static void update_room(rpg_t *rpg, tile_t *tile)
+{
+	tile_t *room;
+
+	room = apply_on_map(rpg, get_tile_by_chanel, tile);
+	rpg->curr_scene = rpg->prev_scene;
+	if (room == rpg->scenes[SC_HUB]->map->tiles[0][0])
+		return;
+	if (!room->active) {
+		room->active = TRUE;
+		shift_texture_rect(room->rect, room->tx, &room->curr_frame);
+	}
+	change_tile(rpg, tile);
+	generate_shader(CURR_SCENE->map, rpg->player);
+	update_shader(CURR_SCENE->map);
+	if (rpg->curr_scene == SCENE_MENU + 1)
+		new_achievement(rpg, "first_map");
 }
 
 int action_end(rpg_t *rpg, tile_t *tile)
 {
-	tile_t *room;
-
 	if (CURR_SCENE->completed == FALSE)
 		update_stats(rpg, tile);
 	CURR_SCENE->completed = TRUE;
@@ -50,16 +67,6 @@ int action_end(rpg_t *rpg, tile_t *tile)
 	rpg->prev_scene = rpg->curr_scene;
 	rpg->curr_scene = SC_HUB;
 	apply_on_map(rpg, set_tile_by_chanel, tile);
-	room = apply_on_map(rpg, get_tile_by_chanel, tile);
-	rpg->curr_scene = rpg->prev_scene;
-	if (room == rpg->scenes[SC_HUB]->map->tiles[0][0])
-		return (SUCCESS);
-	if (!room->active) {
-		room->active = TRUE;
-		shift_texture_rect(room->rect, room->tx, &room->curr_frame);
-	}
-	DR(change_tile(rpg, tile));
-	generate_shader(CURR_SCENE->map, rpg->player);
-	update_shader(CURR_SCENE->map);
+	update_room(rpg, tile);
 	return (SUCCESS);
 }
