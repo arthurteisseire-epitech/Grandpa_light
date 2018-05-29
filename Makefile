@@ -136,7 +136,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DPART)gen_particules.c	\
 
 LDFLAGS	=	-lc_graph_prog -lconfig -lm
-CFLAGS	+=	-Wall -W -Wextra -I$(INC) -g
+CFLAGS	+=	-Wall -W -Wextra -I$(INC)
 
 OBJ	=	$(SRC:.c=.o)
 NAME	=	my_rpg
@@ -152,8 +152,11 @@ clean:
 	make clean -C $(DMY)
 	rm -f $(OBJ)
 
-fclean: clean
+fclean:	clean
 	make fclean -C $(DMY)
 	rm -f $(NAME)
 
-re: fclean all
+re:	fclean all
+
+debug:	CFLAGS += -g
+debug:	re
