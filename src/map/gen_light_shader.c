@@ -56,5 +56,7 @@ void generate_shader(map_t *map, player_t *player)
 	gen_raycast(map, player->pos, player->stats->light_radius);
 	for (int i = 0; torchs[i] != NULL; i++) {
 		gen_raycast(map, torchs[i]->pos, torchs[i]->radius);
+		free(torchs[i]);
 	}
+	free(torchs);
 }

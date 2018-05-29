@@ -20,7 +20,6 @@ static const init_arr_t init_arr[] = {
 	init_scenes,
 	init_achievement,
 	init_musics,
-	init_vertex,
 	init_window,
 	NULL
 };

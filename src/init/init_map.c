@@ -79,5 +79,6 @@ int init_map(rpg_t *rpg, map_t **map, const char *path)
 	inverse(&(*map)->size.x, &(*map)->size.y);
 	open_doors((*map)->tiles);
 	init_lasers(rpg);
+	sfImage_destroy(image);
 	return (SUCCESS);
 }

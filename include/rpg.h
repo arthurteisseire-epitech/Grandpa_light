@@ -39,6 +39,7 @@ typedef struct rpg_s {
 	int prev_scene;
 	int nb_scenes;
 	config_setting_t *set;
+	config_t *config;
 	player_t *player;
 	achievement_t *achievement;
 	char is_achieve;

@@ -50,6 +50,7 @@ int sfText_concat_int(rpg_t *rpg, sfText *text, int nb, int index)
 	CM(str);
 	sfText_setString(text, str);
 	free(nb_str);
+	free((void *)str);
 	return (SUCCESS);
 }
 

@@ -12,6 +12,7 @@
 #include "vec.h"
 #include "player.h"
 #include "tool.h"
+#include "destroy.h"
 
 sfVector2f get_tile_pos(sfVector2f pos, int angle, int dist)
 {
@@ -75,6 +76,7 @@ void gen_raycast(map_t *map, sfVector2f pos, int radius)
 			{ray_collide(map, pos, radius, angle), 3});
 	}
 	raycast_circle[RAYCAST_NB] = NULL;
+	destroy_raycast_circle(map);
 	map->raycast_circle = raycast_circle;
 	pos = old_pos;
 }

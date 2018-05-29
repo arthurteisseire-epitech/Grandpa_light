@@ -12,38 +12,13 @@
 #include "destroy.h"
 #include "tool.h"
 
-static void destroy_laser(laser_t *laser)
-{
-	sfRectangleShape_destroy(laser->hor_rect);
-	sfRectangleShape_destroy(laser->vert_rect);
-	free(laser);
-}
-
-static void destroy_tile(tile_t *tile)
-{
-	sfRectangleShape_destroy(tile->rect);
-	destroy_laser(tile->laser);
-	free(tile);
-}
-
-static void destroy_map(map_t *map)
-{
-	inverse(&map->size.x, &map->size.y);
-	for (unsigned int row = 0; row < map->size.y; row++) {
-		for (unsigned int col = 0; col < map->size.x; col++)
-			destroy_tile(map->tiles[row][col]);
-		free(map->tiles[row]);
-	}
-	free(map->tiles);
-	free(map);
-}
-
 void destroy_scene(scene_t *scene)
 {
 	if (scene->map != NULL)
 		destroy_map(scene->map);
 	if (scene->buttons != NULL)
 		destroy_buttons(scene->buttons);
+	free(scene->anim_tiles);
 	free(scene);
 }
 
@@ -55,4 +30,5 @@ void destroy_scenes(scene_t **scenes)
 		destroy_scene(scenes[i]);
 		i++;
 	}
+	free(scenes);
 }

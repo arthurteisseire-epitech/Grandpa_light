@@ -66,7 +66,6 @@ SRC     =	$(DSRC)main.c			\
 		$(DINIT)init_particule.c	\
 		$(DINIT)init_laser.c		\
 		$(DINIT)init_anim_tiles.c	\
-		$(DINIT)init_vertex.c		\
 		$(DINIT)init_tiles.c		\
 		$(DINIT)tile_list.c		\
 		$(DESTROY)destroy.c		\
@@ -78,6 +77,10 @@ SRC     =	$(DSRC)main.c			\
 		$(DESTROY)destroy_config.c	\
 		$(DESTROY)destroy_text.c	\
 		$(DESTROY)destroy_musics.c	\
+		$(DESTROY)destroy_map.c		\
+		$(DESTROY)destroy_achievement.c	\
+		$(DESTROY)destroy_player.c	\
+		$(DESTROY)destroy_particule.c	\
 		$(DACHIVE)achievement.c		\
 		$(DACHIVE)set_achievement.c	\
 		$(DMAP)light_shader.c		\

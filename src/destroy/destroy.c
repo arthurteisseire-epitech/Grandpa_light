@@ -18,5 +18,9 @@ void destroy(rpg_t *rpg)
 	destroy_textures(rpg->tx_tile);
 	destroy_textures(rpg->tx_game);
 	destroy_musics(rpg->musics);
+	destroy_player(rpg->player);
+	destroy_achievement(rpg->achievement);
+	destroy_config(rpg->config);
+	sfClock_destroy(rpg->clock);
 	free(rpg);
 }
