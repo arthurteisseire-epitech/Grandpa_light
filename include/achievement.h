@@ -11,6 +11,7 @@
 #include <SFML/Graphics.h>
 
 typedef struct rpg_s rpg_t;
+typedef struct font_s font_t;
 typedef struct config_setting_t config_setting_t;
 
 #define HEXA_TO_COLOR(color_nb) ((sfColor) {			\
@@ -38,7 +39,7 @@ void set_achievement_pos(achievement_t *achieve
 void set_achievement_size(achievement_t *achieve
 , config_setting_t *parent);
 int set_achievement_font(achievement_t *achieve
-, config_setting_t *parent);
+, config_setting_t *parent, font_t **fonts);
 int new_achievement(rpg_t *rpg, char const *name);
 
 #endif

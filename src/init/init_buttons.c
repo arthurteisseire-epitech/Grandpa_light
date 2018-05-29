@@ -45,6 +45,6 @@ int init_button(rpg_t *rpg, button_t **button, config_setting_t *parent, int i)
 	DR(set_texture_by_setting(rpg->tx_game, (*button)->rect, button_set));
 	config_setting_lookup_string(button_set, "function", &ft_name);
 	(*button)->button_func = get_func_button(ft_name);
-	DR(init_text(&(*button)->text, button_set));
+	DR(init_text(&(*button)->text, button_set, rpg->fonts));
 	return (SUCCESS);
 }

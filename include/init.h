@@ -25,6 +25,7 @@ typedef struct laser_s laser_t;
 typedef struct achievement_s achievement_t;
 typedef struct stat_s stat_t;
 typedef struct particule_s particule_t;
+typedef struct font_s font_t;
 
 typedef int (*init_arr_t)(rpg_t *);
 
@@ -41,8 +42,8 @@ int init_anim(rpg_t *rpg, texture_t **texture, config_setting_t *parent, int i);
 int init_config(rpg_t *rpg);
 int init_scenes(rpg_t *rpg);
 int fill_scene(rpg_t *rpg, config_setting_t *parent, int index);
-int init_text(sfText **text, config_setting_t *parent);
-int fill_text(sfText *text, config_setting_t *text_setting);
+int fill_text(sfText *text, config_setting_t *text_setting, font_t **fonts);
+int init_text(sfText **text, config_setting_t *parent, font_t **fonts);
 int init_map(rpg_t *rpg, map_t **map, const char *path);
 int init_tile(rpg_t *rpg, tile_t *tile, int index_tile, sfVector2f pos);
 int init_buttons(rpg_t *rpg, button_t ***buttons, config_setting_t *parent);
@@ -61,6 +62,9 @@ int set_texture_rect(rectangle_t *rect, config_setting_t *set, sfVector2f size,
 	int i);
 int init_particule(particule_t **particule, sfColor color
 , unsigned int nb_particules);
+int init_fonts(rpg_t *rpg);
+int fill_fonts(font_t **fonts, config_setting_t *parent, unsigned int len);
+int set_fonts(font_t *font, config_setting_t *parent);
 
 sfVector2f get_cfg_vec(config_setting_t *parent, char const *name);
 sfVector2f scale(sfSprite *sprite, sfVector2f new);

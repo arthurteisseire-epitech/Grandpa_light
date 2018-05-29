@@ -10,8 +10,10 @@
 #include "my.h"
 #include "init.h"
 #include "define.h"
+#include "font.h"
+#include "tool.h"
 
-int init_text(sfText **text, config_setting_t *parent)
+int init_text(sfText **text, config_setting_t *parent, font_t **fonts)
 {
 	config_setting_t *text_setting = config_setting_lookup(parent, "text");
 
@@ -21,13 +23,13 @@ int init_text(sfText **text, config_setting_t *parent)
 	}
 	*text = sfText_create();
 	CM(*text);
-	return (fill_text(*text, text_setting));
+	return (fill_text(*text, text_setting, fonts));
 }
 
-int fill_text(sfText *text, config_setting_t *text_setting)
+int fill_text(sfText *text, config_setting_t *text_setting, font_t **fonts)
 {
-	const char *str;
-	sfFont *font;
+	const char *str = NULL;
+	font_t *font;
 	int size = 10;
 
 	if (!config_setting_lookup_string(text_setting, "str", &str))
@@ -37,10 +39,10 @@ int fill_text(sfText *text, config_setting_t *text_setting)
 	if (!config_setting_lookup_string(text_setting, "font", &str))
 		return (my_puterror("fill text: lookup font:")
 		, WRONG_CONFIG_PATH);
-	font = sfFont_createFromFile(str);
+	font = get_font_by_name(fonts, str);
 	if (font == NULL)
 		return (my_puterror("In fill_text : font :"), WRONG_PATH);
-	sfText_setFont(text, font);
+	sfText_setFont(text, font->font);
 	config_setting_lookup_int(text_setting, "size", &size);
 	sfText_setCharacterSize(text, size);
 	sfText_setPosition(text, get_cfg_vec(text_setting, "pos"));

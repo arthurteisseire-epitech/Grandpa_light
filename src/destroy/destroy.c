@@ -21,6 +21,7 @@ void destroy(rpg_t *rpg)
 	destroy_player(rpg->player);
 	destroy_achievement(rpg->achievement);
 	destroy_config(rpg->config);
+	destroy_fonts(rpg->fonts);
 	sfClock_destroy(rpg->clock);
 	free(rpg);
 }

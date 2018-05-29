@@ -10,6 +10,8 @@
 #include "vec.h"
 #include "achievement.h"
 #include "define.h"
+#include "font.h"
+#include "tool.h"
 
 void set_achievement_color(achievement_t *achievement
 , config_setting_t *parent)
@@ -63,25 +65,29 @@ void set_achievement_size(achievement_t *achieve
 	sfText_setCharacterSize(achieve->head, font_size);
 }
 
-static int set_font(sfText *text, config_setting_t *parent, char const *name)
+static int set_font(sfText *text, config_setting_t *parent, char const *name,
+font_t **fonts)
 {
-	sfFont *font;
+	font_t *font;
 	char const *str = NULL;
 
 	config_setting_lookup_string(parent, name, &str);
 	CF(str);
-	font = sfFont_createFromFile(str);
-	CM(font);
-	sfText_setFont(text, font);
+	font = get_font_by_name(fonts, str);
+	if (font == NULL) {
+		my_puterror("In set_achievement_font : font name not found\n");
+		return (WRONG_CONFIG_PATH);
+	}
+	sfText_setFont(text, font->font);
 	return (SUCCESS);
 }
 
 int set_achievement_font(achievement_t *achieve
-, config_setting_t *parent)
+, config_setting_t *parent, font_t **fonts)
 {
-	DR(set_font(achieve->xp_text, parent, "xp_font"));
-	DR(set_font(achieve->title, parent, "title_font"));
-	DR(set_font(achieve->desc, parent, "desc_font"));
-	DR(set_font(achieve->head, parent, "head_font"));
+	DR(set_font(achieve->xp_text, parent, "xp_font", fonts));
+	DR(set_font(achieve->title, parent, "title_font", fonts));
+	DR(set_font(achieve->desc, parent, "desc_font", fonts));
+	DR(set_font(achieve->head, parent, "head_font", fonts));
 	return (SUCCESS);
 }

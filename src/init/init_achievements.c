@@ -44,7 +44,7 @@ int init_achievement(rpg_t *rpg)
 	DR(create_sf(rpg));
 	DR(set_texture_by_setting(rpg->tx_game
 	, rpg->achievement->rect, achieves_set));
-	DR(set_achievement_font(rpg->achievement, achieves_set));
+	DR(set_achievement_font(rpg->achievement, achieves_set, rpg->fonts));
 	set_achievement_pos(rpg->achievement, achieves_set);
 	set_achievement_size(rpg->achievement, achieves_set);
 	set_achievement_color(rpg->achievement, achieves_set);

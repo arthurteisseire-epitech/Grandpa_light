@@ -23,6 +23,7 @@ typedef struct laser_s laser_t;
 typedef struct map_s map_t;
 typedef struct particule_s particule_t;
 typedef struct achievement_s achievement_t;
+typedef struct font_s font_t;
 
 void destroy(rpg_t *rpg);
 void destroy_event(sfEvent *event);
@@ -43,5 +44,6 @@ void destroy_raycast_circle(map_t *map);
 void destroy_particule(particule_t *particule);
 void destroy_achievement(achievement_t *achievement);
 void destroy_anim_tiles(tile_t **tiles);
+void destroy_fonts(font_t **fonts);
 
 #endif

@@ -67,6 +67,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DINIT)init_laser.c		\
 		$(DINIT)init_anim_tiles.c	\
 		$(DINIT)init_tiles.c		\
+		$(DINIT)init_fonts.c		\
 		$(DINIT)tile_list.c		\
 		$(DESTROY)destroy.c		\
 		$(DESTROY)destroy_window.c	\
@@ -81,6 +82,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DESTROY)destroy_achievement.c	\
 		$(DESTROY)destroy_player.c	\
 		$(DESTROY)destroy_particule.c	\
+		$(DESTROY)destroy_fonts.c	\
 		$(DACHIVE)achievement.c		\
 		$(DACHIVE)set_achievement.c	\
 		$(DMAP)light_shader.c		\
@@ -123,6 +125,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DTOOLS)wait_delta_frame.c	\
 		$(DTOOLS)get_highest_chanel.c	\
 		$(DTOOLS)find_setting_by_name.c	\
+		$(DTOOLS)get_font_by_name.c	\
 		$(DTX)get_texture.c		\
 		$(DTX)shift_texture_rect.c	\
 		$(DPLAYER)player_event.c	\

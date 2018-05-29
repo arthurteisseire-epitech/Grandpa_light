@@ -14,6 +14,7 @@ typedef struct rpg_s rpg_t;
 typedef struct tile_s tile_t;
 typedef struct map_s map_t;
 typedef struct button_s button_t;
+typedef struct font_s font_t;
 typedef struct config_setting_t config_setting_t;
 
 #define ABS(x) (x < 0 ? -x : x)
@@ -40,5 +41,6 @@ int get_highest_active_chanel(map_t const *map);
 
 char *get_next_dialog(int idx);
 int update_text(rpg_t *rpg);
+font_t *get_font_by_name(font_t **fonts, char const *name);
 
 #endif
