@@ -5,7 +5,7 @@
 ** by Arthur Teisseire
 */
 
-#include <libconfig.h>
+#include "libconfig.h"
 #include "my.h"
 
 config_setting_t *find_setting_by_name(config_setting_t *array_set

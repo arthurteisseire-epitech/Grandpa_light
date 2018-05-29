@@ -5,7 +5,7 @@
 ** by Arthur Teisseire
 */
 
-#include <libconfig.h>
+#include "libconfig.h"
 #include "rpg.h"
 #include "vec.h"
 #include "achievement.h"

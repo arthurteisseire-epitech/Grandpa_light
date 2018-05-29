@@ -6,7 +6,7 @@
 */
 
 #include <stdlib.h>
-#include <libconfig.h>
+#include "libconfig.h"
 #include "my.h"
 #include "rpg.h"
 #include "texture.h"

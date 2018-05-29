@@ -5,7 +5,7 @@
 ** by Arthur Teisseire
 */
 
-#include <libconfig.h>
+#include "libconfig.h"
 #include <stdlib.h>
 #include <memory.h>
 #include "my.h"

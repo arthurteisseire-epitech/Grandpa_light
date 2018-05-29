@@ -5,7 +5,7 @@
 ** Ozz
 */
 
-#include <libconfig.h>
+#include "libconfig.h"
 #include "vec.h"
 
 sfVector2f coord_mult(sfVector2f v1, sfVector2i v2)
