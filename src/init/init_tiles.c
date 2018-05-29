@@ -38,7 +38,8 @@ int parse_image_line(rpg_t *rpg, map_t *map, sfImage *image, int row)
 	return (SUCCESS);
 }
 
-void set_tile_values(tile_t *tile, int index_tile, sfVector2f pos, sfColor color)
+void set_tile_values(tile_t *tile, int index_tile, sfVector2f pos
+, sfColor color)
 {
 	tile->active = (char)(color.r & 0b00000001);
 	tile->direction = (char)(color.r & 0b00000110);

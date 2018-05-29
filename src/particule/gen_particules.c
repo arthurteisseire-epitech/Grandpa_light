@@ -38,7 +38,8 @@ void gen_particules(particule_t *particule)
 	else {
 		particule->index_vertex = (particule->index_vertex + 1 >=
 			nb_vertex) ? 0 : particule->index_vertex + 1;
-		tmp = sfVertexArray_getVertex(particule->vertex_array, particule->index_vertex);
+		tmp = sfVertexArray_getVertex(particule->vertex_array
+		, particule->index_vertex);
 		*tmp = vertex;
 	}
 }

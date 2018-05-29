@@ -10,7 +10,7 @@
 
 sfUint8 map_color(float value)
 {
-	return(255 - (sfUint8)(value * 255));
+	return (255 - (sfUint8)(value * 255));
 }
 
 void set_light(sfRectangleShape *light, float value)

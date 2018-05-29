@@ -15,7 +15,8 @@
 int init_sounds(rpg_t *rpg)
 {
 	unsigned int nb_sounds;
-	config_setting_t *sounds_set = config_setting_lookup(rpg->set, "sounds");
+	config_setting_t *sounds_set = config_setting_lookup(rpg->set
+	, "sounds");
 
 	if (sounds_set == NULL) {
 		rpg->sounds = NULL;

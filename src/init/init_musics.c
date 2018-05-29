@@ -14,7 +14,8 @@
 int init_musics(rpg_t *rpg)
 {
 	unsigned int nb_musics;
-	config_setting_t *musics_set = config_setting_lookup(rpg->set, "musics");
+	config_setting_t *musics_set = config_setting_lookup(rpg->set
+	, "musics");
 
 	if (musics_set == NULL) {
 		rpg->musics = NULL;

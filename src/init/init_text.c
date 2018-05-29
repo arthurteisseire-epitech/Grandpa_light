@@ -35,7 +35,8 @@ int fill_text(sfText *text, config_setting_t *text_setting)
 		WRONG_CONFIG_PATH);
 	sfText_setString(text, str);
 	if (!config_setting_lookup_string(text_setting, "font", &str))
-		return (my_puterror("fill text: lookup font:"), WRONG_CONFIG_PATH);
+		return (my_puterror("fill text: lookup font:")
+		, WRONG_CONFIG_PATH);
 	font = sfFont_createFromFile(str);
 	if (font == NULL)
 		return (my_puterror("In fill_text : font :"), WRONG_PATH);

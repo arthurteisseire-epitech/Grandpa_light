@@ -13,7 +13,8 @@
 
 int event_settings(rpg_t *rpg)
 {
-	if (rpg->event->key.code == sfKeyEscape && rpg->event->type == sfEvtKeyReleased) {
+	if (rpg->event->key.code == sfKeyEscape
+	&& rpg->event->type == sfEvtKeyReleased) {
 		rpg->curr_scene = SCENE_MENU;
 	}
 	return (SUCCESS);

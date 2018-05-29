@@ -54,21 +54,21 @@ static int set_strings(rpg_t *rpg, config_setting_t *parent, char const *name)
 	char const *head = "New Achievement";
 	char const *xp_text;
 	config_setting_t *array_set = config_setting_lookup(parent, "array");
-	config_setting_t *elem_set;
+	config_setting_t *elem;
 
 	CM(array_set);
-	elem_set = find_setting_by_name(array_set, name);
-	CM(elem_set);
+	elem = find_setting_by_name(array_set, name);
+	CM(elem);
 	config_setting_lookup_string(parent, "xp_text", &xp_text);
-	config_setting_lookup_string(elem_set, "title", &title);
-	config_setting_lookup_string(elem_set, "desc", &desc);
-	config_setting_lookup_string(elem_set, "head", &head);
-	CM(xp_text = get_xp_text(rpg, elem_set));
+	config_setting_lookup_string(elem, "title", &title);
+	config_setting_lookup_string(elem, "desc", &desc);
+	config_setting_lookup_string(elem, "head", &head);
+	CM(xp_text = get_xp_text(rpg, elem));
 	sfText_setString(rpg->achievement->title, title);
 	sfText_setString(rpg->achievement->desc, desc);
 	sfText_setString(rpg->achievement->xp_text, xp_text);
 	sfText_setString(rpg->achievement->head, head);
-	DR(set_texture_by_setting(rpg->tx_game, rpg->achievement->icon, elem_set));
+	DR(set_texture_by_setting(rpg->tx_game, rpg->achievement->icon, elem));
 	return (free((void *)xp_text), SUCCESS);
 }
 

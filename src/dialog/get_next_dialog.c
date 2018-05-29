@@ -10,13 +10,13 @@
 
 const char dialogs[16][30000] = {
 	"Greetings, lost light.;Welcome into this world,\n"
- 	"you might be somewhat lost,\n"
+	"you might be somewhat lost,\n"
 	"but don't worry, I will guide you.;First of all, you shall know why "
 	"you are here.;This world, as you can see,\nhas slipped down into "
 	"darkness.;That must be fought.;You are the Light which will allow "
 	"this place\nto shine again.;You shall bring Enlightenment to this "
-	"world.;To do so, you must first collect the Orbs of Light,\n which you "
-	"will find in the surrounding rooms;"
+	"world.;To do so, you must first collect the Orbs of Light,\n which you"
+	" will find in the surrounding rooms;"
 	"They will allow you to access deeper, \ndarker, more complex rooms.;"
 	"And when you find them all, then the Enlightenment\nshall happen and "
 	"the darkness shall scatter.;I wish you good luck !;",
@@ -37,7 +37,8 @@ const char dialogs[16][30000] = {
 	"not bring it to me.;All this light is your result.;It belongs to you."
 	"You have grown, little light.;You are now Enlightening.;Leave now "
 	"that you achieved your purpose.;And I may now "
-	"rest until another weak light comes to me.;"};
+	"rest until another weak light comes to me.;"
+};
 
 char *get_next_dialog(int idx)
 {

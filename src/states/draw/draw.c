@@ -16,11 +16,11 @@
 void draw_raycast_circle(rpg_t *rpg)
 {
 	int i = 0;
-	sfRectangleShape **rc_c = 
+	sfRectangleShape **rc_c =
 		CURR_SCENE->map->raycast_circle;
 
 	while (rc_c[i] != NULL) {
-		sfRenderWindow_drawRectangleShape(rpg->window,rc_c[i] , NULL);
+		sfRenderWindow_drawRectangleShape(rpg->window, rc_c[i], NULL);
 		i++;
 	}
 }

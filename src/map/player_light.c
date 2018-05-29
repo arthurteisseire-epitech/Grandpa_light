@@ -26,7 +26,7 @@ int ray_collide(map_t *map, sfVector2f pos, int radius, int angle)
 {
 	sfVector2f tile_pos;
 	tile_t *tile;
-	int i = 0;	
+	int i = 0;
 	float light_lv;
 
 	while (i < radius) {
@@ -38,10 +38,9 @@ int ray_collide(map_t *map, sfVector2f pos, int radius, int angle)
 		tile->lighted = 1;
 		light_lv = 1 - ((float)i / radius);
 		if (tile->light_level < light_lv)
-			tile->light_level = light_lv; 
-		if (tile->laser_col) {
-			return(i);
-		}
+			tile->light_level = light_lv;
+		if (tile->laser_col)
+			return (i);
 		i++;
 	}
 	return (i);
@@ -58,7 +57,7 @@ sfColor gen_color(int step)
 
 void gen_raycast(map_t *map, sfVector2f pos, int radius)
 {
-	sfRectangleShape **raycast_circle = 
+	sfRectangleShape **raycast_circle =
 		malloc(sizeof(sfRectangleShape *) * (RAYCAST_NB + 1));
 	sfVector2f old_pos = pos;
 	int angle;
@@ -75,7 +74,7 @@ void gen_raycast(map_t *map, sfVector2f pos, int radius)
 		sfRectangleShape_setSize(raycast_circle[step] , (sfVector2f)
 			{ray_collide(map, pos, radius, angle), 3});
 	}
-	raycast_circle[RAYCAST_NB] = NULL;	
+	raycast_circle[RAYCAST_NB] = NULL;
 	map->raycast_circle = raycast_circle;
 	pos = old_pos;
 }

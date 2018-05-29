@@ -15,7 +15,7 @@ void draw_on_achievement(rpg_t *rpg)
 	static float delta_time = 0.0f;
 	static float wait = 0.0f;
 	sfTime time = sfClock_getElapsedTime(rpg->clock);
-	
+
 	if (rpg->achievement == NULL)
 		return;
 	if (rpg->is_achieve) {

@@ -20,8 +20,10 @@ int button_volume(rpg_t *rpg)
 		i++;
 	}
 	if (value == 0.00)
-		sfText_setString(rpg->scenes[SC_SETTINGS]->buttons[0]->text, "VOLUME: OFF");
+		sfText_setString(rpg->scenes[SC_SETTINGS]->buttons[0]->text
+		, "VOLUME: OFF");
 	else
-		sfText_setString(rpg->scenes[SC_SETTINGS]->buttons[0]->text, "VOLUME: ON");
+		sfText_setString(rpg->scenes[SC_SETTINGS]->buttons[0]->text
+		, "VOLUME: ON");
 	return (SUCCESS);
 }

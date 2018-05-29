@@ -60,7 +60,7 @@ tile_t *get_tile_by_chanel(rpg_t *rpg, tile_t **tiles, void *data)
 
 	(void)rpg;
 	while (tiles[i]) {
-		if (tile->chanel == tiles[i]->chanel 
+		if (tile->chanel == tiles[i]->chanel
 		&& tiles[i]->func == action_room)
 			return (tiles[i]);
 		i++;

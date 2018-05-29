@@ -49,7 +49,7 @@ void set_achievement_size(achievement_t *achieve
 {
 	sfVector2f size = get_cfg_vec(parent, "size");
 	int font_size;
-	
+
 	sfRectangleShape_setSize(achieve->rect, size);
 	size = get_cfg_vec(parent, "icon_size");
 	sfRectangleShape_setSize(achieve->icon, size);
