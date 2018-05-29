@@ -78,7 +78,10 @@ static int fill_it(rpg_t *rpg, config_setting_t *parent, char const *name)
 	config_setting_t *elem_set = find_setting_by_name(array_set, name);
 	config_setting_t *is_done_set;
 
-	CM(elem_set);
+	if (elem_set == NULL) {
+		my_puterror("An achievement is missing in .cfg\n");
+		return (SUCCESS);
+	}
 	if (!is_achieve_done(elem_set)) {
 		set_strings(rpg, parent, name);
 		rpg->achievement->nb_achieves++;
