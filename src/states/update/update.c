@@ -16,7 +16,8 @@
 int update(rpg_t *rpg)
 {
 	set_player_pos(rpg->player);
-	player_part(rpg->player);
+	if (CURR_SCENE->map != NULL)
+		player_part(rpg->player);
 	update_anim_tiles(rpg, rpg->clock);
 	animate_sprite(rpg->player, rpg->clock);
 	return (SUCCESS);
