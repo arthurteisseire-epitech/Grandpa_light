@@ -5,7 +5,7 @@
 ** by Arthur Teisseire
 */
 
-#include <stdlib.h>
+#include <stddef.h>
 #include "my.h"
 #include "font.h"
 

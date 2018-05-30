@@ -35,7 +35,7 @@ int handle_pause_key(rpg_t *rpg)
 	return (0);
 }
 
-static int handle_general_event(rpg_t *rpg)
+static int general_event(rpg_t *rpg)
 {
 	if (rpg->event->type == sfEvtClosed)
 		sfRenderWindow_close(rpg->window);
@@ -48,11 +48,9 @@ static int handle_general_event(rpg_t *rpg)
 int event(rpg_t *rpg)
 {
 	while (sfRenderWindow_pollEvent(rpg->window, rpg->event)) {
-		handle_general_event(rpg);
+		general_event(rpg);
 		if (CURR_SCENE->event != NULL)
 			DR(CURR_SCENE->event(rpg));
-		if (rpg->curr_scene == SC_PAUSE)
-			break;
 	}
 	return (SUCCESS);
 }
