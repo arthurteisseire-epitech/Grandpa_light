@@ -11,6 +11,7 @@
 #include "player.h"
 #include "define.h"
 #include "scene.h"
+#include "texture.h"
 #include "tool.h"
 
 static tile_t *get_door(rpg_t *rpg, tile_t *tile)
@@ -41,6 +42,7 @@ int action_unlocker(rpg_t *rpg, tile_t *tile)
 	&& !door->active) {
 		rpg->player->stats->nb_orbe -= tile->chanel;
 		action_door(rpg, door);
+		shift_texture_rect(tile->rect, tile->tx, &tile->curr_frame);
 	}
 	return (SUCCESS);
 }

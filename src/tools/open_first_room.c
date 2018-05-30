@@ -12,7 +12,7 @@
 
 void set_rect(tile_t *tile)
 {
-	if (tile->chanel == 1) {
+	if (tile->chanel == 1 && tile->func != action_unlocker) {
 		shift_texture_rect(tile->rect, tile->tx, &tile->curr_frame);
 		tile->active = 1;
 	}
