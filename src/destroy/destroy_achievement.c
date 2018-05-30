@@ -10,6 +10,8 @@
 
 void destroy_achievement(achievement_t *achievement)
 {
+	if (achievement == NULL)
+		return;
 	sfRectangleShape_destroy(achievement->icon);
 	sfRectangleShape_destroy(achievement->rect);
 	sfText_destroy(achievement->desc);

@@ -97,6 +97,8 @@ int new_achievement(rpg_t *rpg, char const *name)
 {
 	config_setting_t *achieves_set;
 
+	if (rpg->achievement == NULL)
+		return (SUCCESS);
 	achieves_set = config_setting_lookup(rpg->set, "achievements");
 	if (achieves_set == NULL)
 		return (my_puterror("fill achievement: lookup achievements:"),

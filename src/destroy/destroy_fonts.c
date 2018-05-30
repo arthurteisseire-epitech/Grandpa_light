@@ -12,6 +12,8 @@ void destroy_fonts(font_t **fonts)
 {
 	int i = 0;
 
+	if (fonts == NULL)
+		return;
 	while (fonts[i] != NULL) {
 		sfFont_destroy(fonts[i]->font);
 		free(fonts[i]);

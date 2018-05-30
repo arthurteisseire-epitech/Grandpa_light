@@ -26,6 +26,8 @@ void destroy_scenes(scene_t **scenes)
 {
 	int i = 0;
 
+	if (scenes == NULL)
+		return;
 	while (scenes[i] != NULL) {
 		destroy_scene(scenes[i]);
 		i++;

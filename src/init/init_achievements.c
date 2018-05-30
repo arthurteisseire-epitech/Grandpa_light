@@ -34,9 +34,10 @@ int init_achievement(rpg_t *rpg)
 	config_setting_t *achieves_set;
 
 	achieves_set = config_setting_lookup(rpg->set, "achievements");
-	if (achieves_set == NULL)
-		return (my_puterror("Init achievements: lookup achievements:"),
-		WRONG_CONFIG_PATH);
+	if (achieves_set == NULL) {
+		rpg->achievement = NULL;
+		return (SUCCESS);
+	}
 	rpg->achievement = malloc(sizeof(achievement_t));
 	CM(rpg->achievement);
 	rpg->achievement->nb_achieves = 0;

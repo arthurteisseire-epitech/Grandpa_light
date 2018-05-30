@@ -44,6 +44,8 @@ void destroy_tile(tile_t *tile)
 
 void destroy_map(map_t *map)
 {
+	if (map == NULL)
+		return;
 	inverse(&map->size.x, &map->size.y);
 	for (unsigned int row = 0; row < map->size.y; row++) {
 		for (unsigned int col = 0; col < map->size.x; col++) {

@@ -22,6 +22,8 @@ static void destroy_rects(rectangle_t **rects)
 
 void destroy_textures(texture_t **textures)
 {
+	if (textures == NULL)
+		return;
 	for (unsigned int i = 0; textures[i] != NULL; i++) {
 		destroy_rects(textures[i]->rects);
 		sfTexture_destroy(textures[i]->texture);

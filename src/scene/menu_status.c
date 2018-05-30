@@ -75,9 +75,6 @@ int fill_menu_status(rpg_t *rpg)
 	config_setting_t *scene_set = config_setting_lookup(rpg->set, "scenes");
 	int index_menu_status;
 
-	if (scene_set == NULL)
-		return (my_puterror("fill menu status: lookup scenes:"),
-		WRONG_CONFIG_PATH);
 	index_menu_status = get_setting_index(scene_set, "menu_status");
 	if (index_menu_status != SC_MENU_STATUS)
 		return (my_puterror("fill text: get set idx:"),
@@ -90,8 +87,9 @@ int fill_menu_status(rpg_t *rpg)
 	, rpg->player->stats->xp, 5));
 	DR(sfText_concat_int(rpg, rpg->scenes[SC_MENU_STATUS]->buttons[6]->text
 	, rpg->player->stats->xp_to_up - rpg->player->stats->xp, 6));
-	DR(sfText_concat_int(rpg, rpg->scenes[SC_MENU_STATUS]->buttons[7]->text
-	, rpg->achievement->nb_achieves, 7));
+	if (rpg->achievement)
+		DR(sfText_concat_int(rpg, rpg->scenes[SC_MENU_STATUS]
+		->buttons[7]->text, rpg->achievement->nb_achieves, 7));
 	return (SUCCESS);
 }
 

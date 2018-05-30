@@ -10,6 +10,8 @@
 
 void destroy_texts(sfText **text)
 {
+	if (text == NULL)
+		return;
 	for (unsigned int i = 0; text[i] != NULL; i++)
 		sfText_destroy(text[i]);
 }

@@ -12,6 +12,8 @@
 
 void destroy_player(player_t *player)
 {
+	if (player == NULL)
+		return;
 	sfRectangleShape_destroy(player->rect);
 	destroy_buttons(player->items);
 	destroy_particule(player->particule);

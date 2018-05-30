@@ -10,6 +10,8 @@
 
 void destroy_particule(particule_t *particule)
 {
+	if (particule == NULL)
+		return;
 	sfVertexArray_destroy(particule->vertex_array);
 	free(particule);
 }

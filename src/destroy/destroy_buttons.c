@@ -20,6 +20,8 @@ void destroy_buttons(button_t **buttons)
 {
 	int i = 0;
 
+	if (buttons == NULL)
+		return;
 	while (buttons[i] != NULL) {
 		destroy_button(buttons[i]);
 		i++;
