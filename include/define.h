@@ -28,13 +28,13 @@
 void my_puterror(char const *str);
 
 #define SUCCESS 0
-#define MALLOC_FAILED my_puterror("Malloc failed\n"), -2
-#define WRONG_PATH my_puterror("Wrong file path\n"), -3
-#define WRONG_CONFIG_PATH my_puterror("In .cfg: Wrong config path\n"), -4
-#define TEXTURE_NOT_FOUND my_puterror("In .cfg: Texture not found\n"), -5
-#define MUSIC_NOT_FOUND my_puterror("In .cfg: Music not found\n"), -5
-#define SOUND_NOT_FOUND my_puterror("In .cfg: Sound not found\n"), -5
-#define FONT_NOT_FOUND my_puterror("In .cfg: Font not found\n"), -5
+#define MALLOC_FAILED -2
+#define WRONG_PATH -3
+#define WRONG_CONFIG_PATH -4
+#define TEXTURE_NOT_FOUND -5
+#define MUSIC_NOT_FOUND -6
+#define SOUND_NOT_FOUND -7
+#define FONT_NOT_FOUND -8
 
 #define LAS_STR "laser_beam"
 #define CAP_STR "ls_receptor"
