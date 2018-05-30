@@ -14,10 +14,8 @@
 
 void destroy_scene(scene_t *scene)
 {
-	if (scene->map != NULL)
-		destroy_map(scene->map);
-	if (scene->buttons != NULL)
-		destroy_buttons(scene->buttons);
+	destroy_map(scene->map);
+	destroy_buttons(scene->buttons);
 	free(scene->anim_tiles);
 	free(scene);
 }
