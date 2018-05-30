@@ -20,8 +20,10 @@
 
 static int prepare_dialog_scene(rpg_t *rpg, int dialog_nb)
 {
-	if (RPG_SCENE(rpg)->buttons[DIAL_BOX_IDX]->text != NULL)
+	if (RPG_SCENE(rpg)->buttons[DIAL_BOX_IDX]->text != NULL) {
 		get_next_dialog(dialog_nb);
+		update_text(rpg);
+	}
 	return (0);
 }
 
