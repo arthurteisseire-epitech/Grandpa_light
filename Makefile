@@ -29,6 +29,7 @@ DPLAYER	=	$(DSRC)player/
 DPART	=	$(DSRC)particule/
 DTX	=	$(DSRC)texture/
 DSTATES	=	$(DSRC)states/
+DSAVE	=	$(DSRC)save/
 DTOOLS	=	$(DSRC)tools/
 DEVENT	=	$(DSTATES)event/
 DUPDATE	=	$(DSTATES)update/
@@ -106,8 +107,6 @@ SRC     =	$(DSRC)main.c			\
 		$(DMAP)player_light.c		\
 		$(DSCENE)change_scene.c		\
 		$(DSCENE)menu_status.c		\
-		$(DSCENE)save_scenes.c		\
-		$(DSCENE)reset_scenes.c		\
 		$(DBUTTON)manage_buttons.c 	\
 		$(DBUTTON)get_func_button.c 	\
 		$(DBUTACT)button_play.c		\
@@ -118,6 +117,12 @@ SRC     =	$(DSRC)main.c			\
 		$(DBUTACT)button_volume.c	\
 		$(DBUTACT)button_size.c		\
 		$(DBUTACT)button_htp.c		\
+		$(DSAVE)save_scenes.c		\
+		$(DSAVE)reset_scenes.c		\
+		$(DSAVE)save_player_stats.c	\
+		$(DSAVE)load_player_stats.c	\
+		$(DSAVE)save_game.c		\
+		$(DSAVE)load_game.c		\
 		$(DTOOLS)vec.c			\
 		$(DTOOLS)get_rect.c		\
 		$(DTOOLS)is_pos_in_rect.c	\

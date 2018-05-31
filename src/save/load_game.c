@@ -1,17 +1,17 @@
 /*
 ** EPITECH PROJECT, 2017
-** File Name : button_credit.c
+** File Name : load_game.c
 ** File description:
 ** by Arthur Teisseire
 */
 
 #include "rpg.h"
+#include "player.h"
 #include "scene.h"
 #include "define.h"
 
-int button_exit(rpg_t *rpg)
+int load_game(rpg_t *rpg)
 {
-	sfRenderWindow_close(rpg->window);
-	save_game(rpg);
+	DR(load_player_stats(rpg->player));
 	return (SUCCESS);
 }
