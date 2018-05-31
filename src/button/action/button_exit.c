@@ -12,5 +12,6 @@
 int button_exit(rpg_t *rpg)
 {
 	sfRenderWindow_close(rpg->window);
+	save_scenes(rpg);
 	return (SUCCESS);
 }

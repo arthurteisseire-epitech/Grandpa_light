@@ -12,7 +12,7 @@
 
 #define CURR_SCENE rpg->scenes[rpg->curr_scene]
 
-#define SC_HUB 15
+#define SC_HUB 0
 #define SCENE_MENU 16
 #define SC_MENU_STATUS 17
 #define SC_DIALOG 18
@@ -29,6 +29,7 @@ typedef struct sprite_s sprite_t;
 typedef struct tile_s tile_t;
 typedef struct texture_s texture_t;
 typedef struct button_s button_t;
+typedef struct config_setting_t config_setting_t;
 typedef int (*scene_func)(rpg_t *);
 
 typedef struct map_s {
@@ -54,7 +55,11 @@ int manage_button(rpg_t *rpg, button_t **button, sfEvent *event);
 int add_anim_tile(tile_t ***tiles, tile_t *tile);
 int fill_menu_status(rpg_t *rpg);
 void launch_menu_status(rpg_t *rpg);
-
 void init_lasers(rpg_t *rpg);
+
+sfColor get_pixel_color(map_t *map, unsigned int row, unsigned int col);
+int save_map(map_t *map, char const *save_path);
+int overwrite_map(map_t *map, config_setting_t *scene_set);
+int save_scenes(rpg_t *rpg);
 
 #endif
