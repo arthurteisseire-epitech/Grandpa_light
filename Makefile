@@ -40,6 +40,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DSRC)game_loop.c		\
 		$(DSTATES)states.c		\
 		$(DRAW)draw.c			\
+		$(DRAW)draw_cursor.c		\
 		$(DRAW)draw_scene.c		\
 		$(DRAW)draw_player.c		\
 		$(DRAW)draw_achievement.c	\
@@ -50,6 +51,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DEVENT)event_menu.c		\
 		$(DEVENT)event_dialog.c		\
 		$(DINIT)init.c			\
+		$(DINIT)init_cursor.c 		\
 		$(DINIT)init_achievements.c	\
 		$(DINIT)init_player.c		\
 		$(DINIT)init_event.c		\

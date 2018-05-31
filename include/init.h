@@ -31,6 +31,7 @@ typedef int (*init_arr_t)(rpg_t *);
 
 int init(rpg_t *rpg);
 int init_window(rpg_t *rpg);
+int init_cursor(rpg_t *rpg);
 int init_event(rpg_t *rpg);
 int init_musics(rpg_t *rpg);
 int init_music(sfMusic **music, config_setting_t *parent, int i);
