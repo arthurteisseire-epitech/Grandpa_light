@@ -16,3 +16,4 @@ cmake*
 .gitignore
 my_rpg
 bonus/
+*.so

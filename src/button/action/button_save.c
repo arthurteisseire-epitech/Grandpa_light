@@ -1,16 +1,15 @@
 /*
 ** EPITECH PROJECT, 2017
-** File Name : button_credit.c
+** File Name : button_save.c
 ** File description:
 ** by Arthur Teisseire
 */
 
 #include "rpg.h"
-#include "scene.h"
 #include "define.h"
 
-int button_exit(rpg_t *rpg)
+int button_save(rpg_t *rpg)
 {
-	sfRenderWindow_close(rpg->window);
+	save_game(rpg);
 	return (SUCCESS);
 }

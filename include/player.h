@@ -65,5 +65,6 @@ int set_inventory_text(rpg_t *rpg);
 
 int load_player_stats(player_t *player);
 int save_player_stats(player_t *player);
+void reset_player_stats(player_t *player);
 
 #endif
