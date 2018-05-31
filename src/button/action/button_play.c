@@ -15,5 +15,6 @@ int button_play(rpg_t *rpg)
 	rpg->curr_scene = SC_HUB;
 	if (CURR_SCENE->map != NULL)
 		place_in_spawn(rpg);
+	reset_scenes(rpg);
 	return (SUCCESS);
 }

@@ -61,5 +61,7 @@ sfColor get_pixel_color(map_t *map, unsigned int row, unsigned int col);
 int save_map(map_t *map, char const *save_path);
 int overwrite_map(map_t *map, config_setting_t *scene_set);
 int save_scenes(rpg_t *rpg);
+int reset_scenes(rpg_t *rpg);
+int reset_scene(rpg_t *rpg, scene_t *scene, config_setting_t *scene_set);
 
 #endif

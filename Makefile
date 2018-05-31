@@ -88,7 +88,6 @@ SRC     =	$(DSRC)main.c			\
 		$(DMAP)light_shader.c		\
 		$(DMAP)gen_light_shader.c	\
 		$(DMAP)apply_on_map.c		\
-		$(DMAP)save_map.c		\
 		$(DTILE)get_tile_pos.c		\
 		$(DTILE)update_anim_tiles.c	\
 		$(DTILE)exec_tile.c		\
@@ -107,6 +106,8 @@ SRC     =	$(DSRC)main.c			\
 		$(DMAP)player_light.c		\
 		$(DSCENE)change_scene.c		\
 		$(DSCENE)menu_status.c		\
+		$(DSCENE)save_scenes.c		\
+		$(DSCENE)reset_scenes.c		\
 		$(DBUTTON)manage_buttons.c 	\
 		$(DBUTTON)get_func_button.c 	\
 		$(DBUTACT)button_play.c		\
