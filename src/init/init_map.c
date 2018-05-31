@@ -26,7 +26,8 @@ static int init_row(rpg_t *rpg, map_t *map, sfImage *image, unsigned int row)
 
 static void open_door(tile_t *tile)
 {
-	if (my_strcmp(tile->name, "door") == 0 && tile->active) {
+	if ((tile->func == action_door || tile->func == action_room)
+	&& tile->active) {
 		tile->laser_col = 0;
 		tile->player_col = 0;
 		shift_texture_rect(tile->rect, tile->tx, &tile->curr_frame);

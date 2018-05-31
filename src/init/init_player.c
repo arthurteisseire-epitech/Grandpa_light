@@ -37,13 +37,14 @@ int init_player(rpg_t *rpg)
 	DR(set_player_stat(rpg->player, player_set));
 	DR(init_particule(&rpg->player->particule
 	, PLAYER_PART_COLOR, NB_PLAYER_PART));
+	DR(load_game(rpg));
 	return (SUCCESS);
 }
 
 int init_stats(stat_t **stat)
 {
 	*stat = malloc(sizeof(stat_t));
-		CM(*stat);
+	CM(*stat);
 	(*stat)->level = 0;
 	(*stat)->xp = 0;
 	(*stat)->xp_to_up = 10;

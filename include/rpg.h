@@ -48,5 +48,7 @@ typedef struct rpg_s {
 } rpg_t;
 
 int game_loop(rpg_t *rpg);
+int save_game(rpg_t *rpg);
+int load_game(rpg_t *rpg);
 
 #endif

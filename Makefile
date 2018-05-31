@@ -29,6 +29,7 @@ DPLAYER	=	$(DSRC)player/
 DPART	=	$(DSRC)particule/
 DTX	=	$(DSRC)texture/
 DSTATES	=	$(DSRC)states/
+DSAVE	=	$(DSRC)save/
 DTOOLS	=	$(DSRC)tools/
 DEVENT	=	$(DSTATES)event/
 DUPDATE	=	$(DSTATES)update/
@@ -90,6 +91,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DMAP)light_shader.c		\
 		$(DMAP)gen_light_shader.c	\
 		$(DMAP)apply_on_map.c		\
+		$(DMAP)player_light.c		\
 		$(DTILE)get_tile_pos.c		\
 		$(DTILE)update_anim_tiles.c	\
 		$(DTILE)exec_tile.c		\
@@ -105,12 +107,13 @@ SRC     =	$(DSRC)main.c			\
 		$(DTILACT)get_tile.c		\
 		$(DTILACT)rotate_laser.c	\
 		$(DTILACT)action_granpalight.c	\
-		$(DMAP)player_light.c		\
 		$(DSCENE)change_scene.c		\
 		$(DSCENE)menu_status.c		\
 		$(DBUTTON)manage_buttons.c 	\
 		$(DBUTTON)get_func_button.c 	\
 		$(DBUTACT)button_play.c		\
+		$(DBUTACT)button_new_game.c	\
+		$(DBUTACT)button_save.c		\
 		$(DBUTACT)button_setting.c	\
 		$(DBUTACT)button_exit.c		\
 		$(DBUTACT)button_return.c	\
@@ -118,6 +121,13 @@ SRC     =	$(DSRC)main.c			\
 		$(DBUTACT)button_volume.c	\
 		$(DBUTACT)button_size.c		\
 		$(DBUTACT)button_htp.c		\
+		$(DSAVE)save_scenes.c		\
+		$(DSAVE)reset_scenes.c		\
+		$(DSAVE)reset_player_stats.c	\
+		$(DSAVE)save_player_stats.c	\
+		$(DSAVE)load_player_stats.c	\
+		$(DSAVE)save_game.c		\
+		$(DSAVE)load_game.c		\
 		$(DTOOLS)vec.c			\
 		$(DTOOLS)get_rect.c		\
 		$(DTOOLS)is_pos_in_rect.c	\
