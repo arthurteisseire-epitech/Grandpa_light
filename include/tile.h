@@ -18,7 +18,7 @@
 
 #define DIAL_BOX_IDX 1
 #define DIAL_GRANPA_IDX 0
-#define LAST_CHANEL 15
+#define LAST_CHANEL 12
 
 #define RIGHT_ANGLE (-90.0)
 
