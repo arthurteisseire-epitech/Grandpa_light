@@ -59,5 +59,6 @@ void move_player(rpg_t *rpg, sfVector2f *pos, sfVector2f move)
 void set_player_pos(player_t *player)
 {
 	sfRectangleShape_setPosition(player->rect,
-			add_vec(scale_vec(player->pos, SIZE_TILE), VEC_HALF_TILE));
+			add_vec(scale_vec(player->pos, SIZE_TILE),
+			VEC_HALF_TILE));
 }
