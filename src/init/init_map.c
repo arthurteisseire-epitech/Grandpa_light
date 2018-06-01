@@ -31,10 +31,6 @@ static void open_door(rpg_t *rpg, tile_t *tile)
 		tile->laser_col = 0;
 		tile->player_col = 0;
 		shift_texture_rect(tile->rect, tile->tx, &tile->curr_frame);
-	} else if (tile->func == action_laser && tile->active) {
-		tile->active = !tile->active;
-		action_laser(rpg, tile);
-		tile->active = !tile->active;
 	}
 }
 
