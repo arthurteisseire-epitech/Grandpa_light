@@ -93,7 +93,7 @@ extern const tile_list_t tile_list[];
 int index_tile_by_color(sfColor color);
 int index_tile_by_name(char *name);
 
-void update_shader(map_t *map);
+void update_shader(rpg_t *rpg, map_t *map);
 char is_in_map(map_t *map, sfVector2f pos);
 void player_light(map_t *map, player_t *player);
 void generate_shader(map_t *map, player_t *player);

@@ -38,6 +38,7 @@ int init(rpg_t *rpg)
 	DR(init_clock(&rpg->clock));
 	rpg->curr_scene = FIRST_SCENE;
 	rpg->prev_scene = FIRST_SCENE;
+	rpg->is_darkness = TRUE;
 	fill_menu_status(rpg);
 	new_achievement(rpg, "launch_game");
 	return (SUCCESS);

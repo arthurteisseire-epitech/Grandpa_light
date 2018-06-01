@@ -52,7 +52,7 @@ static void update_room(rpg_t *rpg, tile_t *tile)
 	}
 	change_tile(rpg, tile);
 	generate_shader(CURR_SCENE->map, rpg->player);
-	update_shader(CURR_SCENE->map);
+	update_shader(rpg, CURR_SCENE->map);
 	if (rpg->curr_scene == SCENE_MENU + 1)
 		new_achievement(rpg, "first_map");
 }

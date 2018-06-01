@@ -10,9 +10,8 @@
 #include "player.h"
 #include "scene.h"
 
-void rotate_player(rpg_t *rpg, float angle)
+void rotate_player(rpg_t *rpg, float __attribute((unused))angle)
 {
-	sfRectangleShape_setRotation(rpg->player->rect, angle);
 	generate_shader(CURR_SCENE->map, rpg->player);
-	update_shader(CURR_SCENE->map);
+	update_shader(rpg, CURR_SCENE->map);
 }
