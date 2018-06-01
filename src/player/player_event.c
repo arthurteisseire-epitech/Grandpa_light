@@ -17,6 +17,10 @@
 
 void player_rotation(rpg_t *rpg)
 {
+	static float delta_time = 0.0f;
+
+	if (!wait_delta_frame(rpg->clock, &delta_time, EVENT_DELTA_TIME))
+		return;
 	if (!my_strcmp(RPG_TILE(rpg, rpg->player->pos)->name, LAS_STR))
 		rotate_laser(rpg, RPG_TILE(rpg, rpg->player->pos));
 	if (rpg->event->key.code == sfKeyUp)
@@ -31,6 +35,10 @@ void player_rotation(rpg_t *rpg)
 
 void player_movement(rpg_t *rpg)
 {
+	static float delta_time = 0.0f;
+
+	if (!wait_delta_frame(rpg->clock, &delta_time, EVENT_DELTA_TIME / 5.0f))
+		return;
 	if (rpg->event->key.code == sfKeyZ) {
 		move_player(rpg, &rpg->player->pos, MOVE_UP);
 		rotate_player(rpg, DIR_UP);
@@ -53,7 +61,10 @@ int player_action(rpg_t *rpg)
 {
 	static sfVector2i pos;
 	static tile_t *tile;
+	static float delta_time = 0.0f;
 
+	if (!wait_delta_frame(rpg->clock, &delta_time, EVENT_DELTA_TIME / 2.0f))
+		return (SUCCESS);
 	if (sfKeyboard_isKeyPressed(sfKeySpace)) {
 		pos.x = (int)rpg->player->pos.x;
 		pos.y = (int)rpg->player->pos.y;
