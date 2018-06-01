@@ -22,7 +22,6 @@ const char dialogs[12][30000] = {
 	"the darkness shall scatter.;I wish you good luck !;",
 	"Good job, you are making great progress !;",
 	"Well, I see that you are advancing in your quest !;", "Good luck !;",
-	"You will bring light.;",
 	"I am looking forward to finally seeing the Enlightenment !;",
 	"I miss the days this world was shining.;",
 	"Have you collected enough Orbs to access all the rooms ?;",
