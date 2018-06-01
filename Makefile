@@ -154,6 +154,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DPART)laser_particules.c	\
 		$(DPART)player_particules.c	\
 		$(DPART)gen_particules.c	\
+		$(DPART)clean_particules.c	\
 
 LDFLAGS	=	-lc_graph_prog -lconfig -lm
 CFLAGS	+=	-Wall -W -Wextra -I$(INC)
