@@ -159,7 +159,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DPART)clean_particules.c	\
 
 LDFLAGS	=	-lc_graph_prog -lconfig -lm
-CFLAGS	+=	-Wall -W -Wextra -I$(INC)
+CFLAGS	+=	-Wall -W -Wextra -I$(INC) -Iextern_libs/libconfig-1.7.2/
 
 OBJ	=	$(SRC:.c=.o)
 NAME	=	my_rpg
