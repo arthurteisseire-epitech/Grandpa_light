@@ -12,10 +12,8 @@
 
 typedef struct particule_s particule_t;
 
-
-typedef	struct cursor_s
-{
+typedef	struct cursor_s {
 	particule_t *particule;
-}cursor_t;
+} cursor_t;
 
 #endif

@@ -30,6 +30,7 @@ static int store_player_stat(FILE *file, int *nb)
 		return (WRONG_CONFIG_PATH);
 	*nb = my_atoi(array[last_elem]);
 	free_array((void **)array);
+	free(str);
 	return (SUCCESS);
 }
 
