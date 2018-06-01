@@ -7,6 +7,7 @@
 
 #include "libconfig.h"
 #include "vec.h"
+#include "tile.h"
 
 sfVector2f coord_mult(sfVector2f v1, sfVector2i v2)
 {
@@ -40,3 +41,4 @@ sfVector2f get_cfg_vec(config_setting_t *parent, char const *name)
 	col = config_setting_get_float_elem(pos, 1);
 	return ((sfVector2f){(float)row, (float)col});
 }
+

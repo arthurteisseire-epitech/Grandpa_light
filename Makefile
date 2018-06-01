@@ -105,6 +105,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DTILACT)action_torch.c	\
 		$(DTILACT)action_unlocker.c	\
 		$(DTILACT)action_spawn.c	\
+		$(DTILACT)action_unidir.c	\
 		$(DTILACT)get_tile.c		\
 		$(DTILACT)rotate_laser.c	\
 		$(DTILACT)action_granpalight.c	\
@@ -130,6 +131,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DSAVE)save_game.c		\
 		$(DSAVE)load_game.c		\
 		$(DTOOLS)vec.c			\
+		$(DTOOLS)vec_tool.c		\
 		$(DTOOLS)get_rect.c		\
 		$(DTOOLS)is_pos_in_rect.c	\
 		$(DTOOLS)animate.c		\
