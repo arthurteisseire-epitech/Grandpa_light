@@ -109,7 +109,6 @@ SRC     =	$(DSRC)main.c			\
 		$(DTILACT)rotate_laser.c	\
 		$(DTILACT)action_granpalight.c	\
 		$(DTILACT)action_unidir.c	\
-		$(DSCENE)change_scene.c		\
 		$(DSCENE)menu_status.c		\
 		$(DBUTTON)manage_buttons.c 	\
 		$(DBUTTON)get_func_button.c 	\
@@ -145,6 +144,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DPLAYER)player_event.c	\
 		$(DPLAYER)update_xp.c		\
 		$(DPLAYER)move_player.c		\
+		$(DPLAYER)place_in_spawn.c	\
 		$(DEVENT)event_settings.c 	\
 		$(DPLAYER)rotate_player.c	\
 		$(DDIAL)get_next_dialog.c	\
