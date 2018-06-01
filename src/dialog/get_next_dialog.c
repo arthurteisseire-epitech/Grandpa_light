@@ -8,7 +8,7 @@
 #include <stddef.h>
 #include "my.h"
 
-const char dialogs[16][30000] = {
+const char dialogs[12][30000] = {
 	"Greetings, lost light.;Welcome into this world,\n"
 	"you might be somewhat lost,\n"
 	"but don't worry, I will guide you.;First of all, you shall know why "
@@ -30,9 +30,6 @@ const char dialogs[16][30000] = {
 	"Soon you will Enlighten this world.;",
 	"The more you advance, the more you shine.;Do you understand ?;",
 	"Whose world is this in the end ?;",
-	"Such progression !; You definitely are capable of saving this world.;",
-	"You are the one improving.;",
-	"The only thing that matters is the Light.;",
 	"You have succeeded.;You have brought the Enlightenment.;But you did "
 	"not bring it to me.;All this light is your result.;It belongs to you."
 	"You have grown, little light.;You are now Enlightening.;Leave now "
