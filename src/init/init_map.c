@@ -24,7 +24,7 @@ static int init_row(rpg_t *rpg, map_t *map, sfImage *image, unsigned int row)
 	return (SUCCESS);
 }
 
-static void open_door(rpg_t *rpg, tile_t *tile)
+static void open_door(tile_t *tile)
 {
 	if ((tile->func == action_door || tile->func == action_room)
 	&& tile->active) {
@@ -34,7 +34,7 @@ static void open_door(rpg_t *rpg, tile_t *tile)
 	}
 }
 
-static void open_doors(rpg_t *rpg, tile_t ***tiles)
+static void open_doors(tile_t ***tiles)
 {
 	int row = 0;
 	int col;
@@ -42,7 +42,7 @@ static void open_doors(rpg_t *rpg, tile_t ***tiles)
 	while (tiles[row] != NULL) {
 		col = 0;
 		while (tiles[row][col] != NULL) {
-			open_door(rpg, tiles[row][col]);
+			open_door(tiles[row][col]);
 			col++;
 		}
 		row++;
@@ -83,7 +83,7 @@ int init_map(rpg_t *rpg, map_t **map, const char *path)
 		DR(init_row(rpg, *map, image, row));
 	(*map)->tiles[(*map)->size.y] = NULL;
 	inverse(&(*map)->size.x, &(*map)->size.y);
-	open_doors(rpg, (*map)->tiles);
+	open_doors((*map)->tiles);
 	init_lasers(rpg);
 	sfImage_destroy(image);
 	return (SUCCESS);
