@@ -40,8 +40,10 @@ int draw(rpg_t *rpg)
 	if (CURR_SCENE->map != NULL) {
 		sfRenderWindow_setMouseCursorVisible(rpg->window, sfFalse);
 		draw_player(rpg);
-	} else
+	} else {
+		sfRenderWindow_setMouseCursorVisible(rpg->window, sfTrue);
 		draw_cursor(rpg);
+	}
 	draw_on_achievement(rpg);
 	sfRenderWindow_display(rpg->window);
 	return (SUCCESS);

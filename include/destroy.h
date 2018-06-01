@@ -24,9 +24,11 @@ typedef struct map_s map_t;
 typedef struct particule_s particule_t;
 typedef struct achievement_s achievement_t;
 typedef struct font_s font_t;
+typedef struct cursor_s cursor_t;
 
 void destroy(rpg_t *rpg);
 void destroy_event(sfEvent *event);
+void destroy_cursor(cursor_t *cursor);
 void destroy_window(sfRenderWindow *window);
 void destroy_scenes(scene_t **scenes);
 void destroy_scene(scene_t *scene);

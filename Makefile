@@ -79,6 +79,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DESTROY)destroy_buttons.c	\
 		$(DESTROY)destroy_textures.c	\
 		$(DESTROY)destroy_config.c	\
+		$(DESTROY)destroy_cursor.c 	\
 		$(DESTROY)destroy_text.c	\
 		$(DESTROY)destroy_musics.c	\
 		$(DESTROY)destroy_map.c		\
