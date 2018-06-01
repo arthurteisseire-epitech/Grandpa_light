@@ -59,8 +59,7 @@ static void update_room(rpg_t *rpg, tile_t *tile)
 
 int action_end(rpg_t *rpg, tile_t *tile)
 {
-	if (CURR_SCENE->completed == FALSE)
-		update_stats(rpg, tile);
+	update_stats(rpg, tile);
 	CURR_SCENE->completed = TRUE;
 	if (rpg->scenes[SC_HUB]->map == NULL)
 		return (SUCCESS);
