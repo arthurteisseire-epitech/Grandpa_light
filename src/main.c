@@ -14,11 +14,29 @@
 #include "destroy.h"
 #include "define.h"
 
-int main(void)
+int check_env(char **env)
+{
+	char *str;
+
+	if (env == NULL)
+		return (-1);
+	str = get_env_value("DISPLAY", env);
+	if (str == NULL)
+		return (-1);
+	free(str);
+	return (SUCCESS);
+}
+
+int main(int ac, char **av, char **env)
 {
 	rpg_t *rpg = malloc(sizeof(rpg_t));
 
 	CM(rpg);
+	if (ac != 1)
+		return (84);
+	if (check_env(env) != SUCCESS)
+		return (-1);
+	(void)av;
 	srand((unsigned int)(unsigned long int)rpg);
 	DR(init(rpg));
 	if (rpg->musics != NULL)
