@@ -16,20 +16,6 @@
 #include "tool.h"
 #include "achievement.h"
 #include "particule.h"
-#include "cursor.h"
-
-int mouse_particule(rpg_t *rpg)
-{
-	sfVector2i rect = sfMouse_getPositionRenderWindow(rpg->window);
-
-	rpg->cursor->particule->rect.left = rect.x;
-	rpg->cursor->particule->rect.top =  rect.y;
-	rpg->cursor->particule->rect.height = 15;
-	rpg->cursor->particule->rect.width = 15;
-	gen_particules(rpg->cursor->particule);
-	rpg->cursor->particule->nb_particules = 13;
-	return (0);
-}
 
 void handle_exit_key(rpg_t *rpg)
 {
@@ -57,7 +43,6 @@ static int general_event(rpg_t *rpg)
 	if (CURR_SCENE->buttons != NULL)
 		manage_buttons(rpg, CURR_SCENE->buttons,
 			rpg->event);
-	mouse_particule(rpg);
 	return (SUCCESS);
 }
 
