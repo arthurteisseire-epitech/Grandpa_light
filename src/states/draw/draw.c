@@ -38,6 +38,7 @@ int draw(rpg_t *rpg)
 	sfRenderWindow_clear(rpg->window, sfBlack);
 	draw_scene(rpg, CURR_SCENE);
 	if (CURR_SCENE->map != NULL) {
+		sfRenderWindow_setMouseCursorVisible(rpg->window, sfFalse);
 		draw_player(rpg);
 	} else
 		draw_cursor(rpg);
