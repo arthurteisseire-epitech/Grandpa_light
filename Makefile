@@ -108,6 +108,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DTILACT)get_tile.c		\
 		$(DTILACT)rotate_laser.c	\
 		$(DTILACT)action_granpalight.c	\
+		$(DTILACT)action_unidir.c	\
 		$(DSCENE)change_scene.c		\
 		$(DSCENE)menu_status.c		\
 		$(DBUTTON)manage_buttons.c 	\
