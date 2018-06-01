@@ -19,6 +19,7 @@ int update(rpg_t *rpg);
 int event(rpg_t *rpg);
 int draw(rpg_t *rpg);
 
+void draw_cursor(rpg_t *rpg);
 void draw_achievement(rpg_t *rpg);
 void draw_on_achievement(rpg_t *rpg);
 void draw_scene(rpg_t *rpg, scene_t *scene);

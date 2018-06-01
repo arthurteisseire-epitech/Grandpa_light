@@ -21,9 +21,9 @@ int button_volume(rpg_t *rpg)
 	}
 	if (value == 0.00)
 		sfText_setString(rpg->scenes[SC_SETTINGS]->buttons[0]->text
-		, "VOLUME: OFF");
+		, "Music: Off");
 	else
 		sfText_setString(rpg->scenes[SC_SETTINGS]->buttons[0]->text
-		, "VOLUME: ON");
+		, "Music: On");
 	return (SUCCESS);
 }

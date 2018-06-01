@@ -17,19 +17,6 @@
 #include "rpg.h"
 #include "tool.h"
 
-static sfVector2f get_direction(char dir)
-{
-	if (dir == LEFT)
-		return ((sfVector2f){-1, 0});
-	if (dir == RIGHT)
-		return ((sfVector2f){1, 0});
-	if (dir == UP)
-		return ((sfVector2f){0, -1});
-	if (dir == DOWN)
-		return ((sfVector2f){0, 1});
-	return ((sfVector2f){0, 0});
-}
-
 static char check_receptor_dir(sfVector2f pos1, sfVector2f pos2)
 {
 	return (pos1.x == -pos2.x || pos1.y == -pos2.y);

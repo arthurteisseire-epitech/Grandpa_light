@@ -11,6 +11,7 @@
 #include "camera.h"
 #include "define.h"
 #include "player.h"
+#include "particule.h"
 #include "tile.h"
 #include "tool.h"
 
@@ -20,18 +21,5 @@ void place_in_spawn(rpg_t *rpg)
 		CURR_SCENE->map, tile_pos_line, "spawn");
 	update_shader(CURR_SCENE->map);
 	rotate_player(rpg, DIR_UP);
-}
-
-void change_scene(rpg_t *rpg)
-{
-	if (sfKeyboard_isKeyPressed(sfKeyP)) {
-		rpg->curr_scene = (rpg->curr_scene + 1) % rpg->nb_scenes;
-		if (CURR_SCENE->map != NULL)
-			place_in_spawn(rpg);
-	} else if (sfKeyboard_isKeyPressed(sfKeyO)) {
-		rpg->curr_scene = (rpg->curr_scene == 0) ?
-			rpg->nb_scenes - 1 : rpg->curr_scene - 1;
-		if (CURR_SCENE->map != NULL)
-			place_in_spawn(rpg);
-	}
+	clean_particules(rpg->player->particule);
 }

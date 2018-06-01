@@ -21,6 +21,7 @@
 #define TX_TILE_ACT_GRANPA 8
 #define TX_TILE_UNLOCKER 9
 #define TX_TILE_ORB 10
+#define TX_TILE_UNIDIR 11
 #define DELTA_FRAME 0.2f
 
 typedef struct config_setting_t config_setting_t;

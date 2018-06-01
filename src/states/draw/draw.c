@@ -12,6 +12,9 @@
 #include "scene.h"
 #include "tile.h"
 #include "tool.h"
+#include "particule.h"
+#include "player.h"
+#include "init.h"
 
 void draw_raycast_circle(rpg_t *rpg)
 {
@@ -36,7 +39,12 @@ int draw(rpg_t *rpg)
 	sfRenderWindow_clear(rpg->window, sfBlack);
 	draw_scene(rpg, CURR_SCENE);
 	if (CURR_SCENE->map != NULL) {
+		sfRenderWindow_setMouseCursorVisible(rpg->window, sfFalse);
 		draw_player(rpg);
+		DR(player_room_indicate(rpg, rpg->player));
+	} else {
+		sfRenderWindow_setMouseCursorVisible(rpg->window, sfTrue);
+		draw_cursor(rpg);
 	}
 	draw_on_achievement(rpg);
 	sfRenderWindow_display(rpg->window);

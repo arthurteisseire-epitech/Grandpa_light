@@ -11,6 +11,7 @@
 #include "define.h"
 #include "scene.h"
 #include "achievement.h"
+#include "particule.h"
 
 static const init_arr_t init_arr[] = {
 	init_event,
@@ -22,6 +23,7 @@ static const init_arr_t init_arr[] = {
 	init_achievement,
 	init_musics,
 	init_window,
+	init_cursor,
 	NULL
 };
 

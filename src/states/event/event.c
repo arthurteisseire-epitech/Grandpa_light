@@ -15,6 +15,7 @@
 #include "tile.h"
 #include "tool.h"
 #include "achievement.h"
+#include "particule.h"
 
 void handle_exit_key(rpg_t *rpg)
 {

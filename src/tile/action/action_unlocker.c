@@ -43,6 +43,7 @@ int action_unlocker(rpg_t *rpg, tile_t *tile)
 		rpg->player->stats->nb_orbe -= tile->chanel;
 		action_door(rpg, door);
 		shift_texture_rect(tile->rect, tile->tx, &tile->curr_frame);
+		tile->active = 1;
 	}
 	return (SUCCESS);
 }

@@ -11,7 +11,7 @@
 #include <SFML/Graphics.h>
 
 #define MASK_NAME(color) ((color).b & 0x0f)
-#define NB_TILE 14
+#define NB_TILE 15
 #define SIZE_TILE 64
 #define LASER_LENGTH 3
 #define VEC_HALF_TILE (sfVector2f){(float)SIZE_TILE / 2, (float)SIZE_TILE / 2}
@@ -118,6 +118,7 @@ int action_laser_captor(rpg_t *rpg, tile_t *tile);
 int action_granpa(rpg_t *rpg, tile_t *tile);
 int action_unlocker(rpg_t *rpg, tile_t *tile);
 int action_spawn(rpg_t *rpg, tile_t *tile);
+int action_unidir(rpg_t __attribute((unused))*rpg, tile_t *tile);
 
 int *swap_lasers(rpg_t *rpg);
 void swap_lasers_back(rpg_t *rpg);

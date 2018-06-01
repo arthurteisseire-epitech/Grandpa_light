@@ -61,10 +61,9 @@ int fill_scene(rpg_t *rpg, config_setting_t *scenes_setting, int index)
 	rpg->scenes[index]->event = get_func_scene(ft);
 	rpg->scenes[index]->completed = FALSE;
 	DR(init_buttons(rpg, &rpg->scenes[index]->buttons, scene_setting));
-	if (!config_setting_lookup_string(scene_setting, "map", &str)) {
+	if (config_setting_lookup_string(scene_setting, "save", &str)) {
+		DR(init_map(rpg, &rpg->scenes[index]->map, str));
+	} else
 		rpg->scenes[index]->map = NULL;
-		return (SUCCESS);
-	}
-	DR(init_map(rpg, &rpg->scenes[index]->map, str));
 	return (SUCCESS);
 }

@@ -10,6 +10,7 @@
 #include "rpg.h"
 #include "tool.h"
 #include "particule.h"
+#include "init.h"
 
 sfVector2f get_random_pos(sfFloatRect rect)
 {

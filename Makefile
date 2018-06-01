@@ -29,6 +29,7 @@ DPLAYER	=	$(DSRC)player/
 DPART	=	$(DSRC)particule/
 DTX	=	$(DSRC)texture/
 DSTATES	=	$(DSRC)states/
+DSAVE	=	$(DSRC)save/
 DTOOLS	=	$(DSRC)tools/
 DEVENT	=	$(DSTATES)event/
 DUPDATE	=	$(DSTATES)update/
@@ -40,6 +41,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DSRC)game_loop.c		\
 		$(DSTATES)states.c		\
 		$(DRAW)draw.c			\
+		$(DRAW)draw_cursor.c		\
 		$(DRAW)draw_scene.c		\
 		$(DRAW)draw_player.c		\
 		$(DRAW)draw_achievement.c	\
@@ -50,6 +52,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DEVENT)event_menu.c		\
 		$(DEVENT)event_dialog.c		\
 		$(DINIT)init.c			\
+		$(DINIT)init_cursor.c 		\
 		$(DINIT)init_achievements.c	\
 		$(DINIT)init_player.c		\
 		$(DINIT)init_event.c		\
@@ -76,6 +79,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DESTROY)destroy_buttons.c	\
 		$(DESTROY)destroy_textures.c	\
 		$(DESTROY)destroy_config.c	\
+		$(DESTROY)destroy_cursor.c 	\
 		$(DESTROY)destroy_text.c	\
 		$(DESTROY)destroy_musics.c	\
 		$(DESTROY)destroy_map.c		\
@@ -88,6 +92,7 @@ SRC     =	$(DSRC)main.c			\
 		$(DMAP)light_shader.c		\
 		$(DMAP)gen_light_shader.c	\
 		$(DMAP)apply_on_map.c		\
+		$(DMAP)player_light.c		\
 		$(DTILE)get_tile_pos.c		\
 		$(DTILE)update_anim_tiles.c	\
 		$(DTILE)exec_tile.c		\
@@ -100,15 +105,16 @@ SRC     =	$(DSRC)main.c			\
 		$(DTILACT)action_torch.c	\
 		$(DTILACT)action_unlocker.c	\
 		$(DTILACT)action_spawn.c	\
+		$(DTILACT)action_unidir.c	\
 		$(DTILACT)get_tile.c		\
 		$(DTILACT)rotate_laser.c	\
 		$(DTILACT)action_granpalight.c	\
-		$(DMAP)player_light.c		\
-		$(DSCENE)change_scene.c		\
 		$(DSCENE)menu_status.c		\
 		$(DBUTTON)manage_buttons.c 	\
 		$(DBUTTON)get_func_button.c 	\
 		$(DBUTACT)button_play.c		\
+		$(DBUTACT)button_new_game.c	\
+		$(DBUTACT)button_save.c		\
 		$(DBUTACT)button_setting.c	\
 		$(DBUTACT)button_exit.c		\
 		$(DBUTACT)button_return.c	\
@@ -116,7 +122,15 @@ SRC     =	$(DSRC)main.c			\
 		$(DBUTACT)button_volume.c	\
 		$(DBUTACT)button_size.c		\
 		$(DBUTACT)button_htp.c		\
+		$(DSAVE)save_scenes.c		\
+		$(DSAVE)reset_scenes.c		\
+		$(DSAVE)reset_player_stats.c	\
+		$(DSAVE)save_player_stats.c	\
+		$(DSAVE)load_player_stats.c	\
+		$(DSAVE)save_game.c		\
+		$(DSAVE)load_game.c		\
 		$(DTOOLS)vec.c			\
+		$(DTOOLS)vec_tool.c		\
 		$(DTOOLS)get_rect.c		\
 		$(DTOOLS)is_pos_in_rect.c	\
 		$(DTOOLS)animate.c		\
@@ -131,15 +145,18 @@ SRC     =	$(DSRC)main.c			\
 		$(DPLAYER)player_event.c	\
 		$(DPLAYER)update_xp.c		\
 		$(DPLAYER)move_player.c		\
-		$(DEVENT)event_settings.c 	\
+		$(DPLAYER)place_in_spawn.c	\
 		$(DPLAYER)rotate_player.c	\
+		$(DPLAYER)inventory.c		\
+		$(DPLAYER)player_room_indicate.c\
+		$(DEVENT)event_settings.c 	\
 		$(DDIAL)get_next_dialog.c	\
 		$(DDIAL)update_text.c		\
 		$(DEVENT)event_pause.c 		\
-		$(DPLAYER)inventory.c		\
 		$(DPART)laser_particules.c	\
 		$(DPART)player_particules.c	\
 		$(DPART)gen_particules.c	\
+		$(DPART)clean_particules.c	\
 
 LDFLAGS	=	-lc_graph_prog -lconfig -lm
 CFLAGS	+=	-Wall -W -Wextra -I$(INC)

@@ -8,6 +8,8 @@
 #ifndef EVENT_H_
 #define EVENT_H_
 
+#define EVENT_DELTA_TIME 0.1f
+
 typedef struct rpg_s rpg_t;
 typedef int (*scene_func_t)(rpg_t *);
 

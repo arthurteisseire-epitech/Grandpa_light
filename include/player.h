@@ -33,7 +33,7 @@ typedef struct particule_s particule_t;
 typedef struct stat_s {
 	int xp;
 	int level;
-	float light_radius;
+	int light_radius;
 	sfColor light_color;
 	int xp_to_up;
 	int nb_orbe;
@@ -62,5 +62,11 @@ int player_event(rpg_t *rpg);
 
 void update_xp(rpg_t *rpg, int xp);
 int set_inventory_text(rpg_t *rpg);
+
+int load_player_stats(player_t *player);
+int save_player_stats(player_t *player);
+void reset_player_stats(player_t *player);
+
+int player_room_indicate(rpg_t *rpg, player_t *player);
 
 #endif

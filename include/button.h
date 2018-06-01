@@ -30,24 +30,28 @@ typedef struct button_s {
 } button_t;
 
 int button_play(rpg_t *rpg);
+int button_new_game(rpg_t *rpg);
 int button_setting(rpg_t *rpg);
 int button_exit(rpg_t *rpg);
 int update_text(rpg_t *rpg);
 int button_return(rpg_t *rpg);
 int button_pause(rpg_t *rpg);
+int button_save(rpg_t *rpg);
 int button_volume(rpg_t *rpg);
 int button_size(rpg_t *rpg);
 int button_htp(rpg_t *rpg);
 
-static const ft_button_t ft_buttons[] = {{"play", button_play},
+static const ft_button_t ft_buttons[] = {
+	{"play", button_play},
+	{"new_game", button_new_game},
 	{"setting", button_setting}, {"exit", button_exit},
 	{"return_menu", button_return},
 	{"stop_pause", button_pause},
+	{"button_save", button_save},
 	{"volume", button_volume},
 	{"size", button_size},
 	{"htp", button_htp},
 	{"update_text", update_text}, {"return_menu", button_return},
-	{"stop_pause", button_pause}
 };
 	button_func_t
 get_func_button(char const *ft);

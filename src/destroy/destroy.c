@@ -22,6 +22,7 @@ void destroy(rpg_t *rpg)
 	destroy_achievement(rpg->achievement);
 	destroy_config(rpg->config);
 	destroy_fonts(rpg->fonts);
+	destroy_cursor(rpg->cursor);
 	sfClock_destroy(rpg->clock);
 	free(rpg);
 }

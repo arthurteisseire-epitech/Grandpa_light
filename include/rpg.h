@@ -23,6 +23,7 @@ typedef struct config_setting_t config_setting_t;
 typedef struct player_s player_t;
 typedef struct achievement_s achievement_t;
 typedef struct font_s font_t;
+typedef struct cursor_s cursor_t;
 
 typedef struct rpg_s {
 	sfEvent *event;
@@ -43,8 +44,11 @@ typedef struct rpg_s {
 	achievement_t *achievement;
 	font_t **fonts;
 	char is_achieve;
+	cursor_t *cursor;
 } rpg_t;
 
 int game_loop(rpg_t *rpg);
+int save_game(rpg_t *rpg);
+int load_game(rpg_t *rpg);
 
 #endif

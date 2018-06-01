@@ -48,5 +48,6 @@ void my_puterror(char const *str);
 #define SPAWN_STR "spawn"
 #define TORCH_STR "torch"
 #define UNLOCKER_STR "unlocker"
+#define UNIDIR_STR "unidir"
 
 #endif

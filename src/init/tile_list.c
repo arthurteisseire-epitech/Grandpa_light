@@ -42,7 +42,9 @@ const tile_list_t tile_list[NB_TILE] = {
 		TX_TILE_ACT_GRANPA},
 	{{0x00, 0x00, 0x0e, 0x00},
 		UNLOCKER_STR, FALSE, FALSE, TRUE, action_unlocker,
-		TX_TILE_UNLOCKER}
+		TX_TILE_UNLOCKER},
+	{{0x00, 0x00, 0x0f, 0x00},
+		UNIDIR_STR, FALSE, FALSE, TRUE, action_unidir, TX_TILE_UNIDIR}
 };
 
 int index_tile_by_name(char *name)
