@@ -44,6 +44,7 @@ typedef struct rpg_s {
 	achievement_t *achievement;
 	font_t **fonts;
 	char is_achieve;
+	char is_darkness;
 	cursor_t *cursor;
 } rpg_t;
 

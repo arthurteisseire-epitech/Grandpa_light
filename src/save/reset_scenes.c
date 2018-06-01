@@ -52,6 +52,6 @@ int reset_scene(rpg_t *rpg, scene_t *scene, config_setting_t *scene_set)
 	free_and_set((void *)&scene->anim_tiles, NULL, free);
 	init_map(rpg, &scene->map, save_path);
 	generate_shader(CURR_SCENE->map, rpg->player);
-	update_shader(CURR_SCENE->map);
+	update_shader(rpg, CURR_SCENE->map);
 	return (SUCCESS);
 }

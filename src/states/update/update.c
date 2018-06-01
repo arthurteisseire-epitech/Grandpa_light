@@ -19,7 +19,7 @@ static int mouse_particule(rpg_t *rpg)
 	sfVector2i rect = sfMouse_getPositionRenderWindow(rpg->window);
 
 	rpg->cursor->particule->rect.left = rect.x;
-	rpg->cursor->particule->rect.top =  rect.y;
+	rpg->cursor->particule->rect.top = rect.y;
 	rpg->cursor->particule->rect.height = 15;
 	rpg->cursor->particule->rect.width = 15;
 	rpg->cursor->particule->nb_particules = 13;

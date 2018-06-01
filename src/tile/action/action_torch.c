@@ -11,11 +11,11 @@
 #include "define.h"
 #include "player.h"
 
-int refresh_torch(rpg_t __attribute((unused))*rpg, tile_t *tile)
+int refresh_torch(rpg_t *rpg, tile_t *tile)
 {
 	tile->active = !tile->active;
 	generate_shader(CURR_SCENE->map, rpg->player);
 	generate_shader(CURR_SCENE->map, rpg->player);
-	update_shader(CURR_SCENE->map);
+	update_shader(rpg, CURR_SCENE->map);
 	return (SUCCESS);
 }

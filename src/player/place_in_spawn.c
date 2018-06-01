@@ -19,7 +19,7 @@ void place_in_spawn(rpg_t *rpg)
 {
 	rpg->player->pos = get_pos_tile_by_name(
 		CURR_SCENE->map, tile_pos_line, "spawn");
-	update_shader(CURR_SCENE->map);
+	update_shader(rpg, CURR_SCENE->map);
 	rotate_player(rpg, DIR_UP);
 	clean_particules(rpg->player->particule);
 }
