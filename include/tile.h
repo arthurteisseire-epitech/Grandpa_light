@@ -118,7 +118,7 @@ int action_laser_captor(rpg_t *rpg, tile_t *tile);
 int action_granpa(rpg_t *rpg, tile_t *tile);
 int action_unlocker(rpg_t *rpg, tile_t *tile);
 int action_spawn(rpg_t *rpg, tile_t *tile);
-int action_unidir(rpg_t __attribute((unused))*rpg, tile_t __attribute((unused))*tile);
+int action_unidir(rpg_t __attribute((unused))*rpg, tile_t *tile);
 
 int *swap_lasers(rpg_t *rpg);
 void swap_lasers_back(rpg_t *rpg);

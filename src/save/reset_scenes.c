@@ -18,7 +18,8 @@
 int reset_scenes(rpg_t *rpg)
 {
 	int i = 0;
-	config_setting_t *scenes_set = config_setting_lookup(rpg->set, "scenes");
+	config_setting_t *scenes_set = config_setting_lookup(rpg->set
+	, "scenes");
 	config_setting_t *elem_set;
 
 	while (rpg->scenes[i] != NULL) {

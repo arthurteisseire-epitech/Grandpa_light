@@ -109,7 +109,6 @@ SRC     =	$(DSRC)main.c			\
 		$(DTILACT)get_tile.c		\
 		$(DTILACT)rotate_laser.c	\
 		$(DTILACT)action_granpalight.c	\
-		$(DSCENE)change_scene.c		\
 		$(DSCENE)menu_status.c		\
 		$(DBUTTON)manage_buttons.c 	\
 		$(DBUTTON)get_func_button.c 	\
@@ -146,15 +145,18 @@ SRC     =	$(DSRC)main.c			\
 		$(DPLAYER)player_event.c	\
 		$(DPLAYER)update_xp.c		\
 		$(DPLAYER)move_player.c		\
-		$(DEVENT)event_settings.c 	\
+		$(DPLAYER)place_in_spawn.c	\
 		$(DPLAYER)rotate_player.c	\
+		$(DPLAYER)inventory.c		\
+		$(DPLAYER)player_room_indicate.c\
+		$(DEVENT)event_settings.c 	\
 		$(DDIAL)get_next_dialog.c	\
 		$(DDIAL)update_text.c		\
 		$(DEVENT)event_pause.c 		\
-		$(DPLAYER)inventory.c		\
 		$(DPART)laser_particules.c	\
 		$(DPART)player_particules.c	\
 		$(DPART)gen_particules.c	\
+		$(DPART)clean_particules.c	\
 
 LDFLAGS	=	-lc_graph_prog -lconfig -lm
 CFLAGS	+=	-Wall -W -Wextra -I$(INC)

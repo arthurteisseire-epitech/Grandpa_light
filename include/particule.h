@@ -29,6 +29,7 @@ typedef struct particule_s {
 
 void laser_part(tile_t *tile, sfRectangleShape *rect);
 void gen_particules(particule_t *particule);
+void clean_particules(particule_t *particule);
 void player_part(player_t *player);
 
 #endif
