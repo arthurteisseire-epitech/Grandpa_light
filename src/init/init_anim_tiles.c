@@ -26,7 +26,7 @@ int add_anim_tile(tile_t ***tiles, tile_t *tile)
 	while (anim_names[i] != NULL) {
 		if (my_strcmp(anim_names[i], tile->name) == 0) {
 			*tiles = my_realloc((void **)*tiles, tile);
-			return (SUCCESS);
+			return (*tiles == NULL ? MALLOC_FAILED : SUCCESS);
 		}
 		i++;
 	}
@@ -41,6 +41,8 @@ void rm_anim_tile(tile_t **tiles, tile_t *tile)
 {
 	int i = 0;
 
+	if (tiles == NULL)
+		return;
 	while (tiles[i] != NULL) {
 		if (tiles[i] == tile)
 			break;
