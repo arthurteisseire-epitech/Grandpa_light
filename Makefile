@@ -145,12 +145,13 @@ SRC     =	$(DSRC)main.c			\
 		$(DPLAYER)update_xp.c		\
 		$(DPLAYER)move_player.c		\
 		$(DPLAYER)place_in_spawn.c	\
-		$(DEVENT)event_settings.c 	\
 		$(DPLAYER)rotate_player.c	\
+		$(DPLAYER)inventory.c		\
+		$(DPLAYER)player_room_indicate.c\
+		$(DEVENT)event_settings.c 	\
 		$(DDIAL)get_next_dialog.c	\
 		$(DDIAL)update_text.c		\
 		$(DEVENT)event_pause.c 		\
-		$(DPLAYER)inventory.c		\
 		$(DPART)laser_particules.c	\
 		$(DPART)player_particules.c	\
 		$(DPART)gen_particules.c	\

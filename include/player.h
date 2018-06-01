@@ -67,4 +67,6 @@ int load_player_stats(player_t *player);
 int save_player_stats(player_t *player);
 void reset_player_stats(player_t *player);
 
+int player_room_indicate(rpg_t *rpg, player_t *player);
+
 #endif
