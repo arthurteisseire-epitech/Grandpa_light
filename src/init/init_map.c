@@ -52,12 +52,17 @@ static void open_doors(rpg_t *rpg, tile_t ***tiles)
 void init_lasers(rpg_t *rpg)
 {
 	tile_t *laser = get_next_tile(rpg, LAS_STR);
+	char bool = (laser != NULL);
 	int i = 0;
 
 	while (laser != NULL) {
 		RPG_MAP(rpg)->active_lasers[i] = laser->active;
 		laser = get_next_tile(rpg, LAS_STR);
 		i++;
+	}
+	if (bool) {
+		swap_lasers(rpg);
+		swap_lasers_back(rpg);
 	}
 }
 
