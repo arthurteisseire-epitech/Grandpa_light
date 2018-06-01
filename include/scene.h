@@ -12,8 +12,8 @@
 
 #define CURR_SCENE rpg->scenes[rpg->curr_scene]
 
-#define SC_HUB 0
-#define SCENE_MENU 16
+#define SC_HUB 16
+#define SCENE_MENU 0
 #define SC_MENU_STATUS 17
 #define SC_DIALOG 18
 #define SC_PAUSE 19
