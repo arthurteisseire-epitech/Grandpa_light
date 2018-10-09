@@ -1,10 +1,10 @@
-## my_rpg ##
+# my_rpg #
 
-# Install
+## Install
 
-./install
-make
+    ./install
+    make
 
-# Play
+## Play
 
-./my_rpg
+    ./my_rpg
