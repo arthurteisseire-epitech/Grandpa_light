@@ -1,4 +1,4 @@
-# My world (map editor)
+# Grandpa light (puzzle game)
 
 ## Install
 
